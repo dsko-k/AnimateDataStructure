@@ -1,0 +1,1679 @@
+﻿
+@property --gradientInsideBorderAngleStart {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+
+.superContainer {
+    --xCoordinate: 0px;
+    --yCoordinate: 0px;
+    --topSuperContainer: 100px;
+    --leftSuperContainer: 100px;
+    --animationNameContainerSpectrumBorder: containerSpectrumBorderRotationAboveNode, containerSpectrumBorderRotationBelowNode, containerSpectrumBorderRotationHighlightRightChild, containerSpectrumBorderRotationHighlightRightChild; /* values using comma */
+    --colorBorderRotatorClockwise: #45f3ff; /* computed */
+    --colorBorderRotatorClockwiseShift: #45f3ff; /* computed */
+    --colorBorderRotatorAntiClockwise: #45f3ff; /* computed */
+    --colorBorderRotatorAntiClockwiseShift: #45f3ff;
+    --animationLinkContainer: unAlteredLinkContainer; /* unAlteredLinkContainer */ /* changeLinkContainerWidth */ /* computed */
+    --colorSvgGlovingMovingLine: #45f3ff; /* computed */
+    --borderRotatorWidth: 4px; /* constant  it is used for the size of insideBorder */
+    --animationDurationBorderRotator: 3s; /* constant */
+    --animationNamesBorderRotatorContainerLeftRightTurn: animateBorderRightTurn; /* values using comma */
+    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    --animationNamesShadowBorderRotatorContainerLeftRightTurn: animateShadowBorderRightTurn; /* values using comma , animateShadowBorderRightTurn, animateShadowBorderLeftTurn */
+    --gradInitialValueInsideBorder: 0deg; /* to immitate changing of initial value for property of gradient */
+    --insideBorderAnimationNames: animateInsideBorderAboveNode, animateInsideBorderBelowNode, animateInsideBorderBelowNode, animateInsideBorderHighlightLeftChild, animateInsideBorderHighlightLeftChild; /* values using comma */
+    --heightSuperContainer: 100px; /* constant */
+    --widthSuperContainer: 100px; /* constant */
+    --animationNameSuperContainer: moveAboveNode, moveBelowNode, moveHighlightNodeBelow, moveNodeOwnPosition, moveDrawLineNode; /* computed values using comma */
+    --animationDurationSuperContainer: 3s; /* constant */
+    --animationTimingFunctionSuperContainer: ease; /* constant */
+    --animationDelaySuperContainer: 1s, 5s, 9s, 13s, 17s; /* computed values using comma */
+    --distanceBetweenLevels: 200px; /* constant */
+    --animationNameGlowingMovingLine: svgGlowingMovingLineAnimation; /* to add   USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer */
+    --animationDelayMovingLine: 20s; /* computed for every hierarcy node, when onClick some node*/
+    --animationIterationCountGlowingMovingLine: 2; /* to add   when onClick value is infinite */
+    --lineStrokeUrl: url(#idlinearGradient); /* computed */
+    --widthEndLinkContainer: 800px; /* computed - to set width container with link/ It = ABS(parent node Y coordinate - added node Y coordinate)*/
+    --horizontalShiftOwnNode: 0px; /* var(--xCoordinateEndMovingStep) */
+    --animationSvgLineLink: svgDrawLine; /* name of animations for classes svgLineLink and svgLineLinkShadow  Base values of this animation values svgDrawLine svgEraseLine */
+    --linkContainerAnimationDelay: var(--animationDelayMovingLine);
+    position: absolute;
+    top: var(--topSuperContainer);
+    left: var(--leftSuperContainer);
+    height: var(--heightSuperContainer);
+    width: var(--widthSuperContainer);
+    border-radius: 50%;
+    box-shadow: 0px 0px 70px #7800ff;
+    background-color: transparent; /* https://stackoverflow.com/questions/11807286/how-to-make-div-background-color-transparent-in-css */
+    animation-name: var(--animationNameSuperContainer);
+    animation-fill-mode: forwards;
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    animation-delay: var(--animationDelaySuperContainer);
+}
+
+
+.superContainerFinder {
+    --xCoordinate: 0px;
+    --yCoordinate: 0px;
+    --topSuperContainer: 100px;
+    --leftSuperContainer: 100px;
+    --animationNameContainerSpectrumBorder: containerSpectrumBorderRotationAboveNode, containerSpectrumBorderRotationBelowNode, containerSpectrumBorderRotationHighlightRightChild, containerSpectrumBorderRotationHighlightRightChild; /* values using comma */
+    --colorBorderRotatorClockwise: #45f3ff; /* computed */
+    --colorBorderRotatorClockwiseShift: #45f3ff; /* computed */
+    --colorBorderRotatorAntiClockwise: #45f3ff; /* computed */
+    --colorBorderRotatorAntiClockwiseShift: #45f3ff;
+    --animationLinkContainer: unAlteredLinkContainer; /* unAlteredLinkContainer */ /* changeLinkContainerWidth */ /* computed */
+    --colorSvgGlovingMovingLine: #45f3ff; /* computed */
+    --borderRotatorWidth: 4px; /* constant  it is used for the size of insideBorder */
+    --animationDurationBorderRotator: 3s; /* constant */
+    --animationNamesBorderRotatorContainerLeftRightTurn: animateBorderRightTurn; /* values using comma */
+    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    --animationNamesShadowBorderRotatorContainerLeftRightTurn: animateShadowBorderRightTurn; /* values using comma , animateShadowBorderRightTurn, animateShadowBorderLeftTurn */
+    --insideBorderAnimationNames: animateInsideBorderAboveNode, animateInsideBorderBelowNode, animateInsideBorderBelowNode, animateInsideBorderHighlightLeftChild, animateInsideBorderHighlightLeftChild; /* values using comma */
+    --heightSuperContainer: 100px; /* constant */
+    --widthSuperContainer: 100px; /* constant */
+    --animationNameSuperContainer: moveAboveNode, moveBelowNode, moveHighlightNodeBelow, moveNodeOwnPosition, moveDrawLineNode; /* computed values using comma */
+    --animationDurationSuperContainer: 3s; /* constant */
+    --animationTimingFunctionSuperContainer: ease; /* constant */
+    --animationDelaySuperContainer: 1s, 5s, 9s, 13s, 17s; /* computed values using comma */
+    --distanceBetweenLevels: 200px; /* constant */
+    --animationNameGlowingMovingLine: svgGlowingMovingLineAnimation; /* to add   USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer */
+    --animationDelayMovingLine: 20s; /* computed for every hierarcy node, when onClick some node*/
+    --animationIterationCountGlowingMovingLine: 2; /* to add   when onClick value is infinite */
+    --lineStrokeUrl: url(#idlinearGradient); /* computed */
+    --widthEndLinkContainer: 800px; /* computed - to set width container with link/ It = ABS(parent node Y coordinate - added node Y coordinate)*/
+    --horizontalShiftOwnNode: 0px; /* var(--xCoordinateEndMovingStep) */
+    --linkContainerAnimationDelay: var(--animationDelayMovingLine); /* delay before container with link will be drawn. For style classes leftLinkContainer  rightLinkContainer */
+    position: absolute;
+    top: var(--topSuperContainer);
+    left: var(--leftSuperContainer);
+    height: var(--heightSuperContainer);
+    width: var(--widthSuperContainer);
+    border-radius: 50%;
+    box-shadow: 0px 0px 70px #7800ff;
+    background-color: transparent;
+    animation-name: var(--animationNameSuperContainer);
+    animation-fill-mode: forwards;
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    animation-delay: var(--animationDelaySuperContainer);
+}
+
+
+.superContainerVisitor {
+    --xCoordinate: 0px;
+    --yCoordinate: 0px;
+    --topSuperContainer: 100px;
+    --leftSuperContainer: 100px;
+    --animationNameContainerSpectrumBorder: containerSpectrumBorderRotationAboveNode, containerSpectrumBorderRotationBelowNode, containerSpectrumBorderRotationHighlightRightChild, containerSpectrumBorderRotationHighlightRightChild; /* values using comma */
+    --colorBorderRotatorClockwise: #45f3ff; /* computed */
+    --colorBorderRotatorClockwiseShift: #45f3ff; /* computed */
+    --colorBorderRotatorAntiClockwise: #45f3ff; /* computed */
+    --colorBorderRotatorAntiClockwiseShift: #45f3ff;
+    --animationLinkContainer: unAlteredLinkContainer; /* unAlteredLinkContainer */ /* changeLinkContainerWidth */ /* computed */
+    --colorSvgGlovingMovingLine: #45f3ff; /* computed */
+    --borderRotatorWidth: 4px; /* constant  it is used for the size of insideBorder */
+    --animationDurationBorderRotator: 3s; /* constant */
+    --animationNamesBorderRotatorContainerLeftRightTurn: animateBorderRightTurn; /* values using comma */
+    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    --animationNamesShadowBorderRotatorContainerLeftRightTurn: animateShadowBorderRightTurn; /* values using comma , animateShadowBorderRightTurn, animateShadowBorderLeftTurn */
+    --insideBorderAnimationNames: animateInsideBorderAboveNode, animateInsideBorderBelowNode, animateInsideBorderBelowNode, animateInsideBorderHighlightLeftChild, animateInsideBorderHighlightLeftChild; /* values using comma */
+    --heightSuperContainer: 100px; /* constant */
+    --widthSuperContainer: 100px; /* constant */
+    --animationNameSuperContainer: moveAboveNode, moveBelowNode, moveHighlightNodeBelow, moveNodeOwnPosition, moveDrawLineNode; /* computed values using comma */
+    --animationDurationSuperContainer: 2s; /* constant */
+    --animationTimingFunctionSuperContainer: ease; /* constant */
+    --animationDelaySuperContainer: 1s, 5s, 9s, 13s, 17s; /* computed values using comma */
+    --distanceBetweenLevels: 200px; /* constant */
+    --animationNameGlowingMovingLine: svgGlowingMovingLineAnimation; /* to add   USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer */
+    --animationDelayMovingLine: 20s; /* computed for every hierarcy node, when onClick some node*/
+    --animationIterationCountGlowingMovingLine: 2; /* to add   when onClick value is infinite */
+    --lineStrokeUrl: url(#idlinearGradient); /* computed */
+    --widthEndLinkContainer: 800px; /* computed - to set width container with link/ It = ABS(parent node Y coordinate - added node Y coordinate)*/
+    --horizontalShiftOwnNode: 0px; /* var(--xCoordinateEndMovingStep) */
+    --linkContainerAnimationDelay: var(--animationDelayMovingLine); /* delay before container with link will be drawn. For style classes leftLinkContainer  rightLinkContainer */
+    position: absolute;
+    top: var(--topSuperContainer);
+    left: var(--leftSuperContainer);
+    height: var(--heightSuperContainer);
+    width: var(--widthSuperContainer);
+    border-radius: 50%;
+    box-shadow: 0px 0px 70px #7800ff;
+    background-color: transparent; /* https://stackoverflow.com/questions/11807286/how-to-make-div-background-color-transparent-in-css */
+    animation-name: var(--animationNameSuperContainer);
+    animation-fill-mode: forwards;
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    animation-delay: var(--animationDelaySuperContainer);
+}
+
+
+.containerSpectrumBorder {
+    --spectrumBorderWidth: 5px;
+    --topContainerSpectrumBorder: calc((-1) * var(--spectrumBorderWidth) / 2); /* -2px */
+    --leftContainerSpectrumBorder: calc((-1) * var(--spectrumBorderWidth) / 2); /* -2px */
+    --heightContainerSpectrumBorder: calc(var(--heightSuperContainer) + var(--spectrumBorderWidth)); /* 104px */
+    --widthContainerSpectrumBorder: calc(var(--widthSuperContainer) + var(--spectrumBorderWidth)); /* 104px */
+    position: absolute;
+    top: var(--topContainerSpectrumBorder);
+    left: var(--leftContainerSpectrumBorder);
+    height: var(--heightContainerSpectrumBorder);
+    width: var(--widthContainerSpectrumBorder);
+    animation-name: var(--animationNameContainerSpectrumBorder);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-fill-mode: forwards;
+}
+
+
+.spectrumBorder {
+    --backgroundSizeSpectrumBorder: 400%;
+    --animationNameSpectrumBorder: glovingSpectrumBorder;
+    --animationDurationSpectrumBorder: 40s;
+    --animationTimingFunctionSpectrumBorder: linear;
+    --animationDelaySpectrumBorder: 0s;
+    --animationIterationCountSpectrumBorder: infinite;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    filter: blur(1px);
+    height: var(--heightContainerSpectrumBorder);
+    width: var(--widthContainerSpectrumBorder);
+    background: linear-gradient(-45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: var(--backgroundSizeSpectrumBorder);
+    animation: var(--animationNameSpectrumBorder);
+    animation-duration: var(--animationDurationSpectrumBorder);
+    animation-timing-function: var(--animationTimingFunctionSpectrumBorder);
+    animation-delay: var(--animationDelaySpectrumBorder);
+    animation-iteration-count: var(--animationIterationCountSpectrumBorder);
+}
+
+
+.shadowBorderRotatorContainer {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --animationNameShadowBorderRotatorContainer: rotate;
+    --animationDurationShadowBorderRotatorContainer: 3s;
+    --animationDelayShadowBorderRotatorContainer: 0s;
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: infinite;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+}
+
+
+.shadowBorderRotatorContainerLeftRightTurn {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --colorBorderRotatorAntiClockwiseShift: orange; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --colorBorderRotatorClockwiseShift: orange; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --animationNameShadowBorderRotatorContainer: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn);
+    --animationDurationShadowBorderRotatorContainer: 1s;
+    --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: 4;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+    animation: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn); /* test added*/
+    animation-duration: 1s /*var(--animationDurationBorderRotator)*/;
+    animation-timing-function: linear;
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+    animation-iteration-count: 4;
+}
+
+
+.shadowBorderRotatorContainerLeftRightTurnAfterAddition {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --colorBorderRotatorAntiClockwiseShift: orange; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --colorBorderRotatorClockwiseShift: orange; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --animationNameShadowBorderRotatorContainer: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn);
+    --animationDurationShadowBorderRotatorContainer: 1s;
+    --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: 0; /* never be animated */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%; /* all animations were removed */
+}
+
+
+.shadowBorderRotatorContainerOnClickRoot {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --animationNameShadowBorderRotatorContainer: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn); /* was rotate */
+    --animationDurationShadowBorderRotatorContainer: var(--animationDurationBorderRotator); /* was 3s */
+    --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: infinite;
+    --visibilityShadowBorderRotatorClockwise: hidden;
+    --visibilityShadowBorderRotatorClockwiseShift: hidden;
+    --visibilityShadowBorderRotatorAntiClockwise: hidden;
+    --visibilityShadowBorderRotatorAntiClockwiseShift: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+}
+
+
+.shadowBorderRotatorContainerOnClickLeftChild {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --animationNameShadowBorderRotatorContainer: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn); /* was rotate */
+    --animationDurationShadowBorderRotatorContainer: var(--animationDurationBorderRotator); /* was 3s */
+    --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: infinite;
+    --visibilityShadowBorderRotatorClockwise: hidden; /* was visible */
+    --visibilityShadowBorderRotatorClockwiseShift: hidden; /* was visible */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+}
+
+
+.shadowBorderRotatorContainerOnClickRightChild {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --animationNameShadowBorderRotatorContainer: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn); /* was rotate */
+    --animationDurationShadowBorderRotatorContainer: var(--animationDurationBorderRotator); /* was 3s */
+    --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: infinite;
+    --visibilityShadowBorderRotatorAntiClockwise: hidden; /* was visible */
+    --visibilityShadowBorderRotatorAntiClockwiseShift: hidden; /* was visible */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+}
+
+
+.shadowBorderRotatorContainerOnHoverLightAllBorders {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --animationNameShadowBorderRotatorContainer: rotate;
+    --animationDurationShadowBorderRotatorContainer: var(--animationDurationBorderRotator); /* was 3s */
+    --animationDelayShadowBorderRotatorContainer: 0s; /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: infinite;
+    --visibilityShadowBorderRotatorAntiClockwise: visible;
+    --visibilityShadowBorderRotatorAntiClockwiseShift: visible;
+    --visibilityShadowBorderRotatorClockwise: visible;
+    --visibilityShadowBorderRotatorClockwiseShift: visible;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+}
+
+
+.shadowBorderRotatorContainerOnFoundLightAllBorders {
+    --heightShadowBorderRotatorContainer: var(--heightSuperContainer);
+    --widthShadowBorderRotatorContainer: var(--widthSuperContainer);
+    --shadowsBorderRotatorWidth: 15px;
+    --radiusShadowBorderRotator: calc((var(--heightShadowBorderRotatorContainer) / 2) + var(--shadowsBorderRotatorWidth)); /* 65px */
+    --blurShadowBorderRotatorContainer: 8px;
+    --opacityShadowBorderRotatorContainer: 0.4;
+    --colorBorderRotatorAntiClockwise: red; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --colorBorderRotatorAntiClockwiseShift: red; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --colorBorderRotatorClockwise: red; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --colorBorderRotatorClockwiseShift: red; /*!!!!!!!!!!!!! possible reason for incorrect colors*/
+    --animationNameShadowBorderRotatorContainer: rotate;
+    --animationDurationShadowBorderRotatorContainer: var(--animationDurationBorderRotator); /* was 3s */
+    --animationDelayShadowBorderRotatorContainer: 0s; /* should be the same as for borders*/
+    --animationTimingFunctionShadowBorderRotatorContainer: linear;
+    --animationIterationCountShadowBorderRotatorContainer: infinite;
+    --visibilityShadowBorderRotatorAntiClockwise: visible;
+    --visibilityShadowBorderRotatorAntiClockwiseShift: visible;
+    --visibilityShadowBorderRotatorClockwise: visible;
+    --visibilityShadowBorderRotatorClockwiseShift: visible;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: var(--heightShadowBorderRotatorContainer);
+    width: var(--widthShadowBorderRotatorContainer);
+    border-radius: 50%;
+}
+
+
+.shadowBorderRotatorAntiClockwise {
+    --rotateAngleStart: 0deg;
+    --rotateAngleEnd: 360deg;
+    --rotateMirroringAngle: 180deg;
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: var(--colorBorderRotatorAntiClockwise);
+    --rotatorGradientColor3BorderRotatorClockwise: var(--colorBorderRotatorAntiClockwise);
+    position: absolute;
+    transform-origin: bottom right;
+    transform: rotateY(var(--rotateMirroringAngle));
+    top: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    left: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    height: var(--radiusShadowBorderRotator); /* 65px */
+    width: var(--radiusShadowBorderRotator); /* 65px */
+    border-radius: var(--radiusShadowBorderRotator) 0px 0px 0px; /* 65px */
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    filter: blur(var(--blurShadowBorderRotatorContainer));
+    opacity: var(--opacityShadowBorderRotatorContainer);
+    animation-name: var(--animationNameShadowBorderRotatorContainer);
+    animation-duration: var(--animationDurationShadowBorderRotatorContainer);
+    animation-timing-function: var(--animationTimingFunctionShadowBorderRotatorContainer);
+    animation-delay: var(--animationDelayShadowBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountShadowBorderRotatorContainer);
+    visibility: var(--visibilityShadowBorderRotatorAntiClockwise, hidden);
+}
+
+
+.shadowBorderRotatorClockwise {
+    --rotateAngleStart: 0deg;
+    --rotateAngleEnd: 360deg;
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: var(--colorBorderRotatorClockwise);
+    --rotatorGradientColor3BorderRotatorClockwise: var(--colorBorderRotatorClockwise);
+    position: absolute;
+    transform-origin: bottom right;
+    transform: rotate(0deg);
+    top: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    left: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    height: var(--radiusShadowBorderRotator); /* 65px */
+    width: var(--radiusShadowBorderRotator); /* 65px */
+    border-radius: var(--radiusShadowBorderRotator) 0px 0px 0px; /* 65px */
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    filter: blur(var(--blurShadowBorderRotatorContainer));
+    opacity: var(--opacityShadowBorderRotatorContainer);
+    animation-name: var(--animationNameShadowBorderRotatorContainer);
+    animation-duration: var(--animationDurationShadowBorderRotatorContainer);
+    animation-timing-function: var(--animationTimingFunctionShadowBorderRotatorContainer);
+    animation-delay: var(--animationDelayShadowBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountShadowBorderRotatorContainer);
+    visibility: var(--visibilityShadowBorderRotatorClockwise, hidden);
+}
+
+
+.shadowBorderRotatorAntiClockwiseShift {
+    --rotateAngleStart: -180deg;
+    --rotateAngleEnd: 180deg;
+    --rotateMirroringAngle: 180deg;
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: var(--colorBorderRotatorAntiClockwiseShift);
+    --rotatorGradientColor3BorderRotatorClockwise: var(--colorBorderRotatorAntiClockwiseShift);
+    position: absolute;
+    transform-origin: bottom right;
+    transform: rotateZ(var(--rotateAngleStart)) rotateY(var(--rotateMirroringAngle)); /* rotateY - mirroring */
+    top: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    left: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    height: var(--radiusShadowBorderRotator); /* 65px */
+    width: var(--radiusShadowBorderRotator); /* 65px */
+    background-color: transparent;
+    border-radius: 50%;
+    border-radius: var(--radiusShadowBorderRotator) 0px 0px 0px; /* 65px */
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    filter: blur(var(--blurShadowBorderRotatorContainer));
+    opacity: var(--opacityShadowBorderRotatorContainer);
+    animation-name: var(--animationNameShadowBorderRotatorContainer);
+    animation-duration: var(--animationDurationShadowBorderRotatorContainer);
+    animation-timing-function: var(--animationTimingFunctionShadowBorderRotatorContainer);
+    animation-delay: var(--animationDelayShadowBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountShadowBorderRotatorContainer);
+    visibility: var(--visibilityShadowBorderRotatorAntiClockwiseShift, hidden);
+}
+
+
+.shadowBorderRotatorClockwiseShift {
+    --rotateAngleStart: -180deg;
+    --rotateAngleEnd: 180deg;
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: var(--colorBorderRotatorClockwiseShift);
+    --rotatorGradientColor3BorderRotatorClockwise: var(--colorBorderRotatorClockwiseShift);
+    position: absolute;
+    transform: rotate(180deg);
+    transform-origin: bottom right;
+    top: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    left: calc((-1) * (var(--shadowsBorderRotatorWidth))); /* -15px */
+    height: var(--radiusShadowBorderRotator); /* 65px */
+    width: var(--radiusShadowBorderRotator); /* 65px */
+    border-radius: var(--radiusShadowBorderRotator) 0px 0px 0px; /* 65px */
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    filter: blur(var(--blurShadowBorderRotatorContainer));
+    opacity: var(--opacityShadowBorderRotatorContainer);
+    animation-name: var(--animationNameShadowBorderRotatorContainer);
+    animation-duration: var(--animationDurationShadowBorderRotatorContainer);
+    animation-timing-function: var(--animationTimingFunctionShadowBorderRotatorContainer);
+    animation-delay: var(--animationDelayShadowBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountShadowBorderRotatorContainer);
+    visibility: var(--visibilityShadowBorderRotatorClockwiseShift, hidden);
+}
+
+
+.borderRotatorContainer {
+    --animationNameBorderRotatorContainer: rotate;
+    /*--animationDelayBorderRotatorContainer: 0s;*/
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountBorderRotatorContainer);
+}
+
+
+.borderRotatorContainerLeftRightTurn {
+    /*--animationDelayBorderRotatorContainer: 0s;*/
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --visibilityBorderRotatorInTransparentLeftSide: visible;
+    --visibilityBorderRotatorInTransparentRightSide: visible;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn); /* test*/
+    animation-duration: 1s /*var(--animationDurationBorderRotator)*/;
+    animation-timing-function: linear;
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+    animation-iteration-count: 4;
+}
+
+
+.borderRotatorContainerLeftRightTurnAfterAddition {
+    /*--animationDelayBorderRotatorContainer: 0s;*/
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: 0;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --visibilityBorderRotatorInTransparentLeftSide: visible;
+    --visibilityBorderRotatorInTransparentRightSide: visible;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer); /* all animations here removed */
+}
+
+
+.borderRotatorContainerOnHoverLightAllBorders {
+    --animationNameBorderRotatorContainer: rotate;
+    --animationDelaysBorderRotatorContainer: 0s;
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --visibilityBorderRotatorClockwise: visible; /*was visible */
+    --visibilityBorderRotatorClockwiseShift: visible; /*was visible */
+    --visibilityBorderRotatorAntiClockwise: visible; /*was visible */
+    --visibilityBorderRotatorAntiClockwiseShift: visible; /*was visible */
+    --visibilityBorderRotatorInTransparentLeftSide: hidden;
+    --visibilityBorderRotatorInTransparentRightSide: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    animation-name: var(--animationNameBorderRotatorContainer); /* the same as for LeftRightTurn*/
+    animation-duration: 1s; /*var(--animationDurationBorderRotator)*/
+    animation-timing-function: linear;
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+}
+
+
+.borderRotatorContainerOnFoundLightAllBorders {
+    --animationNameBorderRotatorContainer: rotate;
+    --animationDelaysBorderRotatorContainer: 0s;
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --colorBorderRotatorClockwise: red; /* computed */
+    --colorBorderRotatorClockwiseShift: red; /* computed */
+    --colorBorderRotatorAntiClockwise: red; /* computed */
+    --colorBorderRotatorAntiClockwiseShift: red;
+    --visibilityBorderRotatorClockwise: visible; /*was visible */
+    --visibilityBorderRotatorClockwiseShift: visible; /*was visible */
+    --visibilityBorderRotatorAntiClockwise: visible; /*was visible */
+    --visibilityBorderRotatorAntiClockwiseShift: visible; /*was visible */
+    --visibilityBorderRotatorInTransparentLeftSide: hidden;
+    --visibilityBorderRotatorInTransparentRightSide: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    animation-name: var(--animationNameBorderRotatorContainer); /* the same as for LeftRightTurn*/
+    animation-duration: 1s; /*var(--animationDurationBorderRotator)*/
+    animation-timing-function: linear;
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+}
+
+
+.borderRotatorContainerOnClickRoot {
+    --animationNameBorderRotatorContainer: var(--animationNamesBorderRotatorContainerLeftRightTurn); /* was rotate */
+    /*--animationDelayBorderRotatorContainer: 0s;*/
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --visibilityBorderRotatorClockwise: hidden; /*was visible */
+    --visibilityBorderRotatorClockwiseShift: hidden; /*was visible */
+    --visibilityBorderRotatorAntiClockwise: hidden; /*was visible */
+    --visibilityBorderRotatorAntiClockwiseShift: hidden; /*was visible */
+    --visibilityBorderRotatorInTransparentLeftSide: hidden;
+    --visibilityBorderRotatorInTransparentRightSide: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    /*animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);*/ /* test*/
+    /*animation-duration: 1s;*/ /*var(--animationDurationBorderRotator)*/
+    /*animation-timing-function: linear;*/
+    /*animation-delay: var(--animationDelaysBorderRotatorContainer);*/
+}
+
+
+.borderRotatorContainerOnClickLeftChild {
+    --animationNameBorderRotatorContainer: var(--animationNamesBorderRotatorContainerLeftRightTurn); /* was rotate */
+    /*--animationDelayBorderRotatorContainer: 0s;*/
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --visibilityBorderRotatorClockwise: hidden; /* was visible */
+    --visibilityBorderRotatorClockwiseShift: hidden; /* was visible */
+    --visibilityBorderRotatorAntiClockwise: hidden;
+    --visibilityBorderRotatorAntiClockwiseShift: hidden;
+    --visibilityBorderRotatorInTransparentLeftSide: hidden;
+    --visibilityBorderRotatorInTransparentRightSide: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    /*animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);*/ /* test*/
+    /*animation-duration: 1s;*/ /*var(--animationDurationBorderRotator)*/
+    /*animation-timing-function: linear;*/
+    /*animation-delay: var(--animationDelaysBorderRotatorContainer);*/
+}
+
+
+.borderRotatorContainerOnClickRightChild {
+    --animationNameBorderRotatorContainer: var(--animationNamesBorderRotatorContainerLeftRightTurn); /* was rotate */
+    /*--animationDelayBorderRotatorContainer: 0s;*/
+    --animationTimingFunctionBorderRotatorContainer: linear;
+    --animationIterationCountBorderRotatorContainer: infinite;
+    --backgroundColorBorderRotatorContainer: #040538;
+    --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
+    --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
+    --blurBorderRotator: 1px;
+    --visibilityBorderRotatorClockwise: hidden;
+    --visibilityBorderRotatorClockwiseShift: hidden;
+    --visibilityBorderRotatorAntiClockwise: hidden; /* was visible */
+    --visibilityBorderRotatorAntiClockwiseShift: hidden; /* was visible */
+    --visibilityBorderRotatorInTransparentLeftSide: hidden;
+    --visibilityBorderRotatorInTransparentRightSide: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--backgroundColorBorderRotatorContainer);
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    /*animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);*/ /* test*/
+    /*animation-duration: 1s;*/ /*var(--animationDurationBorderRotator)*/
+    /*animation-timing-function: linear;*/
+    /*animation-delay: var(--animationDelaysBorderRotatorContainer);*/
+}
+
+
+.borderRotatorClockwise {
+    --rotateAngleStart: 0deg; /* should be 0deg*/
+    --rotateAngleEnd: 360deg; /* should be 360deg*/
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: var(--colorBorderRotatorClockwise);
+    --rotatorGradientColor3BorderRotatorClockwise: var(--colorBorderRotatorClockwise);
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: bottom right;
+    transform: rotate(var(--rotateAngleStart));
+    filter: blur(var(--blurBorderRotator));
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    animation-name: var(--animationNameBorderRotatorContainer);
+    animation-duration: var(--animationDurationBorderRotator);
+    animation-timing-function: var(--animationTimingFunctionBorderRotatorContainer);
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountBorderRotatorContainer);
+    visibility: var(--visibilityBorderRotatorClockwise, hidden);
+}
+
+
+.borderRotatorAntiClockwise {
+    --rotateAngleStart: 0deg;
+    --rotateAngleEnd: 360deg;
+    --rotateMirroringAngle: 180deg;
+    --rotatorGradientColor1BorderRotatorAntiClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorAntiClockwise: var(--colorBorderRotatorAntiClockwise);
+    --rotatorGradientColor3BorderRotatorAntiClockwise: var(--colorBorderRotatorAntiClockwise);
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: bottom right;
+    transform: rotateY(var(--rotateMirroringAngle));
+    filter: blur(var(--blurBorderRotator));
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorAntiClockwise), var(--rotatorGradientColor2BorderRotatorAntiClockwise), var(--rotatorGradientColor3BorderRotatorAntiClockwise));
+    animation-name: var(--animationNameBorderRotatorContainer);
+    animation-duration: var(--animationDurationBorderRotator);
+    animation-timing-function: var(--animationTimingFunctionBorderRotatorContainer);
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountBorderRotatorContainer);
+    visibility: var(--visibilityBorderRotatorAntiClockwise,hidden);
+}
+
+
+.borderRotatorClockwiseShift {
+    --rotateAngleStart: -180deg; /* should be -180deg */
+    --rotateAngleEnd: 180deg; /* should be 180deg */
+    --rotatorGradientColor1BorderRotatorClockwiseShift: transparent;
+    --rotatorGradientColor2BorderRotatorClockwiseShift: var(--colorBorderRotatorClockwiseShift);
+    --rotatorGradientColor3BorderRotatorClockwiseShift: var(--colorBorderRotatorClockwiseShift);
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: bottom right;
+    transform: rotateZ(var(--rotateAngleStart));
+    filter: blur(var(--blurBorderRotator));
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorClockwiseShift), var(--rotatorGradientColor2BorderRotatorClockwiseShift), var(--rotatorGradientColor3BorderRotatorClockwiseShift));
+    animation-name: var(--animationNameBorderRotatorContainer);
+    animation-duration: var(--animationDurationBorderRotator);
+    animation-timing-function: var(--animationTimingFunctionBorderRotatorContainer);
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountBorderRotatorContainer);
+    visibility: var(--visibilityBorderRotatorClockwiseShift,hidden);
+}
+
+
+.borderRotatorAntiClockwiseShift {
+    --rotateAngleStart: -180deg;
+    --rotateAngleEnd: 180deg;
+    --rotateMirroringAngle: 180deg;
+    --rotatorGradientColor1BorderRotatorAntiClockwiseShift: transparent;
+    --rotatorGradientColor2BorderRotatorAntiClockwiseShift: var(--colorBorderRotatorAntiClockwiseShift);
+    --rotatorGradientColor3BorderRotatorAntiClockwiseShift: var(--colorBorderRotatorAntiClockwiseShift);
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: bottom right;
+    transform: rotateZ(var(--rotateAngleStart)) rotateY(var(--rotateMirroringAngle)); /* rotateY - mirroring */
+    filter: blur(var(--blurBorderRotator));
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    background: linear-gradient(0deg, var(--rotatorGradientColor1BorderRotatorAntiClockwiseShift), var(--rotatorGradientColor2BorderRotatorAntiClockwiseShift), var(--rotatorGradientColor3BorderRotatorAntiClockwiseShift));
+    animation-name: var(--animationNameBorderRotatorContainer);
+    animation-duration: var(--animationDurationBorderRotator);
+    animation-timing-function: var(--animationTimingFunctionBorderRotatorContainer);
+    animation-delay: var(--animationDelaysBorderRotatorContainer);
+    animation-iteration-count: var(--animationIterationCountBorderRotatorContainer);
+    visibility: var(--visibilityBorderRotatorAntiClockwiseShift,hidden);
+}
+
+
+/* LEFT TURN */
+
+
+.borderRotatorInTransparentRightSide {
+    position: absolute;
+    top: 0%;
+    left: 50%; /* 50% left turn; -50% right turn */
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: orange;
+    --rotatorGradientColor3BorderRotatorClockwise: orange;
+    background: linear-gradient(180deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    visibility: var(--visibilityBorderRotatorInTransparentRightSide,hidden);
+    opacity: var(--borderRotatorInTransparentRightSideOpacity, 0);
+}
+
+/* RIGHT TURN */
+
+.borderRotatorInTransparentLeftSide {
+    position: absolute;
+    top: 0%;
+    left: -50%; /*50%    50% left turn; -50% right turn*/
+    --rotatorGradientColor1BorderRotatorClockwise: transparent;
+    --rotatorGradientColor2BorderRotatorClockwise: orange;
+    --rotatorGradientColor3BorderRotatorClockwise: orange;
+    background: linear-gradient(180deg, var(--rotatorGradientColor1BorderRotatorClockwise), var(--rotatorGradientColor2BorderRotatorClockwise), var(--rotatorGradientColor3BorderRotatorClockwise));
+    height: var(--heightBorderRotatorContainer);
+    width: var(--widthBorderRotatorContainer);
+    visibility: var(--visibilityBorderRotatorInTransparentLeftSide,hidden);
+    opacity: var(--borderRotatorInTransparentLeftSideOpacity, 0);
+}
+
+
+.insideBorder {
+    --gradientInsideBorderAngleStart: var(--gradInitialValueInsideBorder); /* to immitate changing of initial value for property of gradient */
+    --backgroundGradientFirstColor: #ff0000; /*#ff4400   #ff7300*/
+    --backgroundGradientSecondColor: lime;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderOnClick {
+    --backgroundGradientFirstColor: #ffc600;
+    --backgroundGradientSecondColor: #ff00e7;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderBlackNodeOnClick {
+    --backgroundGradientFirstColor: #ffffff;
+    --backgroundGradientSecondColor: #363636;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderRedNodeOnClick {
+    --backgroundGradientFirstColor: #ff0000;
+    --backgroundGradientSecondColor: #736363;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderOnVisit {
+    --backgroundGradientFirstColor: #0085ff;
+    --backgroundGradientSecondColor: #00ff00;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderOnVisitBlackNode {
+    --backgroundGradientFirstColor: #bfbfbf;
+    --backgroundGradientSecondColor: #1f01c4;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderOnVisitRedNode {
+    --backgroundGradientFirstColor: #ff0000;
+    --backgroundGradientSecondColor: #d226ff;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderFinder {
+    --backgroundGradientFirstColor: #ff0000; /* #ff4400 #ff7300*/
+    --backgroundGradientSecondColor: #e4ff00;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderVisitor {
+    --backgroundGradientFirstColor: #ff0000; /* #ff4400 #ff7300*/
+    --backgroundGradientSecondColor: #e4ff00;
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: transparent; /* changed */
+    border: var(--borderRotatorWidth) solid orange;
+    border-radius: 50%;
+    margin-left: calc(0% - var(--borderRotatorWidth)); /* added */
+    margin-top: calc(0% - var(--borderRotatorWidth)); /* added */
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderRedNode {
+    --gradientInsideBorderAngleStart: var(--gradInitialValueInsideBorder); /* to immitate changing of initial value for property of gradient */
+    --backgroundGradientFirstColor: #ff0000; /*#ff4400   #ff7300*/
+    --backgroundGradientSecondColor: #f4c6da; /*lime*/
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderBlackNode {
+    --gradientInsideBorderAngleStart: var(--gradInitialValueInsideBorder); /* to immitate changing of initial value for property of gradient */
+    --backgroundGradientFirstColor: #cac3c3; /*#ff0000*/
+    --backgroundGradientSecondColor: #191919; /*lime*/
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.insideBorderDoubleBlackNode {
+    --gradientInsideBorderAngleStart: var(--gradInitialValueInsideBorder); /* to immitate changing of initial value for property of gradient */
+    --backgroundGradientFirstColor: #6b6969; /*#ff0000*/
+    --backgroundGradientSecondColor: #191919; /*lime*/
+    position: absolute;
+    top: calc(0% + var(--borderRotatorWidth));
+    left: calc(0% + var(--borderRotatorWidth));
+    height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    width: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth)); /*94px;*/
+    background: linear-gradient(var(--gradientInsideBorderAngleStart), var(--backgroundGradientFirstColor), var(--backgroundGradientSecondColor));
+    border-radius: 50%;
+    animation-name: var(--insideBorderAnimationNames);
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDelaySuperContainer);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+}
+
+
+.nodeValue {
+    position: absolute;
+    text-align: center;
+    /*line-height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth));*/
+    color: #00f7ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*top: calc(-5 * var(--borderRotatorWidth));*/
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    margin: 0px;
+    /*left: calc(0% + var(--borderRotatorWidth));*/
+    vertical-align: central;
+    font: bold 18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+    .nodeValue:hover {
+        color: #ffe200;
+    }
+
+
+
+.leftLinkContainer {
+    --isDrawLink: var(--isDrawnLinkToParent); /* NOT USED To erase line set --isDrawLink: 0;. To draw line set --isDrawLink: 1; */
+    --widthStartLinkContainer: 0px;
+    /*--horizontalShiftOwnNode: calc((-1) * var(--xCoordinateEndMovingStep));*/ /* TO ADD PARENT !!!!!!!!!!!!!!!!!!!!!!!*/
+    --heightStartLinkContainer: 0px;
+    --heightEndLinkContainer: var(--distanceBetweenLevels);
+    --svgLineLinkColor: orange;
+    --svgLineLinkShadowColor: yellow /*#7800ff*/;
+    width: var(--widthEndLinkContainer);
+    /* transform: translate(-50%, -50%);*/ /* to align by center */
+    transform: rotateY(180deg) rotateZ(180deg); /* to draw line from left bottom*/
+    height: var(--heightEndLinkContainer);
+    border: blue 1px solid;
+    background-color: transparent;
+    cursor: auto;
+    position: absolute;
+    left: calc(var(--widthSuperContainer) / 2);
+    bottom: calc((1) * var(--widthSuperContainer));
+    animation-name: var(--animationLinkContainer);
+    animation-duration: var(--animationDurationSuperContainer); /* was var dash dash animationDurationSuperContainer */
+    animation-fill-mode: forwards;
+    animation-delay: var(--linkContainerAnimationDelay);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    /*overflow: hidden;*/ /* remove property (in browser unmark this property) to remove effect of border for line shadow */
+    z-index: -10;
+}
+
+    .leftLinkContainer:hover {
+        --svgLineLinkColor: #ff6618;
+        --svgLineLinkShadowColor: #4ce3fb; /*#ceff00   #ed7ffe*/
+    }
+
+
+.rightLinkContainer {
+    --isDrawLink: var(--isDrawnLinkToParent); /* NOT USED  To erase line set --isDrawLink: 0;. To draw line set --isDrawLink: 1; */
+    --widthStartLinkContainer: 0px;
+    /*--horizontalShiftOwnNode: var(--xCoordinateEndMovingStep);*/
+    --heightStartLinkContainer: 0px;
+    --heightEndLinkContainer: var(--distanceBetweenLevels);
+    --svgLineLinkColor: lime; /* #7800ff */
+    --svgLineLinkShadowColor: lime;
+    width: var(--widthEndLinkContainer);
+    /* transform: translate(-50%, -50%);*/ /* to align by center */
+    transform: rotateY(180deg) rotateX(180deg); /* to draw line to left bottom*/
+    height: var(--heightEndLinkContainer);
+    border: blue 1px solid;
+    background-color: transparent;
+    cursor: auto;
+    position: absolute;
+    right: calc(var(--widthSuperContainer) / 2); /* right instead left - to expand rectangle to left side */
+    bottom: calc((1) * var(--widthSuperContainer));
+    animation-name: var(--animationLinkContainer); /* changeLinkContainerWidth */
+    animation-duration: var(--animationDurationSuperContainer); /* was var dash dash animationDurationSuperContainer */
+    animation-fill-mode: forwards;
+    animation-delay: var(--linkContainerAnimationDelay);
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    /*overflow: hidden;*/ /* remove property (in browser unmark this property) to remove effect of border for line shadow */
+    z-index: -10;
+}
+
+
+    .rightLinkContainer:hover {
+        --svgLineLinkColor: #00dcff;
+        --svgLineLinkShadowColor: #00dcff;
+    }
+
+
+.svgLineLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    stroke: var(--svgLineLinkColor) /*red*/;
+    stroke-width: var(--borderRotatorWidth);
+    animation-name: var(--animationSvgLineLink); /* values svgDrawLine or svgEraseLine */
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-delay: var(--animationDelayMovingLine) /* 23s for addition */;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    visibility: hidden;
+    overflow: visible;
+}
+
+.svgLineLinkShadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    stroke: var(--svgLineLinkShadowColor);
+    stroke-width: calc(var(--borderRotatorWidth) * 2);
+    filter: blur(8px);
+    animation-name: var(--animationSvgLineLink); /* values svgDrawLine or svgEraseLine */
+    animation-duration: var(--animationDurationSuperContainer);
+    animation-delay: var(--animationDelayMovingLine) /* 23s  for addition */;
+    animation-fill-mode: forwards; /* stay */
+    animation-timing-function: var(--animationTimingFunctionSuperContainer);
+    visibility: hidden;
+    overflow: visible;
+}
+
+
+.glowingMovingUpLineContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* added to fix overflow glowing Moving Line */
+    --movingLineFirstColor: transparent; /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/
+    --movingLineSecondColor: var(--colorSvgGlovingMovingLine); /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/
+    --translateStart: -75%; /*-75%*/ /*calc((var(--isGlowingMovingLineUP) * (-75%)) + (var(--isGlowingMovingLineUP) - 1) * (-50%)) /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/ /* for start point of animation of moving line Up 50%;  for Down  -75%*/
+    --translateEnd: 50%; /*50% calc((var(--isGlowingMovingLineUP) * 50%) + (var(--isGlowingMovingLineUP) - 1) * 60%)  USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/ /* for end point of animation of moving line Up  -60%;  for Down  50%*/
+    /*--animationNameGlowingMovingLine: svgGlowingMovingLineAnimation;*/ /* svgGlowingMovingLineAnimationErase  USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/
+    --animationDurationGlowingMovingLine: calc(var(--animationDurationBorderRotator) / 2);
+    --animationDelayGlowingMovingLine: var(--animationDelayMovingLine); /* computed when onClick */ /* computed for every hierarcy node, when onClick some node*/
+    --animationFillModeGlowingMovingLine: forwards;
+    --animationTimingFunctionGlowingMovingLine: linear; /* should be the same as animation-timing-function for BORDER ROTATOR */
+    /* --animationIterationCountGlowingMovingLine: infinite;*/
+}
+
+
+.glowingMovingDownLineContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* added to fix overflow glowing Moving Line */
+    --movingLineFirstColor: var(--colorSvgGlovingMovingLine); /* use --movingLineFirstColor and --movingLineSecondColor to change orientation of gradient*/ /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/
+    --movingLineSecondColor: transparent; /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/
+    --translateStart: 50%; /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/ /* for start point of animation of moving line Up 50%;  for Down  -75%*/
+    --translateEnd: -60%; /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/ /* for end point of animation of moving line Up  -60%;  for Down  50%*/
+    /*--animationNameGlowingMovingLine: svgGlowingMovingLineAnimation;*/ /* USE THE SAME NAME VARIABLE --animationNameGlowingMovingLine in glowingMovingUpLineContainer*/
+    --animationDurationGlowingMovingLine: calc(var(--animationDurationBorderRotator) / 2);
+    --animationDelayGlowingMovingLine: var(--animationDelayMovingLine); /* computed when onClick */ /* computed for every hierarcy node, when onClick some node*/
+    --animationFillModeGlowingMovingLine: forwards;
+    --animationTimingFunctionGlowingMovingLine: linear; /* should be the same as animation-timing-function for BORDER ROTATOR */
+    /*--animationIterationCountGlowingMovingLine: infinite;*/
+}
+
+
+
+.svgGlovingMovingLine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    stroke-width: var(--borderRotatorWidth);
+    animation-name: var(--animationNameGlowingMovingLine);
+    animation-duration: var(--animationDurationGlowingMovingLine);
+    animation-iteration-count: var(--animationIterationCountGlowingMovingLine);
+    animation-delay: var(--animationDelayGlowingMovingLine);
+    animation-timing-function: var(--animationTimingFunctionGlowingMovingLine); /* should be the same as animation-timing-function for BORDER ROTATOR */
+    visibility: hidden;
+}
+
+
+.svgGlovingMovingLineShadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    stroke-width: calc(var(--borderRotatorWidth) * 5);
+    filter: blur(8px);
+    animation-name: var(--animationNameGlowingMovingLine);
+    animation-duration: var(--animationDurationGlowingMovingLine);
+    animation-iteration-count: var(--animationIterationCountGlowingMovingLine);
+    animation-delay: var(--animationDelayGlowingMovingLine);
+    animation-timing-function: var(--animationTimingFunctionGlowingMovingLine); /* should be the same as animation-timing-function for BORDER ROTATOR */
+    visibility: hidden;
+}
+
+
+
+.gradientSvgGlovingMovingLineFirstColor {
+    stop-color: var(--movingLineFirstColor);
+}
+
+
+.gradientSvgGlovingMovingLineSecondColor {
+    stop-color: var(--movingLineSecondColor);
+}
+
+
+.strokeLinecap {
+    stroke-linecap: round;
+}
+
+
+.strokeGlovingMovingLine {
+    stroke-linecap: round;
+    stroke: var(--lineStrokeUrl); /* --lineStrokeUrl is url(#e1), where e1 is id for <linearGradient id="e1"/> */
+}
+
+
+@keyframes svgDrawLine {
+    0% {
+        width: 0%; /* 0% when drawLine. 100% when erase line */
+        height: 0%;
+        visibility: visible;
+    }
+
+    100% {
+        width: 100%; /* 100% when drawLine. 0% when erase line */
+        height: 100%;
+        visibility: visible;
+    }
+}
+
+
+@keyframes svgEraseLine {
+    0% {
+        width: 100%; /* 0% when drawLine. 100% when erase line */
+        height: 100%;
+        visibility: visible;
+    }
+
+    100% {
+        width: 0%; /* 100% when drawLine. 0% when erase line */
+        height: 0%;
+        visibility: visible;
+    }
+}
+
+
+
+@keyframes svgGlowingMovingLineAnimation {
+    0% {
+        transform: translateX(var(--translateStart)) translateY(var(--translateStart));
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateX(var(--translateEnd)) translateY(var(--translateEnd)); /*-60% instead -50% to absorb all length of mowing line in parent node*/
+        visibility: visible;
+    }
+}
+
+
+@keyframes svgGlowingMovingLineAnimationOnClick {
+    0% {
+        transform: translateX(var(--translateStart)) translateY(var(--translateStart));
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateX(var(--translateEnd)) translateY(var(--translateEnd)); /*-60% instead -50% to absorb all length of mowing line in parent node*/
+        visibility: visible;
+    }
+}
+
+
+@keyframes svgGlowingMovingLineAnimationErase {
+    0% {
+        transform: translateX(var(--translateStart)) translateY(var(--translateStart));
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateX(var(--translateEnd)) translateY(var(--translateEnd)); /*-60% instead -50% to absorb all length of mowing line in parent node*/
+        visibility: hidden;
+    }
+}
+
+
+@keyframes changeLinkContainerWidth {
+    0% {
+        width: var(--widthEndLinkContainer);
+        height: var(--heightEndLinkContainer);
+    }
+
+    100% {
+        width: calc(var(--widthEndLinkContainer) + var(--horizontalShiftOwnNode)); /* change width according to shift of the node-owner */
+        height: var(--heightEndLinkContainer);
+    }
+}
+
+/* ?????? for balancing */
+@keyframes svgLineHideBeforeBalancing {
+    0% {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+    }
+
+    100% {
+        width: 0%;
+        height: 0%;
+        visibility: visible;
+    }
+}
+
+/* ?????? for balancing changes opacity of link container */
+@keyframes svgLineShowAfterLinkContainerFade {
+    0% {
+        width: 0%;
+        height: 0%;
+        visibility: visible;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+    }
+}
+
+
+@keyframes svgLineHideBeforeSwapNodes {
+    0% {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+    }
+
+    100% {
+        width: 0%;
+        height: 0%;
+        visibility: visible;
+    }
+}
+
+
+@keyframes svgLineShowAfterSwapNodes {
+    0% {
+        width: 0%;
+        height: 0%;
+        visibility: visible;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+    }
+}
+
+
+
+
+@keyframes unAlteredLinkContainer {
+    0% {
+        width: var(--widthEndLinkContainer);
+    }
+
+    100% {
+        width: var(--widthEndLinkContainer);
+    }
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotateY(var(--rotateMirroringAngle, 0deg)) rotateZ(var(--rotateAngleStart));
+    }
+
+    100% {
+        transform: rotateY(var(--rotateMirroringAngle, 0deg)) rotateZ(var(--rotateAngleEnd));
+    }
+}
+
+
+@keyframes rotateClick {
+    0% {
+        transform: rotateY(var(--rotateMirroringAngle, 0deg)) rotateZ(var(--rotateAngleStart));
+        visibility: visible;
+    }
+
+    100% {
+        transform: rotateY(var(--rotateMirroringAngle, 0deg)) rotateZ(var(--rotateAngleEnd));
+        visibility: visible;
+    }
+}
+
+
+@keyframes hiddenRotate {
+    100% {
+        visibility: hidden;
+    }
+}
+
+
+
+@keyframes animateShadowBorderLeftTurn {
+    0% {
+        --visibilityShadowBorderRotatorAntiClockwiseShift: visible;
+        --opacityShadowBorderRotatorContainer: var(--opacityShadowBorderRotatorContainer);
+    }
+
+    100% {
+        --visibilityShadowBorderRotatorAntiClockwiseShift: visible;
+        --opacityShadowBorderRotatorContainer: 0;
+    }
+}
+
+
+@keyframes animateShadowBorderRightTurn {
+    0% {
+        --visibilityShadowBorderRotatorClockwiseShift: visible;
+        --opacityShadowBorderRotatorContainer: var(--opacityShadowBorderRotatorContainer);
+    }
+
+    100% {
+        --visibilityShadowBorderRotatorClockwiseShift: visible;
+        --opacityShadowBorderRotatorContainer: 0;
+    }
+}
+
+
+@keyframes animateBorderLeftTurn {
+    0% {
+        --borderRotatorInTransparentLeftSideOpacity: 1;
+    }
+
+    100% {
+        --borderRotatorInTransparentLeftSideOpacity: 0;
+    }
+}
+
+
+@keyframes animateBorderRightTurn {
+    0% {
+        --borderRotatorInTransparentRightSideOpacity: 1;
+    }
+
+    100% {
+        --borderRotatorInTransparentRightSideOpacity: 0;
+    }
+}
+
+
+@keyframes animateInsideBorderGradientAngle {
+    100% {
+        --gradientInsideBorderAngleStart: var(--gradientInsideBorderAngleEnd); /* in superContainer was:  --gradientInsideBorderAngleEnd: calc(360deg - 45deg);*/
+    }
+}
+
+
+@keyframes animateInsideBorderAboveNode {
+    100% {
+        --gradientInsideBorderAngleStart: 360deg;
+    }
+}
+
+
+@keyframes animateInsideBorderBelowNode {
+    100% {
+        --gradientInsideBorderAngleStart: 180deg;
+    }
+}
+
+
+@keyframes animateInsideBorderHighlightLeftChild {
+    100% {
+        --gradientInsideBorderAngleStart: 315deg;
+    }
+}
+
+
+@keyframes animateInsideBorderHighlightRightChild {
+    100% {
+        --gradientInsideBorderAngleStart: 405deg;
+    }
+}
+
+/*????????????????????*/
+@keyframes animateInsideBorderHighlightLeftChildAlign {
+    100% {
+        --gradientInsideBorderAngleStart: -45deg;
+    }
+}
+
+
+@keyframes animateInsideBorderHighlightRightChildAlign {
+    100% {
+        --gradientInsideBorderAngleStart: 45deg;
+    }
+}
+
+@keyframes containerSpectrumBorderRotationAboveNode {
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+
+@keyframes containerSpectrumBorderRotationBelowNode {
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+
+
+@keyframes containerSpectrumBorderRotationHighlightLeftChild {
+    100% {
+        transform: rotateZ(calc(-45deg + 360deg));
+    }
+}
+
+
+@keyframes containerSpectrumBorderRotationHighlightRightChild {
+    100% {
+        transform: rotateZ(calc(45deg + 360deg));
+    }
+}
+
+
+@keyframes glovingSpectrumBorder {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: var(--backgroundSizeSpectrumBorder) 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+@keyframes moveNode {
+    100% {
+        transform: translateX(var(--xCoordinateEndMovingStep)) translateY(var(--yCoordinateEndMovingStep));
+    }
+}
+
+
+@keyframes moveAboveNode {
+    100% {
+        transform: translateX(200px) translateY(0px);
+    }
+}
+
+
+@keyframes moveBelowNode {
+    100% {
+        transform: translateX(200px) translateY(200px);
+    }
+}
+
+
+@keyframes moveHighlightNodeBelow {
+    100% {
+        transform: translateX(200px) translateY(200px);
+    }
+}
+
+
+@keyframes moveNodeOwnPosition {
+    100% {
+        transform: translateX(500px) translateY(500px);
+    }
+}
+
+
+@keyframes moveNodeOwnPositionToggle {
+    100% {
+        transform: translateX(100px) translateY(100px); /* if was applied keyframes moveAlignNode then use moveAlignNodeToggle. Coordinates are changed in code  */
+    }
+}
+
+
+@keyframes moveDrawLineNode {
+    100% {
+        transform: translateX(500px) translateY(500px);
+    }
+}
+
+
+@keyframes moveAlignNode {
+    100% {
+        transform: translateX(100px) translateY(100px); /* if was applied keyframes moveAlignNodeToggle or NOT moveAlignNode then use moveAlignNode. Coordinates are changed in code */
+    }
+}
+
+
+@keyframes moveAlignNodeToggle {
+    100% {
+        transform: translateX(100px) translateY(100px); /* if was applied keyframes moveAlignNode then use moveAlignNodeToggle. Coordinates are changed in code  */
+    }
+}

@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "_DataStructureLayout";
+    ViewData["ControllerName"] = ViewContext?.RouteData?.Values["controller"]?.ToString(); // "MinHeap";
+    ViewData["ActionNameAddNode"] = "AddNode"; /* Add correspondent data-attributes for each button using Razor-syntax */
+    ViewData["ActionNameFindNode"] = "FindNode";
+    ViewData["ActionNameDeleteNode"] = "DeleteNode";
+    ViewData["ActionNameTraverseInorder"] = "TraverseInorder";
+    ViewData["ActionNameTraversePreorder"] = "TraversePreorder";
+    ViewData["ActionNameTraversePostorder"] = "TraversePostorder";
+    ViewData["ActionNameSaveNodes"] = "SaveNodes";
+}
+
+@section Scripts {
+    <script type="module" src="~/js/mainMinHeap.js" defer></script>
+}

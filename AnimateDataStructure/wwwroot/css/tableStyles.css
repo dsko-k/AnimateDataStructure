@@ -1,0 +1,589 @@
+﻿/* table CSS */
+
+
+.tableContainer {
+    --topTableContainer: calc(0vh + 65px);
+    --animationNameTableContainer: showTableContainer;
+    --animationDurationTableContainer: 0.3s;
+    --animationDelayTableContainer: 0s;
+    position: fixed;
+    top: var(--topTableContainer);
+    left: 72px;
+    font-family: sans-serif;
+    width: 30%;
+    min-width: 25%;
+    height: calc(97vh - 65px);
+    min-height: 30vh;
+    max-height: calc(100vh - 65px);
+    background: linear-gradient(0deg, #5c5caf, rgb(60 1 232));
+    z-index: 4;
+    box-shadow: 5px 5px 5px 1px #7000ff8a;
+    border: #0053ff, solid, 1px;
+    border-radius: 10px;
+    overflow: hidden;
+    animation-name: var(--animationNameTableContainer);
+    animation-duration: var(--animationDurationTableContainer);
+    animation-delay: var(--animationDelayTableContainer);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+
+@keyframes showTableContainer {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: var(--topTableContainer);
+    }
+}
+
+
+    .tableContainer:hover {
+        box-shadow: 5px 5px 5px 1px #008aff8a;
+        border: #00ceff9d, solid, 1px;
+    }
+
+
+.tableTitle {
+    width: 100%;
+    height: 6%;
+    background-color: #ffffff00;
+    padding: 10px 20px;
+    color: orange;
+}
+
+
+.tableButtonClose {
+    --widthButtonClose: 50px;
+    --heightButtonClose: 30px;
+    --colorButtonClose: linear-gradient(180deg, #00a1d9 1%, #000690 45%, #00a1d9 99%);
+    --colorTextInsideButton: #ff003ea8;
+    width: var(--widthButtonClose);
+    height: var(--heightButtonClose);
+    position: absolute;
+    top: 2px;
+    left: calc(100% - 1.3 * var(--widthButtonClose));
+    border-radius: 2px;
+    border: solid 1px transparent;
+    background: var(--colorButtonClose);
+}
+
+
+    .tableButtonClose:hover {
+        background: linear-gradient(180deg, #7e00e4 1%, #0e0557 45%, #780bd8 99%);
+        border-color: red;
+        --colorTextInsideButton: red;
+        cursor: default;
+    }
+
+
+.textTableButtonClose {
+    position: relative;
+    top: calc(-50% - 15px);
+    left: 0%;
+    color: var(--colorTextInsideButton);
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.tableBody {
+    width: calc(100% - 50px);
+    position: relative;
+    top: 100px;
+    max-height: calc(90% - 150px);
+    background-color: #0c0c0cf0;
+    margin: 10px auto;
+    overflow: auto;
+}
+
+
+    .tableBody::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+    }
+
+
+    .tableBody::-webkit-scrollbar-thumb {
+        border-radius: 7px;
+        background-color: #ea00ff8a;
+        visibility: visible;
+    }
+
+
+    .tableBody:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+    }
+
+
+table {
+    border: solid 1px transparent;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+
+tr {
+    --trHeight: 80px;
+    height: var(--trHeight);
+}
+
+
+    tr:nth-child(even) {
+        --backgroundColorOfContentOfCellWithGlowingRadialBorder: rgba(25,25,25);
+    }
+
+    tr:nth-child(odd) {
+        --backgroundColorOfContentOfCellWithGlowingRadialBorder: #090a4e;
+    }
+
+    tr:hover:nth-child(even) {
+        --backgroundColorOfContentOfCellWithGlowingRadialBorder: rgba(45,45,45);
+    }
+
+    tr:hover:nth-child(odd) {
+        --backgroundColorOfContentOfCellWithGlowingRadialBorder: #0b0d75;
+    }
+
+
+/* styles dot row are not used at all, shown as values of css variables related to background color */
+
+.rowEven {
+    --backgroundColorOfContentOfCellWithGlowingRadialBorder: rgba(25,25,25); /* should be the same as colors in tr tag styles */
+}
+
+.rowEvenOnHover {
+    --backgroundColorOfContentOfCellWithGlowingRadialBorder: rgba(45,45,45);
+}
+
+.rowOdd {
+    --backgroundColorOfContentOfCellWithGlowingRadialBorder: #090a4e;
+}
+
+.rowOddOnHover {
+    --backgroundColorOfContentOfCellWithGlowingRadialBorder: #0b0d75;
+}
+
+
+.cellEvenOnMouseEnterTableColumn {
+    --backgroundColorOfContentOfCellWithGlowingRadialBorder: #0b0d75;
+    --colorTextInsideCell: #00dad2; /* the same as a color in style headerColumn */
+}
+
+
+.cellOddOnMouseEnterTableColumn {
+    --backgroundColorOfContentOfCellWithGlowingRadialBorder: rgba(45,45,45);
+    --colorTextInsideCell: #00dad2; /* the same as a color in style headerColumn */
+}
+
+
+.headerColumn {
+    position: sticky;
+    top: -1px;
+    left: 0px;
+    background: linear-gradient(180deg, #7e00e4 1%, #0e0557 45%, #780bd8 99%);
+    color: #00dad2;
+    border: solid 1px black;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    z-index: 3;
+}
+
+
+    .headerColumn:hover {
+        background: linear-gradient(180deg, #00a1d9 1%, #000690 45%, #00a1d9 99%);
+        color: orange;
+    }
+
+
+td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-collapse: separate;
+    table-layout: auto;
+    width: 100%;
+}
+
+
+.cell {
+    --sidebarBorderRadius: 0px;
+    --animationNameSidebar: nothing;
+    --widthBorderOfButtonWithGlowingRadialBorder: 1px;
+    --radiusOfGradientOfBorderOfButtonWithGlowingRadialBorder: 700px;
+    --radiusGlovingInsideButtonContent: 250px;
+    --colorOfGlowingRadialGradientInsideButtonContent: rgb(9 241 33 / 42%); /* variable backgroundColorOfContentOfCellWithGlowingRadialBorder move into tr nth-Child(odd/even) */
+    --colorOfBorderOfCellWithGlowingRadialBorder: lime;
+    --colorTextInsideCellOnHover: #45f3ff;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: var(--trHeight);
+    width: 100%;
+    background-color: rgba(0,0,0);
+    border-radius: var(--sidebarBorderRadius);
+    overflow: hidden;
+    animation-name: var(--animationNameSidebar);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+    z-index: 2;
+}
+
+
+.cellWithGlowingRadialBorder {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: var(--trHeight);
+    width: 100%;
+    border-radius: 0px;
+    z-index: 2;
+}
+
+
+.borderOfCellWithGlowingRadialBorder {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: var(--trHeight);
+    width: 100%;
+    background: radial-gradient(var(--radiusOfGradientOfBorderOfButtonWithGlowingRadialBorder) circle at var(--mouse-x) var(--mouse-y), var(--colorOfBorderOfCellWithGlowingRadialBorder), transparent 40%);
+    border-radius: 0px;
+    opacity: 1;
+    transition: opacity 500ms;
+    animation-name: var(--animationNameSidebar);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+    z-index: 2;
+}
+
+
+.contentOfCellWithGlowingRadialBorder {
+    position: relative;
+    top: var(--widthBorderOfButtonWithGlowingRadialBorder);
+    left: var(--widthBorderOfButtonWithGlowingRadialBorder);
+    height: calc(100% - var(--widthBorderOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder));
+    width: calc(100% - var(--widthBorderOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder));
+    background-color: var(--backgroundColorOfContentOfCellWithGlowingRadialBorder);
+    border-radius: 0px; /* see screenshot about ideal border angles*/
+    z-index: 2;
+}
+
+
+    .contentOfCellWithGlowingRadialBorder:hover {
+        --backgroundColorOfContentOfCellWithGlowingRadialBorder: black; /* change color of hovered cell to black. if use td than it changes color on hovering on border and it is undesireble effect*/
+        --widthBorderOfButtonWithGlowingRadialBorder: 1px;
+    }
+
+
+.glowingRadialGradientInsideCellContent {
+    position: relative;
+    top: var(--widthBorderOfButtonWithGlowingRadialBorder);
+    left: var(--widthBorderOfButtonWithGlowingRadialBorder);
+    height: calc(100% - var(--widthBorderOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder));
+    width: calc(100% - var(--widthBorderOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder));
+    background: radial-gradient(var(--radiusGlovingInsideButtonContent) circle at var(--mouse-x) var(--mouse-y), var(--colorOfGlowingRadialGradientInsideButtonContent), transparent var(--transparencyPercentageOfGlowingRadialGradientInsideButtonContent));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 200ms;
+    animation-name: var(--animationNameOfRadiusGradientOfGlovingInsideButtonContent);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+    z-index: 2;
+}
+
+
+    .glowingRadialGradientInsideCellContent:hover {
+        opacity: 1;
+    }
+
+
+.textInsideCell {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    color: var(--colorTextInsideCell, orange);
+    margin: 0px;
+    z-index: 2;
+    align-content: center;
+    text-align: center;
+}
+
+    .textInsideCell:hover {
+        background: radial-gradient(var(--radiusOfGradientOfBorderOfButtonWithGlowingRadialBorder) circle at var(--mouse-x) var(--mouse-y), #05ff2a80, transparent 40%);
+        z-index: 2;
+        color: var(--colorTextInsideCellOnHover);
+    }
+
+
+
+.updatedTextInsideCell {
+    color: var(--colorTextInsideCell, red);
+}
+
+
+.cellLoader { /* use as main style */
+    --cellBelongsToColumnNumber: 1; /* this pass inline in tag attribute if there needs a sequantially animate cell loading cell by cell and this variable can be set once when constructing table */
+    --animationNameCellLoaderOn: moveCellLoader;
+    --animationDurationCellLoaderOn: 1s;
+    --animationDelayCellLoaderOn: 0s;
+    --animationIterationCountCellLoaderOn: 2;
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+}
+
+
+.cellLoaderSequentiallyOn { /* use as additional style when need that cell loading starts sequentially after animation loading previous cell */
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #d1dfb600, #2279f130, #ecc4ad00);
+    margin: 0px;
+    filter: blur(1px);
+    animation-name: var(--animationNameCellLoaderOn);
+    animation-duration: var(--animationDurationCellLoaderOn);
+    animation-delay: calc(var(--animationDelayCellLoaderOn) + var(--cellBelongsToColumnNumber) * var(--animationDurationCellLoaderOn) / 2 );
+    animation-iteration-count: var(--animationIterationCountCellLoaderOn);
+    animation-timing-function: linear;
+}
+
+
+.cellLoaderIndividuallyOn { /* use as additional style when need that cell loading starts independently of animation loading other cell */
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #d1dfb600, #be00ff3a, #d1dfb600);
+    margin: 0px;
+    filter: blur(1px);
+    animation-name: var(--animationNameCellLoaderOn);
+    animation-duration: var(--animationDurationCellLoaderOn);
+    animation-delay: calc(var(--animationDelayCellLoaderOn));
+    animation-iteration-count: var(--animationIterationCountCellLoaderOn);
+    animation-timing-function: linear;
+}
+
+
+@keyframes moveCellLoader {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+/* statuses inside table cell */
+.status {
+    background-color: red;
+    padding: 10px 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.delivered {
+    background-color: #86e49d;
+    color: #006b21;
+    text-align: center;
+}
+
+
+.pending {
+    background-color: #ebc474;
+    color: #b30021;
+    text-align: center;
+}
+
+
+.cancelled {
+    background-color: #d893a3;
+    color: #b30021;
+    text-align: center;
+}
+
+
+.shipped {
+    background-color: #6fcaea;
+    text-align: center;
+}
+
+
+@media (max-width: 100%) {
+    td:not(:first-of-type) {
+        min-width: 20px;
+    }
+}
+
+/* table resizers */
+
+.resizerVerticalContainer {
+    --resizerContainerBackgroundColor: #6be5d257;
+    --resizerVerticalFirstSecondBackgroundColor: darkblue;
+    --widthResizerVerticalContainer: 7px;
+    --heightResizerVerticalContainer: 500px;
+    --distanceToEdgeFromResizerVerticalContainer: 0px;
+    --distanceBetweenResizerVerticalFirstResizerVerticalSecond: 2px;
+    position: absolute;
+    width: var(--widthResizerVerticalContainer);
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    background-color: var(--resizerContainerBackgroundColor);
+    cursor: col-resize;
+    z-index: 3;
+}
+
+    .resizerVerticalContainer:hover {
+        --resizerContainerBackgroundColor: #0e2622b7;
+    }
+
+
+.resizerOnMouseDown {
+    --resizerContainerBackgroundColor: orange;
+}
+
+
+.resizerBottomHorizontalContainer {
+    --resizerContainerBackgroundColor: #6be5d257;
+    --resizerHorizontalFirstSecondBackgroundColor: darkblue;
+    --heightresizerBottomHorizontalContainer: 7px;
+    position: absolute;
+    width: 100%;
+    height: var(--heightresizerBottomHorizontalContainer);
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--resizerContainerBackgroundColor);
+    cursor: row-resize;
+    z-index: 3;
+}
+
+    .resizerBottomHorizontalContainer:hover {
+        background-color: #0e2622b7;
+    }
+
+
+/* table search */
+
+
+.tableSearchContainer {
+    --widthTableSearchContainer: 250px;
+    width: var(--widthTableSearchContainer);
+    position: absolute;
+    left: calc(100% - 1.0 * var(--widthTableSearchContainer) - 15px);
+}
+
+
+.inputData {
+    width: 100%;
+    height: 40px;
+}
+
+
+tbody tr {
+    --delayBeforeRemoveRow: 0.1s;
+    --displayState: table-row;
+    --translateYForSorting: 0px; /*???*/
+    display: table-row;
+    transition: 0.5s ease-in-out var(--delayBeforeRemoveRow), display 0.5s allow-discrete;
+}
+
+
+.hideTableRow {
+    transform: translateX(100%);
+    display: var(--displayState);
+}
+
+
+@starting-style {
+    tbody tr {
+        --delayBeforeRemoveRow: 0.1s;
+        transform: translateX(100%);
+    }
+}
+
+
+/* table sorting */
+
+
+.sortAscendingButton {
+    --widthSortingButton: 20px;
+    --heightSortingButton: 20px;
+    --shiftFromCenter: 10px;
+    --arrowColor: lime;
+    position: absolute;
+    bottom: 5px;
+    left: calc(50% - var(--widthSortingButton) - var(--shiftFromCenter));
+    width: var(--widthSortingButton);
+    height: var(--heightSortingButton);
+    background-color: transparent;
+    color: var(--arrowColor);
+    border-width: 1px;
+    border-color: transparent; /* #00efff6f */
+    padding: 0px;
+}
+
+
+    .sortAscendingButton:hover {
+        border-color: yellow;
+    }
+
+
+.sortDescendingButton {
+    --widthSortingButton: 20px;
+    --heightSortingButton: 20px;
+    --shiftFromCenter: 10px;
+    --arrowColor: red;
+    position: absolute;
+    bottom: 5px;
+    right: calc(50% - var(--widthSortingButton) - var(--shiftFromCenter));
+    width: var(--widthSortingButton);
+    height: var(--heightSortingButton);
+    background-color: transparent;
+    color: var(--arrowColor);
+    border-width: 1px;
+    border-color: transparent; /* #00efff6f */
+    padding: 0px;
+}
+
+    .sortDescendingButton:hover {
+        border-color: yellow;
+    }
+
+
+.sortAscendingButtonOnClick {
+    background: linear-gradient(0deg, #109d54, transparent);
+    border-color: lime;
+}
+
+
+.sortDescendingButtonOnClick {
+    background: linear-gradient(180deg, #860090, transparent);
+    border-color: red;
+}
+
+
+.sortedRow {
+    transform: translateY(var(--translateYForSorting));
+}

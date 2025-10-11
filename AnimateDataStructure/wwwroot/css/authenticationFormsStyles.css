@@ -1,0 +1,744 @@
+﻿/*@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*/
+
+
+.authorizationSuperContainer * {
+    font-family: Poppins, Segoe UI, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/*body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}*/
+
+
+/* It is a super container for any page where authentication form should be shown*/
+
+.authorizationSuperContainer {
+    top: 0%;
+    left: 50%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+    z-index: 10;
+}
+
+
+.wrapper {
+    --wrapperWidth: 400px;
+    --horizontalDistanceBetweenForms: 180px;
+    --formSignUpColor: lime;
+    --formLogInColor: #0ef;
+    display: flex; /* to place both forms horizontally??? */
+    gap: 80px; /* horizontal distance between 2 forms ??? */
+    position: absolute;
+    width: var(--wrapperWidth);
+    height: 500px;
+    background: black;
+    box-shadow: 0 0 50px var(--formLogInColor);
+    border-radius: 20px;
+    border: 1px solid var(--formLogInColor);
+    padding: 40px;
+    overflow: hidden;
+    transition: 0.8s linear;
+    z-index: 2; /*???*/
+}
+
+.form-wrapper {
+    margin-bottom: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 0.8s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in {
+    transform: translateX(calc(var(--wrapperWidth)*(-1)));
+}
+
+.wrapper.active .form-wrapper.sign-up {
+    transform: translateX(calc(var(--wrapperWidth)*(-1)));
+}
+
+/*???*/
+/* change WIDTH of wrapper border to right to show errors */
+.wrapper.active .form-wrapper.sign-up .error{
+    transform: translate(calc(var(--wrapperWidth)*(-1)));
+}
+
+
+
+/*???*/
+/* change height and wrapper border and shadow color on toggle between login form and sign up form */
+.wrapper.active {
+    height: 710px;
+    box-shadow: 0 0 50px var(--formSignUpColor);
+    border: 1px, solid var(--formSignUpColor);
+}
+
+
+.wrapper .form-wrapper.sign-up {
+    left: 0px;
+}
+
+
+
+form h2 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+
+.input-group {
+    position: relative;
+    margin: 30px 0;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #fff;
+    transition: 0.8s ease-in-out; /*???*/
+}
+
+    .input-group:has(.ulErrorList) {
+        border-bottom: 2px solid red;
+    }
+
+
+    .input-group label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: 0.5s;
+    }
+
+
+    .input-group input {
+        width: 320px;
+        height: 40px;
+        font-size: 16px;
+        color: #dcf507;
+        padding: 0 5px;
+        background: #1a2422b6;
+        border: none;
+        outline: none;
+        transition: 1s;
+    }
+
+        
+
+        .input-group input:focus,
+        .input-group input:active {
+            background: #00eeff49;
+        }
+
+
+            /*.input-group input:focus ~ label,
+            .input-group input:valid ~ label {
+                top: -8px;
+                color: #0ef;
+            }*/
+
+
+
+/* labels imitating placeholder for LogIn form */
+.wrapper .input-group input:focus ~ label,
+.wrapper .input-group input:valid ~ label {
+    top: -9px;
+    color: var(--formLogInColor);
+}
+
+
+/* labels imitating placeholder for SignUp form */
+.wrapper.active .input-group input:focus ~ label,
+.wrapper.active .input-group input:valid ~ label {
+    top: -9px;
+    color: var(--formSignUpColor);
+}
+
+
+            
+    /*.input-group:focus-within {
+        border-bottom: 2px solid aqua;        
+    }*/
+
+
+/* horizontal line in the bottom of input: lime for .wrapper.active ie for SignUp form*/
+.wrapper.active .input-group:focus-within {
+    border-bottom: 2px solid lime;
+}
+
+
+/* horizontal line in the bottom of input: lime for .wrapper ie for LogIn form */
+.wrapper .input-group:focus-within {
+    border-bottom: 2px solid aqua;
+}
+
+
+        .remember {
+            margin: -20px 0 35px 5px;
+        }
+
+
+.remember label {
+    color: #fff;
+    font-size: 14px;
+}
+
+/*.remember label input {
+    accent-color: #0ef;    
+    margin: 0 10px;
+}*/
+
+
+
+/* color for checkbox that has parent .wrapper ie for LogIn form */
+.wrapper .remember label input {
+    accent-color: #0ef;
+    margin: 0 10px;
+}
+
+
+/* color for checkbox that has parent .wrapper ie for SignUp form */
+.wrapper.active .remember label input {
+    accent-color: var(--formSignUpColor);
+    margin: 0 10px;
+}
+
+
+/*button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #0ef;
+    box-shadow: 0 0 10px #0ef;
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}*/
+
+.signUp-link {
+    font-size: 14px;
+    text-align: center;
+    margin: -20px 0;
+}
+
+
+.signUp-link p {
+    color: #fff;
+}
+
+    .signUp-link p a {
+        color: #0ef;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+        .signUp-link p a:hover {
+            color: #25a5fa;
+        }
+
+
+
+@media(max-width: 1100px) {
+    .wrapper {
+        width: min(600px, 100%);
+    }
+}
+
+
+.closeFormButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid, #f6096770;
+    box-shadow: 0 0 10px #f60967ff;
+    cursor: default;
+}
+
+    .closeFormButton:hover {
+        /*background-color: #f60967ff;*/
+        background: radial-gradient(black, red);
+        border: 0px solid, #f6096770;
+    }
+
+.signCloseForm {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: red;
+    text-align: center;
+    align-content: center;
+    cursor: default;
+}
+
+    .signCloseForm:hover {
+        color: cyan;
+    }
+
+
+
+
+    /* ????? add style to ul tag with list of errors to handle case of adding vertical scrollbar */
+
+.ulErrorList {
+    list-style-type: circle;
+    padding-left: 7px;
+}
+
+
+
+.scrollingFormContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+    .scrollingFormContainer:has(.ulErrorList) {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+
+    .scrollingFormContainer::-webkit-scrollbar {
+        width: 10px;
+        background: #070563ff;
+    }
+
+    .scrollingFormContainer::-webkit-scrollbar-thumb:hover {
+        background: #685d5d;
+        border: 1px solid #cbcaca;
+    }
+
+    /* The draggable part */
+    .scrollingFormContainer::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+        border: 1px solid #0ef;
+    }
+
+    .scrollingFormContainer::-webkit-scrollbar-corner {
+        background: #cccccc; /* Example corner color */
+    }
+
+
+/*Submit forms buttons*/
+
+
+/* Buttons begin */
+.signUpButtonContainer {
+    position: absolute;
+    /*width: 100%;*/ /* ??? */
+    /*display: flex;*/ /* ??? */
+    /*justify-content: center;*/ /* ??? */
+    margin-top: 0px; /* ??? */
+    margin-bottom: 85px;
+    --buttonMainColor: red;
+    --buttonTextFontSize: 20px;
+    --colorOfButtonText: black;
+    --buttonBorderWidth: 3px;
+    --buttonBorderRadius: 5px;
+    font-family: "Balsamiq Sans";
+    color: black;
+    --inputRippleEffectColor: #4ce3fb;
+    --buttonLogInMainColor: lime;
+    /*--buttonLogInBorder: lime;
+    --buttonLogInRippleEffectColor: #388a2fc3;*/
+    --buttonSignUpMainColor: lime;
+    --buttonSignUpBorder: lime;
+    --buttonSignUpRippleEffectColor: #297207b3;
+    --neonButtonDisablingAnimationName: neonButtonDisablingAnimation;
+    --neonButtonDisablingAnimationDelay: 0.5s;
+    --neonButtonDisablingAnimationDuration: 0.5s;
+    --neonButtonDisablingAnimationFillMode: forwards;
+    --neonButtonDisablingAnimationTimingFunction: linear;
+}
+
+
+.neonButtonSignUpOnMouseDown {
+    --buttonSignUpMainColor: #35cc17be;
+}
+
+
+
+/* Sign Up button */
+
+
+.neonButtonSignUp {
+    --buttonMainColor: var(--buttonSignUpMainColor);
+    --colorOfButtonText: var(--buttonSignUpMainColor);
+    --rippleEffectColor: var(--buttonSignUpRippleEffectColor);
+    position: absolute;
+    /*right: 150px;
+    top: 10px;*/
+    width: fit-content;
+    bottom: -80px;
+    left: 110px;
+    /*padding: 10px;*/
+    /*text-align: center;*/
+    display: flex; /* Make the button a flex container */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content (if not already done by text-align) */
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonSignUpBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+    line-height: 1; /* Add this line */
+    padding: 9px 10px 11px 10px;
+}
+
+    .neonButtonSignUp::before {
+        --buttonMainColor: var(--buttonSignUpMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonSignUp::after {
+        --buttonMainColor: var(--buttonSignUpMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonSignUp:hover {
+        color: black;
+    }
+
+        .neonButtonSignUp:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonSignUp:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonSignUp:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonSignUp:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonSignUp:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonSignUp:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+/* Log in button */
+
+
+
+.logInButtonContainer {
+    position: absolute;
+    /*width: 100%;*/ /* ??? */
+    /*display: flex;*/ /* ??? */
+    /*justify-content: center;*/ /* ??? */
+    margin-top: 0px; /* ??? */
+    margin-bottom: 85px;
+    --buttonMainColor: red;
+    --buttonTextFontSize: 20px;
+    --colorOfButtonText: black;
+    --buttonBorderWidth: 3px;
+    --buttonBorderRadius: 5px;
+    font-family: "Balsamiq Sans";
+    color: black;
+    --inputRippleEffectColor: #4ce3fb;
+    --buttonLogInMainColor: #0ef;
+    --buttonLogInBorder: #0ef;
+    --buttonLogInRippleEffectColor: #07726fb3;
+    --neonButtonDisablingAnimationName: neonButtonDisablingAnimation;
+    --neonButtonDisablingAnimationDelay: 0.5s;
+    --neonButtonDisablingAnimationDuration: 0.5s;
+    --neonButtonDisablingAnimationFillMode: forwards;
+    --neonButtonDisablingAnimationTimingFunction: linear;
+}
+
+
+.neonButtonLogInOnMouseDown {
+    --buttonLogInMainColor: #19b5beaf;
+}
+
+
+
+.neonButtonLogIn {
+    --buttonMainColor: var(--buttonLogInMainColor);
+    --colorOfButtonText: var(--buttonLogInMainColor);
+    --rippleEffectColor: var(--buttonLogInRippleEffectColor);
+    position: absolute;
+    /*right: 150px;
+    top: 10px;*/
+    width: fit-content;
+    bottom: -80px;
+    left: 125px;
+    /*padding: 10px;*/
+    /*text-align: center;*/
+    display: flex; /* Make the button a flex container */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content (if not already done by text-align) */
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonLogInBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+    line-height: 1; /* Add this line */
+    padding: 9px 10px 11px 10px;
+}
+
+    .neonButtonLogIn::before {
+        --buttonMainColor: var(--buttonLogInMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonLogIn::after {
+        --buttonMainColor: var(--buttonLogInMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonLogIn:hover {
+        color: black;
+    }
+
+        .neonButtonLogIn:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonLogIn:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonLogIn:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonLogIn:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonLogIn:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonLogIn:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+/* comon for buttons Log in Sign Up */
+
+.containerRippleEffect {
+    position: absolute;
+    z-index: -1;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--buttonBorderRadius) - var(--buttonBorderWidth));
+    box-sizing: border-box;
+    display: inline-block;
+    z-index: 2;
+}
+
+
+.neonButtonRippleEffect {
+    position: absolute;
+    transform: scale(0);
+    background-color: var(--rippleEffectColor);
+    border-radius: 50%;
+    animation-name: rippleEffectAnimation;
+    animation-delay: 0s;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    z-index: 1;
+}
+
+
+@keyframes neonButtonDisablingAnimation {
+
+    100% {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+
+@keyframes inputDisablingAnimation {
+
+    0% {
+        left: -100%;
+        width: 100%;
+        z-index: 2;
+    }
+
+    100% {
+        left: 100%;
+        z-index: 2;
+        width: 100%;
+    }
+}
+
+
+@keyframes rippleEffectAnimation {
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+/*?????*/
+
+.error-message-span {
+    display: block;
+    color: red;
+    transition: 0.8s linear;
+}
+
+    .error-message-span:has(.ulErrorList) {
+        max-height: 1000px;
+    }
+        
+
+    .error-message-span:not(:has(.ulErrorList)) {
+        max-height: 0px;
+    }
+
+
+.ulErrorHide {
+    opacity: 0;
+    transition: 0.9s linear; /* duration of transition should be greater than transition of style error-message-span */
+}
+
+
+/* shrink height if ul tag contains both .ulErrorList and .ulErrorHide */
+.error-message-span:has(.ulErrorList.ulErrorHide) {
+    max-height: 0px;
+}
+
+
+/*????*/
+
+.formProgressBarContainer {
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+}
+
+.formProgressBar {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    top: 0px;
+    left: 0%;
+    background: linear-gradient(90deg, transparent, #0ef, transparent);
+    animation-name: moveFormProgressBar;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes moveFormProgressBar{
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}

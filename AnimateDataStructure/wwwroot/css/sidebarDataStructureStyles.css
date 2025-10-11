@@ -1,0 +1,275 @@
+﻿/*SIDEBAR kf*/
+
+
+@keyframes sidebarExpand {
+    100% {
+        width: calc(var(--sidebarWidth) * 7);
+    }
+}
+
+
+@keyframes sidebarNarrow {
+    0% {
+        width: calc(var(--sidebarWidth) * 7);
+    }
+
+    100% {
+        width: var(--sidebarWidth);
+    }
+}
+
+
+@property --radiusGlovingInsideButtonContent {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 250px;
+}
+
+
+@keyframes expandRadiusGradientOfGlovingInsideButtonContent {
+    100% {
+        --radiusGlovingInsideButtonContent: var(--radiusExpandedGlovingInsideButtonContent);
+    }
+}
+
+
+@keyframes narrowToInitialRadiusGradientOfGlovingInsideButtonContent {
+    0% {
+        --radiusGlovingInsideButtonContent: var(--radiusExpandedGlovingInsideButtonContent);
+    }
+
+    100% {
+        --radiusGlovingInsideButtonContent: var(--radiusInitialGlovingInsideButtonContent);
+    }
+}
+
+
+@keyframes sidebarBoxColorOnHover {
+    100% {
+        box-shadow: 4px 0px 30px 1px #b200ff8a;
+    }
+}
+
+
+
+
+
+
+/* SIDEBAR CSS */
+
+
+.sidebarContainer {
+    --sidebarWidth: 70px; /* variables for sidebarContainer */
+    --sidebarBorderRadius: 10px;
+    --animationNameSidebar: nothing; /* nonexisted keyframe */
+    --animationDurationSidebar: 0.7s;
+    --animationDelaySidebar: 0s;
+    --animationFillModeSidebar: forwards;
+    --animationTimingFunctionSidebar: ease-in-out;
+    --topOfButtonWithGlowingRadialBorder: 300px; /* variables for buttonWithGlowingRadialBorder */
+    --leftOfButtonWithGlowingRadialBorder: 0px;
+    --marginTopOfButtonWithGlowingRadialBorder: 15px;
+    --widthOfButtonWithGlowingRadialBorder: 100%;
+    --heightOfButtonWithGlowingRadialBorder: var(--sidebarWidth);
+    --colorButtonWithGlowingRadialBorder: rgba(0, 0, 0, 0);
+    --colorOfBorderOfButtonWithGlowingRadialBorder: rgb(84 255 0 / 99%); /* variables for borderOfButtonWithGlowingRadialBorder */
+    --radiusOfGradientOfBorderOfButtonWithGlowingRadialBorder: 400px; /* no need to change after expand or narrowing sidebar */
+    --transparencyPercentageOfRadialGradientOfBorderOfButtonWithGlowingRadialBorder: 45%;
+    --widthBorderOfButtonWithGlowingRadialBorder: 2px; /* variables for contentOfButtonWithGlowingRadialBorder */
+    --borderRadiusOfButtonWithGlowingRadialBorder: 4px;
+    --backgroundContentOfButtonWithGlowingRadialBorder: linear-gradient(0deg, rgba(0, 0, 0), #032734 90%);
+    --colorOfGlowingRadialGradientInsideButtonContent: rgb(9 241 33 / 42%); /* variables for glowingRadialGradientInsideButtonContent */
+    --transparencyPercentageOfGlowingRadialGradientInsideButtonContent: 40%;
+    --radiusGlovingInsideButtonContent: 250px; /* no usage so far initial radius of radial gradient before it changes will be animated It could be any value that differ from declaration in property Here name of variable should coincides with name of atproperty */
+    --radiusExpandedGlovingInsideButtonContent: 1500px; /* no usage so far initial radius of radial gradient before it changes will be animated */
+    --radiusInitialGlovingInsideButtonContent: 250px;
+    --animationNameOfRadiusGradientOfGlovingInsideButtonContent: nothing; /* nonexisted keyframe was expandRadiusGradientOfGlovingInsideButtonContent */
+    --strokeSvgButtonIcon: #10e2dc; /* variables for svgButtonIcon */
+    --strokeSvgButtonIconOnClick: #ffc500;
+    --strokeTextOfButtonInsideSidebar: #10e2dc;
+    --strokeTextOfButtonInsideSidebarOnClick: #ffc500;
+    position: fixed;
+    top: calc(0vh + 65px);
+    left: 0px;
+    border-radius: var(--sidebarBorderRadius);
+    background-color: #0d0f95;
+    height: calc(97vh - 65px);
+    width: var(--sidebarWidth);
+    z-index: 1;
+    animation-name: var(--animationNameSidebar);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+}
+
+
+.sidebarContainerExpand {
+    --animationNameSidebar: sidebarExpand;
+    --radiusGlovingInsideButtonContent: var(--radiusExpandedGlovingInsideButtonContent);
+    --animationNameOfRadiusGradientOfGlovingInsideButtonContent: expandRadiusGradientOfGlovingInsideButtonContent;
+}
+
+
+.sidebarContainerNarrow {
+    --animationNameSidebar: sidebarNarrow;
+    --radiusGlovingInsideButtonContent: var(--radiusInitialGlovingInsideButtonContent);
+    --animationNameOfRadiusGradientOfGlovingInsideButtonContent: narrowToInitialRadiusGradientOfGlovingInsideButtonContent;
+}
+
+
+.sidebar {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: var(--sidebarWidth);
+    background: linear-gradient(to bottom, #8e2de2bd, #4a00e0ba);
+    box-shadow: 4px 0px 10px 1px #7000ff8a;
+    border-radius: var(--sidebarBorderRadius);
+    overflow: hidden;
+    animation-name: var(--animationNameSidebar);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+    z-index: 2;
+}
+
+
+    .sidebar:hover {
+        box-shadow: 4px 0px 15px 1px #ea00ff8a;
+    }
+
+
+/* button Inside Sidebar with radial glowing borders */
+
+.buttonWithGlowingRadialBorder {
+    position: relative;
+    top: var(--topOfButtonWithGlowingRadialBorder);
+    left: var(--leftOfButtonWithGlowingRadialBorder);
+    height: var(--heightOfButtonWithGlowingRadialBorder);
+    width: var(--widthOfButtonWithGlowingRadialBorder);
+    margin-top: var(--marginTopOfButtonWithGlowingRadialBorder);
+    background-color: var(--colorButtonWithGlowingRadialBorder);
+    border-radius: var(--borderRadiusOfButtonWithGlowingRadialBorder);
+    z-index: 2;
+}
+
+
+.menuButtonWithGlowingRadialBorder {
+    --topOfButtonWithGlowingRadialBorder: 50px;
+}
+
+
+.buttonWithGlowingRadialBorderOnClick {
+    --strokeSvgButtonIcon: var(--strokeSvgButtonIconOnClick);
+    --strokeTextOfButtonInsideSidebar: var(--strokeTextOfButtonInsideSidebarOnClick);
+}
+
+
+.borderOfButtonWithGlowingRadialBorder {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(var(--radiusOfGradientOfBorderOfButtonWithGlowingRadialBorder) circle at var(--mouse-x) var(--mouse-y), var(--colorOfBorderOfButtonWithGlowingRadialBorder), transparent var(--transparencyPercentageOfRadialGradientOfBorderOfButtonWithGlowingRadialBorder));
+    border-radius: var(--borderRadiusOfButtonWithGlowingRadialBorder);
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 500ms;
+    animation-name: var(--animationNameSidebar);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+    z-index: 2;
+}
+
+
+.contentOfButtonWithGlowingRadialBorder {
+    position: relative;
+    top: var(--widthBorderOfButtonWithGlowingRadialBorder);
+    left: var(--widthBorderOfButtonWithGlowingRadialBorder);
+    height: calc(100% - var(--widthBorderOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder));
+    width: calc(100% - var(--widthBorderOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder));
+    border-radius: calc(var(--borderRadiusOfButtonWithGlowingRadialBorder) - var(--widthBorderOfButtonWithGlowingRadialBorder)); /* see screenshot about ideal border angles*/
+    background: var(--backgroundContentOfButtonWithGlowingRadialBorder);
+    z-index: 2;
+}
+
+
+.glowingRadialGradientInsideButtonContent {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(var(--radiusGlovingInsideButtonContent) circle at var(--mouse-x) var(--mouse-y), var(--colorOfGlowingRadialGradientInsideButtonContent), transparent var(--transparencyPercentageOfGlowingRadialGradientInsideButtonContent));
+    border-radius: inherit;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 200ms;
+    animation-name: var(--animationNameOfRadiusGradientOfGlovingInsideButtonContent);
+    animation-duration: var(--animationDurationSidebar);
+    animation-delay: var(--animationDelaySidebar);
+    animation-fill-mode: var(--animationFillModeSidebar);
+    animation-timing-function: var(--animationTimingFunctionSidebar);
+    z-index: 2;
+}
+
+
+    .glowingRadialGradientInsideButtonContent:hover {
+        opacity: 1;
+    }
+
+
+.sidebarIconContainer {
+    position: relative;
+    left: 0px;
+    top: calc((-1) * var(--sidebarWidth) + 2 * var(--widthBorderOfButtonWithGlowingRadialBorder));
+    width: calc(var(--sidebarWidth) - 2 * var(--widthBorderOfButtonWithGlowingRadialBorder));
+    height: calc(var(--sidebarWidth) - 2 * var(--widthBorderOfButtonWithGlowingRadialBorder));
+}
+
+
+.svgButtonIcon {
+    width: 100%;
+    height: calc(50% - 0px);
+    position: relative;
+    top: 15px;
+    left: 0px;
+    stroke: var(--strokeSvgButtonIcon);
+    stroke-width: 0.6px;
+    z-index: 1;
+    opacity: 1;
+}
+
+
+.sidebarSvgTextForButtonContainer {
+    position: relative;
+    top: calc((-2) * (var(--sidebarWidth) - 2 * var(--widthBorderOfButtonWithGlowingRadialBorder)));
+    left: calc(var(--sidebarWidth) + 2 * var(--widthBorderOfButtonWithGlowingRadialBorder));
+    width: calc(100% - var(--sidebarWidth) - 2 * var(--widthBorderOfButtonWithGlowingRadialBorder));
+    height: calc(var(--sidebarWidth) - 2 * var(--widthBorderOfButtonWithGlowingRadialBorder));
+}
+
+
+.containerSvgTextInsideButtonContent {
+    display: block;
+    font: bold 20px Gothic, Arial;
+    width: 690px;
+    height: 50px;
+    position: relative;
+    top: 12px;
+    left: 0px;
+}
+
+
+.textOfButtonInsideSidebar {
+    fill: none;
+    stroke: var(--strokeTextOfButtonInsideSidebar);
+    stroke-width: 0.3px;
+    stroke-linejoin: round;
+}

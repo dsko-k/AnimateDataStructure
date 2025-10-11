@@ -1,0 +1,394 @@
+export class DataToHtmlTableConfigurationAttributesReaderAvlTree
+{
+    // for table with tree characteristics
+    getDataTableToHtmlTableConfigurationsForTreeCharacteristics(dataStructure)
+    {
+        // TO DO: Move configuration object to the server
+        const dataToHtmlTableAttributes = {
+
+            tableTitle: "AVL Tree Characteristics",
+
+            idTable: "idTableTreeCharacteristics",
+            idTableContainer: "idTableTreeCharacteristicsContainer",
+            idTableSearchInput: "idTableTreeCharacteristicsSearchInput",
+
+            idTableResizerVerticalContainer: "idTableTreeCharacteristicsResizerVerticalContainer",
+            idTableResizerBottomHorizontalContainer: "idTableTreeCharacteristicsResizerBottomHorizontalContainer",
+
+
+
+            tableHeaderAttributes: {
+
+                column1: "Tree charecteristic",
+
+                column2: "Value",
+            },
+
+            // key is field name of tree variable - value is a title in the table
+
+            dataStructureFieldsTitlesAttributes: {
+
+                alignedTimes: "Alignments in tree",
+
+                balancedTimes: "Balanced times",
+
+                currentAmountOfNodesInTree: "Nodes in tree",
+
+                lastAddedNode: "The last added node value",
+
+                lastDeletedNode: "The last deleted node value",
+
+                root: "Root node value",
+
+                totalAddedNodes: "Added nodes",
+
+                treeLevels: "Levels in tree",
+
+                lastClickedNode: "Last clicked node", // inside treeViewState
+            },
+
+
+            configureTableRowsObject()
+            {
+                return {
+
+                    row0: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.alignedTimes,
+                        column2: dataStructure.alignedTimes,
+                    },
+
+                    row1: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.balancedTimes,
+                        column2: dataStructure.balancedTimes,
+                    },
+
+                    row2: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.currentAmountOfNodesInTree,
+                        column2: dataStructure.currentAmountOfNodesInTree,
+                    },
+
+                    row3: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.lastAddedNode,
+                        column2: !dataStructure.lastAddedNode ? "-" : dataStructure.lastAddedNode.value,
+                    },
+
+                    row4: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.lastDeletedNode,
+                        column2: !dataStructure.lastDeletedNode ? "-" : dataStructure.lastDeletedNode.value,
+                    },
+
+                    row5: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.root,
+                        column2: !dataStructure.root ? "-" : dataStructure.root.value,
+                    },
+
+                    row6: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.totalAddedNodes,
+                        column2: dataStructure.totalAddedNodes,
+                    },
+
+                    row7: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.treeLevels,
+                        column2: dataStructure.treeLevels,
+                    },
+
+                    row8: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.lastClickedNode,
+                        column2: !dataStructure.treeViewState.lastClickedNode ? "-" : dataStructure.treeViewState.lastClickedNode.value,
+                    },
+
+                };
+            },
+
+        };
+
+        return dataToHtmlTableAttributes;
+    }
+
+
+    // for table with logging operations on tree: add node, find node, delete node, traversing node, conditionally traversing node
+    getDataTableToHtmlTableConfigurationsForTreeOperations(dataStructure)
+    {
+        // TO DO: Move configuration object to the server
+        const dataToHtmlTableAttributes = {
+
+            tableTitle: "Operations in AVL Tree",
+
+            idTable: "idTableTreeOperations",
+            idTableContainer: "idTableTreeOperationsContainer",
+            idTableSearchInput: "idTableTreeOperationsSearchInput",
+
+            idTableResizerVerticalContainer: "idTableTreeOperationsResizerVerticalContainer",
+            idTableResizerBottomHorizontalContainer: "idTableTreeOperationsResizerBottomHorizontalContainer",
+
+            tableHeaderAttributes: {
+
+                column1: "Operation",
+
+                column2: "Node value",
+
+                column3: "Status", // processing, success, failure
+            },
+
+
+            configureTableRowsObject()
+            {
+                let rowCounter = 0;
+
+                let tableRowsObject = {};
+
+                if (!dataStructure.operations)
+                {
+                    return tableRowsObject; // {}
+                }
+
+                dataStructure.operations.forEach(operation =>
+                {
+
+                    tableRowsObject[`row${rowCounter++}`] = {
+
+                        column1: operation.typeOfOperation,
+                        column2: operation.nodeValue,
+                        column3: operation.statusOfOperation,
+                    };
+                });
+
+                // tableRowsObject is like:
+
+                //row0: {
+
+                //    column1: dataStructure..,
+                //    column2: dataStructure..,
+                //    column3: dataStructure..,
+                //},
+
+                //row1: {
+
+                //    column1: dataStructure..,
+                //    column2: dataStructure..,
+                //    column3: dataStructure..,
+                //},
+
+                return tableRowsObject; // object of rows objects (not an array)
+
+            },
+
+        };
+
+        return dataToHtmlTableAttributes;
+    }
+
+
+    // for table about all types traversing tree
+    getDataTableToHtmlTableConfigurationsForTreeTraversing(dataStructure)
+    {
+        // TO DO: Move configuration object to the server
+        const dataToHtmlTableAttributes = {
+
+            tableTitle: "Traversing AVL Tree",
+
+            idTable: "idTableTreeTraversing",
+            idTableContainer: "idTableTreeTraversingContainer",
+            idTableSearchInput: "idTableTreeTraversingSearchInput",
+
+            idTableResizerVerticalContainer: "idTableTreeOperationsResizerVerticalContainer",
+            idTableResizerBottomHorizontalContainer: "idTableTreeOperationsResizerBottomHorizontalContainer",
+
+            tableHeaderAttributes: {
+
+                column1: "Traversing type",
+
+                column2: "Node value",
+
+                column3: "Status",
+            },
+
+
+            configureTableRowsObject()
+            {
+                let rowCounter = 0;
+
+                let tableRowsObject = {};
+
+                if (!dataStructure.traversing)
+                {
+                    return tableRowsObject; // {}
+                }
+
+                dataStructure.traversing.forEach(traversingOperation =>
+                {
+                    tableRowsObject[`row${rowCounter++}`] = {
+
+                        column1: traversingOperation.typeOfOperation,
+                        column2: traversingOperation.nodeValue,
+                        column3: traversingOperation.statusOfOperation,
+                    };
+                });
+
+                // tableRowsObject is like:
+
+                //row0: {
+
+                //    column1: dataStructure..,
+                //    column2: dataStructure..,
+                //    column3: dataStructure..,
+                //},
+
+                //row1: {
+
+                //    column1: dataStructure..,
+                //    column2: dataStructure..,
+                //    column3: dataStructure..,
+                //},
+
+                return tableRowsObject; // object of rows objects (not an array)
+
+            },
+
+        };
+
+        return dataToHtmlTableAttributes;
+    }
+
+
+    // for table with node info
+    getDataTableToHtmlTableConfigurationsForNodeInfo(dataStructure)
+    {
+        // TO DO: Move configuration object to the server
+        const dataToHtmlTableAttributes = {
+
+            tableTitle: "Node info (click on node to see)",
+
+            idTable: "idTableNodeInfo",
+            idTableContainer: "idTableNodeInfoContainer",
+            idTableSearchInput: "idTableNodeInfoSearchInput",
+
+            idTableResizerVerticalContainer: "idTableNodeInfoResizerVerticalContainer",
+            idTableResizerBottomHorizontalContainer: "idTableNodeInfoResizerBottomHorizontalContainer",
+
+
+
+            tableHeaderAttributes: {
+
+                column1: "Node",
+
+                column2: "Info",
+            },
+
+            // key is field name of tree variable - value is a title in the table
+
+            dataStructureFieldsTitlesAttributes: {
+
+                value: "Node value",
+
+                parentNode: "Parent of node",
+
+                leftChild: "Left child",
+
+                rightChild: "Right child",
+
+                levelInTree: "Node placed at level",
+
+                orderNumber: "Order number of node",
+
+                xCoordinate: "X-coordinate",
+
+                yCoordinate: "Y-coordinate",
+
+                isLeftChild: "Is node a left child",
+
+                balanceFactor: "Balance factor",
+            },
+
+
+            configureTableRowsObject()
+            {
+                //let lastClickedNode = dataStructure.treeViewState.lastClickedNode;
+                let valueOfNodeThatWasClickedLastTime = dataStructure.treeViewState.valueOfNodeThatWasClickedLastTime;
+
+                let nodeThatWasClickedLastTime = dataStructure.findNode(valueOfNodeThatWasClickedLastTime);
+
+                if (!nodeThatWasClickedLastTime)
+                {
+                    return {};
+                }
+
+                return {
+
+                    row0: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.value,
+                        column2: nodeThatWasClickedLastTime.value,
+                    },
+
+                    row1: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.parentNode,
+                        column2: nodeThatWasClickedLastTime.parentNode ? nodeThatWasClickedLastTime.parentNode.value : "null",
+                    },
+
+                    row2: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.leftChild,
+                        column2: nodeThatWasClickedLastTime.leftChild ? nodeThatWasClickedLastTime.leftChild.value : "null",
+                    },
+
+                    row3: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.rightChild,
+                        column2: nodeThatWasClickedLastTime.rightChild ? nodeThatWasClickedLastTime.rightChild.value : "null",
+                    },
+
+                    row4: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.levelInTree,
+                        column2: nodeThatWasClickedLastTime.levelInTree,
+                    },
+
+                    row5: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.orderNumber,
+                        column2: nodeThatWasClickedLastTime.orderNumber,
+                    },
+
+                    row6: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.xCoordinate,
+                        column2: nodeThatWasClickedLastTime.xCoordinate,
+                    },
+
+                    row7: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.yCoordinate,
+                        column2: nodeThatWasClickedLastTime.yCoordinate,
+                    },
+
+                    row8: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.isLeftChild,
+                        column2: nodeThatWasClickedLastTime.isLeftChild,
+                    },
+
+                    row9: {
+
+                        column1: this.dataStructureFieldsTitlesAttributes.balanceFactor,
+                        column2: nodeThatWasClickedLastTime.balanceFactor,
+                    },
+
+                };
+            },
+
+        };
+
+        return dataToHtmlTableAttributes;
+    }
+}

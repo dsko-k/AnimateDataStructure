@@ -1,0 +1,1071 @@
+﻿/* Buttons begin */
+
+
+
+
+.inputWithButtonsContainer {
+    --buttonMainColor: red;
+    --buttonTextFontSize: 20px;
+    --colorOfButtonText: black;
+    --buttonBorderWidth: 3px;
+    --buttonBorderRadius: 5px;
+    font-family: "Balsamiq Sans";
+    color: black;
+    --inputRippleEffectColor: #4ce3fb;
+    --buttonAddMainColor: lime;
+    --buttonAddBorder: lime;
+    --buttonAddRippleEffectColor: #388a2fc3;
+    --buttonFindMainColor: yellow;
+    --buttonFindBorder: yellow;
+    --buttonFindRippleEffectColor: #8e8f54c9;
+    --buttonDeleteMainColor: red;
+    --buttonDeleteBorder: red;
+    --buttonDeleteRippleEffectColor: pink;
+    --buttonTraverseMenuMainColor: #1ef3ff;
+    --buttonTraverseMenuBorder: #1ef3ff;
+    --buttonTraverseMenuRippleEffectColor: #236a6fb1;
+    --buttonTraverseInorderMainColor: lime;
+    --buttonTraverseInorderBorder: lime;
+    --buttonTraverseInorderRippleEffectColor: #388a2fc3;
+    --buttonTraversePreorderMainColor: deepskyblue;
+    --buttonTraversePreorderBorder: deepskyblue;
+    --buttonTraversePreorderRippleEffectColor: #2270a3bc;
+    --buttonTraversePostorderMainColor: #be00ff;
+    --buttonTraversePostorderBorder: #be00ff;
+    --buttonTraversePostorderRippleEffectColor: #59185eb3;
+    --buttonSaveMainColor: orange;
+    --buttonSaveBorder: orange;
+    --buttonSaveRippleEffectColor: #59185eb3;
+    --buttonAuthenticateMainColor: orange;
+    --buttonAuthenticateBorder: orange;
+    --buttonAuthenticateRippleEffectColor: #59185eb3;
+    --neonButtonDisablingAnimationName: neonButtonDisablingAnimation;
+    --neonButtonDisablingAnimationDelay: 0.5s;
+    --neonButtonDisablingAnimationDuration: 0.5s;
+    --neonButtonDisablingAnimationFillMode: forwards;
+    --neonButtonDisablingAnimationTimingFunction: linear;
+}
+
+
+.inputEffectSubContainer {
+    --rippleEffectColor: var(--inputRippleEffectColor);
+    position: relative;
+    left: 85px;
+    top: 5px;
+    width: 370px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+
+.inputProgressBar {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 50%;
+    border-radius: 50%;
+    background: linear-gradient(to left, #ffffff00, #00fc6ebd, #ffffff00);
+    animation-name: inputDisablingAnimation;
+    animation-delay: 0s;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    filter: blur(4px);
+}
+
+
+.input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    z-index: 0;
+    background-color: #9ec8ed;
+    border: solid 3px transparent;
+}
+
+    .input[type="text"] {
+        color: blue;
+    }
+
+    .input::placeholder {
+        color: #7800ff;
+    }
+
+    .input:focus {
+        background-color: #5ba8ed;
+        border: solid 1px #45f3ff;
+        color: blue;
+        outline: none;
+    }
+
+    .input:disabled {
+        background-color: #5ba8ed;
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+        .input:disabled::placeholder {
+            color: lime;
+            font-size: 17px;
+        }
+
+
+/*??????*/
+
+
+.inputEffectSubContainer label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #7800ff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+
+.inputEffectSubContainer .input:focus ~ label {
+    top: -15px;
+}
+
+
+.inputEffectSubContainer .input:not(:placeholder-shown) ~ label {
+    top: -15px;
+}
+
+/*.inputEffectSubContainer .input:focus:placeholder-shown ~ label {
+    top: 50%;
+}*/
+
+
+
+
+.spanErrorMessageDataStructureInputValue {
+    position: absolute;
+    left: 94px;
+    top: 60px;
+    width: 370px;
+    /*height: auto;*/
+    min-height: 0px;
+    background-color: transparent;
+    border: red 1px solid;
+    opacity: 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    z-index: 2;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.ulErrorListDataStructureInputValue {
+    list-style-position: inside;
+    list-style-type: disc;
+    padding-left: 5px;
+    color: #ff00c3;
+    width: calc(100% - 10px);
+}
+
+li {
+    overflow-wrap: break-word;
+    font-size: 20px;
+}
+
+
+
+
+
+/* shrink height if ul tag contains both .ulErrorList and .ulErrorHide */
+.spanErrorMessageDataStructureInputValue:has(.ulErrorListDataStructureInputValue) {
+    max-height: 1000px;
+    border: red 1px solid;
+    opacity: 1;
+}
+
+
+
+
+
+
+.neonButtonAddOnMouseDown {
+    --buttonAddMainColor: #00f10c93;
+}
+
+.neonButtonFindOnMouseDown {
+    --buttonFindMainColor: #e0e0008f;
+}
+
+.neonButtonDeleteOnMouseDown {
+    --buttonDeleteMainColor: #c80303a4;
+}
+
+.neonButtonTraverseMenuOnMouseDown {
+    --buttonTraverseMenuMainColor: #19b5beaf;
+}
+
+.neonButtonTraverseInorderOnMouseDown {
+    --buttonTraverseInorderMainColor: #00f10c93;
+}
+
+.neonButtonTraversePreorderOnMouseDown {
+    --buttonTraversePreorderMainColor: #039ad3cc;
+}
+
+.neonButtonTraversePostorderOnMouseDown {
+    --buttonTraversePostorderMainColor: #a601deb1;
+}
+
+.neonButtonSaveOnMouseDown {
+    --buttonSaveMainColor: #cc8c17be;
+}
+
+
+
+.neonButtonAdd {
+    --buttonMainColor: var(--buttonAddMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonAddRippleEffectColor);
+    position: absolute;
+    left: 500px;
+    top: 10px;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonAddBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonAdd::before {
+        --buttonMainColor: var(--buttonAddMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonAdd::after {
+        --buttonMainColor: var(--buttonAddMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonAdd:hover {
+        color: black;
+    }
+
+        .neonButtonAdd:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonAdd:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonAdd:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonAdd:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonAdd:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonAdd:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+.neonButtonFind {
+    --buttonMainColor: var(--buttonFindMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonFindRippleEffectColor);
+    position: absolute;
+    left: 710px;
+    top: 10px;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonFindBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonFind::before {
+        --buttonMainColor: var(--buttonFindMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonFind::after {
+        --buttonMainColor: var(--buttonFindMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonFind:hover {
+        color: black;
+    }
+
+        .neonButtonFind:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonFind:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonFind:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonFind:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonFind:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonFind:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+.neonButtonDelete {
+    --buttonMainColor: var(--buttonDeleteMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonDeleteRippleEffectColor);
+    position: absolute;
+    left: 920px;
+    top: 10px;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonDeleteBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonDelete::before {
+        --buttonMainColor: var(--buttonDeleteMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonDelete::after {
+        --buttonMainColor: var(--buttonDeleteMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonDelete:hover {
+        color: black;
+    }
+
+        .neonButtonDelete:hover::after {
+            opacity: 1;
+        }
+
+        .neonButtonDelete:hover::before {
+            opacity: 0.8;
+        }
+
+    .neonButtonDelete:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonDelete:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonDelete:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonDelete:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+.neonButtonTraverseMenu {
+    --buttonMainColor: var(--buttonTraverseMenuMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonTraverseMenuRippleEffectColor);
+    position: absolute;
+    left: 1150px;
+    top: 10px;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonTraverseMenuBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonTraverseMenu::before {
+        --buttonMainColor: var(--buttonTraverseMenuMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonTraverseMenu::after {
+        --buttonMainColor: var(--buttonTraverseMenuMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonTraverseMenu:hover {
+        color: black;
+    }
+
+        .neonButtonTraverseMenu:hover::after {
+            opacity: 1;
+        }
+
+        .neonButtonTraverseMenu:hover::before {
+            opacity: 0.8;
+        }
+
+    .neonButtonTraverseMenu:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonTraverseMenu:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonTraverseMenu:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraverseMenu:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+.neonButtonTraverseInorder {
+    --buttonMainColor: var(--buttonTraverseInorderMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonTraverseInorderRippleEffectColor);
+    position: relative;
+    left: 0px;
+    top: 10px;
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonTraverseInorderBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonTraverseInorder::after {
+        --buttonMainColor: var(--buttonTraverseInorderMainColor);
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -1px;
+        right: 0px;
+        bottom: 0px;
+        width: calc(100% + 2px);
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonTraverseInorder:hover {
+        color: black;
+    }
+
+        .neonButtonTraverseInorder:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraverseInorder:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonTraverseInorder:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraverseInorder:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+.neonButtonTraversePreorder {
+    --buttonMainColor: var(--buttonTraversePreorderMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonTraversePreorderRippleEffectColor);
+    position: relative;
+    left: 0px;
+    top: 20px;
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonTraversePreorderBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonTraversePreorder::after {
+        --buttonMainColor: var(--buttonTraversePreorderMainColor);
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -1px;
+        right: 0px;
+        bottom: 0px;
+        width: calc(100% + 2px);
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonTraversePreorder:hover {
+        color: black;
+    }
+
+        .neonButtonTraversePreorder:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraversePreorder:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonTraversePreorder:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraversePreorder:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+.neonButtonTraversePostorder {
+    --buttonMainColor: var(--buttonTraversePostorderMainColor);
+    --colorOfButtonText: var(--buttonMainColor);
+    --rippleEffectColor: var(--buttonTraversePostorderRippleEffectColor);
+    position: relative;
+    left: 0px;
+    top: 30px;
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonTraversePostorderBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonTraversePostorder::after {
+        --buttonMainColor: var(--buttonTraversePostorderMainColor);
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -1px;
+        right: 0px;
+        bottom: 0px;
+        width: calc(100% + 2px);
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonTraversePostorder:hover {
+        color: black;
+    }
+
+        .neonButtonTraversePostorder:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraversePostorder:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonTraversePostorder:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonTraversePostorder:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+.neonButtonSave {
+    --buttonMainColor: var(--buttonSaveMainColor);
+    --colorOfButtonText: var(--buttonSaveMainColor);
+    --rippleEffectColor: var(--buttonSaveRippleEffectColor);
+    position: absolute;
+    left: 1360px;
+    top: 10px;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonSaveBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+}
+
+    .neonButtonSave::before {
+        --buttonMainColor: var(--buttonSaveMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonSave::after {
+        --buttonMainColor: var(--buttonSaveMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonSave:hover {
+        color: black;
+    }
+
+        .neonButtonSave:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonSave:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonSave:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonSave:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonSave:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonSave:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+
+/*??????*/
+
+.neonButtonAuthenticateOnMouseDown {
+    --buttonAuthenticateMainColor: #cc8c17be;
+}
+
+
+.neonButtonAuthenticate {
+    --buttonMainColor: var(--buttonAuthenticateMainColor);
+    --colorOfButtonText: var(--buttonAuthenticateMainColor);
+    --rippleEffectColor: var(--buttonAuthenticateRippleEffectColor);
+    position: absolute;
+    right: 200px;
+    top: 10px;
+    width: fit-content;
+    padding: 10px;
+    text-align: center;
+    /*display: flex;*/
+    display: inline-block;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonAuthenticateBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+    /*line-height: 1;*/
+    /*padding: 9px 10px 11px 10px;*/
+}
+
+    .neonButtonAuthenticate::before {
+        --buttonMainColor: var(--buttonAuthenticateMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonAuthenticate::after {
+        --buttonMainColor: var(--buttonAuthenticateMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonAuthenticate:hover {
+        color: black;
+    }
+
+        .neonButtonAuthenticate:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonAuthenticate:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonAuthenticate:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonAuthenticate:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonAuthenticate:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonAuthenticate:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+
+.listOfTraversalMenu {
+    visibility: var(--visibilityListOfTraversalMenu, hidden);
+    list-style: none;
+    font-size: 21px;
+    text-align: center;
+    padding: 0.2em 0.5em;
+    background: black;
+    border: 1px rgb(69 20 165) solid;
+    box-shadow: 0px 0em 20px 5px rgb(42 20 165);
+    border-radius: 5px;
+    color: #05ddf3;
+    position: relative;
+    left: 1350px;
+    top: -40px;
+    width: 130px;
+    height: 185px;
+    transform: translate(-50%);
+    transition: 0.2s;
+    z-index: 1;
+}
+
+
+.showListOfTraversalMenu {
+    --visibilityListOfTraversalMenu: visible;
+}
+
+
+.listOfTraversalMenu:hover {
+    border: 1px rgb(108 39 242) solid;
+}
+
+
+.containerRippleEffect {
+    position: absolute;
+    z-index: -1;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--buttonBorderRadius) - var(--buttonBorderWidth));
+    box-sizing: border-box;
+    display: inline-block;
+    z-index: 2;
+}
+
+
+.neonButtonRippleEffect {
+    position: absolute;
+    transform: scale(0);
+    background-color: var(--rippleEffectColor);
+    border-radius: 50%;
+    animation-name: rippleEffectAnimation;
+    animation-delay: 0s;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    z-index: 1;
+}
+
+
+@keyframes neonButtonDisablingAnimation {
+
+    100% {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+@keyframes inputDisablingAnimation {
+
+    0% {
+        left: -100%;
+        width: 100%;
+        z-index: 2;
+    }
+
+    100% {
+        left: 100%;
+        z-index: 2;
+        width: 100%;
+    }
+}
+
+
+@keyframes rippleEffectAnimation {
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+.buttonAddRange {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 1800px;
+    top: 10px;
+    background-color: greenyellow;
+    visibility: visible;
+}
+
+
+

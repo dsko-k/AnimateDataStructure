@@ -1,0 +1,440 @@
+﻿
+
+
+
+/* Buttons begin */
+/*.inputWithButtonsContainer {
+    --buttonMainColor: red;
+    --buttonTextFontSize: 20px;
+    --colorOfButtonText: black;
+    --buttonBorderWidth: 3px;
+    --buttonBorderRadius: 5px;
+    font-family: "Balsamiq Sans";
+    color: black;
+    --inputRippleEffectColor: #4ce3fb;*/
+    /*--buttonLogInMainColor: lime;
+    --buttonLogInBorder: lime;
+    --buttonLogInRippleEffectColor: #388a2fc3;*/
+    /*--buttonAuthenticateMainColor: orange;
+    --buttonAuthenticateBorder: orange;
+    --buttonAuthenticateRippleEffectColor: #59185eb3;
+    --neonButtonDisablingAnimationName: neonButtonDisablingAnimation;
+    --neonButtonDisablingAnimationDelay: 0.5s;
+    --neonButtonDisablingAnimationDuration: 0.5s;
+    --neonButtonDisablingAnimationFillMode: forwards;
+    --neonButtonDisablingAnimationTimingFunction: linear;
+}
+
+
+.neonButtonAuthenticateOnMouseDown {
+    --buttonAuthenticateMainColor: #cc8c17be;
+}
+
+
+.neonButtonAuthenticate {
+    --buttonMainColor: var(--buttonAuthenticateMainColor);
+    --colorOfButtonText: var(--buttonAuthenticateMainColor);
+    --rippleEffectColor: var(--buttonAuthenticateRippleEffectColor);
+    position: absolute;
+    right: 150px;
+    top: 10px;
+    width: fit-content;
+    padding: 10px;*/
+    /*text-align: center;*/
+    /*display: flex;*/ /* Make the button a flex container */
+    /*align-items: center;*/ /* Vertically center content */
+    /*justify-content: center;*/ /* Horizontally center content (if not already done by text-align) */
+    /*white-space: nowrap;
+    font-size: var(--buttonTextFontSize);
+    color: var(--colorOfButtonText);
+    border: var(--buttonAuthenticateBorder) var(--buttonBorderWidth) solid;
+    border-radius: var(--buttonBorderRadius);
+    background: transparent;
+    text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
+    box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
+    cursor: default;
+    line-height: 1;*/ /* Add this line */
+    /*padding: 9px 10px 11px 10px;
+}
+
+    .neonButtonAuthenticate::before {
+        --buttonMainColor: var(--buttonAuthenticateMainColor);
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--buttonMainColor);
+        transform: perspective(0.51em) rotateX(15deg) scale(1.3, 0.42);
+        filter: blur(12px);
+        opacity: 0.6;
+        pointer-events: none;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonAuthenticate::after {
+        --buttonMainColor: var(--buttonAuthenticateMainColor);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--buttonMainColor);
+        box-shadow: 0 0 2em var(--buttonMainColor);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    .neonButtonAuthenticate:hover {
+        color: black;
+    }
+
+        .neonButtonAuthenticate:hover::before {
+            opacity: 0.8;
+        }
+
+        .neonButtonAuthenticate:hover::after {
+            opacity: 1;
+        }
+
+    .neonButtonAuthenticate:focus {
+        color: black;
+        background: var(--buttonMainColor);
+    }
+
+        .neonButtonAuthenticate:focus::before {
+            opacity: 1;
+        }
+
+        .neonButtonAuthenticate:focus::after {
+            opacity: 1;
+        }
+
+    .neonButtonAuthenticate:disabled {
+        animation-name: var(--neonButtonDisablingAnimationName);
+        animation-delay: var(--neonButtonDisablingAnimationDelay);
+        animation-duration: var(--neonButtonDisablingAnimationDuration);
+        animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
+        animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
+    }
+
+
+.containerRippleEffect {
+    position: absolute;
+    z-index: -1;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--buttonBorderRadius) - var(--buttonBorderWidth));
+    box-sizing: border-box;
+    display: inline-block;
+    z-index: 2;
+}
+
+
+.neonButtonRippleEffect {
+    position: absolute;
+    transform: scale(0);
+    background-color: var(--rippleEffectColor);
+    border-radius: 50%;
+    animation-name: rippleEffectAnimation;
+    animation-delay: 0s;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    z-index: 1;
+}
+
+
+@keyframes neonButtonDisablingAnimation {
+
+    100% {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+
+@keyframes inputDisablingAnimation {
+
+    0% {
+        left: -100%;
+        width: 100%;
+        z-index: 2;
+    }
+
+    100% {
+        left: 100%;
+        z-index: 2;
+        width: 100%;
+    }
+}
+
+
+@keyframes rippleEffectAnimation {
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}*/
+
+
+
+/* Cards */
+
+
+body {
+    --bodyBackgroundColor: black;
+    align-items: center;
+    background-color: var(--bodyBackgroundColor);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    /*background-image: url('../images/icons/pexels-codioful-6984986.jpg');*/
+}
+
+.cardsContainer {
+    --buttonBorderRadius: 10px; /* do not rename for ripple effect */
+    --buttonBorderWidth: 1px; /* do not rename for ripple effect */
+    --card-color: rgb(3 6 22);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 916px;
+    width: calc(100% - 20px);
+}
+
+    .cardsContainer:hover > .card::after {
+        opacity: 1;
+    }
+
+.card {
+    --rippleEffectColor: rgba(9, 241, 33, 0.35);
+    --buttonBorderRadius: 10px;
+    background-color: rgb(67 42 152 / 47%);
+    border-radius: var(--buttonBorderRadius);
+    cursor: pointer;
+    display: flex;
+    height: 260px;
+    flex-direction: column;
+    position: relative;
+    width: 300px;
+    flex-basis: calc(33.33% - var(--buttonBorderRadius));
+}
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card::before, .card::after {
+        border-radius: inherit;
+        content: "";
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+    }
+
+    .card::before {
+        /*background: radial-gradient( 800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.16), transparent 40% );*/
+        background: radial-gradient( 800px circle at var(--mouse-x) var(--mouse-y), rgba(9, 241, 33, 0.16), transparent 40% );
+        z-index: 3;
+    }
+
+    .card::after {
+        /*background: radial-gradient( 600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40% );*/
+        background: radial-gradient( 800px circle at var(--mouse-x) var(--mouse-y), rgba(9, 241, 33, 0.4), transparent 40% );
+        z-index: 1;
+    }
+
+    .card > .card-content {
+        background-color: var(--card-color);
+        border-radius: inherit;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        inset: 1px;
+        padding: 10px;
+        position: absolute;
+        z-index: 2;
+    }
+
+/* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
+
+h1, h2, h3, h4, span {
+    color: rgb(138 50 195);
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    margin: 0px;
+}
+
+i {
+    color: rgb(240, 240, 240);
+}
+
+.card-image {
+    align-items: center;
+    display: flex;
+    height: 140px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .card-image > i {
+        font-size: 6em;
+        opacity: 0.25;
+    }
+
+.card-info-wrapper {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    padding: 0px 20px;
+}
+
+.card-info {
+    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+}
+
+    .card-info > i {
+        font-size: 1em;
+        height: 20px;
+        line-height: 20px;
+    }
+
+.card-info-title > h3 {
+    font-size: 1.4em;
+    line-height: 25px;
+}
+
+.card-info-title > h4 {
+    color: rgb(49 236 255 / 56%);
+    font-size: 0.95em;
+    margin-top: 10px;
+}
+
+.card-info-title > h4:hover {
+    color: rgb(49 236 255 / 100%);
+    font-size: 0.95em;
+}
+
+/* -- ↓ ↓ ↓ responsiveness ↓ ↓ ↓ -- */
+
+@media(max-width: 1000px) {
+    body {
+        align-items: flex-start;
+        overflow: auto;
+    }
+
+    .cardsContainer {
+        max-width: 1000px;
+        padding: 10px 0px;
+    }
+
+    .card {
+        flex-shrink: 1;
+        width: calc(50% - 4px);
+    }
+}
+
+@media(max-width: 500px) {
+    .card {
+        height: 180px;
+    }
+
+    .card-image {
+        height: 80px;
+    }
+
+        .card-image > i {
+            font-size: 3em;
+        }
+
+    .card-info-wrapper {
+        padding: 0px 10px;
+    }
+
+    .card-info > i {
+        font-size: 0.8em;
+    }
+
+    .card-info-title > h3 {
+        font-size: 0.9em;
+    }
+
+    .card-info-title > h4 {
+        font-size: 0.8em;
+        margin-top: 4px;
+    }
+}
+
+@media(max-width: 320px) {
+    .card {
+        width: 100%;
+    }
+}
+
+/* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
+
+#youtube-link {
+    bottom: 10px;
+}
+
+    #youtube-link > i {
+        color: rgb(239, 83, 80);
+    }
+
+#source-link {
+    bottom: 60px;
+}
+
+    #source-link > i {
+        color: rgb(94, 106, 210);
+    }
+
+.link {
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background-color: rgb(67 42 152 / 27%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: inline-flex;
+    gap: 5px;
+    left: 10px;
+    padding: 10px 20px;
+    position: fixed;
+    text-decoration: none;
+    z-index: 100;
+}
+
+    .link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .link > i, .link > span {
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .link > span {
+        color: #0cf73c;
+    }

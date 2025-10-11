@@ -1,0 +1,16 @@
+﻿@* This partial view should be inserted inside  <div id="idInpuntContainer" class="inputWithButtonsContainer"> *@
+
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+@{
+    var tokens = Antiforgery.GetAndStoreTokens(Context);
+    var isAuthenticated = User?.Identity?.IsAuthenticated ?? false;
+}
+
+@* It holds the anti-forgery token *@
+<input type="hidden" id="RequestVerificationToken" name="@tokens.FormFieldName" value="@tokens.RequestToken" />
+
+@* It holds the user's authentication status *@
+<input type="hidden" id="isAuthenticated" value="@isAuthenticated.ToString().ToLower()" />
+
+<button id="idButtonAuthenticate" class="neonButtonAuthenticate" type="button">Authenticate</button>
