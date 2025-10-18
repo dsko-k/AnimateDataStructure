@@ -28,4 +28,11 @@ export class ContextControlEffects
         this.controlButtonEffects.onClickCard(idCardOfListDataStructure, urlToOpenAfterRippleEffectEnded, isOpenUrlInNewBrowserTab);
     }
 
+
+    // ????
+    addEffectsToCardHistory(idCardOfListDataStructure, urlToOpenAfterRippleEffectEnded, isOpenUrlInNewBrowserTab)
+    {
+        this.controlButtonEffects.onClickCardHistory(idCardOfListDataStructure, urlToOpenAfterRippleEffectEnded, isOpenUrlInNewBrowserTab);
+    }
+
 }

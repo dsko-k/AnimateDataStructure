@@ -1,0 +1,11 @@
+﻿body {
+	--bodyBackgroundColor: black;
+	align-items: center;
+	background-color: var(--bodyBackgroundColor);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	margin: 0px;
+	overflow: hidden;
+	padding: 0px;
+}

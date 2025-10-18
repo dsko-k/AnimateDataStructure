@@ -11,13 +11,13 @@ namespace AnimateDataStructure.Web.Controllers
 {
     public class AuthenticationController : Controller
     {
-        private readonly IAuthenticationService _authenticationService;
-        private readonly ILogger<AuthenticationController> _logger;
+        private readonly IAuthenticationService authenticationService;
+        private readonly ILogger<AuthenticationController> logger;
 
         public AuthenticationController(IAuthenticationService authenticationService, ILogger<AuthenticationController> logger)
         {
-            _authenticationService = authenticationService;
-            _logger = logger;
+            this.authenticationService = authenticationService;
+            this.logger = logger;
         }
 
         [HttpPost]
@@ -26,11 +26,11 @@ namespace AnimateDataStructure.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _authenticationService.RegisterAsync(registerViewModel.Email, registerViewModel.Password, registerViewModel.UserName);
+                var result = await authenticationService.RegisterAsync(registerViewModel.Email, registerViewModel.Password, registerViewModel.UserName);
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User registered successfully");
+                    logger.LogInformation("User {Email} registered successfully", registerViewModel.Email);
                     return Json(new { success = true });
                 }
                 else
@@ -51,22 +51,22 @@ namespace AnimateDataStructure.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                logger.LogWarning("Login attempt failed due to invalid ModelState for user {Email}", loginViewModel.Email);
                 return BadRequest(ModelState);
             }
 
             // Pass the login details to the Authentication Service
-            var result = await _authenticationService.LoginAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.RememberMe);
+            var result = await authenticationService.LoginAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.RememberMe);
 
             // Check if the login was successful
             if (result.Succeeded)
             {
-                _logger.LogInformation("User logged in.");
+                logger.LogInformation("User {Email} logged in", loginViewModel.Email);
                 return Json(new { success = true });
             }
             else
             {
-                // Use your existing extension method to handle remaining errors
-                // This now correctly handles a non-successful login result
+                logger.LogWarning("Login failed for user {Email}", loginViewModel.Email);
                 ModelState.AddLoginFormErrorsToModelState(result, typeof(LoginViewModel));
                 return BadRequest(ModelState);
             }
@@ -77,10 +77,10 @@ namespace AnimateDataStructure.Web.Controllers
         public async Task<IActionResult> Logout()
         {
             // Call the service method to handle the logout logic
-            await _authenticationService.LogoutAsync();
+            await authenticationService.LogoutAsync();
 
-            // The controller remains responsible for the redirection
-            return RedirectToAction("ShowListDataStructures", "DataStructures");
+            return RedirectToAction(actionName: nameof(DataStructuresController.ShowListDataStructures),
+                controllerName: nameof(DataStructuresController).Replace("Controller", ""));
         }
 
 
@@ -90,5 +90,6 @@ namespace AnimateDataStructure.Web.Controllers
             // This is purely for the UI, so no service is needed
             return PartialView("_AuthModalPartial");
         }
+
     }
 }

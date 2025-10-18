@@ -2,7 +2,9 @@ import { AbstractControlButtonEffects } from './AbstractControlButtonEffects.js'
 import { ContextInputValuesFormFieldsHelper } from '../DataStructureFormInputValues/ContextInputValuesFormFieldsHelper.js';
 import { InputValuesFormFieldsHelper } from '../DataStructureFormInputValues/InputValuesFormFieldsHelper.js';
 import { InputValuesFormSender } from '../DataStructureFormInputValues/InputValuesFormSender.js';
-import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
+//import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
+
+import { AuthenticationChecker } from './AuthenticationChecker.js';
 
 export class ButtonSaveEffects extends AbstractControlButtonEffects
 {
@@ -12,6 +14,7 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 		this.buttonSaveConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonSaveConfigurations();
 		this.idButton = this.buttonSaveConfigurations.buttonSaveAttributes.defaultAttributes.id;
 		this.inputValuesFormSender = new InputValuesFormSender();
+		this.authenticationChecker = new AuthenticationChecker();
 	}
 
 
@@ -51,11 +54,11 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 
 	onAfterRippleEffectEnded(evn)
 	{
-		if (!this.isUserAuthenticated())
+		if (!this.authenticationChecker.isUserAuthenticated())
 		{
-			let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+			let buttonAuthenticateDomElement = this.authenticationChecker.getButtonAuthenticateDomElement();
 
-			this.immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement);
+			this.authenticationChecker.immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement);
 
 			return;
         }
@@ -76,46 +79,46 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 	// ???
 	// Run authoentication after click on the button Save (if user was not authenticated)
 
-	isUserAuthenticated()
-	{
-		let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
+	//isUserAuthenticated()
+	//{
+	//	let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
 
-		return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
-	}
-
-
-	getInputUserAuthenticationStatusDomElement()
-	{
-		let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-
-		let inputUserAuthenticationStatusAttributes = buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
-
-		let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
-
-		const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
-
-		return inputUserAuthenticationStatus;
-	}
+	//	return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
+	//}
 
 
-	getButtonAuthenticateDomElement()
-	{
-		let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-		let idButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.id;
+	//getInputUserAuthenticationStatusDomElement()
+	//{
+	//	let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
 
-		return this.htmlPageDomUpdater.getDomElementOnPageById(idButtonAuthenticate);
-	}
+	//	let inputUserAuthenticationStatusAttributes = buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
+
+	//	let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
+
+	//	const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
+
+	//	return inputUserAuthenticationStatus;
+	//}
 
 
-	immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement)
-	{
-		let eventDispatcher = new EventDispatcher();
-		// DO NOT DELETE:
-		// dispatch MouseEvent about to trigger ending ripple effect event on the button Authenticate (not simply "click")
-		eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "mousedown");
-		eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "click");
-		eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "mouseup");
-	}
+	//getButtonAuthenticateDomElement()
+	//{
+	//	let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
+	//	let idButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.id;
+
+	//	return this.htmlPageDomUpdater.getDomElementOnPageById(idButtonAuthenticate);
+	//}
+
+
+	//immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement)
+	//{
+	//	let eventDispatcher = new EventDispatcher();
+	//	// DO NOT DELETE:
+	//	// dispatch MouseEvent about to trigger ending ripple effect event on the button Authenticate (not simply "click")
+	//	eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "mousedown");
+	//	eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "click");
+	//	eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "mouseup");
+	//}
 
 	
 }

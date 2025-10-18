@@ -1114,7 +1114,7 @@
     /* transform: translate(-50%, -50%);*/ /* to align by center */
     transform: rotateY(180deg) rotateZ(180deg); /* to draw line from left bottom*/
     height: var(--heightEndLinkContainer);
-    border: blue 1px solid;
+    /*border: blue 1px solid;*/
     background-color: transparent;
     cursor: auto;
     position: absolute;
@@ -1147,7 +1147,7 @@
     /* transform: translate(-50%, -50%);*/ /* to align by center */
     transform: rotateY(180deg) rotateX(180deg); /* to draw line to left bottom*/
     height: var(--heightEndLinkContainer);
-    border: blue 1px solid;
+    /*border: blue 1px solid;*/
     background-color: transparent;
     cursor: auto;
     position: absolute;

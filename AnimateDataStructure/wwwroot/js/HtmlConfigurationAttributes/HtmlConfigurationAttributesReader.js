@@ -2164,6 +2164,21 @@
                 urlToOpen: "../RedBlackTree/Template",
             },
 
+
+            // <div id="idCardHistory" class="card">
+            divCardHistoryAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idCardHistory",
+                    "class": "card",
+                },
+
+                urlToOpen: "../History/SavedDataStructures",
+            },
+
         };
 
         return allAttributes;
