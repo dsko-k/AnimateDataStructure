@@ -1,18 +1,20 @@
-using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Parsers;
-using AnimateDataStructure.Application.Services.AuthenticationService;
-using AnimateDataStructure.Application.Services.LoggingService;
-using AnimateDataStructure.Application.Services.NodesValidationService;
-using AnimateDataStructure.Application.Services.TreeServices;
-using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationProvider;
-using AnimateDataStructure.Application.Translators;
+using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Entities;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Core.Interfaces;
+using AnimateDataStructure.Core.Parsers;
+using AnimateDataStructure.Core.Services.AuthenticationService;
+using AnimateDataStructure.Core.Services.HistoryService;
+using AnimateDataStructure.Core.Services.LoggingService;
+using AnimateDataStructure.Core.Services.NodesValidationService;
+using AnimateDataStructure.Core.Services.TreeServices;
+using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider;
+using AnimateDataStructure.Core.Translators;
 using AnimateDataStructure.Infrastructure.Data;
 using AnimateDataStructure.Infrastructure.Identity;
-using AnimateDataStructure.Infrastructure.Repositories;
+using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
+using AnimateDataStructure.Infrastructure.Repositories.HistoryRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -94,6 +96,10 @@ builder.Services.AddScoped<AvlTreeService>();
 builder.Services.AddScoped<MinHeapService>();
 builder.Services.AddScoped<MaxHeapService>();
 builder.Services.AddScoped<RedBlackTreeService>();
+
+
+builder.Services.AddScoped<IHistoryQueryRepository, HistoryQueryRepository>();
+builder.Services.AddScoped<IHistoryService, HistoryService>();
 
 
 builder.Services.AddScoped<IBaseTreeService<SaveBinarySearchTreeDto>, BinarySearchTreeService>();

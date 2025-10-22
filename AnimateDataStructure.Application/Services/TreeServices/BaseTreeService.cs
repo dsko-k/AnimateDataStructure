@@ -1,15 +1,15 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Parsers;
-using AnimateDataStructure.Application.Results;
-using AnimateDataStructure.Application.Services.NodesValidationService;
-using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationProvider;
-using AnimateDataStructure.Application.Translators;
-using AnimateDataStructure.Application.ValidationErrors;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Parsers;
+using AnimateDataStructure.Core.Results;
+using AnimateDataStructure.Core.Services.NodesValidationService;
+using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider;
+using AnimateDataStructure.Core.Translators;
+using AnimateDataStructure.Core.ValidationErrors;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using AnimateDataStructure.Infrastructure.Repositories;
+using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
 
-namespace AnimateDataStructure.Application.Services.TreeServices
+namespace AnimateDataStructure.Core.Services.TreeServices
 {
     public abstract class BaseTreeService<TTree, TDto, TNode> : IBaseTreeService<TDto>
      where TTree : class, IDataStructure<TNode>, new()

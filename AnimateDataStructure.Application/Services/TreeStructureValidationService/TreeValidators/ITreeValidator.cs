@@ -1,6 +1,6 @@
-﻿using AnimateDataStructure.Application.Results;
+﻿using AnimateDataStructure.Core.Results;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidators
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidators
 {
     public interface ITreeValidator
     {

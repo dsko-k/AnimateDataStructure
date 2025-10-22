@@ -1,12 +1,12 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Results;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.TreeServices
+namespace AnimateDataStructure.Core.Services.TreeServices
 {
     public interface IBaseTreeService<in TDto> where TDto : AbstractSaveTreeDto
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AnimateDataStructure.Application.Parsers
+namespace AnimateDataStructure.Core.Parsers
 {
     public class RedBlackTreeNodeParser : IBaseNodeParser<NodeRedBlackTree>
     {

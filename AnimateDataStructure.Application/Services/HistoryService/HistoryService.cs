@@ -1,38 +1,29 @@
-﻿using AnimateDataStructure.Application.DTOs.HistoryDataStructureDTOs;
-using AnimateDataStructure.Infrastructure.Repositories;
+﻿using AnimateDataStructure.Core.DTOs.HistoryDataStructureDTOs;
+using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
+using AnimateDataStructure.Infrastructure.Repositories.HistoryRepository;
 
 
-namespace AnimateDataStructure.Application.Services.HistoryService
+namespace AnimateDataStructure.Core.Services.HistoryService
 {
     public class HistoryService : IHistoryService
     {
-        private readonly IGenericRepository<HistoryDataStructureDto> repository;
+        private readonly IHistoryQueryRepository historyRepo;
 
-
-        public HistoryService(IGenericRepository<HistoryDataStructureDto> repository)
+        public HistoryService(IHistoryQueryRepository historyRepo)
         {
-            this.repository = repository;
+            this.historyRepo = historyRepo;
         }
-
 
         public async Task<IEnumerable<HistoryDataStructureDto>> GetSavedDataStructuresForUserAsync(string userId)
         {
-            var allEntities = await repository.GetAllFilteredAsync(s => s.UserId == userId);
-
-            // 2. Map the entities to DTOs for the view (e.g., using AutoMapper).
-            // DTOs ensure you don't expose unnecessary data and keep the view model clean
-            var dtos = allEntities.Select(entity => new HistoryDataStructureDto
+            if (string.IsNullOrEmpty(userId))
             {
-                Id = entity.Id,
-                UserId = entity.UserId,
-                Type = entity.Type,
-                DateSaved = entity.DateSaved,
-                DateModified = entity.DateModified,
-                NodeData = entity.NodeData                
-                
-            }).ToList();
+                throw new ArgumentNullException(nameof(userId), "User ID is required");
+            }
 
-            return dtos;
+            return await historyRepo.GetCombinedHistoryForUserAsync(userId);
         }
+
+
     }
 }

@@ -1,6 +1,6 @@
-﻿using AnimateDataStructure.Application.Results;
-using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationNodes;
-using AnimateDataStructure.Application.ValidationErrors;
+﻿using AnimateDataStructure.Core.Results;
+using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
+using AnimateDataStructure.Core.ValidationErrors;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationHelpers
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
     public static class MaxHeapValidationHelper
     {

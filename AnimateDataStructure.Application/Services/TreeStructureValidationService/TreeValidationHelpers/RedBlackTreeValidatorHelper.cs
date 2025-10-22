@@ -1,8 +1,8 @@
-﻿using AnimateDataStructure.Application.Results;
-using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationNodes;
+﻿using AnimateDataStructure.Core.Results;
+using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationHelpers
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
     // Assumes the input is ordered in Level-Order (Breadth-First)
     public static class RedBlackTreeValidationHelper

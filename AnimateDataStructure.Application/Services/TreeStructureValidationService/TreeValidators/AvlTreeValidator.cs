@@ -1,10 +1,10 @@
-﻿using AnimateDataStructure.Application.Results;
+﻿using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using AnimateDataStructure.Application.ValidationErrors;
-using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationNodes;
-using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationHelpers;
+using AnimateDataStructure.Core.ValidationErrors;
+using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
+using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidators
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidators
 {
     public class AvlTreeValidator : ITreeValidator
     {

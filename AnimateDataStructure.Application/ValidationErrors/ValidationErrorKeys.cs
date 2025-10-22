@@ -1,4 +1,4 @@
-﻿namespace AnimateDataStructure.Application.ValidationErrors
+﻿namespace AnimateDataStructure.Core.ValidationErrors
 {
     public static class ValidationErrorKeys
     {

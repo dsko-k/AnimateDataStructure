@@ -1,11 +1,11 @@
-﻿using AnimateDataStructure.Application.ValidationErrors;
+﻿using AnimateDataStructure.Core.ValidationErrors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Results
+namespace AnimateDataStructure.Core.Results
 {
     public class ServiceResult
     {

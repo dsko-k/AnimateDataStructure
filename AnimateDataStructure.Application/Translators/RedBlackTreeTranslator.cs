@@ -1,9 +1,9 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Parsers;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Parsers;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 
-namespace AnimateDataStructure.Application.Translators
+namespace AnimateDataStructure.Core.Translators
 {
     public class RedBlackTreeTranslator : IBaseTreeTranslator<RedBlackTree, SaveRedBlackTreeDto, NodeRedBlackTree>
     {

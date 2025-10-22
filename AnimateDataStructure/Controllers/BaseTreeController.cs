@@ -1,7 +1,7 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Results;
-using AnimateDataStructure.Application.Services.LoggingService;
-using AnimateDataStructure.Application.Services.TreeServices;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Results;
+using AnimateDataStructure.Core.Services.LoggingService;
+using AnimateDataStructure.Core.Services.TreeServices;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Web.Helpers;

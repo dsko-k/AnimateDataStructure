@@ -1,5 +1,5 @@
-﻿using AnimateDataStructure.Application.Results;
-using AnimateDataStructure.Application.ValidationErrors;
+﻿using AnimateDataStructure.Core.Results;
+using AnimateDataStructure.Core.ValidationErrors;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace AnimateDataStructure.Web.Helpers

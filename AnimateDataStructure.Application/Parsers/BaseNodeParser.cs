@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Parsers
+namespace AnimateDataStructure.Core.Parsers
 {
     public abstract class BaseNodeParser<TNode> : INodeValueParser, IBaseNodeParser<TNode> where TNode : INode
     {

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 
 namespace AnimateDataStructure.Web.ViewModels.DataStructureOperationsViewModels.SaveTreeViewModels
 {

@@ -1,6 +1,6 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Parsers;
-using AnimateDataStructure.Application.Results;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Parsers;
+using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.NodesValidationService
+namespace AnimateDataStructure.Core.Services.NodesValidationService
 {
     public interface INodeValueUniquenessValidator
     {

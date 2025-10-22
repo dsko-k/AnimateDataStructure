@@ -1,4 +1,4 @@
-﻿using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidators;
+﻿using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidators;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationProvider
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider
 {
     public class MaxHeapValidatorProvider : ITreeValidatorProvider<NodeMaxHeap>
     {

@@ -1,6 +1,6 @@
 ﻿using AnimateDataStructure.Core.Entities.NodeEntities;
 
-namespace AnimateDataStructure.Application.Parsers
+namespace AnimateDataStructure.Core.Parsers
 {
     public interface IBaseNodeParser<TNode> where TNode : INode
     {

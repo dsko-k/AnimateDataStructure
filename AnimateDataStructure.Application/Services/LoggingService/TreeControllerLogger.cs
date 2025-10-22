@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
-namespace AnimateDataStructure.Application.Services.LoggingService
+namespace AnimateDataStructure.Core.Services.LoggingService
 {
     public class TreeControllerLogger : ITreeControllerLogger
     {

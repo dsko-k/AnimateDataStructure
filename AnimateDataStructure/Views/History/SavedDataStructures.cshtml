@@ -1,7 +1,161 @@
-﻿@{
+﻿@using AnimateDataStructure.Core.DTOs.HistoryDataStructureDTOs
+@model IEnumerable<HistoryDataStructureDto>
+
+@{
     Layout = "_HistoryLayout";
+    ViewData["Title"] = "Saved Data Structures";
+    // Initialize a counter for the table row view order attributes
+    int rowIndex = -1;
 }
 
+
+<h2>Saved Data Structures</h2>
+
+<div id="idTableHistoryTableContainer" class="tableContainer" style="width: 1400px;">
+
+    <div class="tableTitle">
+        <h2>Saved data structures</h2>
+    </div>
+
+    <div class="tableSearchContainer">
+        <input id="idTableHistorySearchInput" class="inputData" type="search" placeholder="Live search in a table...">
+    </div>
+
+    <div class="tableBody">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="alert alert-info p-4 text-center">
+                No data structures have been saved yet.
+            </div>
+        }
+        else
+        {
+            <table id="idTableHistory" data-istablesorted="false" data-istablesortedascend="null" data-lastsortedcolumnnumber="null">
+                <thead>
+                    <tr>
+                        <th data-tablecolumnordernumber="1" class="headerColumn">
+                            Type
+                            <button class="sortAscendingButton">↑</button>
+                            <button class="sortDescendingButton">↓</button>
+                        </th>
+                        <th data-tablecolumnordernumber="2" class="headerColumn">
+                            Saved At
+                            <button class="sortAscendingButton">↑</button>
+                            <button class="sortDescendingButton">↓</button>
+                        </th>
+                        <th data-tablecolumnordernumber="3" class="headerColumn">
+                            Updated At
+                            <button class="sortAscendingButton">↑</button>
+                            <button class="sortDescendingButton">↓</button>
+                        </th>
+                        <th data-tablecolumnordernumber="4" class="headerColumn">
+                            Nodes Data
+                            <button class="sortAscendingButton">↑</button>
+                            <button class="sortDescendingButton">↓</button>
+                        </th>
+                        <th data-tablecolumnordernumber="5" class="headerColumn">
+                            Actions
+                            <button class="sortAscendingButton">↑</button>
+                            <button class="sortDescendingButton">↓</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var nodeSummary = item.NodeData.Length > 60 ? item.NodeData.Substring(0, 60) + "..." : item.NodeData;
+                        
+                        <tr data-tablerowviewordernumber="@(++rowIndex)"
+                            data-tablerowviewordernumberininitialunsortedtable="@rowIndex"
+                            data-issortedtablerow="false"
+                            data-istablerowtobehidden="false">
+
+                            @* Column 1: Type *@
+                            <td>
+                                <div class="cell">
+                                    <div class="cellWithGlowingRadialBorder">
+                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
+                                        <div class="contentOfCellWithGlowingRadialBorder">
+                                            <div class="glowingRadialGradientInsideCellContent"></div>
+                                            <p class="textInsideCell">@item.DataStructureType</p>
+                                            <div class="cellLoader"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            @* Column 2: Saved At (CreatedAt) *@
+                            <td>
+                                <div class="cell">
+                                    <div class="cellWithGlowingRadialBorder">
+                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
+                                        <div class="contentOfCellWithGlowingRadialBorder">
+                                            <div class="glowingRadialGradientInsideCellContent"></div>
+                                            <p class="textInsideCell">@item.CreatedAt.ToString("g")</p>
+                                            <div class="cellLoader"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            @* Column 3: Updated At *@
+                            <td>
+                                <div class="cell">
+                                    <div class="cellWithGlowingRadialBorder">
+                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
+                                        <div class="contentOfCellWithGlowingRadialBorder">
+                                            <div class="glowingRadialGradientInsideCellContent"></div>
+                                            <p class="textInsideCell">@item.UpdatedAt.ToString("g")</p>
+                                            <div class="cellLoader"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            @* Column 4: Nodes Data (Truncated) *@
+                            <td>
+                                <div class="cell">
+                                    <div class="cellWithGlowingRadialBorder">
+                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
+                                        <div class="contentOfCellWithGlowingRadialBorder">
+                                            <div class="glowingRadialGradientInsideCellContent"></div>
+                                            <p class="textInsideCell">@nodeSummary</p>
+                                            <div class="cellLoader"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            @* Column 5: Actions (Load Button) *@                           
+                            <td>
+                                <div class="cell">
+                                    <div class="cellWithGlowingRadialBorder">
+                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
+                                        <div class="contentOfCellWithGlowingRadialBorder">
+                                            <div class="glowingRadialGradientInsideCellContent"></div>
+                                            <p class="textInsideCell">
+                                                <a asp-controller="DataStructures"
+                                                   asp-action="Load"
+                                                   asp-route-guid="@item.TempGuid"
+                                                   class="btn btn-sm btn-primary">Load</a>
+                                            </p>
+                                            <div class="cellLoader"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+
+    <div id="idTableHistoryResizerVerticalContainer" class="resizerVerticalContainer"></div>
+    <div id="idTableHistoryResizerBottomHorizontalContainer" class="resizerBottomHorizontalContainer"></div>
+</div>
 
 
 @section Scripts {

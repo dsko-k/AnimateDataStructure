@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.DTOs.SaveNodesDTOs
+namespace AnimateDataStructure.Core.DTOs.SaveNodesDTOs
 {
-    public class SaveAvlTreeDto : AbstractSaveTreeDto, IHasAuthenticatedProperty
+    public interface IHasAuthenticatedProperty
     {
         public bool IsAuthenticated { get; set; }
     }

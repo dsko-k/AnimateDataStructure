@@ -1,4 +1,4 @@
-﻿using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationNodes;
+﻿using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationHelpers
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
     // NOTE: This helper assumes that the input ICollection<NodeAvlTree> Nodes is ordered in Level-Order (Breadth-First).
     public static class AvlTreeValidationHelper

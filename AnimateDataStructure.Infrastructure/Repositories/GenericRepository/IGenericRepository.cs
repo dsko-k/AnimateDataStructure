@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Infrastructure.Repositories
+namespace AnimateDataStructure.Infrastructure.Repositories.GenericRepository
 {
     public interface IGenericRepository<T> where T : class
     {

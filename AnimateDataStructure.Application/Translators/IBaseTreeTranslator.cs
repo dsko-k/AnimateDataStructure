@@ -1,4 +1,4 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Translators
+namespace AnimateDataStructure.Core.Translators
 {
     public interface IBaseTreeTranslator<TTree, in TDto, TNode>
     where TTree : class, IDataStructure<TNode>, new()

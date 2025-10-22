@@ -1,4 +1,4 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Web.ViewModels.DataStructureOperationsViewModels.SaveTreeViewModels;
 
 namespace AnimateDataStructure.Web.Mapper

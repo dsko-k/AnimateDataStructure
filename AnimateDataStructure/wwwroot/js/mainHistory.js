@@ -1,6 +1,15 @@
 ﻿import { HistoryPageFunctionality } from './PageFunctionality/HistoryPageFunctionality.js';
 
 
-let historyPageFunctionality = new HistoryPageFunctionality();
 
-historyPageFunctionality.addEffectsToControlButtons();
+(async function ()
+{
+    let historyPageFunctionality = new HistoryPageFunctionality();
+
+    historyPageFunctionality.addEffectsToControlButtons();
+
+    historyPageFunctionality.addAbstractMouseEffect();
+
+    historyPageFunctionality.addEffectsToHtmlTable("idTableHistory", "idTableHistorySearchInput");
+
+})();

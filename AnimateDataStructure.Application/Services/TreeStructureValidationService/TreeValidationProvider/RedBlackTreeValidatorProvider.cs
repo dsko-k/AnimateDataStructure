@@ -1,7 +1,7 @@
-﻿using AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidators;
+﻿using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidators;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationProvider
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider
 {
     public class RedBlackTreeValidatorProvider : ITreeValidatorProvider<NodeRedBlackTree>
     {

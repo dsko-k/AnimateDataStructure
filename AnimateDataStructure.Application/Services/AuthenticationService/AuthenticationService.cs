@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.AuthenticationService
+namespace AnimateDataStructure.Core.Services.AuthenticationService
 {
     public class AuthenticationService : IAuthenticationService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.ValidationErrors
+namespace AnimateDataStructure.Core.ValidationErrors
 {
     public static class ValidationErrorMessages
     {

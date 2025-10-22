@@ -1,6 +1,6 @@
 ﻿
 
-namespace AnimateDataStructure.Application.DTOs.AddNodeDTOs
+namespace AnimateDataStructure.Core.DTOs.AddNodeDTOs
 {
     public abstract class AbstractAddNodeDto
     {

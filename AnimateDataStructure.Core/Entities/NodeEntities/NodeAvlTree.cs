@@ -15,6 +15,6 @@ namespace AnimateDataStructure.Core.Entities.NodeEntities
 
         public int AvlTreeId { get; set; } // Foreign key to link back to the parent DataStructure
 
-        public virtual AvlTree AvlTree { get; set; }
+        public virtual AvlTree AvlTree { get; set; }        
     }
 }

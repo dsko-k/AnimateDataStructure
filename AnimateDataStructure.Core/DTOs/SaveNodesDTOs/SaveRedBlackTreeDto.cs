@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.DTOs.SaveNodesDTOs
+namespace AnimateDataStructure.Core.DTOs.SaveNodesDTOs
 {
     public class SaveRedBlackTreeDto : AbstractSaveTreeDto, IHasAuthenticatedProperty
     {

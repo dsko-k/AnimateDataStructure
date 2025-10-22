@@ -266,7 +266,6 @@ export class ControlHandlersDataStructureSidebar
 
 
     // add htmlTable effects
-    // !!!! REPLACE HARDCODE !!!!
     addEffectsToHtmlTable(idClickedSidebarButton, dataStructure)
     {
         let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);

@@ -1,5 +1,5 @@
-﻿using AnimateDataStructure.Application.DTOs.SaveNodesDTOs;
-using AnimateDataStructure.Application.Parsers;
+﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Parsers;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Translators
+namespace AnimateDataStructure.Core.Translators
 {
     //public class AvlTreeTranslator : ITranslatorSaveTree<AvlTree, SaveAvlTreeDto, NodeAvlTree>
     //{

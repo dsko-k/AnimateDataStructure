@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Services.TreeStructureValidationService.TreeValidationNodes
+namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes
 {
     public class ValidationNodeAvlTree
     {

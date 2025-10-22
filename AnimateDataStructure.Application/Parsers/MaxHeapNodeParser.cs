@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimateDataStructure.Application.Parsers
+namespace AnimateDataStructure.Core.Parsers
 {
     public class MaxHeapNodeParser : BaseNodeParser<NodeMaxHeap>
     {
