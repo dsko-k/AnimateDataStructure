@@ -29,7 +29,7 @@ import { TraverseNodesFormValidation } from '../DataStructureFormInputValues/Tra
 import { ContextOperationFormValidation } from '../DataStructureFormInputValues/ContextOperationFormValidation.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { SaveNodesFormValidation } from '../DataStructureFormInputValues/SaveNodesFormValidation.js';
-
+import { HtmlTableFunctionality } from '../HtmlTableFunctionality/HtmlTableFunctionality.js';
 
 
 // Wrapper to connect all implemented functionality to the page with data structure animation
@@ -38,6 +38,8 @@ export class DataStructurePageFunctionality
 	constructor()
 	{
 		this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+		this.htmlTableFunctionality = new HtmlTableFunctionality();
+		this.attributesForHtmlPage = this.htmlConfigurationAttributesReader.getHtmlPageConfigurations();
 	}
 
 	async readPageStyles()
@@ -61,14 +63,6 @@ export class DataStructurePageFunctionality
 		this.registerInputValuesFormHandlerToButtonTraversePreorder(traversingContext, controlHandlers, dataStructure);
 		this.registerInputValuesFormHandlerToButtonTraversePostorder(traversingContext, controlHandlers, dataStructure);
 
-		//this.addHandlersToButtonAdd(controlHandlers);
-		//this.addHandlersToButtonFind(controlHandlers);
-		//this.addHandlersToButtonDelete(controlHandlers);
-
-		//this.addHandlersToButtonTraversingTreeInorder(traversingContext, controlHandlers, dataStructure);
-		//this.addHandlersToButtonTraversingTreePreorder(traversingContext, controlHandlers, dataStructure);
-		//this.addHandlersToButtonTraversingTreePostorder(traversingContext, controlHandlers, dataStructure);
-
 		this.addHandlersToButtonAddRange(controlHandlers);
 	}
 
@@ -83,23 +77,6 @@ export class DataStructurePageFunctionality
 	// 1. Handles sending form by clicking on button
 	registerInputValuesFormHandlerToButtonAddNode(controlHandlers)
 	{
-		//let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(new InputValuesFormFieldsHelper());
-
-		//let contextFormValidation = new ContextOperationFormValidation(new AddNodeFormValidation()); // Differ
-
-		//let callbackAnimation = controlHandlers.onClickButtonAddNode.bind(controlHandlers); // Differ
-
-		//let inputValuesFormSender = new InputValuesFormSender();
-
-		//let buttonAddNode = document.getElementById('idButtonAdd'); // Differ
-		//let relativeUrlToSubmitForm = inputValuesFormSender.getRelativeUrlToSubmitForm(buttonAddNode);
-
-		//inputValuesFormSender.onSubmitForm(contextInputValuesFormFieldsHelper,
-		//	contextFormValidation,
-		//	relativeUrlToSubmitForm,
-		//	callbackAnimation,
-		//	"submitAddNode");
-
 		let callbackAnimation = controlHandlers.onClickButtonAddNode.bind(controlHandlers); // Differ
 
 		let addNodeButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAddNodeConfigurations();
@@ -298,10 +275,18 @@ export class DataStructurePageFunctionality
 		// Sidebar's buttons
 		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
 
+		let idBody = this.attributesForHtmlPage.bodyPageAttributes.defaultAttributes.id; // "idBody"
+
+
 		// REPLACE HARDCODE !!!!!!
-		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".buttonWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
-		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".borderOfCellWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
-		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".textInsideCell", "--mouse-x", "--mouse-y");
+		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".buttonWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
+		this.htmlTableFunctionality.addMouseEffectForSidebarButtons(idBody);
+
+
+		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".borderOfCellWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
+		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".textInsideCell", "--mouse-x", "--mouse-y");
+
+		this.htmlTableFunctionality.addMouseEffectsForTableCells(idBody);
 	}
 
 

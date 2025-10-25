@@ -5,7 +5,29 @@
 
     }
 
-    // TO DO: Replace with function that reads configuration object on server
+
+    getHtmlPageConfigurations()
+    {
+        const allAttributes = {
+
+            // <body id="idBody">...</body>
+            bodyPageAttributes: {
+
+                tag: "body",
+
+                defaultAttributes: {
+
+                    "id": "idBody",
+                },
+                                
+            },
+
+        };
+
+        return allAttributes;
+    }
+
+
     getHtmlTableConfigurationsForElements()
     {
         // TO DO: Move configuration object to the server
@@ -368,6 +390,13 @@
 
                     "class": "borderOfCellWithGlowingRadialBorder",
                 },
+
+                // cssVariables that are used for animation related to gradient when moving mouse above element
+                cssVariables: {
+
+                    mouseX: "--mouse-x",
+                    mouseY: "--mouse-y",
+                },
             },
 
 
@@ -424,6 +453,13 @@
                 additionalStyleOnTextUpdated: {
 
                     "class": "updatedTextInsideCell", // uses as additional style after last updating text inside cell
+                },
+
+                // cssVariables that are used for animation related to gradient when moving mouse above element
+                cssVariables: {
+
+                    mouseX: "--mouse-x",
+                    mouseY: "--mouse-y",
                 },
 
             },
@@ -522,6 +558,158 @@
     }
 
 
+    // DO NOT DELETE: not the same as sidebar's table, but functionality the same
+    getHistoryTableConfigurations()
+    {
+        const allAttributes = {
+
+            // DO NOT DELETE: NOTE: here attribute style="width: 75%;" is needed as hardcode
+            // <div id="idHistoryTableContainer" class="tableContainer" style="width: 75%;">...</div>
+            divHistoryTableContainerAttributes: {
+
+                tag: "body",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTableContainer",
+                    "class":  "tableContainer",
+                },
+
+            },
+
+
+            // <div class="tableSearchContainer">...</div>
+            divTableSearchContainerAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTableSearchContainer",
+                    "class": "tableSearchContainer",
+                },
+            },
+
+
+            // <input id="idTableHistorySearchInput" class="inputData" type="search" placeholder="Live search in a table...">
+            inputTableSearchAttributes: {
+
+                tag: "input",
+
+                defaultAttributes: {
+
+                    "id": "idTableHistorySearchInput",
+                    "class": "inputData",
+                    "type": "search",
+                    "placeholder": "Live search in a table...",
+                },
+
+                configureAttributes(idValue)
+                {
+                    return {
+                        "id": idValue,
+                        "class": "inputData",
+                        "type": "search",
+                        "placeholder": "Live search in a table...",
+                    };
+                },
+            },
+
+
+            // <div id="idHistoryTableResizerVerticalContainer" class="resizerVerticalContainer">...</div>
+            divHistoryTableResizerVerticalContainerAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTableResizerVerticalContainer",
+                    "class": "tableContainer",
+                },
+
+            },
+
+
+            // <div id="idHistoryTableResizerBottomHorizontalContainer" class="resizerBottomHorizontalContainer">...</div>
+            divHistoryTableResizerBottomHorizontalContainerAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTableResizerBottomHorizontalContainer",
+                    "class": "tableContainer",
+                },
+
+            },
+
+
+            // ???
+            tableHistoryAttributes: {
+
+                tag: "table",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTable",
+                },
+
+            },
+
+            // ------------------------------ <div> Resizer section BEGIN ------------------------------
+
+
+            // <div id="idHistoryTableResizerVerticalContainer" class="resizerVerticalContainer"></div>
+            divTableResizerVerticalAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTableResizerVerticalContainer",
+                    "class": "resizerVerticalContainer",
+                },
+
+                configureAttributes(idValue) // columnOrderNumber starts from 1
+                {
+                    return {
+
+                        "id": idValue,
+                        "class": "resizerVerticalContainer",
+                    };
+                },
+            },
+
+
+            // <div id="idHistoryTableResizerBottomHorizontalContainer" class="resizerBottomHorizontalContainer"></div>
+            divTableResizerHorizontalAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idHistoryTableResizerBottomHorizontalContainer",
+                    "class": "resizerBottomHorizontalContainer",
+                },
+
+                configureAttributes(idValue) // columnOrderNumber starts from 1
+                {
+                    return {
+
+                        "id": idValue,
+                        "class": "resizerBottomHorizontalContainer",
+                    };
+                },
+            },
+
+            // ------------------------------ <div> Resizer section END ------------------------------
+
+        };
+
+        return allAttributes;
+    }
+
+
     getHtmlSidebarConfigurations()
     {
         // TO DO: Move configuration object to the server
@@ -590,6 +778,13 @@
                 },
 
                 // here should not be object additionalAttributesOnClick : {...}
+
+                // cssVariables that are used for animation related to gradient when moving mouse above element
+                cssVariables: {
+
+                    mouseX: "--mouse-x",
+                    mouseY: "--mouse-y",
+                },
 
             },
 
@@ -746,6 +941,13 @@
                 additionalAttributesOnClick: {
 
                     "class": "buttonWithGlowingRadialBorderOnClick",
+                },
+
+                // cssVariables that are used for animation related to gradient when moving mouse above element
+                cssVariables: {
+
+                    mouseX: "--mouse-x",
+                    mouseY: "--mouse-y",
                 },
             },
 
@@ -3000,5 +3202,13 @@
     getValueFromAttributes(htmlElementConfigurationObject)
     {
         return htmlElementConfigurationObject;
+    }
+
+
+    getCssVariablesFromAttributes(htmlElementConfigurationObject)
+    {
+        let cssVariables = htmlElementConfigurationObject.cssVariables;
+
+        return cssVariables;
     }
 }

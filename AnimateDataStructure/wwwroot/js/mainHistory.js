@@ -8,8 +8,6 @@
 
     historyPageFunctionality.addEffectsToControlButtons();
 
-    historyPageFunctionality.addAbstractMouseEffect();
-
-    historyPageFunctionality.addEffectsToHtmlTable("idTableHistory", "idTableHistorySearchInput");
+    historyPageFunctionality.addEffectsToHistoryTable();
 
 })();

@@ -1,22 +1,26 @@
 ﻿import { ContextControlEffects } from '../UserInterfaceEffects/ContextControlEffects.js';
-import { ButtonAuthenticateEffects } from '../UserInterfaceEffects/ButtonAuthenticateEffects.js'
-import { ControlHandlersAbstractMouseEffect } from '../UserInterfaceEffects/ControlHandlersAbstractMouseEffect.js';
+import { ButtonAuthenticateEffects } from '../UserInterfaceEffects/ButtonAuthenticateEffects.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
-import { ContextTableEffect } from '../HtmlTableOperations/ContextTableEffect.js';
-import { TableHovering } from '../HtmlTableOperations/TableHovering.js';
-import { TableSearching } from '../HtmlTableOperations/TableSearching.js';
-import { TableSorting } from '../HtmlTableOperations/TableSorting.js';
-import { HtmlTableHandler } from '../HtmlTableHandler/HtmlTableHandler.js';
-import { ResizerHtmlElement } from '../HtmlDomElementHandler/ResizerHtmlElement.js';
+import { HtmlTableFunctionality } from '../HtmlTableFunctionality/HtmlTableFunctionality.js'
 
 
 export class HistoryPageFunctionality
 {
 	constructor()
 	{
-		this.htmlConfigurations = new HtmlConfigurationAttributesReader();
-		//this.cardsConfigurations = this.htmlConfigurations.getHtmlCardsOfListDatastructuresConfigurations();
+		this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+		this.attributesForHtmlTable = this.htmlConfigurationAttributesReader.getHtmlTableConfigurationsForElements();
+		this.attributesForHtmlPage = this.htmlConfigurationAttributesReader.getHtmlPageConfigurations();
+		this.attributesForHistoryTable = this.htmlConfigurationAttributesReader.getHistoryTableConfigurations();
+
+		this.htmlTableFunctionality = new HtmlTableFunctionality();
+		this.idTableHistory = this.attributesForHistoryTable.tableHistoryAttributes.defaultAttributes.id; // "idHistoryTable"
+		this.idTableHistorySearchInput = this.attributesForHistoryTable.inputTableSearchAttributes.defaultAttributes.id; // "idTableHistorySearchInput"
+		this.idHistoryTableResizerVerticalContainer = this.attributesForHistoryTable.divTableResizerVerticalAttributes.defaultAttributes.id; // "idHistoryTableResizerVerticalContainer"
+		this.idHistoryTableResizerBottomHorizontalContainer = this.attributesForHistoryTable.divTableResizerHorizontalAttributes.defaultAttributes.id; // "idHistoryTableResizerBottomHorizontalContainer"
+		this.idHistoryTableContainer = this.attributesForHistoryTable.divHistoryTableContainerAttributes.defaultAttributes.id; // "idHistoryTableContainer"
 	}
+
 
 	addEffectsToControlButtons()
 	{
@@ -28,47 +32,17 @@ export class HistoryPageFunctionality
 	}
 
 
-	// ???
-	addAbstractMouseEffect()
+	addEffectsToHistoryTable()
 	{
-		// Sidebar's buttons
-		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
+		this.htmlTableFunctionality.addMouseEffectsForTableCells(this.idTableHistory);
 
-		// REPLACE HARDCODE !!!!!!
-		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".buttonWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
-		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".borderOfCellWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
-		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".textInsideCell", "--mouse-x", "--mouse-y");
-	}
+		this.htmlTableFunctionality.addHandlerOnTableHovering(this.idTableHistory);
+		this.htmlTableFunctionality.addHandlerOnTableSearching(this.idTableHistory, this.idTableHistorySearchInput);
+		this.htmlTableFunctionality.addHandlerOnTableSorting(this.idTableHistory);
 
-
-	// ???
-	addEffectsToHtmlTable(idTable, idTableSearchInput)
-	{
-		//let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);
-		//let idTable = dataTableToHtmlTableConfigurations.idTable;
-
-		let contextTableEffect = new ContextTableEffect(new TableHovering(idTable));
-		contextTableEffect.appendTableOperation();
-
-		contextTableEffect = new ContextTableEffect(new TableSearching(idTable, idTableSearchInput));
-		contextTableEffect.appendTableOperation();
-
-		contextTableEffect = new ContextTableEffect(new TableSorting(idTable));
-		contextTableEffect.appendTableOperation();
-
-
-		// DO NOT REMOVE:
-		let resizerVerticalHtmlElement = new ResizerHtmlElement("idTableHistoryResizerVerticalContainer", "idTableHistoryTableContainer");		
-		resizerVerticalHtmlElement.onResize(true);
-
-		let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement("idTableHistoryResizerBottomHorizontalContainer", "idTableHistoryTableContainer");
-		resizerBottomHorizontalHtmlElement.onResize(false);
-
-
-		// Handler for updating HtmlTable
-		// ????
-		let htmlTableHandler = new HtmlTableHandler();
-		htmlTableHandler.onUpdateHtmlTable(idTable);
+		this.htmlTableFunctionality.addResizeEffectsToHtmlTable(this.idHistoryTableContainer, this.idHistoryTableResizerVerticalContainer, this.idHistoryTableResizerBottomHorizontalContainer);
+		
+		this.htmlTableFunctionality.addHandlerOnTableUpdate(this.idTableHistory);
 	}
 
 }

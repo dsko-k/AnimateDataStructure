@@ -35,7 +35,7 @@ export class ListDataStructuresPageFunctionality
 
 		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idCardsContainer", ".card", "--mouse-x", "--mouse-y");
 		let idCardsContainer = this.cardsConfigurations.divCardsContainerAttributes.defaultAttributes.id;
-		let styleCardWithDot = `.${this.cardsConfigurations.divCardBinarySearchTreeAttributes.defaultAttributes.class}`; // DO NOT DELETE: ".card"
+		let styleCardWithDot = this.htmlConfigurations.getClassFromAttributesWithDot(this.cardsConfigurations.divCardBinarySearchTreeAttributes.defaultAttributes); // DO NOT DELETE: ".card"
 		let cssVariableMouseX = this.cardsConfigurations.divCardsContainerAttributes.cssVariables.mouseX;
 		let cssVariableMouseY = this.cardsConfigurations.divCardsContainerAttributes.cssVariables.mouseY;
 

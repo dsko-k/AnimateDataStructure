@@ -3,13 +3,8 @@ import { DataStructureSidebarViewState } from './DataStructureSidebarViewState.j
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { HtmlTableCreator } from '../HtmlTableBuilder/HtmlTableCreator.js';
 import { HtmlTableBuilder } from '../HtmlTableBuilder/HtmlTableBuilder.js';
-import { ContextTableEffect } from '../HtmlTableOperations/ContextTableEffect.js';
-import { TableHovering } from '../HtmlTableOperations/TableHovering.js';
-import { TableSearching } from '../HtmlTableOperations/TableSearching.js';
-import { TableSorting } from '../HtmlTableOperations/TableSorting.js';
-import { HtmlTableHandler } from '../HtmlTableHandler/HtmlTableHandler.js';
-import { ResizerHtmlElement } from '../HtmlDomElementHandler/ResizerHtmlElement.js';
 import { ContextSidebarButtons } from './ContextSidebarButtons.js';
+import { HtmlTableFunctionality } from '../HtmlTableFunctionality/HtmlTableFunctionality.js';
 
 export class ControlHandlersDataStructureSidebar
 {
@@ -17,8 +12,6 @@ export class ControlHandlersDataStructureSidebar
     {
         this.htmlPageDomUpdater = new HtmlPageDomUpdater();
         this.dataStructureSidebarViewState = new DataStructureSidebarViewState();
-
-        //?????????
         this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
 
         this.attributesForSidebar = this.htmlConfigurationAttributesReader.getHtmlSidebarConfigurations();
@@ -28,7 +21,6 @@ export class ControlHandlersDataStructureSidebar
         this.attributesForButtonThird = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonThirdConfigurations();
         this.attributesForButtonFourth = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonFourthConfigurations();
         this.attributesForButtonFifth = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonFifthConfigurations();
-
 
         this.additionalClassNameSidebarExpand = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForSidebar.divSidebarContainerAttributes.sidebarContainerExpandAttributes); // ".sidebarContainerExpand";
         this.additionalClassNameSidebarNarrow = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForSidebar.divSidebarContainerAttributes.sidebarContainerNarrowAttributes); // ".sidebarContainerNarrow";
@@ -48,6 +40,7 @@ export class ControlHandlersDataStructureSidebar
 
         // ?????
         this.htmlTableCreator = new HtmlTableCreator(new HtmlTableBuilder());
+        this.htmlTableFunctionality = new HtmlTableFunctionality();
         //this.dataToHtmlTableConfigurations = this.htmlTableCreator.dataToHtmlTableConfigurationAttributesReader.getDataTableToHtmlTableConfigurationsForTreeCharacteristics();
 
         //this.sidebarButtonsToHtmlTableConfigurations = new SidebarButtonsToHtmlTableConfigurations();
@@ -222,35 +215,6 @@ export class ControlHandlersDataStructureSidebar
     }
 
 
-    getAttachedDetachedAdditionalStyleName(isToAttachAdditionalStyleName, basicStyleName, additionalStyleName)
-    {
-        if (isToAttachAdditionalStyleName)
-        {
-            let additionalStyleNameWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(additionalStyleName, ".");
-
-            return `${basicStyleName} ${additionalStyleNameWithoutDot}`;
-        }
-
-        return basicStyleName;
-    }
-
-
-    addAdditionalStyleName(idOfHtmlElement, basicStyleName, additionalStyleName)
-    {
-        let newStyleName = this.getAttachedDetachedAdditionalStyleName(true, basicStyleName, additionalStyleName);
-
-        this.htmlPageDomUpdater.setAttributeOfHtmlElementById(idOfHtmlElement, 'class', newStyleName);
-    }
-
-
-    removeAdditionalStyleName(idOfHtmlElement, basicStyleName, additionalStyleName)
-    {
-        let newStyleName = this.getAttachedDetachedAdditionalStyleName(false, basicStyleName, additionalStyleName);
-
-        this.htmlPageDomUpdater.setAttributeOfHtmlElementById(idOfHtmlElement, 'class', newStyleName);
-    }
-
-
     // Build table by clicking the sidebar button
     createHtmlTableOnClickSidebarButton(idClickedSidebarButton, dataStructure, htmlSidebarButtonConfigurations)
     {
@@ -266,36 +230,62 @@ export class ControlHandlersDataStructureSidebar
 
 
     // add htmlTable effects
+    //addEffectsToHtmlTable(idClickedSidebarButton, dataStructure)
+    //{
+    //    let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);
+    //    let idTable = dataTableToHtmlTableConfigurations.idTable;
+
+    //    let contextTableEffect = new ContextTableEffect(new TableHovering(idTable));
+    //    contextTableEffect.appendTableOperation();
+
+    //    contextTableEffect = new ContextTableEffect(new TableSearching(idTable, dataTableToHtmlTableConfigurations.idTableSearchInput));
+    //    contextTableEffect.appendTableOperation();
+
+    //    contextTableEffect = new ContextTableEffect(new TableSorting(idTable));
+    //    contextTableEffect.appendTableOperation();
+
+
+    //    // DO NOT REMOVE:
+    //    //let resizerVerticalHtmlElement = new ResizerHtmlElement("idTableResizerVerticalContainer", "idTableContainer");
+    //    let resizerVerticalHtmlElement = new ResizerHtmlElement(dataTableToHtmlTableConfigurations.idTableResizerVerticalContainer, dataTableToHtmlTableConfigurations.idTableContainer);
+    //    resizerVerticalHtmlElement.onResize(true);
+
+    //    //let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement("idTableResizerBottomHorizontalContainer", "idTableContainer");
+    //    let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement(dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer, dataTableToHtmlTableConfigurations.idTableContainer);
+    //    resizerBottomHorizontalHtmlElement.onResize(false);
+
+
+    //    // Handler for updating HtmlTable
+    //    // ????
+    //    let htmlTableHandler = new HtmlTableHandler();
+    //    htmlTableHandler.onUpdateHtmlTable(idTable);
+    //}
+
+
+    // ?????
+    // add htmlTable effects
     addEffectsToHtmlTable(idClickedSidebarButton, dataStructure)
     {
         let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);
         let idTable = dataTableToHtmlTableConfigurations.idTable;
 
-        let contextTableEffect = new ContextTableEffect(new TableHovering(idTable));
-        contextTableEffect.appendTableOperation();
+        this.htmlTableFunctionality.addHandlerOnTableHovering(idTable);
 
-        contextTableEffect = new ContextTableEffect(new TableSearching(idTable, dataTableToHtmlTableConfigurations.idTableSearchInput));
-        contextTableEffect.appendTableOperation();
+        let idTableSearchInput = dataTableToHtmlTableConfigurations.idTableSearchInput;
+        this.htmlTableFunctionality.addHandlerOnTableSearching(idTable, idTableSearchInput);
 
-        contextTableEffect = new ContextTableEffect(new TableSorting(idTable));
-        contextTableEffect.appendTableOperation();
+        this.htmlTableFunctionality.addHandlerOnTableSorting(idTable);
 
-
-        // DO NOT REMOVE:
-        //let resizerVerticalHtmlElement = new ResizerHtmlElement("idTableResizerVerticalContainer", "idTableContainer");
-        let resizerVerticalHtmlElement = new ResizerHtmlElement(dataTableToHtmlTableConfigurations.idTableResizerVerticalContainer, dataTableToHtmlTableConfigurations.idTableContainer);
-        resizerVerticalHtmlElement.onResize(true);
-
-        //let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement("idTableResizerBottomHorizontalContainer", "idTableContainer");
-        let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement(dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer, dataTableToHtmlTableConfigurations.idTableContainer);
-        resizerBottomHorizontalHtmlElement.onResize(false);
-
+        let idTableContainer = dataTableToHtmlTableConfigurations.idTableContainer;
+        let idTableResizerVerticalContainer = dataTableToHtmlTableConfigurations.idTableResizerVerticalContainer;
+        let idTableResizerBottomHorizontalContainer = dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer;
+        
+        this.htmlTableFunctionality.addResizeEffectsToHtmlTable(idTableContainer, idTableResizerVerticalContainer, idTableResizerBottomHorizontalContainer);
 
         // Handler for updating HtmlTable
-        // ????
-        let htmlTableHandler = new HtmlTableHandler();
-        htmlTableHandler.onUpdateHtmlTable(idTable);
+        this.htmlTableFunctionality.addHandlerOnTableUpdate(idTable);
     }
+
 
 
     findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure)
@@ -329,7 +319,6 @@ export class ControlHandlersDataStructureSidebar
 
     getButtonCloseTableContainer(idOfOpenedContainerByClickingSidebarIcon)
     {
-        //let htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
         let attributesForHtmlTable = this.htmlConfigurationAttributesReader.getHtmlTableConfigurationsForElements();
         let idDivTableButtonClose = this.htmlConfigurationAttributesReader.getValueFromAttributes(attributesForHtmlTable.divTableButtonCloseAttributes.defaultAttributes.id);
         let tableContainerDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idOfOpenedContainerByClickingSidebarIcon);
