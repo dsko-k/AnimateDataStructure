@@ -15,7 +15,7 @@ namespace AnimateDataStructure.Core.Services.LoggingService
         /// <typeparam name="TData">The type of the input view model.</typeparam>
         /// <param name="actionName">The name of the controller action (e.g., "SaveNodes").</param>
         /// <param name="data">The input view model object.</param>
-        void LogInputData<TData>(string controllerName, string actionName, TData data)
-            where TData : class;
+        Task LogInputData<TData>(string controllerName, string actionName, TData data)
+        where TData : class;
     }
 }

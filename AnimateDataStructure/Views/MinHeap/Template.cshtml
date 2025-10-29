@@ -1,13 +1,24 @@
-﻿@{
+﻿@using AnimateDataStructure.Web.Constants
+@{
     Layout = "_DataStructureLayout";
-    ViewData["ControllerName"] = ViewContext?.RouteData?.Values["controller"]?.ToString(); // "MinHeap";
-    ViewData["ActionNameAddNode"] = "AddNode"; /* Add correspondent data-attributes for each button using Razor-syntax */
-    ViewData["ActionNameFindNode"] = "FindNode";
-    ViewData["ActionNameDeleteNode"] = "DeleteNode";
-    ViewData["ActionNameTraverseInorder"] = "TraverseInorder";
-    ViewData["ActionNameTraversePreorder"] = "TraversePreorder";
-    ViewData["ActionNameTraversePostorder"] = "TraversePostorder";
-    ViewData["ActionNameSaveNodes"] = "SaveNodes";
+
+    // ViewData["ControllerName"] = ViewContext?.RouteData?.Values["controller"]?.ToString(); // "MinHeap";
+    // ViewData["ActionNameAddNode"] = "AddNode"; /* Add correspondent data-attributes for each button using Razor-syntax */
+    // ViewData["ActionNameFindNode"] = "FindNode";
+    // ViewData["ActionNameDeleteNode"] = "DeleteNode";
+    // ViewData["ActionNameTraverseInorder"] = "TraverseInorder";
+    // ViewData["ActionNameTraversePreorder"] = "TraversePreorder";
+    // ViewData["ActionNameTraversePostorder"] = "TraversePostorder";
+    // ViewData["ActionNameSaveNodes"] = "SaveNodes";
+
+    ViewData[ViewDataKeys.ControllerName] = ViewContext?.RouteData?.Values[ViewDataKeys.Controller]?.ToString(); // "MinHeap";
+    ViewData[ViewDataKeys.ActionNameAddNode] = ActionNames.AddNode; /* Add correspondent data-attributes for each button using Razor-syntax */
+    ViewData[ViewDataKeys.ActionNameFindNode] = ActionNames.FindNode;
+    ViewData[ViewDataKeys.ActionNameDeleteNode] = ActionNames.DeleteNode;
+    ViewData[ViewDataKeys.ActionNameSaveNodes] = ActionNames.SaveNodes;
+    ViewData[ViewDataKeys.ActionNameTraverseInorder] = ActionNames.TraverseInorder;
+    ViewData[ViewDataKeys.ActionNameTraversePreorder] = ActionNames.TraversePreorder;
+    ViewData[ViewDataKeys.ActionNameTraversePostorder] = ActionNames.TraversePostorder;
 }
 
 @section Scripts {

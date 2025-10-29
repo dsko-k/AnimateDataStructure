@@ -45,7 +45,7 @@ export class ControlHandlersDataStructureSidebar
 
         //this.sidebarButtonsToHtmlTableConfigurations = new SidebarButtonsToHtmlTableConfigurations();
 
-        // ???? is needed???
+        // no needed
         this.idButtonSidebarSecondSvgTextContainer = "idButtonSidebarSecondSvgTextContainer"; // text of menu item
         this.idButtonSidebarThirdSvgTextContainer = "idButtonSidebarThirdSvgTextContainer"; // text of menu item
         this.idButtonSidebarFourthSvgTextContainer = "idButtonSidebarFourthSvgTextContainer"; // text of menu item

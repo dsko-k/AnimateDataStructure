@@ -1,4 +1,5 @@
 ﻿using AnimateDataStructure.Core.Entities.DataStructureEntities;
+using AnimateDataStructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Entities.NodeEntities
 {
-    public class NodeBinarySearchTree : INode
+    public class NodeBinarySearchTree : INode, IHasPrimaryKeyId
     {
         public int NodeBinarySearchTreeId { get; set; } // Primary key (not the same as nodeId in UI)
+
+        public int PrimaryKeyId => NodeBinarySearchTreeId;
 
         public double Value { get; set; }
                 

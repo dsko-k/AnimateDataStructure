@@ -1,4 +1,5 @@
 ﻿using AnimateDataStructure.Core.Entities.NodeEntities;
+using AnimateDataStructure.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Entities.DataStructureEntities
 {
-    public class MinHeap : IDataStructure<NodeMinHeap>
+    public class MinHeap : IDataStructure<NodeMinHeap>, IHasUserId
     {
         public int MinHeapId { get; set; } // Primary key
 

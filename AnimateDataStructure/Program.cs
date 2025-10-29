@@ -1,3 +1,5 @@
+using AnimateDataStructure.Application.Services.LoadingService;
+using AnimateDataStructure.Application.Services.NodesFormattingService;
 using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Entities;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
@@ -87,8 +89,16 @@ builder.Services.AddScoped<ITreeValidatorProvider<NodeMaxHeap>, MaxHeapValidator
 builder.Services.AddScoped<ITreeValidatorProvider<NodeRedBlackTree>, RedBlackTreeValidatorProvider>();
 
 
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+// Register all Formatters for BST, AVL, MinHeap, MaxHeap
+builder.Services.AddScoped(typeof(IDataStructureFormatter<NodeAvlTree>), typeof(CommonTreeNodeFormatter<NodeAvlTree>));
+builder.Services.AddScoped(typeof(IDataStructureFormatter<NodeBinarySearchTree>), typeof(CommonTreeNodeFormatter<NodeBinarySearchTree>));
+builder.Services.AddScoped(typeof(IDataStructureFormatter<NodeMinHeap>), typeof(CommonTreeNodeFormatter<NodeMinHeap>));
+builder.Services.AddScoped(typeof(IDataStructureFormatter<NodeMaxHeap>), typeof(CommonTreeNodeFormatter<NodeMaxHeap>));
+builder.Services.AddScoped<IDataStructureFormatter<NodeRedBlackTree>, RedBlackTreeFormatter>();
 
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IDataLoader<,>), typeof(DataStructureDataLoader<,>));
 
 // Register the services with their dependencies
 builder.Services.AddScoped<BinarySearchTreeService>();

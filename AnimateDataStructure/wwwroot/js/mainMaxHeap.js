@@ -31,4 +31,7 @@ import { DataStructurePageFunctionality } from './PageFunctionality/DataStructur
     dataStructurePageFunctionality.addEffectsToInputField();
 
     controlHandlers.attachGroupControlActivityHandlers();
+
+    // DO NOT DELETE: Run at the end of the script
+    dataStructurePageFunctionality.onPageLoadClickOnButtonAddRange();
 })();

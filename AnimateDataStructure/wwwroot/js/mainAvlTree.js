@@ -28,9 +28,11 @@ import { DataStructurePageFunctionality } from './PageFunctionality/DataStructur
 
     dataStructurePageFunctionality.addHandlerOnClickSidebarIcons(newTree);
 
-    //// add effects to buttons Add node, Find node, Delete node, Traverse
-    //dataStructurePageFunctionality.addEffectsToControlButtons();
     dataStructurePageFunctionality.addEffectsToInputField();
 
     controlHandlers.attachGroupControlActivityHandlers();
+
+    // DO NOT DELETE: Run at the end of the script
+    dataStructurePageFunctionality.onPageLoadClickOnButtonAddRange();
+
 })();

@@ -1064,8 +1064,6 @@ li {
     left: 1800px;
     top: 10px;
     background-color: greenyellow;
-    visibility: visible;
+    visibility: hidden;
+    pointer-events: none;
 }
-
-
-

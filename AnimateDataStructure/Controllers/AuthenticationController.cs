@@ -20,6 +20,32 @@ namespace AnimateDataStructure.Web.Controllers
             this.logger = logger;
         }
 
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Register([FromBody] RegisterViewModel registerViewModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var result = await authenticationService.RegisterAsync(registerViewModel.Email, registerViewModel.Password, registerViewModel.UserName);
+
+        //        if (result.Succeeded)
+        //        {
+        //            logger.LogInformation("User {Email} registered successfully", registerViewModel.Email);
+        //            return Json(new { success = true });
+        //        }
+        //        else
+        //        {
+        //            // Use your existing extension method to handle errors
+        //            ModelState.AddRegistrationFormErrorsToModelState(result.Errors, typeof(RegisterViewModel));
+        //            return BadRequest(ModelState);
+        //        }
+        //    }
+
+        //    return BadRequest(ModelState);
+        //}
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel registerViewModel)
@@ -30,12 +56,16 @@ namespace AnimateDataStructure.Web.Controllers
 
                 if (result.Succeeded)
                 {
-                    logger.LogInformation("User {Email} registered successfully", registerViewModel.Email);
+                    // Offload the synchronous logger call to prevent deadlock
+                    _ = Task.Run(() =>
+                    {
+                        logger.LogInformation("User {Email} registered successfully", registerViewModel.Email);
+                    });
+
                     return Json(new { success = true });
                 }
                 else
                 {
-                    // Use your existing extension method to handle errors
                     ModelState.AddRegistrationFormErrorsToModelState(result.Errors, typeof(RegisterViewModel));
                     return BadRequest(ModelState);
                 }
@@ -45,28 +75,73 @@ namespace AnimateDataStructure.Web.Controllers
         }
 
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        logger.LogWarning("Login attempt failed due to invalid ModelState for user {Email}", loginViewModel.Email);
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    // Pass the login details to the Authentication Service
+        //    var result = await authenticationService.LoginAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.RememberMe);
+
+        //    // Check if the login was successful
+        //    if (result.Succeeded)
+        //    {
+        //        logger.LogInformation("User {Email} logged in", loginViewModel.Email);
+
+        //        _ = Task.Run(() =>
+        //        {
+        //            logger.LogInformation("User {Email} logged in", loginViewModel.Email);
+        //        });
+        //        return Json(new { success = true });
+        //    }
+        //    else
+        //    {
+        //        logger.LogWarning("Login failed for user {Email}", loginViewModel.Email);
+        //        ModelState.AddLoginFormErrorsToModelState(result, typeof(LoginViewModel));
+        //        return BadRequest(ModelState);
+        //    }
+        //}
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel)
         {
+            // Offload synchronous logger call
             if (!ModelState.IsValid)
             {
-                logger.LogWarning("Login attempt failed due to invalid ModelState for user {Email}", loginViewModel.Email);
+                _ = Task.Run(() =>
+                {
+                    logger.LogWarning("Login attempt failed due to invalid ModelState for user {Email}", loginViewModel.Email);
+                });
+
                 return BadRequest(ModelState);
             }
 
-            // Pass the login details to the Authentication Service
             var result = await authenticationService.LoginAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.RememberMe);
 
-            // Check if the login was successful
             if (result.Succeeded)
             {
-                logger.LogInformation("User {Email} logged in", loginViewModel.Email);
+                _ = Task.Run(() =>
+                {
+                    logger.LogInformation("User {Email} logged in", loginViewModel.Email);
+                });
+
                 return Json(new { success = true });
             }
             else
             {
-                logger.LogWarning("Login failed for user {Email}", loginViewModel.Email);
+                // Offload synchronous logger call
+                _ = Task.Run(() =>
+                {
+                    logger.LogWarning("Login failed for user {Email}", loginViewModel.Email);
+                });
+
                 ModelState.AddLoginFormErrorsToModelState(result, typeof(LoginViewModel));
                 return BadRequest(ModelState);
             }

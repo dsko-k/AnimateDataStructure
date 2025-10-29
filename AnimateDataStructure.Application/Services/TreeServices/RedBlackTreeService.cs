@@ -1,12 +1,13 @@
-﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+﻿using AnimateDataStructure.Application.Services.LoadingService;
+using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
+using AnimateDataStructure.Core.Entities.DataStructureEntities;
+using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Core.Parsers;
 using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.Services.NodesValidationService;
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider;
 using AnimateDataStructure.Core.Translators;
 using AnimateDataStructure.Core.ValidationErrors;
-using AnimateDataStructure.Core.Entities.DataStructureEntities;
-using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
 
 namespace AnimateDataStructure.Core.Services.TreeServices
@@ -17,10 +18,10 @@ namespace AnimateDataStructure.Core.Services.TreeServices
                                    IBaseTreeTranslator<RedBlackTree, SaveRedBlackTreeDto, NodeRedBlackTree> translator,
                                    INodeValueUniquenessValidator uniquenessValidator,        
                                    IBaseNodeParser<NodeRedBlackTree> parser,
-                                   ITreeValidatorProvider<NodeRedBlackTree> treeValidatorProvider)
-        : base(repository, translator, uniquenessValidator, parser, treeValidatorProvider)
+                                   ITreeValidatorProvider<NodeRedBlackTree> treeValidatorProvider,
+                                   IDataLoader<RedBlackTree, NodeRedBlackTree> dataLoader)
+        : base(repository, translator, uniquenessValidator, parser, treeValidatorProvider, dataLoader)
         {
         }
-
     }
 }

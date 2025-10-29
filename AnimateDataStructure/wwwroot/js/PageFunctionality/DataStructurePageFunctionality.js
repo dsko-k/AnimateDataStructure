@@ -3,7 +3,6 @@ import { TraversingTreePreorder } from '../DatastructureTraversingTypes/Traversi
 import { TraversingTreePostorder } from '../DatastructureTraversingTypes/TraversingTreePostorder.js';
 import { HtmlSidebarCreator } from '../HtmlSidebar/HtmlSidebarCreator.js';
 import { HtmlSidebarBuilder } from '../HtmlSidebar/HtmlSidebarBuilder.js';
-import { ControlHandlersAbstractMouseEffect } from '../UserInterfaceEffects/ControlHandlersAbstractMouseEffect.js';
 import { ControlHandlersDataStructureSidebar } from '../Sidebar/ControlHandlersDataStructureSidebar.js';
 import { ContextControlEffects } from '../UserInterfaceEffects/ContextControlEffects.js';
 import { InputNodeEffects } from '../UserInterfaceEffects/InputNodeEffects.js';
@@ -17,7 +16,7 @@ import { ButtonTraversePostorderEffects } from '../UserInterfaceEffects/ButtonTr
 import { ButtonSaveEffects } from '../UserInterfaceEffects/ButtonSaveEffects.js';
 import { CssFileReaderWriter } from '../CssHandlers/CssFileReaderWriter.js';
 import { ButtonAuthenticateEffects } from '../UserInterfaceEffects/ButtonAuthenticateEffects.js';
-// ??????
+
 import { InputValuesFormSender } from '../DataStructureFormInputValues/InputValuesFormSender.js';
 import { ContextInputValuesFormFieldsHelper } from '../DataStructureFormInputValues/ContextInputValuesFormFieldsHelper.js';
 import { InputValuesFormFieldsHelper } from '../DataStructureFormInputValues/InputValuesFormFieldsHelper.js';
@@ -138,7 +137,6 @@ export class DataStructurePageFunctionality
 	}
 
 
-	// ???
 	registerInputValuesFormHandlerToButtonTraversePostorder(traversingContext, controlHandlers, dataStructure)
 	{
 		let callbackAnimation = () =>
@@ -214,7 +212,7 @@ export class DataStructurePageFunctionality
 
 	addHandlersToButtonAddRange(controlHandlers)
 	{
-		let buttonAddRangeNodes = document.getElementById('idButtonAddRange');
+		let buttonAddRangeNodes = this.getButtonAddRangeOfNodesDomElement();
 
 		buttonAddRangeNodes.addEventListener('click', controlHandlers.onAddRangeOfNodes.bind(controlHandlers));
 	}
@@ -273,7 +271,7 @@ export class DataStructurePageFunctionality
 	addAbstractMouseEffect()
 	{
 		// Sidebar's buttons
-		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
+		//let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
 
 		let idBody = this.attributesForHtmlPage.bodyPageAttributes.defaultAttributes.id; // "idBody"
 
@@ -339,6 +337,50 @@ export class DataStructurePageFunctionality
 	{
 		let contextInputNodeEffects = new ContextControlEffects(new InputNodeEffects());
 		contextInputNodeEffects.addEffectsToInputField();
+	}
+
+
+	// DO NOT DELETE: method must be invoked after all scripts loaded
+	onPageLoadClickOnButtonAddRange()
+	{
+		// DO NOT DELETE: do not use event listenter. Instead inwoke this method at the end of script main....js
+		// It guaranties that method will be invoked after all scripts loaded
+
+		let inputForNodeValue = this.getInputForNodeValueDomElement();
+
+		if (inputForNodeValue.value === "")
+		{
+			return;
+		}
+
+		this.emulateClickOnButtonAddRangeOfNodes();
+	}
+
+
+	emulateClickOnButtonAddRangeOfNodes()
+	{
+		let buttonAddRangeNodes = this.getButtonAddRangeOfNodesDomElement();
+		buttonAddRangeNodes.click();
+	}
+
+
+	getButtonAddRangeOfNodesDomElement()
+	{
+		let addRangeOfNodesButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAddRangeOfNodesConfigurations();
+		let idButtonAddRange = addRangeOfNodesButtonConfigs.buttonAddRangeAttributes.defaultAttributes.id; // 'idButtonAddRange'
+		let buttonAddRangeNodesDomElement = document.getElementById(idButtonAddRange);
+
+		return buttonAddRangeNodesDomElement;
+	}
+
+
+	getInputForNodeValueDomElement()
+	{
+		let inputNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
+		let idInputForNodeValue = inputNodeConfigs.inputAttributes.defaultAttributes.id; // 'idInputForNodeValue'
+		let inputForNodeValueDomElement = document.getElementById(idInputForNodeValue);
+
+		return inputForNodeValueDomElement;
 	}
 
 }

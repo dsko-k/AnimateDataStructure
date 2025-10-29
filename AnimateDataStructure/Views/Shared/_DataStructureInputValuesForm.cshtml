@@ -1,6 +1,6 @@
-﻿
+﻿@using AnimateDataStructure.Web.Constants
 
-<form id="idFormInputDataStructureValues" data-temp-guid="@ViewBag.TempGuid">
+<form id="idFormInputDataStructureValues" data-temp-guid="@ViewData[ViewDataKeys.TempGuid]">
 
     @* line @Html.AntiForgeryToken() was uncommented before using BaseTreeController aproach *@
     @Html.AntiForgeryToken()
@@ -8,7 +8,16 @@
     <div id="idInpuntContainer" class="inputWithButtonsContainer">
 
         <div id="idInputEffectSubContainer" class="inputEffectSubContainer">
-            <input class="input" type="text" id="idInputForNodeValue" placeholder="" /> @* DO NOT DELETE placeholder="" it is needed for label input behavior in CSS *@
+            @* <input class="input" type="text" id="idInputForNodeValue" placeholder="" /> *@ @* DO NOT DELETE placeholder="" it is needed for label input behavior in CSS *@
+            
+            @{
+                // 1. Get the value safely from ViewData (which returns null if the key doesn't exist)
+                var savedNodes = ViewData[ViewDataKeys.SavedDataStructureNodes] as string;
+                var inputValue = string.IsNullOrEmpty(savedNodes) ? string.Empty : savedNodes;
+            }
+
+            <input class="input" type="text" id="idInputForNodeValue" placeholder="" value="@inputValue" /> @* DO NOT DELETE placeholder="" it is needed for label input behavior in CSS *@
+            
             <label id="idLabelForInputForNodeValue" for="idInputForNodeValue">Enter number to add, find, delete node or conditional traverse</label>
 
             <div id="idInputProgressBar" class=""></div>
@@ -16,7 +25,7 @@
 
         <span id="idErrorMessageSpanDataStructureInputValue" class="spanErrorMessageDataStructureInputValue"></span>
 
-        <button id="idButtonAdd" class="neonButtonAdd" type="button" data-controller="@ViewData["ControllerName"]" data-action="@ViewData["ActionNameAddNode"]">Add node</button>
+        @* <button id="idButtonAdd" class="neonButtonAdd" type="button" data-controller="@ViewData["ControllerName"]" data-action="@ViewData["ActionNameAddNode"]">Add node</button>
         <button id="idButtonFind" class="neonButtonFind" type="button" data-controller="@ViewData["ControllerName"]" data-action="@ViewData["ActionNameFindNode"]">Find node</button>
         <button id="idButtonDelete" class="neonButtonDelete" type="button" data-controller="@ViewData["ControllerName"]" data-action="@ViewData["ActionNameDeleteNode"]">Delete node</button>
         <button id="idButtonTraverseMenu" class="neonButtonTraverseMenu" type="button">Traverse</button>
@@ -27,10 +36,25 @@
         </div>
 
         <button id="idButtonSave" class="neonButtonSave" type="button" data-controller="@ViewData["ControllerName"]" data-action="@ViewData["ActionNameSaveNodes"]">Save</button>
+        *@
+
+        <button id="idButtonAdd" class="neonButtonAdd" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameFindNode]">Add node</button>
+        <button id="idButtonFind" class="neonButtonFind" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameFindNode]">Find node</button>
+        <button id="idButtonDelete" class="neonButtonDelete" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameDeleteNode]" > Delete node</button>
+        <button id="idButtonTraverseMenu" class="neonButtonTraverseMenu" type="button">Traverse</button>
+        <div id="idListOfTraversalMenu" class="listOfTraversalMenu">
+            <button id="idButtonTraversingInorder" class="neonButtonTraverseInorder" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameTraverseInorder]" > Inorder</button>
+            <button id="idButtonTraversingPreorder" class="neonButtonTraversePreorder" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameTraversePreorder]">Preorder</button>
+            <button id="idButtonTraversingPostorder" class="neonButtonTraversePostorder" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameTraversePostorder]" > Postorder</button>
+        </div>
+
+        <button id="idButtonSave" class="neonButtonSave" type="button" data-controller="@ViewData[ViewDataKeys.ControllerName]" data-action="@ViewData[ViewDataKeys.ActionNameSaveNodes]" > Save</button>
+
+
 
         @await Html.PartialAsync("_AuthenticateButton");
 
-        <input class="buttonAddRange" type="button" id="idButtonAddRange" value="Add range" /> <!-- To remove, remove css class buttonAddRange -->
+        <input class="buttonAddRange" type="button" id="idButtonAddRange" value="Add range" />
     </div>
 
 </form>

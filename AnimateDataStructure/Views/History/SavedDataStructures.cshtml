@@ -8,7 +8,6 @@
     int rowIndex = -1;
 }
 
-
 <h2>Saved Data Structures</h2>
 
 <div id="idHistoryTableContainer" class="tableContainer" style="width: 75%;">
@@ -64,7 +63,21 @@
                     @foreach (var item in Model)
                     {
                         var nodeSummary = item.NodeData.Length > 60 ? item.NodeData.Substring(0, 60) + "..." : item.NodeData;
-                        
+
+                        // Dynamically determine the controller name e.g., "AVL Tree" -> "AvlTree"
+                        var baseControllerName = item.DataStructureType.Replace("-", "").Replace(" ", "");
+
+                        // the routing system appends "Controller"
+                        string controllerName = baseControllerName.EndsWith("Tree") || baseControllerName.EndsWith("Heap") 
+                        ? baseControllerName : baseControllerName + "Controller"; // fallback
+
+                        // Since your controller names like AvlTreeController match the type (e.g., AvlTree)
+                        // and the router will strip the Controller suffix, you need the base part.
+                        // Let's rely on a simpler transformation: remove spaces/hyphens.
+
+                        // Example: "Binary Search Tree" -> "BinarySearchTree" -> Controller name is BinarySearchTreeController
+                        var finalControllerName = item.DataStructureType.Replace(" ", "").Replace("-", "");
+
                         <tr data-tablerowviewordernumber="@(++rowIndex)"
                             data-tablerowviewordernumberininitialunsortedtable="@rowIndex"
                             data-issortedtablerow="false"
@@ -126,7 +139,7 @@
                                 </div>
                             </td>
 
-                            @* Column 5: Actions (Load Button) *@                           
+                            @* Column 5: Actions (Load Button) *@                            
                             <td>
                                 <div class="cell">
                                     <div class="cellWithGlowingRadialBorder">
@@ -134,9 +147,10 @@
                                         <div class="contentOfCellWithGlowingRadialBorder">
                                             <div class="glowingRadialGradientInsideCellContent"></div>
                                             <p class="textInsideCell">
-                                                <a asp-controller="DataStructures"
-                                                   asp-action="Load"
-                                                   asp-route-guid="@item.TempGuid"
+                                                @* ⭐️ FIX APPLIED HERE: Use the dynamically calculated controller name ⭐️ *@
+                                                <a asp-controller="@finalControllerName"
+                                                   asp-action="LoadSavedDataStructure"
+                                                   asp-route-tempGuid="@item.TempGuid"
                                                    class="btn btn-sm btn-primary">Load</a>
                                             </p>
                                             <div class="cellLoader"></div>

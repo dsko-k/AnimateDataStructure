@@ -170,7 +170,6 @@ export class HtmlTableBuilder // abstract Builder
         let pTextInsideCell = this.htmlAbstractDomElementPart.createHtmlTag(this.attributesOfHtmlTable.pTextInsideCellAttributes);
         this.htmlAbstractDomElementPart.createHtmlTagWithText(pTextInsideCell, textInTableCell);
 
-        // ????
         let divCellLoader = this.htmlAbstractDomElementPart.createHtmlTagWithConfigurationParameter(this.attributesOfHtmlTable.divCellLoaderAttributes, columnNumberStartsFromOne);
 
 

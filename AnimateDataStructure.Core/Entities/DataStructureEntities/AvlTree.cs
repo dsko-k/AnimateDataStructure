@@ -1,4 +1,5 @@
 ﻿using AnimateDataStructure.Core.Entities.NodeEntities;
+using AnimateDataStructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Entities.DataStructureEntities
 {
-    public class AvlTree : IDataStructure<NodeAvlTree>
+    public class AvlTree : IDataStructure<NodeAvlTree>, IHasUserId
     {
         public int AvlTreeId { get; set; } // Primary key
 

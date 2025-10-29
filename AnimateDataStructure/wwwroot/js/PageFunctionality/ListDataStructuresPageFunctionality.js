@@ -20,10 +20,6 @@ export class ListDataStructuresPageFunctionality
 		let contextControlButtonEffectsAuthenticate = new ContextControlEffects(buttonAuthenticateEffects);
 		contextControlButtonEffectsAuthenticate.addEffectsToControlButton();
 
-		//buttonAuthenticateEffects.onAfterSuccessAuthentication();
-		//buttonAuthenticateEffects.onAfterLogOut();
-		//buttonAuthenticateEffects.onSubmitHiddenLogoutForm();
-		//buttonAuthenticateEffects.onPageLoadButtonAuthenticate();
 		buttonAuthenticateEffects.addAuthorizationButtonBehaviorHandlers();
 	}
 

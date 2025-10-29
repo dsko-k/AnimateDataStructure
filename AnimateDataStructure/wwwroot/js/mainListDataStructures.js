@@ -1,9 +1,14 @@
 import { ListDataStructuresPageFunctionality } from './PageFunctionality/ListDataStructuresPageFunctionality.js';
 
 
-let listDataStructuresPageFunctionality = new ListDataStructuresPageFunctionality();
 
-listDataStructuresPageFunctionality.addEffectsToControlButtons();
-listDataStructuresPageFunctionality.addAbstractMouseEffect();
+(async function ()
+{
+    let listDataStructuresPageFunctionality = new ListDataStructuresPageFunctionality();
 
-listDataStructuresPageFunctionality.addEffectOnClickCardOfListDataStructure();
+    listDataStructuresPageFunctionality.addEffectsToControlButtons();
+    listDataStructuresPageFunctionality.addAbstractMouseEffect();
+
+    listDataStructuresPageFunctionality.addEffectOnClickCardOfListDataStructure();
+
+})();

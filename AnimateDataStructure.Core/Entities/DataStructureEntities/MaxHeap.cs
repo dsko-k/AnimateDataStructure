@@ -1,4 +1,5 @@
 ﻿using AnimateDataStructure.Core.Entities.NodeEntities;
+using AnimateDataStructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Entities.DataStructureEntities
 {
-    public class MaxHeap : IDataStructure<NodeMaxHeap>
+    public class MaxHeap : IDataStructure<NodeMaxHeap>, IHasUserId
     {
         public int MaxHeapId { get; set; } // Primary key
 

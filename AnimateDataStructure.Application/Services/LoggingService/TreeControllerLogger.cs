@@ -17,19 +17,39 @@ namespace AnimateDataStructure.Core.Services.LoggingService
         }
 
 
-        public void LogInputData<TData>(string controllerName, string actionName, TData data)
-            where TData : class
-        {
-            try
-            {
-                var jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = false });
+        //public void LogInputData<TData>(string controllerName, string actionName, TData data)
+        //    where TData : class
+        //{
+        //    try
+        //    {
+        //        var jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = false });
 
-                logger.LogInformation(InputDataLogTemplate, controllerName, actionName, jsonString);
-            }
-            catch (Exception ex)
+        //        logger.LogInformation(InputDataLogTemplate, controllerName, actionName, jsonString);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logger.LogError(ex, InputDataLogError, controllerName, actionName);
+        //    }
+        //}
+
+
+        public Task LogInputData<TData>(string controllerName, string actionName, TData data)
+        where TData : class
+        {
+            // Offload the synchronous work (serialization and logging) to a thread pool thread
+            return Task.Run(() =>
             {
-                logger.LogError(ex, InputDataLogError, controllerName, actionName);
-            }
+                try
+                {
+                    var jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = false });
+
+                    logger.LogInformation(InputDataLogTemplate, controllerName, actionName, jsonString);
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, InputDataLogError, controllerName, actionName);
+                }
+            });
         }
 
     }

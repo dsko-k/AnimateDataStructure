@@ -26,24 +26,19 @@ namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
             var minHeap = await GetMinHeapHistory(userId).ToListAsync();
             var rbt = await GetRbtHistory(userId).ToListAsync();
 
-            // 2. Aggregate the List<DTO> results in memory using Concat() 
-            //    (Since they are Lists, this uses System.Linq.Enumerable.Concat)
+            // 2. Aggregate the List<DTO> results in memory using Concat()
             IEnumerable<HistoryDataStructureDto> combinedResults = avlTrees
                 .Concat(bst)
                 .Concat(maxHeap)
                 .Concat(minHeap)
                 .Concat(rbt);
 
-            // 3. Sort the combined list in memory and return.
-            //    We use Task.FromResult since the list is already in memory.
+            // 3. Sort the combined list in memory and return
             return combinedResults
                 .OrderByDescending(h => h.UpdatedAt)
-                .ToList(); // ToList() is redundant here but safe.
+                .ToList(); // ToList() is redundant here but safe
         }
 
-        // ---------------------------------------------------------------------
-        // ⭐️ PRIVATE PROJECTION METHODS (Fixed LINQ Translation) ⭐️
-        // ---------------------------------------------------------------------
 
         private IQueryable<HistoryDataStructureDto> ProjectCommon<TDataStructure, TNode>(string userId, string typeName, Expression<Func<TNode, int>> pkSelector)
             where TDataStructure : class, IDataStructure<TNode>

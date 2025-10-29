@@ -27,7 +27,7 @@ namespace AnimateDataStructure.Web.Controllers
         [ValidateAntiForgeryToken]
         public override async Task<IActionResult> SaveNodes([FromForm] SaveRedBlackTreeViewModel formData)
         {
-            TreeControllerLogger.LogInputData(this.GetType().Name, nameof(SaveNodes), formData);
+            _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(SaveNodes), formData);
 
             if (!ModelState.IsValid)
             {
