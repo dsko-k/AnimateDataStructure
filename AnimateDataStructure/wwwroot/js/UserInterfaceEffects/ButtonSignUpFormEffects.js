@@ -16,7 +16,7 @@ export class ButtonSignUpFormEffects extends AbstractControlButtonEffects
 	}
 
 
-	// reimplementing
+	// DO NOT DELETE: reimplementing
 	getInputContainerDomElement()
 	{
 		let authenticationFormsConfigurations = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();

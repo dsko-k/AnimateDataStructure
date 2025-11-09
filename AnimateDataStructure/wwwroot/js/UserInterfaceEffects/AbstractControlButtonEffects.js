@@ -2,13 +2,16 @@ import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttribute
 import { HtmlPageDomUpdater } from '../HtmlDomElementHandler/HtmlPageDomUpdater.js';
 import { HtmlAbstractDomElementPart } from '../HtmlDomElementHandler/HtmlAbstractDomElementPart.js';
 import { AbstractRippleEffect } from './AbstractRippleEffect.js';
+import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 
 export class AbstractControlButtonEffects
 {
 	constructor()
 	{
 		this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+		this.inputForNodeContainerConfigurations = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
 		this.htmlPageDomUpdater = new HtmlPageDomUpdater();
+		this.converterConfigirationsToDomElement = new ConverterConfigirationsToDomElement();
 		this.htmlAbstractDomElementPart = new HtmlAbstractDomElementPart();
 		this.abstractRippleEffect = new AbstractRippleEffect();
 	}
@@ -22,10 +25,7 @@ export class AbstractControlButtonEffects
 
 	getInputContainerDomElement()
 	{
-		let inputForNodeContainerConfigurations = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
-		let idInputContainer = inputForNodeContainerConfigurations.divInputContainerAttributes.defaultAttributes.id;
-
-		return this.htmlPageDomUpdater.getDomElementOnPageById(idInputContainer);
+		return this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.inputForNodeContainerConfigurations.divInputContainerAttributes);
 	}
 
 

@@ -30,24 +30,4 @@ export class ContextOperationFormValidation
     }
 
 
-    isUserAuthenticated()
-    {
-        let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
-
-        return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
-    }
-
-
-    getInputUserAuthenticationStatusDomElement()
-    {
-        let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-
-        let inputUserAuthenticationStatusAttributes = buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
-
-        let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
-
-        const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
-
-        return inputUserAuthenticationStatus;
-    }
 }

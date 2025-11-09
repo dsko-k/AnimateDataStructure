@@ -23,7 +23,5 @@ namespace AnimateDataStructure.Core.Services.HistoryService
 
             return await historyRepo.GetCombinedHistoryForUserAsync(userId);
         }
-
-
     }
 }

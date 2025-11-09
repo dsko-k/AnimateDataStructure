@@ -47,7 +47,6 @@ export class SaveNodesFormValidation
 
     isValidAbstractTreeNodesStringFormatToBeSaved(stringOfNodesToSave)
     {
-        //const regexCommaSeparatedListOfNumbers = /^$|^[0-9]+(\.[0-9]+)?(,[0-9]+(\.[0-9]+)?)*$/;
         const regexCommaSeparatedListOfNumbers = /^$|^-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)*$/;
 
         return regexCommaSeparatedListOfNumbers.test(stringOfNodesToSave);
@@ -56,7 +55,6 @@ export class SaveNodesFormValidation
 
     isValidRedBlackTreeNodesStringFormatToBeSaved(stringOfNodesToSave)
     {
-        //const regexCommaSeparatedListOfNumbersFlags = /^$|^[0-9]+(\.[0-9]+)?,(true|false)(,[0-9]+(\.[0-9]+)?,(true|false))*$/;
         const regexCommaSeparatedListOfNumbersFlags = /^$|^-?[0-9]+(\.[0-9]+)?,(true|false)(,-?[0-9]+(\.[0-9]+)?,(true|false))*$/;
 
         let result = regexCommaSeparatedListOfNumbersFlags.test(stringOfNodesToSave);

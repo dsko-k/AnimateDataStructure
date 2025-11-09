@@ -36,11 +36,6 @@ export class ButtonFindNodeEffects extends AbstractControlButtonEffects
 	}
 
 
-	//onMouseClick()
-	//{
-	//	this.onAbstractClick(this.idButton, this, null);
-	//}
-
 	onMouseClick()
 	{
 		let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded();

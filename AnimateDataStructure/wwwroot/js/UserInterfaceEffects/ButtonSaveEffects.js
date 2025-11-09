@@ -3,8 +3,12 @@ import { ContextInputValuesFormFieldsHelper } from '../DataStructureFormInputVal
 import { InputValuesFormFieldsHelper } from '../DataStructureFormInputValues/InputValuesFormFieldsHelper.js';
 import { InputValuesFormSender } from '../DataStructureFormInputValues/InputValuesFormSender.js';
 //import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
+import { AuthenticationChecker } from '../Authentication/AuthenticationChecker.js';
+import { AfterAuthentication } from '../Authentication/AfterAuthentication.js';
+import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
+import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
+import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js';
 
-import { AuthenticationChecker } from './AuthenticationChecker.js';
 
 export class ButtonSaveEffects extends AbstractControlButtonEffects
 {
@@ -12,9 +16,14 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 	{
 		super();
 		this.buttonSaveConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonSaveConfigurations();
+		this.converterConfigirationsToDomElement = new ConverterConfigirationsToDomElement();
 		this.idButton = this.buttonSaveConfigurations.buttonSaveAttributes.defaultAttributes.id;
 		this.inputValuesFormSender = new InputValuesFormSender();
 		this.authenticationChecker = new AuthenticationChecker();
+		this.afterAuthentication = new AfterAuthentication();
+		this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+		this.buttonAuthenticateConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
+		this.buttonHelper = new ButtonHelper();
 	}
 
 
@@ -23,7 +32,7 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonSaveConfigurations.buttonSaveAttributes);
 		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
 
-		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
+		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: call from Base class
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonSaveConfigurations.buttonSaveAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
 	}
@@ -33,7 +42,7 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 	{
 		//this.onAbstractMouseUp(this.idButton, this);
 
-		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
+		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: call from Base class
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
 
@@ -56,9 +65,14 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 	{
 		if (!this.authenticationChecker.isUserAuthenticated())
 		{
-			let buttonAuthenticateDomElement = this.authenticationChecker.getButtonAuthenticateDomElement();
+			//let buttonAuthenticateDomElement = this.authenticationChecker.getButtonAuthenticateDomElement();
+			let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigs.buttonAuthenticateAttributes);
 
-			this.authenticationChecker.immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement);
+			//this.authenticationChecker.immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement);
+			this.buttonHelper.immitateClickOnButtonContainedRippleEffect(buttonAuthenticateDomElement);
+
+			// ????
+			this.afterAuthentication.setIdButtonToBeClickedAfterAuthorization(buttonAuthenticateDomElement, this.idButton);
 
 			return;
         }
@@ -75,50 +89,4 @@ export class ButtonSaveEffects extends AbstractControlButtonEffects
 		this.inputValuesFormSender.onClickButtonSubmitForm(formInputValuesDomElements, contextInputValuesFormFieldsHelper, eventNameToFire);
 	}
 
-
-	// ???
-	// Run authoentication after click on the button Save (if user was not authenticated)
-
-	//isUserAuthenticated()
-	//{
-	//	let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
-
-	//	return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
-	//}
-
-
-	//getInputUserAuthenticationStatusDomElement()
-	//{
-	//	let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-
-	//	let inputUserAuthenticationStatusAttributes = buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
-
-	//	let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
-
-	//	const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
-
-	//	return inputUserAuthenticationStatus;
-	//}
-
-
-	//getButtonAuthenticateDomElement()
-	//{
-	//	let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-	//	let idButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.id;
-
-	//	return this.htmlPageDomUpdater.getDomElementOnPageById(idButtonAuthenticate);
-	//}
-
-
-	//immitateClickOnButtonAuthenticate(buttonAuthenticateDomElement)
-	//{
-	//	let eventDispatcher = new EventDispatcher();
-	//	// DO NOT DELETE:
-	//	// dispatch MouseEvent about to trigger ending ripple effect event on the button Authenticate (not simply "click")
-	//	eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "mousedown");
-	//	eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "click");
-	//	eventDispatcher.dispatchMouseEvent(buttonAuthenticateDomElement, "mouseup");
-	//}
-
-	
 }

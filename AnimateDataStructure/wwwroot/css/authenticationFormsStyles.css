@@ -164,6 +164,14 @@ form h2 {
 }
 
 
+/* effect of label hoisting-downing effects when cursor in (outside) input field, to make effect an empty palceholder is necessary */
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -9px;
+}
+
+
+
+
 /* labels imitating placeholder for SignUp form */
 .wrapper.active .input-group input:focus ~ label,
 .wrapper.active .input-group input:valid ~ label {

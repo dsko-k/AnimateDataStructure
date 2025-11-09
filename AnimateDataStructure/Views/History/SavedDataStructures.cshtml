@@ -4,7 +4,6 @@
 @{
     Layout = "_HistoryLayout";
     ViewData["Title"] = "Saved Data Structures";
-    // Initialize a counter for the table row view order attributes
     int rowIndex = -1;
 }
 
@@ -62,110 +61,14 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        var nodeSummary = item.NodeData.Length > 60 ? item.NodeData.Substring(0, 60) + "..." : item.NodeData;
-
-                        // Dynamically determine the controller name e.g., "AVL Tree" -> "AvlTree"
-                        var baseControllerName = item.DataStructureType.Replace("-", "").Replace(" ", "");
-
-                        // the routing system appends "Controller"
-                        string controllerName = baseControllerName.EndsWith("Tree") || baseControllerName.EndsWith("Heap") 
-                        ? baseControllerName : baseControllerName + "Controller"; // fallback
-
-                        // Since your controller names like AvlTreeController match the type (e.g., AvlTree)
-                        // and the router will strip the Controller suffix, you need the base part.
-                        // Let's rely on a simpler transformation: remove spaces/hyphens.
-
-                        // Example: "Binary Search Tree" -> "BinarySearchTree" -> Controller name is BinarySearchTreeController
-                        var finalControllerName = item.DataStructureType.Replace(" ", "").Replace("-", "");
-
-                        <tr data-tablerowviewordernumber="@(++rowIndex)"
-                            data-tablerowviewordernumberininitialunsortedtable="@rowIndex"
-                            data-issortedtablerow="false"
-                            data-istablerowtobehidden="false">
-
-                            @* Column 1: Type *@
-                            <td>
-                                <div class="cell">
-                                    <div class="cellWithGlowingRadialBorder">
-                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
-                                        <div class="contentOfCellWithGlowingRadialBorder">
-                                            <div class="glowingRadialGradientInsideCellContent"></div>
-                                            <p class="textInsideCell">@item.DataStructureType</p>
-                                            <div class="cellLoader"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            @* Column 2: Saved At (CreatedAt) *@
-                            <td>
-                                <div class="cell">
-                                    <div class="cellWithGlowingRadialBorder">
-                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
-                                        <div class="contentOfCellWithGlowingRadialBorder">
-                                            <div class="glowingRadialGradientInsideCellContent"></div>
-                                            <p class="textInsideCell">@item.CreatedAt.ToString("g")</p>
-                                            <div class="cellLoader"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            @* Column 3: Updated At *@
-                            <td>
-                                <div class="cell">
-                                    <div class="cellWithGlowingRadialBorder">
-                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
-                                        <div class="contentOfCellWithGlowingRadialBorder">
-                                            <div class="glowingRadialGradientInsideCellContent"></div>
-                                            <p class="textInsideCell">@item.UpdatedAt.ToString("g")</p>
-                                            <div class="cellLoader"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            @* Column 4: Nodes Data (Truncated) *@
-                            <td>
-                                <div class="cell">
-                                    <div class="cellWithGlowingRadialBorder">
-                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
-                                        <div class="contentOfCellWithGlowingRadialBorder">
-                                            <div class="glowingRadialGradientInsideCellContent"></div>
-                                            <p class="textInsideCell">@nodeSummary</p>
-                                            <div class="cellLoader"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            @* Column 5: Actions (Load Button) *@                            
-                            <td>
-                                <div class="cell">
-                                    <div class="cellWithGlowingRadialBorder">
-                                        <div class="borderOfCellWithGlowingRadialBorder"></div>
-                                        <div class="contentOfCellWithGlowingRadialBorder">
-                                            <div class="glowingRadialGradientInsideCellContent"></div>
-                                            <p class="textInsideCell">
-                                                @* ⭐️ FIX APPLIED HERE: Use the dynamically calculated controller name ⭐️ *@
-                                                <a asp-controller="@finalControllerName"
-                                                   asp-action="LoadSavedDataStructure"
-                                                   asp-route-tempGuid="@item.TempGuid"
-                                                   class="btn btn-sm btn-primary">Load</a>
-                                            </p>
-                                            <div class="cellLoader"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                        </tr>
+                        rowIndex++;
+                        // The main view references the row partial using the subfolder name
+                        @await Html.PartialAsync("HistoryPartials/_HistoryTableRow", new Tuple<HistoryDataStructureDto, int>(item, rowIndex))
                     }
                 </tbody>
             </table>
         }
     </div>
-
 
     <div id="idHistoryTableResizerVerticalContainer" class="resizerVerticalContainer"></div>
     <div id="idHistoryTableResizerBottomHorizontalContainer" class="resizerBottomHorizontalContainer"></div>

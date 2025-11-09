@@ -29,6 +29,9 @@ import { ContextOperationFormValidation } from '../DataStructureFormInputValues/
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { SaveNodesFormValidation } from '../DataStructureFormInputValues/SaveNodesFormValidation.js';
 import { HtmlTableFunctionality } from '../HtmlTableFunctionality/HtmlTableFunctionality.js';
+import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
+import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js';
+import { ButtonSaveHelper } from '../DomElementHelpers/ButtonSaveHelper.js';
 
 
 // Wrapper to connect all implemented functionality to the page with data structure animation
@@ -38,7 +41,12 @@ export class DataStructurePageFunctionality
 	{
 		this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
 		this.htmlTableFunctionality = new HtmlTableFunctionality();
+		this.buttonHelper = new ButtonHelper();
+		this.buttonSaveHelper = new ButtonSaveHelper();
+		this.converterConfigirationsToDomElement = new ConverterConfigirationsToDomElement();
 		this.attributesForHtmlPage = this.htmlConfigurationAttributesReader.getHtmlPageConfigurations();
+		this.buttonAddRangeOfNodesConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAddRangeOfNodesConfigurations();
+		this.inputNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
 	}
 
 	async readPageStyles()
@@ -212,7 +220,9 @@ export class DataStructurePageFunctionality
 
 	addHandlersToButtonAddRange(controlHandlers)
 	{
-		let buttonAddRangeNodes = this.getButtonAddRangeOfNodesDomElement();
+		//let buttonAddRangeNodes = this.getButtonAddRangeOfNodesDomElement();
+
+		let buttonAddRangeNodes = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAddRangeOfNodesConfigs.buttonAddRangeAttributes);
 
 		buttonAddRangeNodes.addEventListener('click', controlHandlers.onAddRangeOfNodes.bind(controlHandlers));
 	}
@@ -343,44 +353,18 @@ export class DataStructurePageFunctionality
 	// DO NOT DELETE: method must be invoked after all scripts loaded
 	onPageLoadClickOnButtonAddRange()
 	{
-		// DO NOT DELETE: do not use event listenter. Instead inwoke this method at the end of script main....js
+		// DO NOT DELETE: do not use event listenter here. Instead inwoke this method at the end of script main....js
 		// It guaranties that method will be invoked after all scripts loaded
 
-		let inputForNodeValue = this.getInputForNodeValueDomElement();
+		let inputForNodeValueDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.inputNodeConfigs.inputAttributes);
 
-		if (inputForNodeValue.value === "")
+		if (inputForNodeValueDomElement.value === "")
 		{
 			return;
 		}
 
-		this.emulateClickOnButtonAddRangeOfNodes();
-	}
-
-
-	emulateClickOnButtonAddRangeOfNodes()
-	{
-		let buttonAddRangeNodes = this.getButtonAddRangeOfNodesDomElement();
-		buttonAddRangeNodes.click();
-	}
-
-
-	getButtonAddRangeOfNodesDomElement()
-	{
-		let addRangeOfNodesButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAddRangeOfNodesConfigurations();
-		let idButtonAddRange = addRangeOfNodesButtonConfigs.buttonAddRangeAttributes.defaultAttributes.id; // 'idButtonAddRange'
-		let buttonAddRangeNodesDomElement = document.getElementById(idButtonAddRange);
-
-		return buttonAddRangeNodesDomElement;
-	}
-
-
-	getInputForNodeValueDomElement()
-	{
-		let inputNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
-		let idInputForNodeValue = inputNodeConfigs.inputAttributes.defaultAttributes.id; // 'idInputForNodeValue'
-		let inputForNodeValueDomElement = document.getElementById(idInputForNodeValue);
-
-		return inputForNodeValueDomElement;
+		this.buttonHelper.emulateClickOnButtonFromConfigurations(this.buttonAddRangeOfNodesConfigs.buttonAddRangeAttributes);
+		this.buttonSaveHelper.setInscriptionSavedForButtonSave();
 	}
 
 }

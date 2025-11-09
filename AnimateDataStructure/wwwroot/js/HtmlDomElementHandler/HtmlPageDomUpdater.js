@@ -234,12 +234,6 @@ export class HtmlPageDomUpdater
             throw new Error(`Html-element is incorrect or does not exist`);
         }
 
-
-        //if (!inlineStylePropertyName)
-        //{
-        //    throw new Error(`inline style property name is incorrect`);
-        //}
-
         let computedStyleDomElement = window.getComputedStyle(domElement);
         let unparsedStyleValue = computedStyleDomElement.getPropertyValue(cssKeyName);
 

@@ -10,18 +10,26 @@ import { ContextControlEffects } from '../UserInterfaceEffects/ContextControlEff
 import { ButtonSignUpFormEffects } from '../UserInterfaceEffects/ButtonSignUpFormEffects.js';
 import { ButtonLogInFormEffects } from '../UserInterfaceEffects/ButtonLogInFormEffects.js';
 import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
+import { AfterAuthentication } from '../Authentication/AfterAuthentication.js';
+import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
+import { AuthenticationFormsProgressBarHelper } from '../DomElementHelpers/AuthenticationFormsProgressBarHelper.js';
+
 
 export class Authentication
 {
     constructor()
     {
         this.htmlPageDomUpdater = new HtmlPageDomUpdater();
-        this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();        
+        this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+        this.buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
         this.signUpFormFieldsHelper = new SignUpFormFieldsHelper();
         this.contextFormFieldsHelperSignUp = new ContextFormFieldsHelper(this.signUpFormFieldsHelper);
         this.logInFormFieldsHelper = new LogInFormFieldsHelper();        
         this.contextFormFieldsHelperLogIn = new ContextFormFieldsHelper(this.logInFormFieldsHelper);
         this.eventDispatcher = new EventDispatcher();
+        this.afterAuthentication = new AfterAuthentication();
+        this.converterConfigirationsToDomElement = new ConverterConfigirationsToDomElement();
+        this.authenticationFormsProgressBarHelper = new AuthenticationFormsProgressBarHelper();
     }
 
 
@@ -77,9 +85,14 @@ export class Authentication
         let closeFormButton = formContainerDomElements.closeFormButton;
         let wrapper = formContainerDomElements.wrapper;
 
-        closeFormButton.addEventListener("click", function ()
+        closeFormButton.addEventListener("click", function (evn)
         {
+            evn.stopPropagation();
+
             wrapper.remove();
+
+            // ????
+            //this.afterAuthentication.clearIdButtonToBeClickedAfterAuthorization();
 
         }.bind(this));
     }
@@ -205,7 +218,8 @@ export class Authentication
 
         if (contextFormValidation.checkFormValidity(formDomElements))
         {
-            this.toggleFormProgressBarStyle();
+            //this.toggleFormProgressBarStyle();
+            this.authenticationFormsProgressBarHelper.toggleFormProgressBarStyle();
 
             await this.submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation);
         }
@@ -242,12 +256,15 @@ export class Authentication
                 this.updateSubmitButtonActivity(contextFormFieldsHelper, false); // enables button related to Submit form
 
                 // ???
-                this.toggleFormProgressBarStyle();
+                //this.toggleFormProgressBarStyle();
+                this.authenticationFormsProgressBarHelper.toggleFormProgressBarStyle();
 
                 this.closeFormContainer(contextFormFieldsHelper);
 
 
-                let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+                //let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+                let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes);
+
                 this.eventDispatcher.dispatchCustomEvent(buttonAuthenticateDomElement, "userLoggedIn", {});
 
                 // TO DO: show a success message to the user
@@ -256,7 +273,8 @@ export class Authentication
             {
                 this.updateSubmitButtonActivity(contextFormFieldsHelper, false); // enables button related to Submit form
 
-                this.toggleFormProgressBarStyle();
+                //this.toggleFormProgressBarStyle();
+                this.authenticationFormsProgressBarHelper.toggleFormProgressBarStyle();
 
                 const errorData = await response.json();
 
@@ -322,43 +340,37 @@ export class Authentication
     }
 
 
-    getButtonAuthenticateDomElement()
-    {
-        //let buttonAuthenticateConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-        //let idButtonAuthenticate = buttonAuthenticateConfigs.buttonAuthenticateAttributes.defaultAttributes.id;
+    //getButtonAuthenticateDomElement()
+    //{
+    //    let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
+    //    let styleNameButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.class;
+    //    let buttonAuthenticateDomElement = document.querySelector(`.${styleNameButtonAuthenticate}`);
 
-        //return idButtonAuthenticate;
-
-
-        let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-        let styleNameButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.class;
-        let buttonAuthenticateDomElement = document.querySelector(`.${styleNameButtonAuthenticate}`);
-
-        return buttonAuthenticateDomElement;
-    }
+    //    return buttonAuthenticateDomElement;
+    //}
 
         
-    toggleFormProgressBarStyle()
-    {
-        let formProgressBarDomElement = this.getFormProgressBarDomElement();
+    //toggleFormProgressBarStyle()
+    //{
+    //    let formProgressBarDomElement = this.getFormProgressBarDomElement();
 
-        let authenticationFormsDatastructuresConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
+    //    let authenticationFormsDatastructuresConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
 
-        let styleNameToShowProgressBar = authenticationFormsDatastructuresConfigs.divProgressBarAttributes.additionalStyleToShowProgressBar.class;
+    //    let styleNameToShowProgressBar = authenticationFormsDatastructuresConfigs.divProgressBarAttributes.additionalStyleToShowProgressBar.class;
 
-        formProgressBarDomElement.classList.toggle(styleNameToShowProgressBar);
-    }
+    //    formProgressBarDomElement.classList.toggle(styleNameToShowProgressBar);
+    //}
 
 
-    getFormProgressBarDomElement()
-    {
-        let authenticationFormsDatastructuresConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
+    //getFormProgressBarDomElement()
+    //{
+    //    let authenticationFormsDatastructuresConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
 
-        let idProgressBar = authenticationFormsDatastructuresConfigs.divProgressBarAttributes.defaultAttributes.id;
+    //    let idProgressBar = authenticationFormsDatastructuresConfigs.divProgressBarAttributes.defaultAttributes.id;
 
-        let progressBarDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idProgressBar);
+    //    let progressBarDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idProgressBar);
 
-        return progressBarDomElement;
-    }
+    //    return progressBarDomElement;
+    //}
 
 }

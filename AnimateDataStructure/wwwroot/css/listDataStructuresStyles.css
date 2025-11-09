@@ -320,11 +320,9 @@ i {
     }
 
 
-    /*????*/
 .card-info-title {
     text-align: center;
 }
-
 
 
 
@@ -332,6 +330,16 @@ i {
     font-size: 1.4em;
     line-height: 25px;
 }
+
+
+.card:hover .card-info-title > h3 {
+    color: rgb(207 2 222);
+}
+
+.card:hover .card-info-title > h4 {
+    color: rgb(0 174 158);
+}
+
 
 .card-info-title > h4 {
     color: rgb(49 236 255 / 56%);

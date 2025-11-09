@@ -1,15 +1,25 @@
 ﻿import { HtmlPageDomUpdater } from '../HtmlDomElementHandler/HtmlPageDomUpdater.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
-
+import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js';
+import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
+import { ButtonSaveHelper } from '../DomElementHelpers/ButtonSaveHelper.js';
+import { InputProgressBarHelper } from '../DomElementHelpers/InputProgressBarHelper.js';
+import { AuthenticationChecker } from '../Authentication/AuthenticationChecker.js';
 
 export class InputValuesFormSender
 {
     constructor()
     {
-        this.htmlPageDomUpdater = new HtmlPageDomUpdater();
-        this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+        this.htmlPageDomUpdater = new HtmlPageDomUpdater();        
         this.eventDispatcher = new EventDispatcher();
+        this.buttonHelper = new ButtonHelper();
+        this.buttonSaveHelper = new ButtonSaveHelper();
+        this.converterConfigirationsToDomElement = new ConverterConfigirationsToDomElement();
+        this.inputProgressBarHelper = new InputProgressBarHelper();
+        this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+        this.buttonSaveConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonSaveConfigurations();
+        this.authenticationChecker = new AuthenticationChecker();
     }
 
 
@@ -65,20 +75,21 @@ export class InputValuesFormSender
                         
         if (contextFormValidation.checkFormValidity(formDomElements, controlHandler))
         {
-            this.toggleFormProgressBarStyle();
+            //this.toggleFormProgressBarStyle();
+            this.inputProgressBarHelper.toggleFormProgressBarStyle();
 
-            await this.submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation, callbackAnimation);
+            await this.submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, callbackAnimation);
         }
     }
 
 
     //Submits input value and auxiliary information as form data to the server
-    async submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation, callbackAnimation)
+    async submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, callbackAnimation)
     {
         try
         {
             let inputValue = formDomElements.inputForNodeValueDomElement.value;
-            const formData = await this.getFormData(formDomElements, contextFormValidation, contextFormFieldsHelper, inputValue, urlToSubmitForm);
+            const formData = await this.getFormData(formDomElements, contextFormFieldsHelper, inputValue, urlToSubmitForm);
 
             const response = await fetch(urlToSubmitForm, {
                 method: 'POST',
@@ -88,16 +99,21 @@ export class InputValuesFormSender
 
             if (response.ok)
             {
-                this.toggleFormProgressBarStyle();
+                //this.toggleFormProgressBarStyle();
+                this.inputProgressBarHelper.toggleFormProgressBarStyle();
 
                 if (callbackAnimation)
                 {
                     callbackAnimation();
                 }
+
+                // ???
+                this.buttonSaveHelper.setInscriptionSaveForButtonSave(urlToSubmitForm);
             }
             else
             {
-                this.toggleFormProgressBarStyle();
+                //this.toggleFormProgressBarStyle();
+                this.inputProgressBarHelper.toggleFormProgressBarStyle();
 
                 const errorData = await response.json();
 
@@ -165,31 +181,7 @@ export class InputValuesFormSender
         return `/${buttonDomElement.dataset.controller}/${buttonDomElement.dataset.action}`;
     }
 
-
-    toggleFormProgressBarStyle()
-    {
-        let formProgressBarDomElement = this.getFormProgressBarDomElement();
-
-        let inputNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
-
-        let styleNameToShowProgressBar = inputNodeConfigs.divInputProgressBarAttributes.additionalStyleToShowProgressBar.class;
-
-        formProgressBarDomElement.classList.toggle(styleNameToShowProgressBar);
-    }
-
-
-    getFormProgressBarDomElement()
-    {
-        let inputNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
-
-        let idProgressBar = inputNodeConfigs.divInputProgressBarAttributes.defaultAttributes.id;
-
-        let progressBarDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idProgressBar);
-
-        return progressBarDomElement;
-    }
-
-
+        
     onSubmitFormSaveCurrentTree(contextFormFieldsHelper, contextFormValidation, relativeUrlToSubmitForm, controlHandler, eventNameToHandle)
     {
         let idFormSignUp = contextFormFieldsHelper.findFormId();
@@ -223,20 +215,21 @@ export class InputValuesFormSender
 
         if (contextFormValidation.checkValidityStringToSaveNodes(formDomElements, nodesAsString, controlHandler))
         {
-            this.toggleFormProgressBarStyle();
+            //this.toggleFormProgressBarStyle();
+            this.inputProgressBarHelper.toggleFormProgressBarStyle();
 
-            await this.submitFormSaveCurrentTree(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation, nodesAsString);
+            await this.submitFormSaveCurrentTree(formDomElements, urlToSubmitForm, contextFormFieldsHelper, nodesAsString);
         }
     }
 
 
-    async submitFormSaveCurrentTree(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation, dataStructureNodesAsString)
+    async submitFormSaveCurrentTree(formDomElements, urlToSubmitForm, contextFormFieldsHelper, dataStructureNodesAsString)
     {
         try
         {
             // DO NOT DELETE: dataStructureNodesAsString is string representation of current datastructure as it is seen in UI at the moment of save
 
-            const formData = await this.getFormData(formDomElements, contextFormValidation, contextFormFieldsHelper, dataStructureNodesAsString, urlToSubmitForm);
+            const formData = await this.getFormData(formDomElements, contextFormFieldsHelper, dataStructureNodesAsString, urlToSubmitForm);
 
             const response = await fetch(urlToSubmitForm, {
                 method: 'POST',
@@ -247,11 +240,15 @@ export class InputValuesFormSender
 
             if (response.ok)
             {
-                this.toggleFormProgressBarStyle();
+                //this.toggleFormProgressBarStyle();
+                this.inputProgressBarHelper.toggleFormProgressBarStyle();
+
+                this.buttonSaveHelper.setInscriptionSavedForButtonSave();
             }
             else
             {
-                this.toggleFormProgressBarStyle();
+                //this.toggleFormProgressBarStyle();
+                this.inputProgressBarHelper.toggleFormProgressBarStyle();
 
                 const errorData = await response.json();
 
@@ -266,10 +263,11 @@ export class InputValuesFormSender
     }
 
 
-    async getFormData(formDomElements, contextFormValidation, contextFormFieldsHelper, inputValue, urlToSubmitForm)
+    async getFormData(formDomElements, contextFormFieldsHelper, inputValue, urlToSubmitForm)
     {
         let tempGuid = formDomElements.formDomElement.dataset.tempGuid;
-        let isUserAuthenticated = contextFormValidation.isUserAuthenticated();
+        //let isUserAuthenticated = contextFormValidation.isUserAuthenticated();
+        let isUserAuthenticated = this.authenticationChecker.isUserAuthenticated();
         const freshAntiForgeryToken = await this.getFreshAntiForgeryToken(urlToSubmitForm);
 
         // DO NOT DELETE: dataStructureNodesAsString is string representation of current datastructure as it is seen in UI at the moment of save

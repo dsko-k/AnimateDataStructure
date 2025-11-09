@@ -1,0 +1,23 @@
+﻿@using AnimateDataStructure.Core.DTOs.HistoryDataStructureDTOs
+@model HistoryDataStructureDto
+
+@{
+    var finalControllerName = Model.DataStructureType.Replace(" ", "").Replace("-", "");
+}
+
+@* This partial wraps the Load button link in the required cell structure. *@
+<div class="cell">
+    <div class="cellWithGlowingRadialBorder">
+        <div class="borderOfCellWithGlowingRadialBorder"></div>
+        <div class="contentOfCellWithGlowingRadialBorder">
+            <div class="glowingRadialGradientInsideCellContent"></div>
+            <p class="textInsideCell">
+                <a asp-controller="@finalControllerName"
+                   asp-action="LoadSavedDataStructure"
+                   asp-route-tempGuid="@Model.TempGuid"
+                   class="btn btn-sm btn-primary">Load</a>
+            </p>
+            <div class="cellLoader"></div>
+        </div>
+    </div>
+</div>

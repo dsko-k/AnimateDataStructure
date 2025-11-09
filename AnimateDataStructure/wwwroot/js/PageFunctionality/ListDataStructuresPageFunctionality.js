@@ -5,6 +5,7 @@ import { CardListDataStructure } from '../UserInterfaceEffects/CardListDataStruc
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 
 
+
 export class ListDataStructuresPageFunctionality
 {
 	constructor()

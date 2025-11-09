@@ -1,7 +1,8 @@
 import { AbstractControlButtonEffects } from './AbstractControlButtonEffects.js';
 import { Authentication } from '../Authentication/Authentication.js';
 import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
-
+import { AfterAuthentication } from '../Authentication/AfterAuthentication.js';
+import { AuthenticationChecker } from '../Authentication/AuthenticationChecker.js';
 
 
 // button Authorize to invoke Sign Up and Login forms
@@ -14,6 +15,8 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 		this.idButton = this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.id;
 		this.eventDispatcher = new EventDispatcher();
 		this.authentication = new Authentication();
+		this.authenticationChecker = new AuthenticationChecker();
+		this.afterAuthentication = new AfterAuthentication();		
 	}
 
 
@@ -40,7 +43,8 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 
 	async onAfterRippleEffectEnded(evn)
 	{
-		let isAuthenticated = this.isUserAuthenticated();
+		//let isAuthenticated = this.isUserAuthenticated();
+		let isAuthenticated = this.authenticationChecker.isUserAuthenticated();
 
 		if (!isAuthenticated)
         {
@@ -70,17 +74,17 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 	}
 
 
-
 	onPageLoadButtonAuthenticate()
 	{
 		document.addEventListener("DOMContentLoaded", function (evn)
 		{
 			//let buttonAuthenticateDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(this.idButton);
-			let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+			//let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+			let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes);
 
-			if (this.isUserAuthenticated())
+			//if (this.isUserAuthenticated())
+			if (this.authenticationChecker.isUserAuthenticated())
 			{
-				//this.eventDispatcher.dispatchCustomEvent(this.idButton, "userLoggedIn", {});
 				this.eventDispatcher.dispatchCustomEvent(buttonAuthenticateDomElement, "userLoggedIn", {});
 			}
 
@@ -91,9 +95,8 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 	// Change inscription on the button Authenticate and modify this button to log out
 	onAfterSuccessAuthentication()
 	{
-		//let buttonAuthenticateDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(this.idButton);
-
-		let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+		//let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+		let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes);
 
 		buttonAuthenticateDomElement.addEventListener("userLoggedIn", function (evn)
 		{
@@ -105,6 +108,11 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 			// add form tag
 			this.createFormForLogOutButton();
 
+			// DO NOT DELETE:
+			// Authomatically click button with id that specified in attribute data-idButtonToClickAfterAuthentication on tag
+			// <button id="idButtonAuthenticate" class="neonButtonSignIn" type="button" data-id-button-to-click-after-authentication="">Authenticate</button>
+			this.afterAuthentication.emulateClickButtonAfterAuthentication();
+
 		}.bind(this));
 	}
 
@@ -113,7 +121,8 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 	{
 		//let buttonAuthenticateDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(this.idButton);
 
-		let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+		//let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+		let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes);
 
 		buttonAuthenticateDomElement.addEventListener("userLoggedOut", function (evn)
 		{
@@ -127,16 +136,21 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 			// remove form tag after LogOut
 			formForLogOutButton.remove();
 
+			// DO NOT DELETE:
+			// Remove id of the button (that automatically clicked after authorization) that specified in attribute data-idButtonToClickAfterAuthentication on tag
+			// <button id="idButtonAuthenticate" class="neonButtonSignIn" type="button" data-id-button-to-click-after-authentication="">Authenticate</button>
+			this.afterAuthentication.clearIdButtonToBeClicked();
+
 		}.bind(this));
 	}
 
 
-	isUserAuthenticated()
-	{
-		let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
+	//isUserAuthenticated()
+	//{
+	//	let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
 
-		return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
-	}
+	//	return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
+	//}
 
 
 	setAuthenticationInputStatus(isAuthenticatedFlag)
@@ -146,7 +160,8 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 			throw new Error("Incorrect flag value");
         }
 
-		let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
+		//let inputUserAuthenticationStatusDomElement = this.getInputUserAuthenticationStatusDomElement();
+		let inputUserAuthenticationStatusDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes);
 		inputUserAuthenticationStatusDomElement.value = `${isAuthenticatedFlag}`;
 	}
 
@@ -201,26 +216,27 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 
 
 	// Get container where is nested Authenticate button
-	getInputContainerDomElement()
-	{
-		let inputContainerConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
-		let idInpuntContainer = inputContainerConfigs.divInputContainerAttributes.defaultAttributes.id;
-		let inpuntContainer = document.getElementById(idInpuntContainer);
+	//getInputContainerDomElement()
+	//{
+	//	let inputContainerConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
+	//	let idInpuntContainer = inputContainerConfigs.divInputContainerAttributes.defaultAttributes.id;
+	//	let inpuntContainer = document.getElementById(idInpuntContainer);
+		
+	//	return inpuntContainer;
+	//}
 
-		return inpuntContainer;
-	}
 
+	//getInputUserAuthenticationStatusDomElement()
+	//{
+	//	let inputUserAuthenticationStatusAttributes = this.buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
 
-	getInputUserAuthenticationStatusDomElement()
-	{
-		let inputUserAuthenticationStatusAttributes = this.buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
+	//	let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
 
-		let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
+	//	const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
 
-		const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
+	//	return inputUserAuthenticationStatus;
+	//}
 
-		return inputUserAuthenticationStatus;
-	}
 
 
 	// get value from // <input type="hidden" id="RequestVerificationToken" name="@tokens.FormFieldName" value="@tokens.RequestToken" />
@@ -245,14 +261,13 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 
 
 	// ???
-	getButtonAuthenticateDomElement()
-	{
-		let styleNameButtonAuthenticate = this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.class;
-		let buttonAuthenticateDomElement = document.querySelector(`.${styleNameButtonAuthenticate}`);
+	//getButtonAuthenticateDomElement()
+	//{
+	//	let styleNameButtonAuthenticate = this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.class;
+	//	let buttonAuthenticateDomElement = document.querySelector(`.${styleNameButtonAuthenticate}`);
 
-		return buttonAuthenticateDomElement;
-	}
-
+	//	return buttonAuthenticateDomElement;
+	//}
 
 
 	onSubmitHiddenLogoutForm()
@@ -281,7 +296,8 @@ export class ButtonAuthenticateEffects extends AbstractControlButtonEffects
 
 					if (response.ok)
 					{
-						let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+						//let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
+						let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes);
 						this.eventDispatcher.dispatchCustomEvent(buttonAuthenticateDomElement, "userLoggedOut", {});
 
 						// Optionally, redirect the user.

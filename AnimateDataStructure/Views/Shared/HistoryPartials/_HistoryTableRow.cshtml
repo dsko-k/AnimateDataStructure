@@ -1,0 +1,42 @@
+﻿@using AnimateDataStructure.Core.DTOs.HistoryDataStructureDTOs
+@model Tuple<HistoryDataStructureDto, int>
+
+@{
+    var item = Model.Item1;
+    var rowIndex = Model.Item2;
+    
+    var nodeSummary = item.NodeData.Length > 60 ? item.NodeData.Substring(0, 60) + "..." : item.NodeData;
+}
+
+<tr data-tablerowviewordernumber="@rowIndex"
+    data-tablerowviewordernumberininitialunsortedtable="@rowIndex"
+    data-issortedtablerow="false"
+    data-istablerowtobehidden="false">
+
+    @* Column 1: Type *@
+    <td>
+        @await Html.PartialAsync("HistoryPartials/_TableDataCell", item.DataStructureType)
+    </td>
+
+    @* Column 2: Saved At *@
+    <td>
+        @await Html.PartialAsync("HistoryPartials/_TableDataCell", item.CreatedAt.ToString("g"))
+    </td>
+
+    @* Column 3: Updated At *@
+    <td>
+        @await Html.PartialAsync("HistoryPartials/_TableDataCell", item.UpdatedAt.ToString("g"))
+    </td>
+
+    @* Column 4: Nodes Data *@
+    <td>
+        @await Html.PartialAsync("HistoryPartials/_TableDataCell", nodeSummary)
+    </td>
+
+    @* Column 5: Actions *@
+
+    <td>
+        @await Html.PartialAsync("HistoryPartials/_TableActionButtonCell", item)
+    </td>
+
+</tr>

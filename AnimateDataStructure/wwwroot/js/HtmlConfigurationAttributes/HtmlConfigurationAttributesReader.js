@@ -2108,6 +2108,8 @@
                     "class": "neonButtonSaveOnMouseDown", // DO NOT DELETE: style is applied to input container not for button
                 },
 
+                textWhenSavedDatastructure: 'Saved',
+                textWhenNotSavedDatastructure: 'Save',
             },
 
         };
@@ -2210,8 +2212,7 @@
             },
 
 
-
-            // <button id="idButtonAuthenticate" class="neonButtonSignIn" type="button">Authenticate</button>
+            // <button id="idButtonAuthenticate" class="neonButtonSignIn" type="button" data-id-button-to-click-after-authentication="">Authenticate</button>
             buttonAuthenticateAttributes: {
 
                 tag: "button",
@@ -2221,6 +2222,8 @@
                     "id": "idButtonAuthenticate",
                     "class": "neonButtonAuthenticate",
                     "type": "button",
+                    //?????
+                    "data-id-button-to-click-after-authentication": "",
                 },
 
                 onMouseDownAttributes: {
@@ -2230,6 +2233,11 @@
 
                 textWhenAuthenticated: 'Log out',
                 textWhenUnauthenticated: 'Authenticate',
+
+                dataAttributeNames: {
+
+                    dataAttributeNameForIdButtonToClickAfterAuthentication: "idButtonToClickAfterAuthentication",// DO NOT DELETE:  data- skipped
+                }
 
             },
 
