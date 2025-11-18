@@ -1,0 +1,32 @@
+﻿.header-container {
+	width: 100%; /* Take full width */
+	text-align: center; /* Center the h1 content */
+	margin-bottom: 50px; /* Space between the title and the cards */
+}
+
+
+.gradient-text {
+	background: linear-gradient(204deg, #8500ffde 0%, #02daf7 25%, #8500ffde 50%, #02daf7 75%, #8500ffde 100%);
+	background-size: 200% 100%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: gradientShift 5s linear infinite alternate;
+	font-size: 4rem;
+	font-weight: 900;
+	letter-spacing: 2px;
+	font-family: 'Roboto', sans-serif;
+}
+
+@keyframes gradientShift {
+	0% {
+		/* Start with the background positioned on the left */
+		background-position: 0% 50%;
+	}
+
+	100% {
+		/* Slide the background to the right (50% of 800% is enough to shift colors) */
+		background-position: 100% 50%;
+	}
+}
+

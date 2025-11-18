@@ -14,6 +14,8 @@ import { DataStructurePageFunctionality } from './PageFunctionality/DataStructur
 
     let dataStructurePageFunctionality = new DataStructurePageFunctionality();
 
+    dataStructurePageFunctionality.removeLoadingMask(); // DO NOT DELETE: use before await dataStructurePageFunctionality.readPageStyles();
+
     // DO NOT DELETE: Call here (as early as possible)
     // add effects to buttons Add node, Find node, Delete node, Traverse...
     dataStructurePageFunctionality.addEffectsToControlButtons();
@@ -21,13 +23,9 @@ import { DataStructurePageFunctionality } from './PageFunctionality/DataStructur
     await dataStructurePageFunctionality.readPageStyles();
 
     dataStructurePageFunctionality.addHandlersToControlButtons(controlHandlers, traversingContext, newTree);
-
     dataStructurePageFunctionality.constructSidebar();
-
     dataStructurePageFunctionality.addAbstractMouseEffect();
-
-    dataStructurePageFunctionality.addHandlerOnClickSidebarIcons(newTree);
-        
+    dataStructurePageFunctionality.addHandlerOnClickSidebarIcons(newTree);        
     dataStructurePageFunctionality.addEffectsToInputField();
 
     controlHandlers.attachGroupControlActivityHandlers();

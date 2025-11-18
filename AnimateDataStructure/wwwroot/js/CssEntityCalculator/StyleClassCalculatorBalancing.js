@@ -238,13 +238,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
         {            
             let nodeToAnimate = this.allStepAnimation[0].stepAnimationObject.nodesInfoStepAnimation.nodeToAnimate;
 
-            // It was uncommented before splitting on modules but is never used
-            //let domUpdater = new DomUpdater();
-            //let elementName = "linkContainer";
-
-            //let domElementLinkContainer = domUpdater.getDomElement(nodeToAnimate, elementName);
-            //let classNameLinkContainer = domUpdater.getAttributeDomElement(nodeToAnimate, elementName, "class");
-
             if (nodeToAnimate.isLeftChild === null)
             {
                 return "0px";

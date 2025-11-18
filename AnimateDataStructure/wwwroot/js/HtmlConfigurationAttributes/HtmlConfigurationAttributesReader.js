@@ -3186,6 +3186,29 @@
 
 
 
+    getHtmlPageLoadingMaskConfigurations()
+    {
+        // TO DO: Move configuration object to the server
+        const allAttributes = {
+
+            // <div id="loadingMask" class="loading-mask">
+            divLoadingMaskAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "loadingMask",
+                    "class": "loading-mask",
+                },
+            },
+
+        };
+
+        return allAttributes;
+    }
+
+
     // Reading
 
     getClassFromAttributesWithDot(htmlElementConfigurationObject)

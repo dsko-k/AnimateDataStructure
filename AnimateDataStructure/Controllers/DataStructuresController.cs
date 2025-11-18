@@ -1,12 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AnimateDataStructure.Application.Services.DataStructuresListService;
+using AnimateDataStructure.Core.Entities.CardEntities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AnimateDataStructure.Web.Controllers
 {
     public class DataStructuresController : Controller
     {
+        private readonly IDataStructureListService dataStructureService;
+
+        public DataStructuresController(IDataStructureListService dataStructureService)
+        {
+            this.dataStructureService = dataStructureService;
+        }
+
+
         public async Task<IActionResult> ShowListDataStructures()
         {
-            return View();
+            var cards = await dataStructureService.GetAvailableDataStructuresAsync();
+
+            return View(cards);
         }
     }
 }

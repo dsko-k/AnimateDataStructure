@@ -191,14 +191,16 @@
 
 body {
     --bodyBackgroundColor: black;
+    flex-direction: column; /* ??? */
     align-items: center;
     background-color: var(--bodyBackgroundColor);
     display: flex;
-    height: 100vh;
+    /*height: 100vh;*/ /* ??? */
     justify-content: center;
     margin: 0px;
     overflow: hidden;
     padding: 0px;
+    padding-top: 150px; /* ??? */    
     /*background-image: url('../images/icons/pexels-codioful-6984986.jpg');*/
 }
 

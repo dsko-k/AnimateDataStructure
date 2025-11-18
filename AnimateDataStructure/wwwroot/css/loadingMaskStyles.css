@@ -1,0 +1,83 @@
+﻿.loading-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(28 31 70 / 25%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+
+/* The centered rectangle box with the message */
+.loading-box {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 300px;
+	height: 100px;
+	background: linear-gradient(0deg, #081e22bd, #07060e, #081e22bd);
+	color: #00bbe0;
+	padding: 20px 40px;
+	border: 1px solid #00ff11;
+	border-radius: 15px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	box-shadow: 0 0 15px #00ff47;
+}
+
+
+.loading-mask.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+
+.loadingMaskProgressBarContainer {
+	position: absolute;
+	bottom: 35%;
+	left: 0px;
+	width: 100%;
+	height: 4px;
+	overflow: hidden;
+}
+
+
+.loadingMaskProgressBar {
+	position: relative;
+	width: 50%;
+	height: 100%;
+	top: 0px;
+	left: 0%;
+	background: linear-gradient(90deg, transparent, #0ef, transparent);
+	animation-name: moveLoadingMaskProgressBar;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes moveLoadingMaskProgressBar {
+	0% {
+		left: -50%;
+	}
+
+	100% {
+		left: 100%;
+	}
+}
+
+
+.loading-message-wrapper {
+	align-self: center;
+	line-height: 1.5rem;
+}

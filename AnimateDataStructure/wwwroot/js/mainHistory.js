@@ -7,7 +7,6 @@
     let historyPageFunctionality = new HistoryPageFunctionality();
 
     historyPageFunctionality.addEffectsToControlButtons();
-
     historyPageFunctionality.addEffectsToHistoryTable();
 
 })();

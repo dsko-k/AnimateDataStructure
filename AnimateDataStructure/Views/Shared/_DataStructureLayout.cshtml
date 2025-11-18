@@ -12,11 +12,14 @@
 
     <link rel="stylesheet" href="/css/authenticationFormsStyles.css" asp-append-version="true" />
     @* <link rel="stylesheet" href="/css/buttonAuthenticateStyles.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="/css/loadingMaskStyles.css" asp-append-version="true" />
 
 </head>
 <body id="idBody">
 
     @await Html.PartialAsync("_DataStructureInputValuesForm")
+
+    @await Html.PartialAsync("_LoadingMask")
 
     <div id="idAuthorizationSuperContainer" class="authorizationSuperContainer"></div>
 

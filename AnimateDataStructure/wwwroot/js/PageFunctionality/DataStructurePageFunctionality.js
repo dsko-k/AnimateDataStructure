@@ -354,17 +354,38 @@ export class DataStructurePageFunctionality
 	onPageLoadClickOnButtonAddRange()
 	{
 		// DO NOT DELETE: do not use event listenter here. Instead inwoke this method at the end of script main....js
+		// It guaranties that method will be invoked after all scripts loaded		
+
+		//this.removeLoadingMask();
+		this.clickOnButtonAddRange();
+		
+	}
+
+
+	clickOnButtonAddRange()
+	{
+		// DO NOT DELETE: do not use event listenter here. Instead inwoke this method at the end of script main....js
 		// It guaranties that method will be invoked after all scripts loaded
 
 		let inputForNodeValueDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.inputNodeConfigs.inputAttributes);
 
-		if (inputForNodeValueDomElement.value === "")
+		if (inputForNodeValueDomElement.value !== "")
 		{
-			return;
+			this.buttonHelper.emulateClickOnButtonFromConfigurations(this.buttonAddRangeOfNodesConfigs.buttonAddRangeAttributes);
+			this.buttonSaveHelper.setInscriptionSavedForButtonSave();
 		}
-
-		this.buttonHelper.emulateClickOnButtonFromConfigurations(this.buttonAddRangeOfNodesConfigs.buttonAddRangeAttributes);
-		this.buttonSaveHelper.setInscriptionSavedForButtonSave();
 	}
 
+
+	removeLoadingMask()
+	{
+		let loadingMaskConfigs = this.htmlConfigurationAttributesReader.getHtmlPageLoadingMaskConfigurations();
+
+		let loadingMaskContainer = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(loadingMaskConfigs.divLoadingMaskAttributes);
+
+		if (loadingMaskContainer)
+        {
+			loadingMaskContainer.remove();
+        }
+	}
 }

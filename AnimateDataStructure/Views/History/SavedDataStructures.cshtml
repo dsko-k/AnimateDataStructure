@@ -62,7 +62,6 @@
                     @foreach (var item in Model)
                     {
                         rowIndex++;
-                        // The main view references the row partial using the subfolder name
                         @await Html.PartialAsync("HistoryPartials/_HistoryTableRow", new Tuple<HistoryDataStructureDto, int>(item, rowIndex))
                     }
                 </tbody>

@@ -1,7 +1,9 @@
+using AnimateDataStructure.Application.Services.DataStructuresListService;
 using AnimateDataStructure.Application.Services.LoadingService;
 using AnimateDataStructure.Application.Services.NodesFormattingService;
 using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Entities;
+using AnimateDataStructure.Core.Entities.CardEntities;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Core.Interfaces;
@@ -35,6 +37,13 @@ Log.Logger = new LoggerConfiguration()
 // Tell the application host to use Serilog for logging (THIS IS THE REPLACEMENT)
 // REPLACE: The default logging setup is replaced by this line which uses Serilog.
 builder.Host.UseSerilog();
+
+
+// REGISTER CONFIGURATION OPTIONS
+builder.Services.Configure<DataStructureListOptions>(builder.Configuration.GetSection(DataStructureListOptions.SectionName));
+
+builder.Services.AddScoped<IDataStructureListService, DataStructureListService>();
+
 
 
 builder.Services.AddIdentityServices(builder.Configuration);

@@ -1,4 +1,9 @@
-﻿<html lang="en">
+﻿@model List<AnimateDataStructure.Core.Entities.CardEntities.DataStructureListCard>
+@{
+    ViewData["Title"] = "Data Structure Animation";
+}
+
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -6,11 +11,16 @@
 
     <link rel="stylesheet" href="/css/listDataStructuresStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/authenticationFormsStyles.css" asp-append-version="true" />
-
     <link rel="stylesheet" href="/css/buttonAuthenticateStyles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/gradientTextStyles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="/css/userAgentNotificationStyles.css" asp-append-version="true" />
 </head>
 
 <body id="idBody">
+
+    @* ???? *@
+    @await Html.PartialAsync("_UserAgentNotification")
 
 
     <div id="idInpuntContainer" class="inputWithButtonsContainer">
@@ -23,109 +33,17 @@
     <div id="idAuthorizationSuperContainer" class="authorizationSuperContainer"></div>
 
 
+    <div class="header-container">
+        <h1 class="gradient-text">Animate data structures</h1>
+    </div>
+
+
     <div id="idCardsContainer" class="cardsContainer">
-        <div id="idCardBinarySearchTree" class="card">
-            <div class="card-content">
-                <div class="card-image">
-                    <i class="fa-duotone fa-apartment"></i>
-                </div>
-                <div class="card-info-wrapper">
-                    <div class="card-info">
-                        <i class="fa-duotone fa-apartment"></i>
-                        <div class="card-info-title">
-                            <h3>Binary Search Tree</h3>
-                            <h4>Organizes data for efficient searching</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div id="idCardAvlTree" class="card">
-            <div class="card-content">
-                <div class="card-image">
-                    <i class="fa-duotone fa-unicorn"></i>
-                </div>
-                <div class="card-info-wrapper">
-                    <div class="card-info">
-                        <i class="fa-duotone fa-unicorn"></i>
-                        <div class="card-info-title">
-                            <h3>AVL Tree</h3>
-                            <h4>A balanced binary search tree for efficient storing and retrieving</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="idCardMinHeap" class="card">
-            <div class="card-content">
-                <div class="card-image">
-                    <i class="fa-duotone fa-blender-phone"></i>
-                </div>
-                <div class="card-info-wrapper">
-                    <div class="card-info">
-                        <i class="fa-duotone fa-blender-phone"></i>
-                        <div class="card-info-title">
-                            <h3>Min Heap</h3>
-                            <h4>A tree where parent nodes are smaller than children</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="idCardMaxHeap" class="card">
-            <div class="card-content">
-                <div class="card-image">
-                    <i class="fa-duotone fa-person-to-portal"></i>
-                </div>
-                <div class="card-info-wrapper">
-                    <div class="card-info">
-                        <i class="fa-duotone fa-person-to-portal"></i>
-                        <div class="card-info-title">
-                            <h3>Max Heap</h3>
-                            <h4>A tree where parent nodes are greater than children</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="idCardRedBlackTree" class="card">
-            <div class="card-content">
-                <div class="card-image">
-                    <i class="fa-duotone fa-person-from-portal"></i>
-                </div>
-                <div class="card-info-wrapper">
-                    <div class="card-info">
-                        <i class="fa-duotone fa-person-from-portal"></i>
-                        <div class="card-info-title">
-                            <h3>Red-Black Tree</h3>
-                            <h4>A balanced binary search tree with color properties</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="idCardHistory" class="card">
-            <div class="card-content">
-                <div class="card-image">
-                    <i class="fa-duotone fa-person-from-portal"></i>
-                </div>
-                <div class="card-info-wrapper">
-                    <div class="card-info">
-                        <i class="fa-duotone fa-person-from-portal"></i>
-                        <div class="card-info-title">
-                            <h3>History</h3>
-                            <h4>Saved data structures</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @foreach (var card in Model)
+        {
+            @await Html.PartialAsync("_DataStructureCard", card)
+        }
 
     </div>
 

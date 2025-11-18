@@ -8,7 +8,6 @@ import { ListDataStructuresPageFunctionality } from './PageFunctionality/ListDat
 
     listDataStructuresPageFunctionality.addEffectsToControlButtons();
     listDataStructuresPageFunctionality.addAbstractMouseEffect();
-
     listDataStructuresPageFunctionality.addEffectOnClickCardOfListDataStructure();
 
 })();
