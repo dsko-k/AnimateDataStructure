@@ -1,6 +1,6 @@
 ﻿.header-container {
-	width: 100%; /* Take full width */
-	text-align: center; /* Center the h1 content */
+	width: 100%;
+	text-align: center;
 	margin-bottom: 50px; /* Space between the title and the cards */
 }
 
@@ -20,12 +20,10 @@
 
 @keyframes gradientShift {
 	0% {
-		/* Start with the background positioned on the left */
 		background-position: 0% 50%;
 	}
 
 	100% {
-		/* Slide the background to the right (50% of 800% is enough to shift colors) */
 		background-position: 100% 50%;
 	}
 }

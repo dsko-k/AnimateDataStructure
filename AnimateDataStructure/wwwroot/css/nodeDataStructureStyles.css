@@ -21,7 +21,7 @@
     --borderRotatorWidth: 4px; /* constant  it is used for the size of insideBorder */
     --animationDurationBorderRotator: 3s; /* constant */
     --animationNamesBorderRotatorContainerLeftRightTurn: animateBorderRightTurn; /* values using comma */
-    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma */
     --animationNamesShadowBorderRotatorContainerLeftRightTurn: animateShadowBorderRightTurn; /* values using comma , animateShadowBorderRightTurn, animateShadowBorderLeftTurn */
     --gradInitialValueInsideBorder: 0deg; /* to immitate changing of initial value for property of gradient */
     --insideBorderAnimationNames: animateInsideBorderAboveNode, animateInsideBorderBelowNode, animateInsideBorderBelowNode, animateInsideBorderHighlightLeftChild, animateInsideBorderHighlightLeftChild; /* values using comma */
@@ -47,7 +47,7 @@
     width: var(--widthSuperContainer);
     border-radius: 50%;
     box-shadow: 0px 0px 70px #7800ff;
-    background-color: transparent; /* https://stackoverflow.com/questions/11807286/how-to-make-div-background-color-transparent-in-css */
+    background-color: transparent;
     animation-name: var(--animationNameSuperContainer);
     animation-fill-mode: forwards;
     animation-duration: var(--animationDurationSuperContainer);
@@ -71,7 +71,7 @@
     --borderRotatorWidth: 4px; /* constant  it is used for the size of insideBorder */
     --animationDurationBorderRotator: 3s; /* constant */
     --animationNamesBorderRotatorContainerLeftRightTurn: animateBorderRightTurn; /* values using comma */
-    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma */
     --animationNamesShadowBorderRotatorContainerLeftRightTurn: animateShadowBorderRightTurn; /* values using comma , animateShadowBorderRightTurn, animateShadowBorderLeftTurn */
     --insideBorderAnimationNames: animateInsideBorderAboveNode, animateInsideBorderBelowNode, animateInsideBorderBelowNode, animateInsideBorderHighlightLeftChild, animateInsideBorderHighlightLeftChild; /* values using comma */
     --heightSuperContainer: 100px; /* constant */
@@ -119,7 +119,7 @@
     --borderRotatorWidth: 4px; /* constant  it is used for the size of insideBorder */
     --animationDurationBorderRotator: 3s; /* constant */
     --animationNamesBorderRotatorContainerLeftRightTurn: animateBorderRightTurn; /* values using comma */
-    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    --animationDelaysBorderRotatorContainer: 0s; /*5s, 9s, 13s  values using comma */
     --animationNamesShadowBorderRotatorContainerLeftRightTurn: animateShadowBorderRightTurn; /* values using comma , animateShadowBorderRightTurn, animateShadowBorderLeftTurn */
     --insideBorderAnimationNames: animateInsideBorderAboveNode, animateInsideBorderBelowNode, animateInsideBorderBelowNode, animateInsideBorderHighlightLeftChild, animateInsideBorderHighlightLeftChild; /* values using comma */
     --heightSuperContainer: 100px; /* constant */
@@ -236,7 +236,7 @@
     height: var(--heightShadowBorderRotatorContainer);
     width: var(--widthShadowBorderRotatorContainer);
     border-radius: 50%;
-    animation: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn); /* test added*/
+    animation: var(--animationNamesShadowBorderRotatorContainerLeftRightTurn);
     animation-duration: 1s /*var(--animationDurationBorderRotator)*/;
     animation-timing-function: linear;
     animation-delay: var(--animationDelaysBorderRotatorContainer);
@@ -263,7 +263,7 @@
     left: 0px;
     height: var(--heightShadowBorderRotatorContainer);
     width: var(--widthShadowBorderRotatorContainer);
-    border-radius: 50%; /* all animations were removed */
+    border-radius: 50%;
 }
 
 
@@ -304,8 +304,8 @@
     --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
     --animationTimingFunctionShadowBorderRotatorContainer: linear;
     --animationIterationCountShadowBorderRotatorContainer: infinite;
-    --visibilityShadowBorderRotatorClockwise: hidden; /* was visible */
-    --visibilityShadowBorderRotatorClockwiseShift: hidden; /* was visible */
+    --visibilityShadowBorderRotatorClockwise: hidden;
+    --visibilityShadowBorderRotatorClockwiseShift: hidden;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -327,8 +327,8 @@
     --animationDelayShadowBorderRotatorContainer: var(--animationDelaysBorderRotatorContainer); /* should be the same as for borders*/
     --animationTimingFunctionShadowBorderRotatorContainer: linear;
     --animationIterationCountShadowBorderRotatorContainer: infinite;
-    --visibilityShadowBorderRotatorAntiClockwise: hidden; /* was visible */
-    --visibilityShadowBorderRotatorAntiClockwiseShift: hidden; /* was visible */
+    --visibilityShadowBorderRotatorAntiClockwise: hidden;
+    --visibilityShadowBorderRotatorAntiClockwiseShift: hidden;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -539,7 +539,7 @@
     background-color: var(--backgroundColorBorderRotatorContainer);
     height: var(--heightBorderRotatorContainer);
     width: var(--widthBorderRotatorContainer);
-    animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn); /* test*/
+    animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);
     animation-duration: 1s /*var(--animationDurationBorderRotator)*/;
     animation-timing-function: linear;
     animation-delay: var(--animationDelaysBorderRotatorContainer);
@@ -564,7 +564,7 @@
     overflow: hidden;
     background-color: var(--backgroundColorBorderRotatorContainer);
     height: var(--heightBorderRotatorContainer);
-    width: var(--widthBorderRotatorContainer); /* all animations here removed */
+    width: var(--widthBorderRotatorContainer);
 }
 
 
@@ -577,10 +577,10 @@
     --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
     --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
     --blurBorderRotator: 1px;
-    --visibilityBorderRotatorClockwise: visible; /*was visible */
-    --visibilityBorderRotatorClockwiseShift: visible; /*was visible */
-    --visibilityBorderRotatorAntiClockwise: visible; /*was visible */
-    --visibilityBorderRotatorAntiClockwiseShift: visible; /*was visible */
+    --visibilityBorderRotatorClockwise: visible;
+    --visibilityBorderRotatorClockwiseShift: visible;
+    --visibilityBorderRotatorAntiClockwise: visible;
+    --visibilityBorderRotatorAntiClockwiseShift: visible;
     --visibilityBorderRotatorInTransparentLeftSide: hidden;
     --visibilityBorderRotatorInTransparentRightSide: hidden;
     position: relative;
@@ -611,10 +611,10 @@
     --colorBorderRotatorClockwiseShift: red; /* computed */
     --colorBorderRotatorAntiClockwise: red; /* computed */
     --colorBorderRotatorAntiClockwiseShift: red;
-    --visibilityBorderRotatorClockwise: visible; /*was visible */
-    --visibilityBorderRotatorClockwiseShift: visible; /*was visible */
-    --visibilityBorderRotatorAntiClockwise: visible; /*was visible */
-    --visibilityBorderRotatorAntiClockwiseShift: visible; /*was visible */
+    --visibilityBorderRotatorClockwise: visible;
+    --visibilityBorderRotatorClockwiseShift: visible;
+    --visibilityBorderRotatorAntiClockwise: visible;
+    --visibilityBorderRotatorAntiClockwiseShift: visible;
     --visibilityBorderRotatorInTransparentLeftSide: hidden;
     --visibilityBorderRotatorInTransparentRightSide: hidden;
     position: relative;
@@ -641,10 +641,10 @@
     --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
     --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
     --blurBorderRotator: 1px;
-    --visibilityBorderRotatorClockwise: hidden; /*was visible */
-    --visibilityBorderRotatorClockwiseShift: hidden; /*was visible */
-    --visibilityBorderRotatorAntiClockwise: hidden; /*was visible */
-    --visibilityBorderRotatorAntiClockwiseShift: hidden; /*was visible */
+    --visibilityBorderRotatorClockwise: hidden;
+    --visibilityBorderRotatorClockwiseShift: hidden;
+    --visibilityBorderRotatorAntiClockwise: hidden;
+    --visibilityBorderRotatorAntiClockwiseShift: hidden;
     --visibilityBorderRotatorInTransparentLeftSide: hidden;
     --visibilityBorderRotatorInTransparentRightSide: hidden;
     position: relative;
@@ -654,11 +654,7 @@
     overflow: hidden;
     background-color: var(--backgroundColorBorderRotatorContainer);
     height: var(--heightBorderRotatorContainer);
-    width: var(--widthBorderRotatorContainer);
-    /*animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);*/ /* test*/
-    /*animation-duration: 1s;*/ /*var(--animationDurationBorderRotator)*/
-    /*animation-timing-function: linear;*/
-    /*animation-delay: var(--animationDelaysBorderRotatorContainer);*/
+    width: var(--widthBorderRotatorContainer);    
 }
 
 
@@ -671,8 +667,8 @@
     --heightBorderRotatorContainer: var(--heightSuperContainer); /* 100px */
     --widthBorderRotatorContainer: var(--widthSuperContainer); /* 100px */
     --blurBorderRotator: 1px;
-    --visibilityBorderRotatorClockwise: hidden; /* was visible */
-    --visibilityBorderRotatorClockwiseShift: hidden; /* was visible */
+    --visibilityBorderRotatorClockwise: hidden;
+    --visibilityBorderRotatorClockwiseShift: hidden;
     --visibilityBorderRotatorAntiClockwise: hidden;
     --visibilityBorderRotatorAntiClockwiseShift: hidden;
     --visibilityBorderRotatorInTransparentLeftSide: hidden;
@@ -684,11 +680,7 @@
     overflow: hidden;
     background-color: var(--backgroundColorBorderRotatorContainer);
     height: var(--heightBorderRotatorContainer);
-    width: var(--widthBorderRotatorContainer);
-    /*animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);*/ /* test*/
-    /*animation-duration: 1s;*/ /*var(--animationDurationBorderRotator)*/
-    /*animation-timing-function: linear;*/
-    /*animation-delay: var(--animationDelaysBorderRotatorContainer);*/
+    width: var(--widthBorderRotatorContainer);    
 }
 
 
@@ -715,10 +707,6 @@
     background-color: var(--backgroundColorBorderRotatorContainer);
     height: var(--heightBorderRotatorContainer);
     width: var(--widthBorderRotatorContainer);
-    /*animation-name: var(--animationNamesBorderRotatorContainerLeftRightTurn);*/ /* test*/
-    /*animation-duration: 1s;*/ /*var(--animationDurationBorderRotator)*/
-    /*animation-timing-function: linear;*/
-    /*animation-delay: var(--animationDelaysBorderRotatorContainer);*/
 }
 
 
@@ -1079,19 +1067,16 @@
 
 .nodeValue {
     position: absolute;
-    text-align: center;
-    /*line-height: calc(var(--heightSuperContainer) - 2 * var(--borderRotatorWidth));*/
+    text-align: center;    
     color: #00f7ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /*top: calc(-5 * var(--borderRotatorWidth));*/
     left: 0px;
     height: 100%;
     width: 100%;
     top: 0%;
     margin: 0px;
-    /*left: calc(0% + var(--borderRotatorWidth));*/
     vertical-align: central;
     font: bold 18px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -1173,7 +1158,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    stroke: var(--svgLineLinkColor) /*red*/;
+    stroke: var(--svgLineLinkColor);
     stroke-width: var(--borderRotatorWidth);
     animation-name: var(--animationSvgLineLink); /* values svgDrawLine or svgEraseLine */
     animation-duration: var(--animationDurationSuperContainer);
@@ -1194,7 +1179,7 @@
     animation-name: var(--animationSvgLineLink); /* values svgDrawLine or svgEraseLine */
     animation-duration: var(--animationDurationSuperContainer);
     animation-delay: var(--animationDelayMovingLine) /* 23s  for addition */;
-    animation-fill-mode: forwards; /* stay */
+    animation-fill-mode: forwards;
     animation-timing-function: var(--animationTimingFunctionSuperContainer);
     visibility: hidden;
     overflow: visible;
@@ -1215,7 +1200,6 @@
     --animationDelayGlowingMovingLine: var(--animationDelayMovingLine); /* computed when onClick */ /* computed for every hierarcy node, when onClick some node*/
     --animationFillModeGlowingMovingLine: forwards;
     --animationTimingFunctionGlowingMovingLine: linear; /* should be the same as animation-timing-function for BORDER ROTATOR */
-    /* --animationIterationCountGlowingMovingLine: infinite;*/
 }
 
 
@@ -1233,7 +1217,6 @@
     --animationDelayGlowingMovingLine: var(--animationDelayMovingLine); /* computed when onClick */ /* computed for every hierarcy node, when onClick some node*/
     --animationFillModeGlowingMovingLine: forwards;
     --animationTimingFunctionGlowingMovingLine: linear; /* should be the same as animation-timing-function for BORDER ROTATOR */
-    /*--animationIterationCountGlowingMovingLine: infinite;*/
 }
 
 
@@ -1265,7 +1248,6 @@
     animation-timing-function: var(--animationTimingFunctionGlowingMovingLine); /* should be the same as animation-timing-function for BORDER ROTATOR */
     visibility: hidden;
 }
-
 
 
 .gradientSvgGlovingMovingLineFirstColor {
@@ -1319,7 +1301,6 @@
 }
 
 
-
 @keyframes svgGlowingMovingLineAnimation {
     0% {
         transform: translateX(var(--translateStart)) translateY(var(--translateStart));
@@ -1371,7 +1352,7 @@
     }
 }
 
-/* ?????? for balancing */
+
 @keyframes svgLineHideBeforeBalancing {
     0% {
         width: 100%;
@@ -1559,7 +1540,7 @@
     }
 }
 
-/*????????????????????*/
+
 @keyframes animateInsideBorderHighlightLeftChildAlign {
     100% {
         --gradientInsideBorderAngleStart: -45deg;

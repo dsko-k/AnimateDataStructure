@@ -10,7 +10,7 @@ export class CoordinatesAddNodeStepAnimation
     }
 
 
-    computeXCoordinateEndMovingStep() // patternStepAnimationArrayOperation - an array with steps
+    computeXCoordinateEndMovingStep()
     {
         if (!this.nodeToAnimate.parentNode || this.extractedStepAcrossRelativeNode.patternStepName.includes("own position") || this.extractedStepAcrossRelativeNode.patternStepName.includes("link to parent"))
         {

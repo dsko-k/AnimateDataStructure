@@ -356,9 +356,7 @@ export class DataStructurePageFunctionality
 		// DO NOT DELETE: do not use event listenter here. Instead inwoke this method at the end of script main....js
 		// It guaranties that method will be invoked after all scripts loaded		
 
-		//this.removeLoadingMask();
 		this.clickOnButtonAddRange();
-		
 	}
 
 

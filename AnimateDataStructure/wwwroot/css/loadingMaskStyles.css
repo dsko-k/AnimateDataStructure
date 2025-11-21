@@ -14,7 +14,7 @@
 	transition: opacity 0.3s ease;
 }
 
-/* The centered rectangle box with the message */
+
 .loading-box {
 	position: relative;
 	display: flex;
@@ -38,7 +38,6 @@
     visibility: hidden;
     opacity: 0;
 }
-
 
 
 .loadingMaskProgressBarContainer {
@@ -65,6 +64,7 @@
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
 }
+
 
 @keyframes moveLoadingMaskProgressBar {
 	0% {

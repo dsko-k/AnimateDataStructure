@@ -1,8 +1,5 @@
 ﻿/* Buttons begin */
 
-
-
-
 .inputWithButtonsContainer {
     --buttonMainColor: red;
     --buttonTextFontSize: 20px;
@@ -125,9 +122,6 @@
         }
 
 
-/*??????*/
-
-
 .inputEffectSubContainer label {
     position: absolute;
     top: 50%;
@@ -149,19 +143,12 @@
     top: -15px;
 }
 
-/*.inputEffectSubContainer .input:focus:placeholder-shown ~ label {
-    top: 50%;
-}*/
-
-
-
 
 .spanErrorMessageDataStructureInputValue {
     position: absolute;
     left: 94px;
     top: 60px;
     width: 370px;
-    /*height: auto;*/
     min-height: 0px;
     background-color: transparent;
     border: red 1px solid;
@@ -187,19 +174,12 @@ li {
 }
 
 
-
-
-
 /* shrink height if ul tag contains both .ulErrorList and .ulErrorHide */
 .spanErrorMessageDataStructureInputValue:has(.ulErrorListDataStructureInputValue) {
     max-height: 1000px;
     border: red 1px solid;
     opacity: 1;
 }
-
-
-
-
 
 
 .neonButtonAddOnMouseDown {
@@ -233,7 +213,6 @@ li {
 .neonButtonSaveOnMouseDown {
     --buttonSaveMainColor: #cc8c17be;
 }
-
 
 
 .neonButtonAdd {
@@ -320,7 +299,6 @@ li {
         animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
         animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
     }
-
 
 
 .neonButtonFind {
@@ -646,7 +624,6 @@ li {
     }
 
 
-
 .neonButtonTraversePreorder {
     --buttonMainColor: var(--buttonTraversePreorderMainColor);
     --colorOfButtonText: var(--buttonMainColor);
@@ -862,9 +839,6 @@ li {
 
 
 
-
-/*??????*/
-
 .neonButtonAuthenticateOnMouseDown {
     --buttonAuthenticateMainColor: #cc8c17be;
 }
@@ -880,10 +854,7 @@ li {
     width: fit-content;
     padding: 10px;
     text-align: center;
-    /*display: flex;*/
     display: inline-block;
-    /*align-items: center;*/
-    /*justify-content: center;*/
     white-space: nowrap;
     font-size: var(--buttonTextFontSize);
     color: var(--colorOfButtonText);
@@ -893,8 +864,6 @@ li {
     text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
     box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
     cursor: default;
-    /*line-height: 1;*/
-    /*padding: 9px 10px 11px 10px;*/
 }
 
     .neonButtonAuthenticate::before {
@@ -960,7 +929,6 @@ li {
         animation-fill-mode: var(--neonButtonDisablingAnimationFillMode);
         animation-timing-function: var(--neonButtonDisablingAnimationTimingFunction);
     }
-
 
 
 .listOfTraversalMenu {

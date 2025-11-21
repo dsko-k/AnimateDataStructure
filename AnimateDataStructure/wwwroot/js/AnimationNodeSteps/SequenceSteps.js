@@ -20,7 +20,8 @@ import { HtmlTraversingNodeBuilder } from '../HtmlElementNodeBuilder/HtmlTravers
 import { DomUpdater } from '../HtmlDomElementHandler/DomUpdater.js';
 
 
-export class SequenceSteps // To control all steps of all operations
+// To control all steps of all operations
+export class SequenceSteps
 {
     constructor(tree)
     {
@@ -28,7 +29,7 @@ export class SequenceSteps // To control all steps of all operations
         this.sequenceSteps = [];
     }
 
-    addNextStep(stepAnimation, cssEntity) // stepAnimation - is either object StepAnimation or array of StepAnimation
+    addNextStep(stepAnimation, cssEntity)
     {
         this.sequenceSteps.push({
             stepAnimation: stepAnimation,
@@ -74,7 +75,6 @@ export class SequenceSteps // To control all steps of all operations
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
         nodeToAnimate.appliedNodeStyles.addAppliedNodeStyles(nodeToAnimate, nodeState);
 
-
         return stepAnimations.flat();
     }
 
@@ -93,11 +93,6 @@ export class SequenceSteps // To control all steps of all operations
         // update html
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        //let htmlElementContainerClient = new HtmlElementContainerClient(lastStep,
-        //    new HtmlUpdateNodeBuilder(lastStep, patternStepAnimationArrayOperation));
-
-        // htmlElementContainerClient.updateHtmlElementContainer("superContainer");
 
         // Add AppliedNodeStyles
 
@@ -118,20 +113,8 @@ export class SequenceSteps // To control all steps of all operations
         // create or update css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
-        cssUpdater.createOrUpdateCssEntityClickNode(); // ?????????????????????????
-
-        // update html // ??????????????????? no needed
-        //let lastStepIndex = stepAnimations.flat().length - 1;
-        //let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        //let htmlElementContainerClient = new HtmlElementContainerClient(lastStep,
-        //    new HtmlUpdateNodeBuilder(lastStep, patternStepAnimationArrayOperation));
-
-        //htmlElementContainerClient.updateHtmlElementContainer("superContainer");
-
-        // Add AppliedNodeStyles in applyAdditionalStyleClasses(node, additionalStyleClasses, operation)
-        //nodeToAnimate.appliedNodeStyles.addAppliedNodeStyles(nodeToAnimate, "clickNode");
-
+        cssUpdater.createOrUpdateCssEntityClickNode();
+                
         let domUpdater = new DomUpdater();
 
         let lastStepIndex = stepAnimations.flat().length - 1;
@@ -140,7 +123,6 @@ export class SequenceSteps // To control all steps of all operations
         let nodeState = lastStep.additionalStyleClasses
             .filter(additionalStyleClass => additionalStyleClass.nodeIsLeftChild === nodeToAnimate.isLeftChild)[0].nodeState;
 
-        //domUpdater.applyAdditionalStyleClasses(nodeToAnimate, lastStep.additionalStyleClasses, "clickNode");
         domUpdater.applyAdditionalStyleClasses(nodeToAnimate, lastStep.additionalStyleClasses, nodeState);
 
         return this.getSequenceSteps();
@@ -195,7 +177,6 @@ export class SequenceSteps // To control all steps of all operations
 
         // Add AppliedNodeStyles in glowBorderAfterNodeFound
 
-
         return stepAnimations.flat();
     }
 
@@ -203,11 +184,6 @@ export class SequenceSteps // To control all steps of all operations
     createSequenceStepsFindSuccessorNode(nodeToDelete, patternStepAnimationArrayOperation, nodeFinder)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserFindSuccessorNode(nodeToDelete));
-
-        //let controlHandlers = new ControlHandlersAVLTree(); /// ????????????????
-
-        //let nodeFinder = controlHandlers.initializeNodeFinderSuccessor(nodeToDelete, patternStepAnimationArrayOperation);
-
 
         let stepAnimations = animationMovingAcrossNodes.animateFindSuccessorNode(nodeToDelete, nodeFinder);
 
@@ -231,7 +207,6 @@ export class SequenceSteps // To control all steps of all operations
 
         // Add AppliedNodeStyles in glowBorderAfterNodeFound
 
-
         return stepAnimations.flat();
     }
 
@@ -252,42 +227,16 @@ export class SequenceSteps // To control all steps of all operations
             this.updateHtmlLinkContainerLinkNodeAction(lastStep);
         }
 
-
         // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityLinkNodeAction();
 
-
-
-
-        // Add AppliedNodeStyles in glowBorderAfterNodeFound
-
-
-
-
-        // Add custom event
-
-
-        //let customEventHandler = new CustomEventHandler();
-
-        //if (!nodeToAnimateLinkAction.parent)
-        //{
-        //    let eventName = isHideLink ? "linkErasedBeforeAlignmentByHeight" : "linkDrawnAfterAlignmentByHeight"; // !!!!!!!!!!!!!!!!!! Replace hardcode !!!!!!!!!!!
-
-        //    // !!!!!!!!!!!!!!!!!! Replace hardcode !!!!!!!!!!!
-        //    let linkEvent = customEventHandler.createCustomEvent(eventName);
-
-        //    customEventHandler.dispatchCustomEvent(linkEvent, nodeToAnimateLinkAction, "superContainer");
-        //}
-
-
         return stepAnimations.flat();
     }
 
 
-    // private (for createSequenceStepsLinkNodeAction(...) )
     updateHtmlLinkContainerLinkNodeAction(stepAnimation)
     {
         if (!stepAnimation.nodesInfoStepAnimation.patternStepName.includes("draw"))
@@ -295,13 +244,10 @@ export class SequenceSteps // To control all steps of all operations
             return;
         }
 
-        // DRY: use method below updateHtmlLinkContainer(stepAnimation) instead of codehere below
-
         let linkContainerElement = stepAnimation.htmlLinkContainer[0];
         let correctStyleClassLinkContainer = linkContainerElement.styleClassToApply.substring(1);
         let elementNameLinkContainer = linkContainerElement.elementName;
 
-        // domUpdater - is not present in other classes
         let domUpdater = new DomUpdater();
 
         let nodeToAnimate = stepAnimation.nodesInfoStepAnimation.nodeToAnimate;
@@ -314,7 +260,7 @@ export class SequenceSteps // To control all steps of all operations
 
         if (nodeToAnimate.isLeftChild === null)
         {
-            domUpdater.updateStyleClass(nodeToAnimate, elementNameLinkContainer, "");// when any node will be with html related to link container
+            domUpdater.updateStyleClass(nodeToAnimate, elementNameLinkContainer, "");
         }
     }
 
@@ -325,7 +271,6 @@ export class SequenceSteps // To control all steps of all operations
         let correctStyleClassLinkContainer = "";
         let elementNameLinkContainer = "linkContainer";
 
-        // domUpdater - is not present in other classes ???????????????
         let domUpdater = new DomUpdater();
 
         if (nodeToUnfadeLinkContainer.isLeftChild !== null)
@@ -333,9 +278,9 @@ export class SequenceSteps // To control all steps of all operations
             nodeToUnfadeLinkContainer.isLeftChild ? correctStyleClassLinkContainer = "leftLinkContainer" : correctStyleClassLinkContainer = "rightLinkContainer";
         }
 
-        domUpdater.updateStyleClass(nodeToUnfadeLinkContainer, elementNameLinkContainer, correctStyleClassLinkContainer); // when any node will be with html related to link container
+        domUpdater.updateStyleClass(nodeToUnfadeLinkContainer, elementNameLinkContainer, correctStyleClassLinkContainer);
 
-        //// set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
+        // set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
 
         let elementNameGlowingMovingUpLineContainer = "glowingMovingUpLineContainer";
 
@@ -352,7 +297,6 @@ export class SequenceSteps // To control all steps of all operations
         let correctStyleClassLinkContainer = "";
         let elementNameLinkContainer = "linkContainer";
 
-        // domUpdater - is not present in other classes ???????????????
         let domUpdater = new DomUpdater();
 
         if (nodeToUpdateLinkContainer.isLeftChild !== null)
@@ -360,9 +304,9 @@ export class SequenceSteps // To control all steps of all operations
             nodeToUpdateLinkContainer.isLeftChild ? correctStyleClassLinkContainer = "leftLinkContainer" : correctStyleClassLinkContainer = "rightLinkContainer";
         }
 
-        domUpdater.updateStyleClass(nodeToUpdateLinkContainer, elementNameLinkContainer, correctStyleClassLinkContainer); // when any node will be with html related to link container
+        domUpdater.updateStyleClass(nodeToUpdateLinkContainer, elementNameLinkContainer, correctStyleClassLinkContainer);
 
-        //// set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
+        // set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
 
         let elementNameGlowingMovingUpLineContainer = "glowingMovingUpLineContainer";
 
@@ -373,7 +317,6 @@ export class SequenceSteps // To control all steps of all operations
     }
 
 
-    // updateHtmlLinkContainer for successor node, which became a root after alignment by height
     updateHtmlLinkContainerAlignByHeight(nodeToAlignByHeight)
     {
         if (nodeToAlignByHeight.isLeftChild !== null)
@@ -388,8 +331,7 @@ export class SequenceSteps // To control all steps of all operations
 
         let domUpdater = new DomUpdater();
 
-        domUpdater.updateStyleClass(nodeToAlignByHeight, elementNameLinkContainer, correctStyleClassLinkContainer); // when any node will be with html related to link container
-
+        domUpdater.updateStyleClass(nodeToAlignByHeight, elementNameLinkContainer, correctStyleClassLinkContainer);
 
         //// set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
 
@@ -407,7 +349,6 @@ export class SequenceSteps // To control all steps of all operations
         let correctStyleClassLinkContainer = linkContainerElement.styleClassToApply.substring(1);
         let elementNameLinkContainer = linkContainerElement.elementName;
 
-        // domUpdater - is not present in other classes
         let domUpdater = new DomUpdater();
 
         let nodeToAnimate = stepAnimation.nodesInfoStepAnimation.nodeToAnimate;
@@ -420,7 +361,7 @@ export class SequenceSteps // To control all steps of all operations
 
         if (nodeToAnimate.isLeftChild === null)
         {
-            domUpdater.updateStyleClass(nodeToAnimate, elementNameLinkContainer, "");// when any node will be with html related to link container
+            domUpdater.updateStyleClass(nodeToAnimate, elementNameLinkContainer, "");
         }
     }
 
@@ -439,11 +380,6 @@ export class SequenceSteps // To control all steps of all operations
         // update html
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        //let htmlElementContainerClient = new HtmlElementContainerClient(lastStep,
-        //    new HtmlAlignByHeightNodeBuilder(lastStep, patternStepAnimationArrayOperation));
-
-        // htmlElementContainerClient.updateHtmlElementContainer("superContainer");
 
         // Add AppliedNodeStyles
 
@@ -471,13 +407,6 @@ export class SequenceSteps // To control all steps of all operations
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
 
-
-        // ???????? node should be updatet with a new container for line link (implemented in alignment by height)
-        //let htmlElementContainerClient = new HtmlElementContainerClient(lastStep,
-        //    new HtmlUpdateNodeBuilder(lastStep, patternStepAnimationArrayOperation));
-
-        // htmlElementContainerClient.updateHtmlElementContainer("superContainer");
-
         // Add AppliedNodeStyles
 
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
@@ -498,42 +427,12 @@ export class SequenceSteps // To control all steps of all operations
 
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        //if (!isHideLink)
-        //{
-        //    this.updateHtmlLinkContainerLinkNodeAction(lastStep);
-        //}
-
-
+                
         // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityLinkBeforeAfterBalancing();
-
-
-
-
-        // Add AppliedNodeStyles in glowBorderAfterNodeFound
-
-
-
-
-        // Add custom event
-
-
-        //let customEventHandler = new CustomEventHandler();
-
-        //if (!nodeToAnimateLinkAction.parent)
-        //{
-        //    let eventName = isHideLink ? "linkErasedBeforeAlignmentByHeight" : "linkDrawnAfterAlignmentByHeight"; // !!!!!!!!!!!!!!!!!! Replace hardcode !!!!!!!!!!!
-
-        //    // !!!!!!!!!!!!!!!!!! Replace hardcode !!!!!!!!!!!
-        //    let linkEvent = customEventHandler.createCustomEvent(eventName);
-
-        //    customEventHandler.dispatchCustomEvent(linkEvent, nodeToAnimateLinkAction, "superContainer");
-        //}
-
 
         return stepAnimations.flat();
     }
@@ -566,7 +465,6 @@ export class SequenceSteps // To control all steps of all operations
         let htmlElementContainerParts = htmlElementContainerClient.getHtmlElementContainerParts();
 
         // Add AppliedNodeStyles in glowBorderAfterNodeFound
-
 
         return stepAnimations.flat();
     }
@@ -624,11 +522,6 @@ export class SequenceSteps // To control all steps of all operations
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
 
-        //let htmlElementContainerClient = new HtmlElementContainerClient(lastStep,
-        //    new HtmlAlignByHeightNodeBuilder(lastStep, patternStepAnimationArrayOperation));
-
-        // htmlElementContainerClient.updateHtmlElementContainer("superContainer");
-
         // Add AppliedNodeStyles
 
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
@@ -651,41 +544,11 @@ export class SequenceSteps // To control all steps of all operations
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
 
-        //if (!isHideLink)
-        //{
-        //    this.updateHtmlLinkContainerLinkNodeAction(lastStep);
-        //}
-
-
         // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityLinkBeforeAfterSwapNodes();
-
-
-
-
-        // Add AppliedNodeStyles in glowBorderAfterNodeFound
-
-
-
-
-        // Add custom event
-
-
-        //let customEventHandler = new CustomEventHandler();
-
-        //if (!nodeToAnimateLinkAction.parent)
-        //{
-        //    let eventName = isHideLink ? "linkErasedBeforeAlignmentByHeight" : "linkDrawnAfterAlignmentByHeight"; // !!!!!!!!!!!!!!!!!! Replace hardcode !!!!!!!!!!!
-
-        //    // !!!!!!!!!!!!!!!!!! Replace hardcode !!!!!!!!!!!
-        //    let linkEvent = customEventHandler.createCustomEvent(eventName);
-
-        //    customEventHandler.dispatchCustomEvent(linkEvent, nodeToAnimateLinkAction, "superContainer");
-        //}
-
 
         return stepAnimations.flat();
     }

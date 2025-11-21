@@ -1,23 +1,9 @@
-﻿/*@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*/
-
-
-.authorizationSuperContainer * {
+﻿.authorizationSuperContainer * {
     font-family: Poppins, Segoe UI, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-
-/*body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: black;
-}*/
 
 
 /* It is a super container for any page where authentication form should be shown*/
@@ -40,8 +26,8 @@
     --horizontalDistanceBetweenForms: 180px;
     --formSignUpColor: lime;
     --formLogInColor: #0ef;
-    display: flex; /* to place both forms horizontally??? */
-    gap: 80px; /* horizontal distance between 2 forms ??? */
+    display: flex; /* to place both forms horizontally */
+    gap: 80px; /* horizontal distance between 2 forms */
     position: absolute;
     width: var(--wrapperWidth);
     height: 500px;
@@ -52,7 +38,7 @@
     padding: 40px;
     overflow: hidden;
     transition: 0.8s linear;
-    z-index: 2; /*???*/
+    z-index: 2;
 }
 
 .form-wrapper {
@@ -73,15 +59,13 @@
     transform: translateX(calc(var(--wrapperWidth)*(-1)));
 }
 
-/*???*/
+
 /* change WIDTH of wrapper border to right to show errors */
 .wrapper.active .form-wrapper.sign-up .error{
     transform: translate(calc(var(--wrapperWidth)*(-1)));
 }
 
 
-
-/*???*/
 /* change height and wrapper border and shadow color on toggle between login form and sign up form */
 .wrapper.active {
     height: 710px;
@@ -108,7 +92,7 @@ form h2 {
     margin: 30px 0;
     margin-bottom: 60px;
     border-bottom: 2px solid #fff;
-    transition: 0.8s ease-in-out; /*???*/
+    transition: 0.8s ease-in-out;
 }
 
     .input-group:has(.ulErrorList) {
@@ -148,13 +132,6 @@ form h2 {
         }
 
 
-            /*.input-group input:focus ~ label,
-            .input-group input:valid ~ label {
-                top: -8px;
-                color: #0ef;
-            }*/
-
-
 
 /* labels imitating placeholder for LogIn form */
 .wrapper .input-group input:focus ~ label,
@@ -170,20 +147,12 @@ form h2 {
 }
 
 
-
-
 /* labels imitating placeholder for SignUp form */
 .wrapper.active .input-group input:focus ~ label,
 .wrapper.active .input-group input:valid ~ label {
     top: -9px;
     color: var(--formSignUpColor);
 }
-
-
-            
-    /*.input-group:focus-within {
-        border-bottom: 2px solid aqua;        
-    }*/
 
 
 /* horizontal line in the bottom of input: lime for .wrapper.active ie for SignUp form*/
@@ -208,11 +177,6 @@ form h2 {
     font-size: 14px;
 }
 
-/*.remember label input {
-    accent-color: #0ef;    
-    margin: 0 10px;
-}*/
-
 
 
 /* color for checkbox that has parent .wrapper ie for LogIn form */
@@ -228,21 +192,6 @@ form h2 {
     margin: 0 10px;
 }
 
-
-/*button {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    background: #0ef;
-    box-shadow: 0 0 10px #0ef;
-    font-size: 16px;
-    color: black;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-}*/
 
 .signUp-link {
     font-size: 14px;
@@ -290,7 +239,6 @@ form h2 {
 }
 
     .closeFormButton:hover {
-        /*background-color: #f60967ff;*/
         background: radial-gradient(black, red);
         border: 0px solid, #f6096770;
     }
@@ -309,10 +257,6 @@ form h2 {
         color: cyan;
     }
 
-
-
-
-    /* ????? add style to ul tag with list of errors to handle case of adding vertical scrollbar */
 
 .ulErrorList {
     list-style-type: circle;
@@ -361,10 +305,7 @@ form h2 {
 /* Buttons begin */
 .signUpButtonContainer {
     position: absolute;
-    /*width: 100%;*/ /* ??? */
-    /*display: flex;*/ /* ??? */
-    /*justify-content: center;*/ /* ??? */
-    margin-top: 0px; /* ??? */
+    margin-top: 0px;
     margin-bottom: 85px;
     --buttonMainColor: red;
     --buttonTextFontSize: 20px;
@@ -375,8 +316,6 @@ form h2 {
     color: black;
     --inputRippleEffectColor: #4ce3fb;
     --buttonLogInMainColor: lime;
-    /*--buttonLogInBorder: lime;
-    --buttonLogInRippleEffectColor: #388a2fc3;*/
     --buttonSignUpMainColor: lime;
     --buttonSignUpBorder: lime;
     --buttonSignUpRippleEffectColor: #297207b3;
@@ -402,16 +341,12 @@ form h2 {
     --colorOfButtonText: var(--buttonSignUpMainColor);
     --rippleEffectColor: var(--buttonSignUpRippleEffectColor);
     position: absolute;
-    /*right: 150px;
-    top: 10px;*/
     width: fit-content;
     bottom: -80px;
     left: 110px;
-    /*padding: 10px;*/
-    /*text-align: center;*/
-    display: flex; /* Make the button a flex container */
+    display: flex;
     align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content (if not already done by text-align) */
+    justify-content: center; /* Horizontally center content */
     white-space: nowrap;
     font-size: var(--buttonTextFontSize);
     color: var(--colorOfButtonText);
@@ -421,7 +356,7 @@ form h2 {
     text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
     box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
     cursor: default;
-    line-height: 1; /* Add this line */
+    line-height: 1;
     padding: 9px 10px 11px 10px;
 }
 
@@ -497,10 +432,7 @@ form h2 {
 
 .logInButtonContainer {
     position: absolute;
-    /*width: 100%;*/ /* ??? */
-    /*display: flex;*/ /* ??? */
-    /*justify-content: center;*/ /* ??? */
-    margin-top: 0px; /* ??? */
+    margin-top: 0px;
     margin-bottom: 85px;
     --buttonMainColor: red;
     --buttonTextFontSize: 20px;
@@ -531,17 +463,13 @@ form h2 {
     --buttonMainColor: var(--buttonLogInMainColor);
     --colorOfButtonText: var(--buttonLogInMainColor);
     --rippleEffectColor: var(--buttonLogInRippleEffectColor);
-    position: absolute;
-    /*right: 150px;
-    top: 10px;*/
+    position: absolute;    
     width: fit-content;
     bottom: -80px;
     left: 125px;
-    /*padding: 10px;*/
-    /*text-align: center;*/
-    display: flex; /* Make the button a flex container */
+    display: flex;
     align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content (if not already done by text-align) */
+    justify-content: center; /* Horizontally center content */
     white-space: nowrap;
     font-size: var(--buttonTextFontSize);
     color: var(--colorOfButtonText);
@@ -551,7 +479,7 @@ form h2 {
     text-shadow: 0px 0px 5px #FFF7, 0 0 8px var(--buttonMainColor);
     box-shadow: inset 0 0 .5em var(--buttonMainColor), 0 0 .5em var(--buttonMainColor);
     cursor: default;
-    line-height: 1; /* Add this line */
+    line-height: 1;
     padding: 9px 10px 11px 10px;
 }
 
@@ -686,8 +614,6 @@ form h2 {
 }
 
 
-/*?????*/
-
 .error-message-span {
     display: block;
     color: red;
@@ -716,8 +642,6 @@ form h2 {
 }
 
 
-/*????*/
-
 .formProgressBarContainer {
     position: absolute;
     bottom: 10px;
@@ -725,6 +649,7 @@ form h2 {
     width: 100%;
     height: 4px;
 }
+
 
 .formProgressBar {
     position: relative;
@@ -740,6 +665,7 @@ form h2 {
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
+
 
 @keyframes moveFormProgressBar{
     0% {

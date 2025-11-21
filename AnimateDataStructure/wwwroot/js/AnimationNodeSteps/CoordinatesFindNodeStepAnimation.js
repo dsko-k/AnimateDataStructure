@@ -10,7 +10,7 @@ export class CoordinatesFindNodeStepAnimation
     }
 
 
-    computeXCoordinateEndMovingStep() // patternStepAnimationArrayOperation - an array with steps
+    computeXCoordinateEndMovingStep()
     {
         return this.relativeNodeToAnimateAccross.xCoordinate;
     }

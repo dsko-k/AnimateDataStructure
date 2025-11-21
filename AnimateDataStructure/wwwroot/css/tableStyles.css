@@ -335,7 +335,8 @@ td {
 }
 
 
-.cellLoader { /* use as main style */
+/* use as main style */
+.cellLoader {
     --cellBelongsToColumnNumber: 1; /* this pass inline in tag attribute if there needs a sequantially animate cell loading cell by cell and this variable can be set once when constructing table */
     --animationNameCellLoaderOn: moveCellLoader;
     --animationDurationCellLoaderOn: 1s;
@@ -349,7 +350,8 @@ td {
 }
 
 
-.cellLoaderSequentiallyOn { /* use as additional style when need that cell loading starts sequentially after animation loading previous cell */
+/* use as additional style when need that cell loading starts sequentially after animation loading previous cell */
+.cellLoaderSequentiallyOn {
     position: absolute;
     top: 0px;
     left: -100%;
@@ -366,7 +368,8 @@ td {
 }
 
 
-.cellLoaderIndividuallyOn { /* use as additional style when need that cell loading starts independently of animation loading other cell */
+/* use as additional style when need that cell loading starts independently of animation loading other cell */
+.cellLoaderIndividuallyOn {
     position: absolute;
     top: 0px;
     left: -100%;

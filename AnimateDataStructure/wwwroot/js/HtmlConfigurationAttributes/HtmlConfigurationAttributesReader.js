@@ -3209,6 +3209,93 @@
     }
 
 
+    // ?????
+    getUserAgentNotificationConfigurations()
+    {
+        // TO DO: Move configuration object to the server
+        const allAttributes = {
+
+            // <div id="idUserAgentNotificationContainer" class="userAgentNotificationContainer">
+            divUserAgentNotificationContainerAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idUserAgentNotificationContainer",
+                    "class": "userAgentNotificationContainer",
+                },
+
+                additionalStyleToShowUserAgentNotificationMessage: {
+
+                    "class": "showUserAgentNotificationContainer", // for root div inside td, that belongs to even row. Used as additional style to toggle color of cell when hover column header
+                },
+
+                supportedBrowsers: {
+
+                    chrome: "Chrome",
+                }
+            },
+
+
+            // <div class="userAgentNotificationBox">
+            divUserAgentNotificationBoxAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "class": "userAgentNotificationBox",
+                },
+            },
+
+
+            // <span class="userAgentNotificationMessage">
+            spanUserAgentNotificationMessageAttributes: {
+
+                tag: "span",
+
+                defaultAttributes: {
+
+                    "class": "userAgentNotificationMessage",
+                },
+            },
+
+
+            // <div id="idCloseButtonUserAgentNotification" class="closeButtonUserAgentNotification">
+            divCloseButtonUserAgentNotificationAttributes: {
+
+                tag: "div",
+
+                defaultAttributes: {
+
+                    "id": "idCloseButtonUserAgentNotification",
+                    "class": "closeButtonUserAgentNotification",
+                },
+            },
+
+
+            // <p id="idCloseSignInButtonUserAgentNotification" class="closeSignInButtonUserAgentNotification">X</p>
+            pCloseSignInButtonUserAgentNotificationAttributes: {
+
+                tag: "p",
+
+                defaultAttributes: {
+
+                    "id": "idCloseSignInButtonUserAgentNotification",
+                    "class": "closeSignInButtonUserAgentNotification",
+                },
+
+                textInsideButton: "X",
+            },
+
+        };
+
+        return allAttributes;
+    }
+
+
+
     // Reading
 
     getClassFromAttributesWithDot(htmlElementConfigurationObject)

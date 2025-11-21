@@ -10,4 +10,7 @@ import { ListDataStructuresPageFunctionality } from './PageFunctionality/ListDat
     listDataStructuresPageFunctionality.addAbstractMouseEffect();
     listDataStructuresPageFunctionality.addEffectOnClickCardOfListDataStructure();
 
+    listDataStructuresPageFunctionality.onCheckUserAgent();
+    listDataStructuresPageFunctionality.closeUserAgentNotification();    
+
 })();

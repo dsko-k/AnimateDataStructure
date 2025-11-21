@@ -9,9 +9,14 @@
 	justify-content: center;
 	align-items: center;
 	z-index: auto;
-	visibility: visible;
+	visibility: hidden;
 	opacity: 1;
 	transition: none;
+}
+
+
+.showUserAgentNotificationContainer {
+	visibility: visible;
 }
 
 
@@ -21,7 +26,7 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	width: 600px;
+	width: 650px;
 	height: 50px;
 	background: linear-gradient(0deg, #09272d, #07060e, #09272d);
 	color: #00bbe0;
@@ -68,6 +73,7 @@
 		border: 2px solid #f6096770;
 	}
 
+
 .closeSignInButtonUserAgentNotification {
 	position: static;
 	width: auto;
@@ -77,10 +83,12 @@
 	align-content: center;
 	cursor: default;
 	font-size: 20px !important;
+	font-weight: 200;
 	line-height: 1;
 	margin: 0;
 }
 
-	.closeSignInButtonUserAgentNotification:hover {
-		color: cyan;
-	}
+
+.closeButtonUserAgentNotification:hover .closeSignInButtonUserAgentNotification {
+	color: cyan;	
+}

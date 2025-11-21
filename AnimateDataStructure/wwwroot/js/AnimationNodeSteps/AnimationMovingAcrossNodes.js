@@ -69,7 +69,6 @@ export class AnimationMovingAcrossNodes
 
         let allNodesFromRemovedNodeToSuccessor = [...this.tree.getChildrenFromTo(nodeToDelete, foundSuccessorNode)];
 
-        // nodeFinder ?????????????
         return this.animateNodeMovingAcrossNodes(nodeFinder, allNodesFromRemovedNodeToSuccessor);
     }
 
@@ -86,7 +85,7 @@ export class AnimationMovingAcrossNodes
     }
 
 
-    animateTraversingNode(nodeVisitor, startNode, traversingTreeOperationInstance) // startNode is a node to begin traversing this.tree
+    animateTraversingNode(nodeVisitor, startNode, traversingTreeOperationInstance)
     {
         let allNodesToVisit = [...traversingTreeOperationInstance.traverseTree(startNode)];
 

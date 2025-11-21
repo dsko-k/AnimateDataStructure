@@ -3,6 +3,7 @@ import { ButtonAuthenticateEffects } from '../UserInterfaceEffects/ButtonAuthent
 import { ControlHandlersAbstractMouseEffect } from '../UserInterfaceEffects/ControlHandlersAbstractMouseEffect.js';
 import { CardListDataStructure } from '../UserInterfaceEffects/CardListDataStructure.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
+import { UserAgentHandler } from '../UserAgentOperations/UserAgentHandler.js';
 
 
 
@@ -12,6 +13,7 @@ export class ListDataStructuresPageFunctionality
 	{
 		this.htmlConfigurations = new HtmlConfigurationAttributesReader();
 		this.cardsConfigurations = this.htmlConfigurations.getHtmlCardsOfListDatastructuresConfigurations();
+		this.userAgentHandler = new UserAgentHandler();
 	}
 
 	addEffectsToControlButtons()
@@ -68,6 +70,19 @@ export class ListDataStructuresPageFunctionality
 
 		let contextControlButtonEffectsCardOfListDataStructure = new ContextControlEffects(new CardListDataStructure());
 		contextControlButtonEffectsCardOfListDataStructure.addEffectsToCardHistory(idCard, urlToOpenAfterRippleEffect, isOpenUrlInNewBrowserTab);
+	}
+
+
+	// ????
+	closeUserAgentNotification()
+	{
+		this.userAgentHandler.onClickButtonCloseUserAgentNotification();
+	}
+
+
+	onCheckUserAgent()
+	{
+		this.userAgentHandler.showUserAgentNotification();
 	}
 
 }
