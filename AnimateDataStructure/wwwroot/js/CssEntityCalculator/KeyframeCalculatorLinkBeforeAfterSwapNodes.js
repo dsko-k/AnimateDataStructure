@@ -2,7 +2,7 @@ import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
 // Heap
-export class KeyframeCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEntityCalculator // ConcreteStrategyD
+export class KeyframeCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName)
     {
@@ -22,7 +22,6 @@ export class KeyframeCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEntit
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return (keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-");
     }
 

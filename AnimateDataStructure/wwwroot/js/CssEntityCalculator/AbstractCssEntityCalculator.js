@@ -1,6 +1,7 @@
 import { DomUpdater } from '../HtmlDomElementHandler/DomUpdater.js';
 
-export class AbstractCssEntityCalculator  // Common operations with each entity of style entities
+// Common operations with each entity of style entities
+export class AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -10,7 +11,8 @@ export class AbstractCssEntityCalculator  // Common operations with each entity 
         this.domUpdater = new DomUpdater();
     }
 
-    // calculate the name of style entity
+
+    // Calculate the name of style entity
     nodeIdentifierName(isForNodeToAnimate)
     {
         if (!isForNodeToAnimate)
@@ -33,9 +35,7 @@ export class AbstractCssEntityCalculator  // Common operations with each entity 
             let keyNameBeforeDash = keyName.substring(0, dashPosition);
             let keyNameCharacterAfterDash = keyName.substring(dashPosition + 1)[0].toUpperCase();
             let keyNameRestPart = keyName.substring(dashPosition + 2);
-
             keyName = keyNameBeforeDash + keyNameCharacterAfterDash + keyNameRestPart;
-
             dashPosition = keyName.indexOf('-', dashPosition);
         }
 
@@ -48,7 +48,6 @@ export class AbstractCssEntityCalculator  // Common operations with each entity 
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-";
     }
 
@@ -60,5 +59,4 @@ export class AbstractCssEntityCalculator  // Common operations with each entity 
             throw new Error("Unable to calculate value for the key of CSS entity. Key to calculate is empty or undefined");
         }
     }
-
 }

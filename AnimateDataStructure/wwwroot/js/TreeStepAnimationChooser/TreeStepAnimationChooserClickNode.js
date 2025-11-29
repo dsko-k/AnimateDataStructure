@@ -1,6 +1,5 @@
 export class TreeStepAnimationChooserClickNode
 {
-    // choose array of steps to animate depends on nodeToAnimate, relativeNodeToAnimateAccross
     chooseStepsToAnimate(nodeToAnimate, relativeNodeToAnimateAccross, patternStepAnimationArrayOperation)
     {
         // relativeNodeToAnimateAccross - is clicked node,
@@ -16,7 +15,6 @@ export class TreeStepAnimationChooserClickNode
                     return stepObject.isNodeToAnimateLeftChild === nodeToAnimate.isLeftChild;
                 }
             }
-
             if (nodeToAnimate.levelInTree < relativeNodeToAnimateAccross.levelInTree)
             {
                 if (stepObject.patternStepName === "ancestor of clicked node (ancestor is left child of its parent)" ||
@@ -26,7 +24,6 @@ export class TreeStepAnimationChooserClickNode
                     return stepObject.isNodeToAnimateLeftChild === nodeToAnimate.isLeftChild;
                 }
             }
-
             if (nodeToAnimate.levelInTree > relativeNodeToAnimateAccross.levelInTree)
             {
                 if (stepObject.patternStepName === "successor of clicked node (successor is left child of its parent)" ||
@@ -35,9 +32,6 @@ export class TreeStepAnimationChooserClickNode
                     return stepObject.isNodeToAnimateLeftChild === nodeToAnimate.isLeftChild;
                 }
             }
-
         });
-
     }
-
 }

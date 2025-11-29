@@ -17,25 +17,18 @@
         <div id="idLoginScrollingFormContainer" class="scrollingFormContainer">
 
             <form id="idLoginForm">
-
-                @* <input id="idLoginFormRequestVerificationToken" name="__RequestVerificationToken" type="hidden" value="[UNIQUE_TOKEN_FOR_LOGIN]"> *@
-
                 <h2>Login</h2>
-
                 @Html.AntiForgeryToken()
-
 
                 <div id="idInputGroupEmailLoginForm" class="input-group">
                     <span id="idSpanErrorEmailLoginForm" class="error-message-span"></span>
-                    <input id="idInputEmailLoginForm" type="email" placeholder="" required /> @* DO NOT DELETE: empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
+                    <input id="idInputEmailLoginForm" type="email" placeholder="" required /> @* an empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
                     <label id="idLabelEmailLoginForm" for="idInputEmailLoginForm">Email</label>
                 </div>
 
-
-
                 <div id="idInputGroupPasswordLoginForm" class="input-group">
                     <span id="idSpanPasswordLoginFormError" class="error-message-span"></span>
-                    <input id="idInputPasswordLoginForm" type="password" placeholder="" required /> @* DO NOT DELETE: empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
+                    <input id="idInputPasswordLoginForm" type="password" placeholder="" required /> @* an empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
                     <label id="idlabelPasswordLoginForm" for="idInputPasswordLoginForm">Password</label>
                 </div>
 
@@ -51,16 +44,13 @@
 
                 </div>
 
-
                 <div id="idSignUpLink" class="signUp-link">
                     <p id="idTextDoNotHaveAnAccount">
                         Do not have an account? <a id="idRegisterLink" class="signUpBtn-link">Register</a>
                     </p>
                 </div>
-
             </form>
-        </div>
-             
+        </div>             
     </div>
 
     @* Register form *@
@@ -70,34 +60,30 @@
         <div id="idSignUpScrollingFormContainer" class="scrollingFormContainer">
 
             <form id="idSignUpForm">
-
-                @* <input id="idSignUpFormRequestVerificationToken" name="__RequestVerificationToken" type="hidden" value="[SERVER_GENERATED_TOKEN]"> *@
-
                 <h2>Sign Up</h2>
-
                 @Html.AntiForgeryToken()
 
                 <div id="idInputGroupUserNameSignUpForm" class="input-group">
                     <span id="idSpanErrorUserNameSignUpForm" class="error-message-span"></span>
-                    <input id="idInputUserNameSignUpForm" type="text" placeholder="" required /> @* DO NOT DELETE: empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
+                    <input id="idInputUserNameSignUpForm" type="text" placeholder="" required /> @* an empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
                     <label id="idLabelUserNameSignUpForm" for="idInputUserNameSignUpForm">Username (optional)</label>
                 </div>
 
                 <div id="idInputGroupEmailSignUpForm" class="input-group">
                     <span id="idSpanErrorEmailSignUpForm" class="error-message-span"></span>
-                    <input id="idInputEmailSignUpForm" type="email" placeholder="" required /> @* DO NOT DELETE: empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
+                    <input id="idInputEmailSignUpForm" type="email" placeholder="" required /> @* an empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
                     <label id="idLabelEmailSignUpForm" for="idInputEmailSignUpForm">Email</label>
                 </div>
 
                 <div id="idInputGroupPasswordSignUpForm" class="input-group">
                     <span id="idSpanErrorPasswordSignUpForm" class="error-message-span"></span>
-                    <input id="idInputPasswordSignUpForm" type="password" placeholder="" required /> @* DO NOT DELETE: empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
+                    <input id="idInputPasswordSignUpForm" type="password" placeholder="" required /> @* an empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
                     <label id="idLabelPasswordSignUpForm" for="idInputPasswordSignUpForm">Password</label>
                 </div>
 
                 <div id="idInputGroupConfirmPasswordSignUpForm" class="input-group">
                     <span id="idSpanErrorConfirmPasswordSignUpForm" class="error-message-span"></span>
-                    <input id="idInputConfirmPasswordSignUpForm" type="password" placeholder="" required /> @* DO NOT DELETE: empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
+                    <input id="idInputConfirmPasswordSignUpForm" type="password" placeholder="" required /> @* an empty palceholder is necessary for label hoisting-downing effects when cursor in (outside) input field *@
                     <label id="idLabelConfirmPasswordSignUpForm" for="idInputConfirmPasswordSignUpForm">Confirm Password</label>
                 </div>
 
@@ -120,9 +106,5 @@
                 </div>
             </form>
         </div>
-
-        
-
     </div>
-
 </div>

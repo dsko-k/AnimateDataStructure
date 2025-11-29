@@ -17,7 +17,6 @@ namespace AnimateDataStructure.Web.Mapper
             };
         }
 
-
         public static SaveRedBlackTreeDto TranslateToSaveRedBlackTreeDto(SaveRedBlackTreeViewModel saveRedBlackTreeNodesViewModel)
         {
             return new SaveRedBlackTreeDto
@@ -27,6 +26,5 @@ namespace AnimateDataStructure.Web.Mapper
                 IsAuthenticated = saveRedBlackTreeNodesViewModel.IsAuthenticated
             };
         }
-
     }
 }

@@ -8,12 +8,10 @@ namespace AnimateDataStructure.Web.ViewModels.AuthenticationViewModels
         [Display(Name = "Username (optional)")]
         public string UserName { get; set; } = string.Empty;
 
-
         [Required(ErrorMessage = "Please enter your email address")]
         [EmailAddress(ErrorMessage = "Please enter your email address")]
         [Display(Name = "Email")]
         public string Email { get; set; } = string.Empty;
-
 
         [Required(ErrorMessage = "Please enter password")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long", MinimumLength = 6)]
@@ -21,12 +19,10 @@ namespace AnimateDataStructure.Web.ViewModels.AuthenticationViewModels
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match")]
         public string ConfirmPassword { get; set; } = string.Empty;
-
     }
 }

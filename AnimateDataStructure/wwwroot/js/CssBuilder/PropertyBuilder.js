@@ -7,10 +7,7 @@ export class PropertyBuilder
         this.tree = tree;
         this.propertyCalculatorOperation = propertyCalculatorOperation;
         this.contextCssEntityCalculator = new ContextCssEntityCalculator(this.propertyCalculatorOperation);
-        this.propertyEntityKeyToUpdate = "initial-value"; // added ????????????
-        //this.isKeyframeUpdated = false;
-        //this.keyframeBeforeUpdate = [];
-        //this.keyframeAfterUpdate = [];
+        this.propertyEntityKeyToUpdate = "initial-value";
     }
 
 
@@ -25,7 +22,6 @@ export class PropertyBuilder
     }
 
 
-    // ????
     buildUpdatedPropertyEntity(refactoredStepAnimation)
     {
         let updatingPropertyEntityName = this.getNewPropertyEntityName(refactoredStepAnimation);
@@ -38,13 +34,10 @@ export class PropertyBuilder
         if (this.contextCssEntityCalculator.isValueToCalculate(this.propertyEntityKeyToUpdate))
         {
             let newValue = this.contextCssEntityCalculator.getComputedValue(this.propertyEntityKeyToUpdate);
-
             this.propertyCalculatorOperation.propertyTextHandler.updateValue(updatingPropertyEntityName, this.propertyEntityKeyToUpdate, newValue);
         }
     }
 
-
-    // PRIVATE
 
     isExistPropertyEntity(propertyEntityName)
     {
@@ -52,10 +45,8 @@ export class PropertyBuilder
     }
 
 
-    // ?????
     getNewPropertyEntityName(refactoredStepAnimation)
     {
         return this.contextCssEntityCalculator.getCssEntityNewName(refactoredStepAnimation.nodesInfoStepAnimation.applyStepToNodeToAnimate);
     }
-
 }

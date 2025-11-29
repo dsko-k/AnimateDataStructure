@@ -1,5 +1,3 @@
-
-
 // Context related to the buttons Add node, Find node, Delete node, ...
 export class ContextControlEffects
 {
@@ -8,7 +6,7 @@ export class ContextControlEffects
         this.controlButtonEffects = controlButtonEffects;
     }
 
-    // DO NOT DELETE: effects for buttons: Add node, Find node, Delete node
+    // effects for buttons: Add node, Find node, Delete node,...
     addEffectsToControlButton()
     {
         this.controlButtonEffects.onMouseDown();
@@ -33,5 +31,4 @@ export class ContextControlEffects
     {
         this.controlButtonEffects.onClickCardHistory(idCardOfListDataStructure, urlToOpenAfterRippleEffectEnded, isOpenUrlInNewBrowserTab);
     }
-
 }

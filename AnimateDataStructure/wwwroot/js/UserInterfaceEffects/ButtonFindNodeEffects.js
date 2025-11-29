@@ -16,11 +16,7 @@ export class ButtonFindNodeEffects extends AbstractControlButtonEffects
 
 	onMouseDown()
 	{
-		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonFindNodeConfigurations.buttonFindNodeAttributes);
-		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
-		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
-
+		let inputContainerDomElement = this.getInputContainerDomElement(); // from Base class
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonFindNodeConfigurations.buttonFindNodeAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
 	}
@@ -28,10 +24,7 @@ export class ButtonFindNodeEffects extends AbstractControlButtonEffects
 
 	onMouseUp()
 	{
-		//this.onAbstractMouseUp(this.idButton, this);
-
-		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
-
+		let inputContainerDomElement = this.getInputContainerDomElement();
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
 
@@ -39,23 +32,16 @@ export class ButtonFindNodeEffects extends AbstractControlButtonEffects
 	onMouseClick()
 	{
 		let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded();
-
-		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded); // method onAfterRippleEffectEnded should be implemented here instead null
+		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded);
 	}
 
 
 	onAfterRippleEffectEnded(evn)
 	{
-		// fire event about Submit inputValuesForm
-
 		let inputValuesFormFieldsHelper = new InputValuesFormFieldsHelper();
 		let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(inputValuesFormFieldsHelper);
-
 		let formInputValuesDomElements = contextInputValuesFormFieldsHelper.obtainFormDomElements();
-
 		let eventNameToFire = "submitFindNode";
-
 		this.inputValuesFormSender.onClickButtonSubmitForm(formInputValuesDomElements, contextInputValuesFormFieldsHelper, eventNameToFire);
 	}
-
 }

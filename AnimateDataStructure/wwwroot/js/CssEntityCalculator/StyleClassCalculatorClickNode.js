@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorClickNode extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorClickNode extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -40,9 +40,7 @@ export class StyleClassCalculatorClickNode extends AbstractCssEntityCalculator /
             }
 
             let cssEntityPrototypeName = this.calculateEntityName(true);
-
             let animationDurationBorderRotator = parseFloat(this.getCurrentValue(cssEntityPrototypeName, "--animationDurationBorderRotator"));
-
             let animationDurationGlowingMovingLine = animationDurationBorderRotator / 2;
                         
             if (levelDifference > 0)
@@ -85,9 +83,7 @@ export class StyleClassCalculatorClickNode extends AbstractCssEntityCalculator /
             }
 
             let cssEntityPrototypeName = this.calculateEntityName(true);
-
             let animationDurationBorderRotator = parseFloat(this.getCurrentValue(cssEntityPrototypeName, "--animationDurationBorderRotator"));
-
             let animationDurationGlowingMovingLine = animationDurationBorderRotator / 2;
 
             return `${levelDifference * animationDurationGlowingMovingLine + (levelDifference - 1) * animationDurationBorderRotator / 2}s`;
@@ -95,7 +91,6 @@ export class StyleClassCalculatorClickNode extends AbstractCssEntityCalculator /
     }
 
 
-    // private
     getLevelDifference()
     {
         let nodeToAnimate = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate;
@@ -121,5 +116,4 @@ export class StyleClassCalculatorClickNode extends AbstractCssEntityCalculator /
             return this.refactoredStepAnimation["keyframesPrototypeGlowingMovingLine"].keyframePrototypeName + `${this.tree.treeViewState.getClickedTimes()}`;
         }
     }
-
 }

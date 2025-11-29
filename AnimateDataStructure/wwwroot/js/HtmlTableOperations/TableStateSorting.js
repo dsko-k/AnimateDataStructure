@@ -9,21 +9,17 @@ export class TableStateSorting
         this.htmlTableDomUpdater = new HtmlTableDomUpdater();
         this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
         this.attributesForHtmlTable = this.htmlConfigurationAttributesReader.getHtmlTableConfigurationsForElements();
-
         this.tableId = tableId;
         this.thDomElementClassName = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForHtmlTable.thAttributes.defaultAttributes); // ".headerColumn"
         this.styleNameForSortAscendingButton = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForHtmlTable.sortAscendingButtonAttributes.defaultAttributes); // ".sortAscendingButton"
         this.styleNameForSortDescendingButton = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForHtmlTable.sortDescendingButtonAttributes.defaultAttributes); // ".sortDescendingButton"
-
-
         // added attributes inside tag table
         this.attributeNameDataIsTableSorted = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForHtmlTable.tableAttributes.dataAttributes.isTableSorted); // "data-isTableSorted";
         this.attributeNameDataIsTableSortedAscend = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForHtmlTable.tableAttributes.dataAttributes.isTableSortedAscend); // "data-isTableSortedAscend";
         this.attributeNameDataLastSortedColumnNumber = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForHtmlTable.tableAttributes.dataAttributes.lastSortedColumnNumber); // "data-lastSortedColumnNumber";
-
-        this.isTableSorted = this.htmlTableDomUpdater.parseAttributeAboutTableSorting(tableId, this.attributeNameDataIsTableSorted, true); // for sorting // using also in searchInTable !!!!!
-        this.isTableSortedAscend = this.htmlTableDomUpdater.parseAttributeAboutTableSorting(tableId, this.attributeNameDataIsTableSortedAscend, true); // true, false //for sorting
-        this.lastClickedSortingButton = this.getLastClickedSortingButtonFromAttribute(this.styleNameForSortAscendingButton, this.styleNameForSortDescendingButton); //last clicked sorting button
+        this.isTableSorted = this.htmlTableDomUpdater.parseAttributeAboutTableSorting(tableId, this.attributeNameDataIsTableSorted, true);
+        this.isTableSortedAscend = this.htmlTableDomUpdater.parseAttributeAboutTableSorting(tableId, this.attributeNameDataIsTableSortedAscend, true);
+        this.lastClickedSortingButton = this.getLastClickedSortingButtonFromAttribute(this.styleNameForSortAscendingButton, this.styleNameForSortDescendingButton);
         this.penultimateClickedSortingButton = null; // pre-last clicked sorting button
     }
 
@@ -52,20 +48,14 @@ export class TableStateSorting
     getLastClickedSortingButtonFromAttribute(styleNameForSortAscendingButton, styleNameForSortDescendingButton)
     {
         let columnIndexUnparsed = this.htmlTableDomUpdater.getAttributeAboutTableSorting(this.tableId, this.attributeNameDataLastSortedColumnNumber);
-
         let columnIndex = parseInt(columnIndexUnparsed, 10);
-
         if (isNaN(columnIndex))
         {
             return null;
         }
-
         let isLastClickedAscendSortingButton = this.htmlTableDomUpdater.parseAttributeAboutTableSorting(this.tableId, this.attributeNameDataIsTableSortedAscend, true);
-
         let selectedClassNameOfSortingButton = this.htmlTableDomUpdater.selectStyleNameForSortingButton(isLastClickedAscendSortingButton, styleNameForSortAscendingButton, styleNameForSortDescendingButton);
-
         let sortingButtonsByColumnIndex = this.htmlTableDomUpdater.getSortingButtonsByColumnIndex(this.tableId, columnIndex, selectedClassNameOfSortingButton);
-
         return sortingButtonsByColumnIndex[0];
     }
 
@@ -79,8 +69,7 @@ export class TableStateSorting
 
     setLastPenultimateClickedSortingButtons(lastClickedSortingButton)
     {
-        this.penultimateClickedSortingButton = this.lastClickedSortingButton; // READ FROM attribute last tag table
+        this.penultimateClickedSortingButton = this.lastClickedSortingButton;
         this.lastClickedSortingButton = lastClickedSortingButton;
     }
-
 }

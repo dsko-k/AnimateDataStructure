@@ -16,7 +16,6 @@ import { ButtonTraversePostorderEffects } from '../UserInterfaceEffects/ButtonTr
 import { ButtonSaveEffects } from '../UserInterfaceEffects/ButtonSaveEffects.js';
 import { CssFileReaderWriter } from '../CssHandlers/CssFileReaderWriter.js';
 import { ButtonAuthenticateEffects } from '../UserInterfaceEffects/ButtonAuthenticateEffects.js';
-
 import { InputValuesFormSender } from '../DataStructureFormInputValues/InputValuesFormSender.js';
 import { ContextInputValuesFormFieldsHelper } from '../DataStructureFormInputValues/ContextInputValuesFormFieldsHelper.js';
 import { InputValuesFormFieldsHelper } from '../DataStructureFormInputValues/InputValuesFormFieldsHelper.js';
@@ -24,7 +23,6 @@ import { AddNodeFormValidation } from '../DataStructureFormInputValues/AddNodeFo
 import { FindNodeFormValidation } from '../DataStructureFormInputValues/FindNodeFormValidation.js';
 import { DeleteNodeFormValidation } from '../DataStructureFormInputValues/DeleteNodeFormValidation.js';
 import { TraverseNodesFormValidation } from '../DataStructureFormInputValues/TraverseNodesFormValidation.js';
-
 import { ContextOperationFormValidation } from '../DataStructureFormInputValues/ContextOperationFormValidation.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { SaveNodesFormValidation } from '../DataStructureFormInputValues/SaveNodesFormValidation.js';
@@ -32,7 +30,6 @@ import { HtmlTableFunctionality } from '../HtmlTableFunctionality/HtmlTableFunct
 import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js';
 import { ButtonSaveHelper } from '../DomElementHelpers/ButtonSaveHelper.js';
-
 
 // Wrapper to connect all implemented functionality to the page with data structure animation
 export class DataStructurePageFunctionality
@@ -54,7 +51,6 @@ export class DataStructurePageFunctionality
 		let cssFileReaderWriter = new CssFileReaderWriter();
 		let pathsToCssFiles = cssFileReaderWriter.getPathsToCssFiles();
 		let idStyleTag = cssFileReaderWriter.getIdStyleTag(); // 'idDataStructurePageStyles'
-
 		await cssFileReaderWriter.writeCssIntoStyleTag(idStyleTag, pathsToCssFiles);
 	}
 
@@ -65,82 +61,61 @@ export class DataStructurePageFunctionality
 		this.registerInputValuesFormHandlerToButtonFindNode(controlHandlers)
 		this.registerInputValuesFormHandlerToButtonDeleteNode(controlHandlers);
 		this.registerInputValuesFormHandlerToButtonSave(controlHandlers);
-
 		this.registerInputValuesFormHandlerToButtonTraverseInorder(traversingContext, controlHandlers, dataStructure);
 		this.registerInputValuesFormHandlerToButtonTraversePreorder(traversingContext, controlHandlers, dataStructure);
 		this.registerInputValuesFormHandlerToButtonTraversePostorder(traversingContext, controlHandlers, dataStructure);
-
 		this.addHandlersToButtonAddRange(controlHandlers);
 	}
 
 
-	// 1. Add a method that handles sending form by clicking on button
-	// 2. Send form by clicking on button (in buttonEffects handler)
-	// 3. If response is ok then run animation controlHandlers.onClickButtonAddNode
-	// 4. If validation failed or response is not ok then show errors
-
-
-	// ????
 	// 1. Handles sending form by clicking on button
 	registerInputValuesFormHandlerToButtonAddNode(controlHandlers)
 	{
-		let callbackAnimation = controlHandlers.onClickButtonAddNode.bind(controlHandlers); // Differ
-
+		let callbackAnimation = controlHandlers.onClickButtonAddNode.bind(controlHandlers);
 		let addNodeButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAddNodeConfigurations();
 		let idButtonAdd = addNodeButtonConfigs.buttonAddNodeAttributes.defaultAttributes.id; // 'idButtonAdd'
-
 		this.registerInputValuesFormButtonHandler(new AddNodeFormValidation(), callbackAnimation, idButtonAdd, "submitAddNode", controlHandlers);
 	}
 
 
 	registerInputValuesFormHandlerToButtonFindNode(controlHandlers)
 	{
-		let callbackAnimation = controlHandlers.onClickButtonFindNode.bind(controlHandlers, false, false); // Differ
-
+		let callbackAnimation = controlHandlers.onClickButtonFindNode.bind(controlHandlers, false, false);
 		let findNodeButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonFindNodeConfigurations();
 		let idButtonAdd = findNodeButtonConfigs.buttonFindNodeAttributes.defaultAttributes.id; // 'idButtonFind'
-
 		this.registerInputValuesFormButtonHandler(new FindNodeFormValidation(), callbackAnimation, idButtonAdd, "submitFindNode", controlHandlers);
 	}
 
 
 	registerInputValuesFormHandlerToButtonDeleteNode(controlHandlers)
 	{
-		let callbackAnimation = controlHandlers.onClickButtonDeleteNode.bind(controlHandlers); // Differ
-
+		let callbackAnimation = controlHandlers.onClickButtonDeleteNode.bind(controlHandlers);
 		let deleteNodeButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonDeleteNodeConfigurations();
 		let idButtonDelete = deleteNodeButtonConfigs.buttonDeleteNodeAttributes.defaultAttributes.id; // 'idButtonDelete'
-
 		this.registerInputValuesFormButtonHandler(new DeleteNodeFormValidation(), callbackAnimation, idButtonDelete, "submitDeleteNode", controlHandlers);
 	}
 
 
-	// ???
 	registerInputValuesFormHandlerToButtonTraverseInorder(traversingContext, controlHandlers, dataStructure)
 	{
 		let callbackAnimation = () =>
 		{
 			traversingContext.onTraversingTree(dataStructure.root, new TraversingTreeInorder(dataStructure));
 		};
-
 		let traverseInorderButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonTraverseInorderConfigurations();
 		let idButtonTraverseInorder = traverseInorderButtonConfigs.buttonTraverseInorderAttributes.defaultAttributes.id; // 'idButtonTraversingInorder'
-
 		this.registerInputValuesFormButtonHandler(new TraverseNodesFormValidation(), callbackAnimation, idButtonTraverseInorder, "submitTraverseInorder", controlHandlers);
 	}
 
 
-	// ???
 	registerInputValuesFormHandlerToButtonTraversePreorder(traversingContext, controlHandlers, dataStructure)
 	{
 		let callbackAnimation = () =>
 		{
 			traversingContext.onTraversingTree(dataStructure.root, new TraversingTreePreorder(dataStructure));
 		};
-
 		let traversePreorderButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonTraversePreorderConfigurations();
 		let idButtonTraversePreorder = traversePreorderButtonConfigs.buttonTraversePreorderAttributes.defaultAttributes.id; // 'idButtonTraversingPreorder'
-
 		this.registerInputValuesFormButtonHandler(new TraverseNodesFormValidation(), callbackAnimation, idButtonTraversePreorder, "submitTraversePreorder", controlHandlers);
 	}
 
@@ -151,10 +126,8 @@ export class DataStructurePageFunctionality
 		{
 			traversingContext.onTraversingTree(dataStructure.root, new TraversingTreePostorder(dataStructure));
 		};
-
 		let traversePostorderButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonTraversePostorderConfigurations();
 		let idButtonTraversePostorder = traversePostorderButtonConfigs.buttonTraversePostorderAttributes.defaultAttributes.id; // 'idButtonTraversingPostorder'
-
 		this.registerInputValuesFormButtonHandler(new TraverseNodesFormValidation(), callbackAnimation, idButtonTraversePostorder, "submitTraversePostorder", controlHandlers);
 	}
 
@@ -162,14 +135,10 @@ export class DataStructurePageFunctionality
 	registerInputValuesFormButtonHandler(buttonFormValidation, callbackAnimation, idButton, submitEventNameToHandle, controlHandlers)
 	{
 		let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(new InputValuesFormFieldsHelper());
-
 		let contextFormValidation = new ContextOperationFormValidation(buttonFormValidation);
-
 		let inputValuesFormSender = new InputValuesFormSender();
-
-		let buttonInput = document.getElementById(idButton); // Differ
+		let buttonInput = document.getElementById(idButton);
 		let relativeUrlToSubmitForm = inputValuesFormSender.getRelativeUrlToSubmitForm(buttonInput);
-
 		inputValuesFormSender.onSubmitFormInputNodeValue(contextInputValuesFormFieldsHelper, contextFormValidation, relativeUrlToSubmitForm,
 			callbackAnimation, submitEventNameToHandle, controlHandlers);
 	}
@@ -178,96 +147,22 @@ export class DataStructurePageFunctionality
 	registerInputValuesFormHandlerToButtonSave(controlHandlers)
 	{
 		let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(new InputValuesFormFieldsHelper());
-
 		let contextFormValidation = new ContextOperationFormValidation(new SaveNodesFormValidation());
-
 		let inputValuesFormSender = new InputValuesFormSender();
-
 		let saveButtonConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonSaveConfigurations();
 		let idButtonSave = saveButtonConfigs.buttonSaveAttributes.defaultAttributes.id; // 'idButtonSave'
-
-		let buttonSave = document.getElementById(idButtonSave); // Differ
+		let buttonSave = document.getElementById(idButtonSave);
 		let relativeUrlToSubmitForm = inputValuesFormSender.getRelativeUrlToSubmitForm(buttonSave);
-
 		inputValuesFormSender.onSubmitFormSaveCurrentTree(contextInputValuesFormFieldsHelper, contextFormValidation, relativeUrlToSubmitForm,
 			controlHandlers, "submitSaveNodes");
 	}
 
 
-	//addHandlersToButtonAdd(controlHandlers)
-	//{
-	//	let buttonAdd = document.getElementById('idButtonAdd');
-
-	//	buttonAdd.addEventListener('click', controlHandlers.onClickButtonAddNode.bind(controlHandlers));
-	//}
-
-
-	//addHandlersToButtonFind(controlHandlers)
-	//{
-	//	let buttonFind = document.getElementById('idButtonFind');
-
-	//	buttonFind.addEventListener('click', controlHandlers.onClickButtonFindNode.bind(controlHandlers, false, false));
-	//}
-
-
-	//addHandlersToButtonDelete(controlHandlers)
-	//{
-	//	let buttonDelete = document.getElementById('idButtonDelete');
-
-	//	buttonDelete.addEventListener('click', controlHandlers.onClickButtonDeleteNode.bind(controlHandlers));
-	//}
-
-
 	addHandlersToButtonAddRange(controlHandlers)
 	{
-		//let buttonAddRangeNodes = this.getButtonAddRangeOfNodesDomElement();
-
 		let buttonAddRangeNodes = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAddRangeOfNodesConfigs.buttonAddRangeAttributes);
-
 		buttonAddRangeNodes.addEventListener('click', controlHandlers.onAddRangeOfNodes.bind(controlHandlers));
 	}
-
-
-	//addHandlersToButtonTraversingTreeInorder(traversingContext, controlHandlers, dataStructure)
-	//{
-	//	//let traversingContext = new TraversingContext(controlHandlers, dataStructure);
-
-	//	let buttonTraversingInorder = document.getElementById('idButtonTraversingInorder');
-
-	//	buttonTraversingInorder.addEventListener('click', function (evn)
-	//	{
-	//		traversingContext.onTraversingTree(dataStructure.root, new TraversingTreeInorder(dataStructure));
-
-	//	}.bind(controlHandlers));
-	//}
-
-
-	//addHandlersToButtonTraversingTreePreorder(traversingContext, controlHandlers, dataStructure)
-	//{
-	//	//let traversingContext = new TraversingContext(controlHandlers, dataStructure);
-
-	//	let buttonTraversingPreorder = document.getElementById('idButtonTraversingPreorder');
-
-	//	buttonTraversingPreorder.addEventListener('click', function (evn)
-	//	{
-	//		traversingContext.onTraversingTree(dataStructure.root, new TraversingTreePreorder(dataStructure));
-
-	//	}.bind(controlHandlers));
-	//}
-
-
-	//addHandlersToButtonTraversingTreePostorder(traversingContext, controlHandlers, dataStructure)
-	//{
-	//	//let traversingContext = new TraversingContext(controlHandlers, dataStructure);
-
-	//	let buttonTraversingPostorder = document.getElementById('idButtonTraversingPostorder');
-
-	//	buttonTraversingPostorder.addEventListener('click', function (evn)
-	//	{
-	//		traversingContext.onTraversingTree(dataStructure.root, new TraversingTreePostorder(dataStructure));
-
-	//	}.bind(controlHandlers));
-	//}
 
 
 	// Sidebar creation
@@ -280,20 +175,8 @@ export class DataStructurePageFunctionality
 
 	addAbstractMouseEffect()
 	{
-		// Sidebar's buttons
-		//let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
-
 		let idBody = this.attributesForHtmlPage.bodyPageAttributes.defaultAttributes.id; // "idBody"
-
-
-		// REPLACE HARDCODE !!!!!!
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".buttonWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
 		this.htmlTableFunctionality.addMouseEffectForSidebarButtons(idBody);
-
-
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".borderOfCellWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".textInsideCell", "--mouse-x", "--mouse-y");
-
 		this.htmlTableFunctionality.addMouseEffectsForTableCells(idBody);
 	}
 
@@ -305,41 +188,29 @@ export class DataStructurePageFunctionality
 	}
 
 
-	// DO NOT DELETE:
 	// This method should be called as early as possible due event 'DOMContentLoaded'
 	addEffectsToControlButtons()
 	{
 		let contextControlButtonEffectsAddNode = new ContextControlEffects(new ButtonAddNodeEffects());
 		contextControlButtonEffectsAddNode.addEffectsToControlButton();
-
 		let contextControlButtonEffectsFindNode = new ContextControlEffects(new ButtonFindNodeEffects());
 		contextControlButtonEffectsFindNode.addEffectsToControlButton();
-
 		let contextControlButtonEffectsDeleteNode = new ContextControlEffects(new ButtonDeleteNodeEffects());
 		contextControlButtonEffectsDeleteNode.addEffectsToControlButton();
-
 		let contextControlButtonEffectsTraverseMenu = new ContextControlEffects(new ButtonTraverseMenuEffects());
 		contextControlButtonEffectsTraverseMenu.addEffectsToControlButton();
-
 		let contextControlButtonEffectsTraverseInorder = new ContextControlEffects(new ButtonTraverseInorderEffects());
 		contextControlButtonEffectsTraverseInorder.addEffectsToControlButton();
-
 		let contextControlButtonEffectsTraversePreorder = new ContextControlEffects(new ButtonTraversePreorderEffects());
 		contextControlButtonEffectsTraversePreorder.addEffectsToControlButton();
-
 		let contextControlButtonEffectsTraversePostorder = new ContextControlEffects(new ButtonTraversePostorderEffects());
 		contextControlButtonEffectsTraversePostorder.addEffectsToControlButton();
-
 		let contextControlButtonEffectsSave = new ContextControlEffects(new ButtonSaveEffects());
-		contextControlButtonEffectsSave.addEffectsToControlButton();
-
-		//???
+		contextControlButtonEffectsSave.addEffectsToControlButton();		
 		let buttonAuthenticateEffects = new ButtonAuthenticateEffects();
-
 		let contextControlButtonEffectsAuthenticate = new ContextControlEffects(buttonAuthenticateEffects);
 		contextControlButtonEffectsAuthenticate.addEffectsToControlButton();
-
-		buttonAuthenticateEffects.addAuthorizationButtonBehaviorHandlers(); // here handler for event 'DOMContentLoaded'
+		buttonAuthenticateEffects.addAuthorizationButtonBehaviorHandlers();
 	}
 
 
@@ -350,23 +221,20 @@ export class DataStructurePageFunctionality
 	}
 
 
-	// DO NOT DELETE: method must be invoked after all scripts loaded
+	// method must be invoked after all scripts loaded
 	onPageLoadClickOnButtonAddRange()
 	{
-		// DO NOT DELETE: do not use event listenter here. Instead inwoke this method at the end of script main....js
-		// It guaranties that method will be invoked after all scripts loaded		
-
+		// Do not use event listenter here. Instead inwoke this method at the end of script main....js
+		// It guaranties that method will be invoked after all scripts loaded
 		this.clickOnButtonAddRange();
 	}
 
 
 	clickOnButtonAddRange()
 	{
-		// DO NOT DELETE: do not use event listenter here. Instead inwoke this method at the end of script main....js
+		// Do not use event listenter here. Instead inwoke this method at the end of script main....js
 		// It guaranties that method will be invoked after all scripts loaded
-
 		let inputForNodeValueDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.inputNodeConfigs.inputAttributes);
-
 		if (inputForNodeValueDomElement.value !== "")
 		{
 			this.buttonHelper.emulateClickOnButtonFromConfigurations(this.buttonAddRangeOfNodesConfigs.buttonAddRangeAttributes);
@@ -378,9 +246,7 @@ export class DataStructurePageFunctionality
 	removeLoadingMask()
 	{
 		let loadingMaskConfigs = this.htmlConfigurationAttributesReader.getHtmlPageLoadingMaskConfigurations();
-
 		let loadingMaskContainer = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(loadingMaskConfigs.divLoadingMaskAttributes);
-
 		if (loadingMaskContainer)
         {
 			loadingMaskContainer.remove();

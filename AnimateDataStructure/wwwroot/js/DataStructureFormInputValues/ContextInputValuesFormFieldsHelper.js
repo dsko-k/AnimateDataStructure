@@ -14,15 +14,6 @@ export class ContextInputValuesFormFieldsHelper
     // Clear all errors based on element map
     clearAllErrorsInForm(formDomElements)
     {
-        //const errorElementMap = {
-        //    UserName: formDomElements.usernameSignUpError,
-        //    Email: formDomElements.emailSignUpError,
-        //    Password: formDomElements.passwordSignUpError,
-        //    ConfirmPassword: formDomElements.confirmPasswordSignUpError,
-        //    // Add any other error spans here, e.g., general errors
-        //    //General: formDomElements.generalSignUpError // If there is a general error span
-        //};
-
         const errorElementMap = this.obtainFormMapErrorDomElements(formDomElements);
 
         for (const key in errorElementMap)
@@ -51,15 +42,12 @@ export class ContextInputValuesFormFieldsHelper
     getFormFieldsWithErrorList(formDomElements)
     {
         const errorElementMap = this.obtainFormMapErrorDomElements(formDomElements);
-
         let errorDomElements = Object.values(errorElementMap);
-
         let errorDomElementsWithUlTag = [];
 
         errorDomElements.forEach(errorDomElement =>
         {
             let idErrorDomElement = errorDomElement.id;
-
             let ulDomElementArray = this.htmlPageDomUpdater.getChildrenDomElementsByParentIdAndChildrenTag(idErrorDomElement, "ul");
 
             if (ulDomElementArray.length > 0)
@@ -106,5 +94,4 @@ export class ContextInputValuesFormFieldsHelper
     {
         return this.formFieldsHelper.getFormMapErrorDomElements(formDomElements);
     }
-
 }

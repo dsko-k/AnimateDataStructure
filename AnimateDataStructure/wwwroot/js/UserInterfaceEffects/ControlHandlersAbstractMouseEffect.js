@@ -8,7 +8,6 @@ export class ControlHandlersAbstractMouseEffect
     }
 
 
-    // TO rename
     onMouseMoveOnElement(styleNameWithDot, firstCssVariableName, secondCssVariableName)
     {
         this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(firstCssVariableName);
@@ -23,9 +22,8 @@ export class ControlHandlersAbstractMouseEffect
                 let rect = evn.target.getBoundingClientRect();
                 let x = evn.clientX - rect.left;
                 let y = evn.clientY - rect.top;
-
-                domElement.style.setProperty(firstCssVariableName, `${x}px`); //domElement.style.setProperty("--mouse-x", `${x}px`);
-                domElement.style.setProperty(secondCssVariableName, `${y}px`); //domElement.style.setProperty("--mouse-y", `${y}px`);
+                domElement.style.setProperty(firstCssVariableName, `${x}px`);
+                domElement.style.setProperty(secondCssVariableName, `${y}px`);
             });
         });
     }
@@ -35,17 +33,14 @@ export class ControlHandlersAbstractMouseEffect
     onMouseMoveOnElementOnParent(parentId, childStyleNameWithDot, firstCssVariableName, secondCssVariableName)
     {
         let parentDomElement = document.getElementById(parentId);
-
         if (parentDomElement == null)
         {
             throw new Error(`Incorrect id='${parentId}'of html-element`);
         }
-
         parentDomElement.addEventListener('mousemove', evn =>
         {
             this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(firstCssVariableName);
             this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(secondCssVariableName);
-
             let foundDomElements = this.htmlPageDomUpdater.getDomElementsOnPageByStyleName(childStyleNameWithDot);
 
             foundDomElements.forEach(domElement =>
@@ -54,11 +49,9 @@ export class ControlHandlersAbstractMouseEffect
                 let x = evn.clientX - rect.left;
                 let y = evn.clientY - rect.top;
 
-                domElement.style.setProperty(firstCssVariableName, `${x}px`); //domElement.style.setProperty("--mouse-x", `${x}px`);
-                domElement.style.setProperty(secondCssVariableName, `${y}px`); //domElement.style.setProperty("--mouse-y", `${y}px`);
+                domElement.style.setProperty(firstCssVariableName, `${x}px`);
+                domElement.style.setProperty(secondCssVariableName, `${y}px`);
             });
         });
-
     }
-
 }

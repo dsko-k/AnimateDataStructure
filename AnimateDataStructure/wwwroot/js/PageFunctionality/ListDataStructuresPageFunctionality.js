@@ -19,10 +19,8 @@ export class ListDataStructuresPageFunctionality
 	addEffectsToControlButtons()
 	{
 		let buttonAuthenticateEffects = new ButtonAuthenticateEffects();
-
 		let contextControlButtonEffectsAuthenticate = new ContextControlEffects(buttonAuthenticateEffects);
 		contextControlButtonEffectsAuthenticate.addEffectsToControlButton();
-
 		buttonAuthenticateEffects.addAuthorizationButtonBehaviorHandlers();
 	}
 
@@ -30,14 +28,11 @@ export class ListDataStructuresPageFunctionality
 	// Add glowing radial gradient when moving mouse above the cards
 	addAbstractMouseEffect()
 	{		
-		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
-
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idCardsContainer", ".card", "--mouse-x", "--mouse-y");
+		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();		
 		let idCardsContainer = this.cardsConfigurations.divCardsContainerAttributes.defaultAttributes.id;
 		let styleCardWithDot = this.htmlConfigurations.getClassFromAttributesWithDot(this.cardsConfigurations.divCardBinarySearchTreeAttributes.defaultAttributes); // DO NOT DELETE: ".card"
 		let cssVariableMouseX = this.cardsConfigurations.divCardsContainerAttributes.cssVariables.mouseX;
 		let cssVariableMouseY = this.cardsConfigurations.divCardsContainerAttributes.cssVariables.mouseY;
-
 		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent(idCardsContainer, styleCardWithDot, cssVariableMouseX, cssVariableMouseY);
 	}
 
@@ -56,8 +51,7 @@ export class ListDataStructuresPageFunctionality
 	addHandlerOnClickCardListDataStructure(attributesFromConfigurations, isOpenUrlInNewBrowserTab)
 	{
 		let idCard = attributesFromConfigurations.defaultAttributes.id;
-		let urlToOpenAfterRippleEffect = attributesFromConfigurations.urlToOpen; // DO NOT REMOVE: URL should be relative (not include base URL)
-
+		let urlToOpenAfterRippleEffect = attributesFromConfigurations.urlToOpen; // URL should be relative (not include base URL)
 		let contextControlButtonEffectsCardOfListDataStructure = new ContextControlEffects(new CardListDataStructure());
 		contextControlButtonEffectsCardOfListDataStructure.addEffectsToCardOfListDataStructure(idCard, urlToOpenAfterRippleEffect, isOpenUrlInNewBrowserTab);
 	}
@@ -66,14 +60,12 @@ export class ListDataStructuresPageFunctionality
 	addHandlerOnClickCardHistory(attributesFromConfigurations, isOpenUrlInNewBrowserTab)
 	{
 		let idCard = attributesFromConfigurations.defaultAttributes.id;
-		let urlToOpenAfterRippleEffect = attributesFromConfigurations.urlToOpen; // DO NOT REMOVE: URL should be relative (not include base URL)
-
+		let urlToOpenAfterRippleEffect = attributesFromConfigurations.urlToOpen; // URL should be relative (not include base URL)
 		let contextControlButtonEffectsCardOfListDataStructure = new ContextControlEffects(new CardListDataStructure());
 		contextControlButtonEffectsCardOfListDataStructure.addEffectsToCardHistory(idCard, urlToOpenAfterRippleEffect, isOpenUrlInNewBrowserTab);
 	}
 
 
-	// ????
 	closeUserAgentNotification()
 	{
 		this.userAgentHandler.onClickButtonCloseUserAgentNotification();
@@ -84,5 +76,4 @@ export class ListDataStructuresPageFunctionality
 	{
 		this.userAgentHandler.showUserAgentNotification();
 	}
-
 }

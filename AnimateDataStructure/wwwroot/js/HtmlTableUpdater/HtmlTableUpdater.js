@@ -1,9 +1,7 @@
 import { HtmlTableBuilderUpdater } from './HtmlTableBuilderUpdater.js';
 import { HtmlPageDomUpdater } from '../HtmlDomElementHandler/HtmlPageDomUpdater.js';
 
-
 // -------------------------------------------- Begin Updater html-table via pattern Builder  --------------------------------------------
-
 export class HtmlTableUpdater // Foreman
 {
     constructor(idTable, stateOfDataToHtmlTable)
@@ -18,9 +16,7 @@ export class HtmlTableUpdater // Foreman
     updateTable(idTable, idTableSearchInput)
     {
         let statusesForHtmlTable = this.stateOfDataToHtmlTable.getCellsStatuses();
-
         this.addNewRowsToTable(idTable, idTableSearchInput); // it does nothing if no new rows to be added in table
-
         for (let rowIndex = 0; rowIndex < statusesForHtmlTable.length; rowIndex++)
         {
             let isCellLoaderSequentially = statusesForHtmlTable[rowIndex][0].toBeAdded
@@ -32,11 +28,9 @@ export class HtmlTableUpdater // Foreman
     addNewRowsToTable(idTable, idTableSearchInput)
     {
         let rowsWithStatusToBeAdded = this.stateOfDataToHtmlTable.getRowsWithStatusToBeAdded();
-
         rowsWithStatusToBeAdded.forEach(rowStatusToBeAdded =>
         {
             this.htmlTableBuilderUpdater.addTableRow(idTable, idTableSearchInput, rowStatusToBeAdded);
         });
     }
-
 }

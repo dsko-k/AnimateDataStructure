@@ -6,28 +6,23 @@ export class HeapOperation extends AbstractTreeOperation
     constructor(dataStructure, isMaxHeap)
     {
         super(dataStructure);
-        this.isMaxHeap = isMaxHeap; // stays in this class
+        this.isMaxHeap = isMaxHeap;
     }
 
-    // use method from this class, not from base class
-    // Find node after button Find was cliked
+
     onAddNewEntryToHtmlTableOnFindNode(valueToFind)
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.findNode;
         let statusOfOperation = this.treeOperationsStatuses.statusesOfOperation.searching;
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(valueToFind, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
 
 
-    // Find node after button Find was cliked
-    // Update entry in the html-table info about tree operation: find node - found (not found)
     onUpdateEntryInHtmlTableOnFindNode(valueToFind, wasFoundValue)
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.findNode;
         let statusOfOperation = this.getStatusOfOperationOnFindNode(wasFoundValue);
-
         this.dataStructureActionInfo.updateAllFieldsOfEntryAboutActionInTree(valueToFind, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
@@ -38,7 +33,6 @@ export class HeapOperation extends AbstractTreeOperation
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.findHeapNodeBeforeDeletion;
         let statusOfOperation = this.treeOperationsStatuses.statusesOfOperation.searching;
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(valueToDelete, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
@@ -49,11 +43,9 @@ export class HeapOperation extends AbstractTreeOperation
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.findHeapNodeBeforeDeletion;
         let statusOfOperation = this.getStatusOfOperationOnFindNode(wasFound);
-
         this.dataStructureActionInfo.updateAllFieldsOfEntryAboutActionInTree(valueToDelete, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
-
 
 
     // Find last bottom node that to replace deleted node
@@ -62,7 +54,6 @@ export class HeapOperation extends AbstractTreeOperation
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.findHeapLastBottomNode;
         let statusOfOperation = this.treeOperationsStatuses.statusesOfOperation.searching;
         let valueToFind = statusOfOperation;
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(valueToFind, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
@@ -72,7 +63,6 @@ export class HeapOperation extends AbstractTreeOperation
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.findHeapLastBottomNode;
         let statusOfOperation = this.treeOperationsStatuses.statusesOfOperation.found;
-
         this.dataStructureActionInfo.updateAllFieldsOfEntryAboutActionInTree(valueLastBottomNode, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
@@ -81,7 +71,6 @@ export class HeapOperation extends AbstractTreeOperation
     getStatusOfOperationOnFindNode(wasFoundValue)
     {
         let statusesOfOperation = this.treeOperationsStatuses.statusesOfOperation;
-
         return wasFoundValue ? statusesOfOperation.found : statusesOfOperation.notFound;
     }
 
@@ -90,7 +79,6 @@ export class HeapOperation extends AbstractTreeOperation
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.heapify;
         let statusOfOperation = this.treeOperationsStatuses.statusesOfOperation.heapifying;
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(valueToHeapify, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
@@ -100,9 +88,7 @@ export class HeapOperation extends AbstractTreeOperation
     {
         let typesOfOperation = this.treeOperationsStatuses.typesOfOperations.heapify;
         let statusOfOperation = this.treeOperationsStatuses.statusesOfOperation.heapified;
-
         this.dataStructureActionInfo.updateAllFieldsOfEntryAboutActionInTree(valueToHeapify, typesOfOperation, statusOfOperation);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.dataStructure);
     }
-
 }

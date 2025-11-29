@@ -4,10 +4,8 @@
     {
         public const string SavedDataStructureNodes = nameof(SavedDataStructureNodes);
         public const string TempGuid = nameof(TempGuid);
-
         public const string Controller = "controller";
         public const string ControllerName = nameof(ControllerName);
-
         public const string ActionNameAddNode = nameof(ActionNameAddNode);
         public const string ActionNameFindNode = nameof(ActionNameFindNode );
         public const string ActionNameDeleteNode = nameof(ActionNameDeleteNode );

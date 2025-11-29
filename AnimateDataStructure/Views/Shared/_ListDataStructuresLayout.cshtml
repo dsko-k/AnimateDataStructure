@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Data Structure Animation";
 }
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,27 +20,20 @@
     @await Html.PartialAsync("_UserAgentNotification")
 
     <div id="idInpuntContainer" class="inputWithButtonsContainer">
-
         @await Html.PartialAsync("_AuthenticateButton")
-
     </div>
 
-
     <div id="idAuthorizationSuperContainer" class="authorizationSuperContainer"></div>
-
 
     <div class="header-container">
         <h1 class="gradient-text">Animate data structures</h1>
     </div>
 
-
     <div id="idCardsContainer" class="cardsContainer">
-
         @foreach (var card in Model)
         {
             @await Html.PartialAsync("_DataStructureCard", card)
         }
-
     </div>
 
     <a id="source-link" class="link" href="https://github.com/" target="_blank">
@@ -54,8 +46,6 @@
         <span>Project overwiew</span>
     </a>
 
-
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -63,6 +53,5 @@
     </div>
 
     @await RenderSectionAsync("Scripts", required: true)
-
 </body>
 </html>

@@ -15,11 +15,9 @@ namespace AnimateDataStructure.Web.Helpers
             { "PasswordRequiresLower", "Password" },
             { "PasswordRequiresUpper", "Password" },
             { "PasswordRequiresUniqueChars", "Password" },
-
             // User name errors
             { "DuplicateUserName", "UserName" },
             { "InvalidUserName", "UserName" },
-
             // Email errors
             { "DuplicateEmail", "Email" },
             { "InvalidEmail", "Email" },
@@ -57,23 +55,14 @@ namespace AnimateDataStructure.Web.Helpers
 
             foreach (var error in identityResultErrors)
             {
-                string modelPropertyKey = string.Empty; // Default to general error (empty string key)
-
-                // Attempt to find a direct mapping using the predefined dictionary by error.Code.
+                string modelPropertyKey = string.Empty;
                 if (IdentityErrorToPropertyMap.TryGetValue(error.Code, out string mappedPropertyName))
                 {
-                    // Verify that the mapped property name actually exists on the ViewModel.
-                    // This guards against typos in the map or changes in the ViewModel.
                     if (viewModelPropertyNames.Contains(mappedPropertyName))
                     {
                         modelPropertyKey = mappedPropertyName;
                     }
-                    // If mappedPropertyName exists in the dictionary but not on the ViewModel,
-                    // it falls back to the default `string.Empty` (general error).
                 }
-
-                // If no specific mapping was found or if the mapped property doesn't exist on the ViewModel,
-                // `modelPropertyKey` remains `string.Empty`, adding the error as a general error.
                 modelState.AddModelError(modelPropertyKey, error.Description);
             }
         }
@@ -95,15 +84,11 @@ namespace AnimateDataStructure.Web.Helpers
                              .Select(p => p.Name),
                 StringComparer.OrdinalIgnoreCase
             );
-
-            // Determine the correct error key based on the SignInResult.
             string errorKey = "InvalidPassword";
-
             if (signInResult.IsLockedOut)
             {
                 errorKey = "LockedOut";
             }
-
             // Look up the property name and error message from the dictionary.
             if (LoginErrorsMap.TryGetValue(errorKey, out var errorDetails) && viewModelPropertyNames.Contains(errorDetails.PropertyName))
             {
@@ -116,7 +101,5 @@ namespace AnimateDataStructure.Web.Helpers
                 modelState.AddModelError(string.Empty, "Invalid login attempt");
             }
         }
-
-
     }
 }

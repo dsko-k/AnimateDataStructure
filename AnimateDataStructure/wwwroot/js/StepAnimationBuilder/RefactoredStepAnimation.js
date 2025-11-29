@@ -9,7 +9,7 @@ import { KeyframesPrototypeStepAnimation } from '../StepAnimationModel/Keyframes
 import { PropertyPrototypeStepAnimation } from '../StepAnimationModel/PropertyPrototypeStepAnimation.js';
 import { TimeStepAnimation } from '../StepAnimationModel/TimeStepAnimation.js';
 
-export class RefactoredStepAnimation // complex constructed object  aka  House
+export class RefactoredStepAnimation // complex constructed object aka House
 {
     constructor()
     {
@@ -20,7 +20,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addNodesInfoStepAnimation(nodeToAnimate, relativeNodeToAnimateAccross, directionName, patternStepName, applyStepToNodeToAnimate, nodeState) // nodesInfoStepAnimation is an object
     {
         let objectNodesInfoStepAnimation = new NodesInfoStepAnimation(nodeToAnimate, relativeNodeToAnimateAccross, directionName, patternStepName, applyStepToNodeToAnimate, nodeState);
-
         Object.assign(this.stepAnimationObject, { nodesInfoStepAnimation: objectNodesInfoStepAnimation });
     }
 
@@ -28,7 +27,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addCoordinatesStepAnimation(xCoordinateEndMovingStep, yCoordinateEndMovingStep)
     {
         let computedCoordinatesStepAnimation = new CoordinatesStepAnimation(xCoordinateEndMovingStep, yCoordinateEndMovingStep);
-
         Object.assign(this.stepAnimationObject, { coordinatesStepAnimation: computedCoordinatesStepAnimation })
     }
 
@@ -36,7 +34,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addStyleClassPrototypeStepAnimation(styleName, styleKeysToUpdate)
     {
         let objectStyleClassPrototypeStepAnimation = new StyleClassPrototypeStepAnimation(styleName, styleKeysToUpdate);
-
         Object.assign(this.stepAnimationObject, { styleClassPrototypeStepAnimation: objectStyleClassPrototypeStepAnimation });
     }
 
@@ -50,7 +47,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addHtmlNodeContainerStepAnimation(htmlNodeContainer)
     {
         let objectHtmlNodeContainerStepAnimation = new HtmlNodeContainerStepAnimation(htmlNodeContainer);
-
         Object.assign(this.stepAnimationObject, { htmlNodeContainer: objectHtmlNodeContainerStepAnimation.htmlNodeContainer });
     }
 
@@ -58,7 +54,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addHtmlLinkContainerStepAnimation(htmlLinkContainer)
     {
         let objectHtmlLinkContainerStepAnimation = new HtmlLinkContainerStepAnimation(htmlLinkContainer);
-
         if (htmlLinkContainer)
         {
             Object.assign(this.stepAnimationObject, { htmlLinkContainer: objectHtmlLinkContainerStepAnimation.htmlLinkContainer });
@@ -69,7 +64,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addHtmlGlowingMovingUpLineContainerStepAnimation(htmlGlowingMovingUpLineContainer)
     {
         let objectHtmlGlowingMovingUpLineContainerStepAnimation = new HtmlGlowingMovingUpLineContainerStepAnimation(htmlGlowingMovingUpLineContainer);
-
         if (htmlGlowingMovingUpLineContainer)
         {
             Object.assign(this.stepAnimationObject, { htmlGlowingMovingUpLineContainer: objectHtmlGlowingMovingUpLineContainerStepAnimation.htmlGlowingMovingUpLineContainer });
@@ -80,7 +74,6 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addHtmlGlowingMovingDownLineContainerStepAnimation(htmlGlowingMovingDownLineContainer)
     {
         let objectHtmlGlowingMovingDownLineContainerStepAnimation = new HtmlGlowingMovingDownLineContainerStepAnimation(htmlGlowingMovingDownLineContainer);
-
         if (htmlGlowingMovingDownLineContainer)
         {
             Object.assign(this.stepAnimationObject, { htmlGlowingMovingDownLineContainer: objectHtmlGlowingMovingDownLineContainerStepAnimation.htmlGlowingMovingDownLineContainer });
@@ -91,12 +84,10 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     addKeyframesPrototype(keyframePatternName, propertyNameInStepAnimation) // InsideBorderRotatorStepAnimation
     {
         let objectKeyframesPrototypeStepAnimation = keyframePatternName ? new KeyframesPrototypeStepAnimation(keyframePatternName) : null;
-
         Object.assign(this.stepAnimationObject, { [propertyNameInStepAnimation]: objectKeyframesPrototypeStepAnimation });
     }
 
 
-    // ?????
     addKeyframesPrototypeRelatedWithPropertyEntityPrototypeStepAnimation(keyframesPrototypeRelatedWithPropertyEntityPrototype, propertyNameInStepAnimation)
     {
         if (propertyNameInStepAnimation)
@@ -106,21 +97,16 @@ export class RefactoredStepAnimation // complex constructed object  aka  House
     }
 
 
-    // ??????
     addPropertyPrototype(propertyEntityPatternName, propertyNameInStepAnimation)
     {
         let objectPropertyEntityPrototypeStepAnimation = propertyEntityPatternName ? new PropertyPrototypeStepAnimation(propertyEntityPatternName) : null;
-
         Object.assign(this.stepAnimationObject, { [propertyNameInStepAnimation]: objectPropertyEntityPrototypeStepAnimation });
     }
 
 
     addTimeStepAnimation(timeDurationStep, timeDelayStep)
     {
-        // computation timing of animation
-
         let objectTimeStepAnimation = new TimeStepAnimation(timeDurationStep, timeDelayStep);
-
         Object.assign(this.stepAnimationObject, { timeStepAnimation: objectTimeStepAnimation });
     }
 

@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalculator // ConcreteStrategyA
+export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -23,9 +23,7 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
         return this.styleClassTextHandler.getStyleValue(cssEntityPrototypeName, keyName).styleValue;
     }
 
-
     // --------------------------- Calculation properties ---------------------------
-
 
     calculateXCoordinate(keyName)
     {
@@ -45,7 +43,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
     }
 
 
-    // private
     getCoordinate(keyName)
     {
         let targetStepAnimation = this.allStepAnimation.filter(currentStepAnimation =>
@@ -171,7 +168,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
         if (keyName === "--animationNameSuperContainer")
         {
             // every possible step name
-
             let arrayOfStepNames = [
                 "own position (left child)",
                 "own position (right child)",
@@ -179,7 +175,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
             ];
 
             let keyframesNamesString = this.getKeyframesNamesString("keyframesPrototypeMoveNode", arrayOfStepNames, keyName);
-
             return keyframesNamesString;
         }
     }
@@ -199,7 +194,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
         if (keyName === "--animationDelaySuperContainer")
         {
             // every possible step name
-
             let arrayOfStepNames = [
                 "own position (left child)",
                 "own position (right child)",
@@ -207,7 +201,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
             ];
 
             let stringDelays = this.getDelaysString(arrayOfStepNames);
-
             return stringDelays;
         }
     }
@@ -236,13 +229,8 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
 
                 return `url(#${idLinearGradient})`;
             }
-            //else
-            //{
-            //    throw new Error(`Steps is 0`);
-            //}
 
             throw new Error(`Steps is 0`);
-
         }
     }
 
@@ -256,7 +244,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
                 return currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.patternStepName.includes("own position");
             });
 
-
             if (targetStepAnimation.length != 0 && targetStepAnimation[0].stepAnimationObject.nodesInfoStepAnimation.nodeToAnimate.parentNode)
             {
                 return Math.abs(targetStepAnimation[0].stepAnimationObject.nodesInfoStepAnimation.nodeToAnimate.xCoordinate -
@@ -266,9 +253,7 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
             return this.getCurrentValue(this.styleClassPrototypeName, keyName);
         }
     }
-        
 
-    // PRIVATES
 
     getDelaysString(arrayOfStepNames)
     {
@@ -309,7 +294,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
     getKeyframesNamesString(keyframesPrototypePropertyNameStep, arrayOfStepNames, styleKeyName)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         this.allStepAnimation.forEach(currentStepAnimation =>
@@ -322,7 +306,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
                 if (keyframesPrototypePropertyNameStep === "keyframesPrototypeMoveNode")
                 {
                     let nodesInfoStepAnimation = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation;
-
                     newValue += this.getKeyframeMoveNodeName(keyframePrototypeName, nodesInfoStepAnimation.patternStepName, nodesInfoStepAnimation.nodeToAnimate, nodesInfoStepAnimation.relativeNodeToAnimateAccross) + ", ";
                 }
                 else
@@ -331,7 +314,6 @@ export class StyleClassCalculatorAddRangeOfNodes extends AbstractCssEntityCalcul
                 }
             }
         });
-
 
         if (newValue === "")
         {

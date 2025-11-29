@@ -2,7 +2,7 @@ import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -25,7 +25,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     }
 
 
-    // Duplication
     calculateXCoordinate(keyName)
     {
         if (keyName === "--xCoordinate")
@@ -62,7 +61,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     }
 
 
-    // private
     getCoordinate(keyName)
     {
         let targetStepAnimation = this.allStepAnimation.filter(currentStepAnimation =>
@@ -131,19 +129,14 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     }
 
 
-    // Duplication with the same method in StyleClassCalculatorBalancing
     calculateGradInitialValueInsideBorder(keyName)
     {
         if (keyName === "--gradInitialValueInsideBorder")
         {
             let nodeToAnimate = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
             let keyframeNames = this.domUpdater.getKeyframesByKeyName(nodeToAnimate, "superContainer", "--insideBorderAnimationNames");
-
             let lastKeyframeName = keyframeNames[keyframeNames.length - 1];
-
             let keyNameInKeyframe = this.refactoredStepAnimation.propertyEntityPrototypeInsideBorder.propertyPrototypeEntityName; // should be "--gradientInsideBorderAngleStart"
-
             let valueOfPreviousKeyframe = this.getKeyframeValue(lastKeyframeName, keyNameInKeyframe, "100%");
 
             return valueOfPreviousKeyframe;
@@ -151,12 +144,9 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     }
 
 
-    // Duplication with the same method in StyleClassCalculatorBalancing
-    // private
     getKeyframeValue(cssEntityPrototypeName, keyName, persentage)
     {
         let keyframeTextHandler = new KeyframeTextHandler();
-
         let keyframeValue = keyframeTextHandler.findKeyframeKeyValue(cssEntityPrototypeName, persentage, keyName).keyframeValue;
 
         return keyframeValue;
@@ -169,7 +159,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
         {
             let nodeToAnimate = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate;
             let relativeNodeToAnimateAccross = this.refactoredStepAnimation.nodesInfoStepAnimation.relativeNodeToAnimateAccross;
-
             let keyframePrototypeName = this.refactoredStepAnimation["keyframesPrototypeInsideBorder"].keyframePrototypeName
 
             return `${keyframePrototypeName}_Swap_${nodeToAnimate.nodeId}_with_${relativeNodeToAnimateAccross.nodeId}_Swapped_${this.tree.swappedTimes}_times`;
@@ -185,8 +174,7 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
                 "own position (root)",
                 "own position (left child)",
                 "own position (right child)",
-            ]
-
+            ];
             let keyframesAlignNodeByWidth = this.getKeyframesMoveNodeNamesString(arrayOfStepNames);
 
             return keyframesAlignNodeByWidth;
@@ -197,7 +185,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     getKeyframesMoveNodeNamesString(arrayOfStepNames)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         this.allStepAnimation.forEach(currentStepAnimation =>
@@ -219,7 +206,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     }
 
 
-    // Refactor, using common method below
     getKeyframeMoveNodeName(stepAnimation)
     {
         return this.composeKeyframeName(stepAnimation, "keyframesPrototypeMoveNode");
@@ -231,7 +217,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     {
         let relativeNodeToAnimateAccross = stepAnimation.nodesInfoStepAnimation.relativeNodeToAnimateAccross;
         let nodeToAnimate = stepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
         let keyframePrototypeName = stepAnimation[keyframePrototypeKey].keyframePrototypeName;
 
         if (!relativeNodeToAnimateAccross)
@@ -272,53 +257,6 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
     }
 
 
-    //calculateAnimationDelayMovingLine(keyName)
-    //{
-    //    if (keyName === "--animationDelayMovingLine")
-    //    {
-    //        let arrayOfStepNames = [
-    //            "own position (root)",
-    //            "own position (left child)",
-    //            "own position (right child)",
-    //        ]
-
-    //        let delays = this.getDelaysString(arrayOfStepNames).split(", ");
-
-    //        return delays[delays.length - 1];
-    //    }
-    //}
-
-
-    //calculateAnimationSvgLineLink(keyName)
-    //{
-    //    if (keyName === "--animationSvgLineLink")
-    //    {
-    //        let arrayOfStepNames = [
-    //            "draw left link to parent",
-    //            "draw right link to parent"
-    //        ]
-
-    //        let animationSvgLineLink;
-
-    //        this.allStepAnimation.forEach(currentStepAnimation =>
-    //        {
-    //            if (currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.patternStepName.includes(arrayOfStepNames[0]) ||
-    //                currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.patternStepName.includes(arrayOfStepNames[1]))
-    //            {
-    //                animationSvgLineLink = this.composeKeyframeName(currentStepAnimation.stepAnimationObject, "keyframesPrototypeSvgLineLink");
-    //            }
-    //        });
-
-    //        if (!animationSvgLineLink)
-    //        {
-    //            throw new Error(`Unable to find any step with drawing the line link for`);
-    //        }
-
-    //        return animationSvgLineLink;
-    //    }
-    //}
-
-
     calculateAnimationLinkContainer(keyName)
     {
         if (keyName === "--animationLinkContainer")
@@ -327,12 +265,10 @@ export class StyleClassCalculatorSwapNode extends AbstractCssEntityCalculator //
         }
     }
 
-    // PRIVATES DUPLICATION
 
     getDelaysString(arrayOfStepNames)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         let totalDelaysSoFar = 0;  // current step delay should include

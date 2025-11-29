@@ -1,7 +1,5 @@
 import { DataToHtmlTableBuilder } from './DataToHtmlTableBuilder.js';
-
 // -------------------------------------------- Begin Build data that will pass into html-table via pattern Builder  --------------
-
 // Crate data to pass to html-table
 export class DataToHtmlTableCreator // Foreman
 {
@@ -14,17 +12,12 @@ export class DataToHtmlTableCreator // Foreman
     constructDataForHtmlTable(dataStructure, dataTableConfigurations)
     {
         let tableRowsObject = dataTableConfigurations.configureTableRowsObject(dataStructure);
-
         let keysTableRowsObject = Object.keys(tableRowsObject).map(key => tableRowsObject[key]);
-
         let rows = [];
-
         keysTableRowsObject.forEach(rowObject =>
         {
-
             rows.push(this.dataToHtmlTableBuilder.buildRow(rowObject));
         });
-
         return rows;
     }
 
@@ -32,14 +25,11 @@ export class DataToHtmlTableCreator // Foreman
     constructTableHeaders(tableHeaderAttributes)
     {
         let headers = [];
-
         let tableHeadersKeys = Object.keys(tableHeaderAttributes);
-
         tableHeadersKeys.forEach(key =>
         {
             headers.push(tableHeaderAttributes[key]);
         });
-
         return headers;
     }
 }

@@ -1,9 +1,4 @@
-﻿import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
-import { HtmlPageDomUpdater } from '../HtmlDomElementHandler/HtmlPageDomUpdater.js';
-import { SignUpFormFieldsHelper } from './SignUpFormFieldsHelper.js'
-//import { AbstractFormFieldsHelper } from './AbstractFormFieldsHelper.js'
-import { AbstractFormValidation } from './AbstractFormValidation.js'
-
+﻿import { AbstractFormValidation } from './AbstractFormValidation.js';
 
 export class SignUpFormValidation extends AbstractFormValidation
 {

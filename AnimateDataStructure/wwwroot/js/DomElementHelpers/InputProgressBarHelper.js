@@ -1,7 +1,6 @@
 ﻿import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 
-
 export class InputProgressBarHelper
 {
     constructor()

@@ -45,14 +45,12 @@ export class CssUpdater // client of CssBuilder
     }
 
 
-    // For balancing
     createOrUpdateCssEntityBalancing()
     {
         this.cssBuilder.constructCssBalancing();
     }
 
 
-    // For balancing
     createOrUpdateCssEntityLinkBeforeAfterBalancing()
     {
         this.cssBuilder.constructCssLinkBeforeAfterBalancing();
@@ -71,14 +69,12 @@ export class CssUpdater // client of CssBuilder
     }
 
 
-    // Heap
     createOrUpdateCssEntitySwapNode()
     {
         this.cssBuilder.constructCssSwapNode();
     }
 
 
-    // Heap
     createOrUpdateCssEntityLinkBeforeAfterSwapNodes()
     {
         this.cssBuilder.constructCssLinkBeforeAfterSwapNodes();

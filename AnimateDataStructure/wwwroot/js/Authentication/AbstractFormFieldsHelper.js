@@ -1,7 +1,6 @@
 ﻿import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { HtmlPageDomUpdater } from '../HtmlDomElementHandler/HtmlPageDomUpdater.js';
 
-
 export class AbstractFormFieldsHelper
 {
     constructor()
@@ -27,13 +26,13 @@ export class AbstractFormFieldsHelper
     {
         if (errorDomElement)
         {
-            const errorMessages = Array.isArray(messages) ? messages : [messages]; // Ensure messages is an array, even if a single string is passed
+            const errorMessages = Array.isArray(messages) ? messages : [messages];
 
             let ulErrorListStyleName = this.getUlErrorListAttributes().defaultAttributes.class;
             let ul = this.appendErrorMessagesToLiTags(errorMessages, ulErrorListStyleName);
 
-            errorDomElement.innerHTML = ''; // Clear previous content
-            errorDomElement.appendChild(ul); // Add the new list
+            errorDomElement.innerHTML = '';
+            errorDomElement.appendChild(ul);
         }
     }
 
@@ -106,5 +105,4 @@ export class AbstractFormFieldsHelper
             throw new Error("Id is an empty");
         }
     }
-
 }

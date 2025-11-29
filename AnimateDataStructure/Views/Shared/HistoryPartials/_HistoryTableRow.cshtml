@@ -1,10 +1,8 @@
 ﻿@using AnimateDataStructure.Core.DTOs.HistoryDataStructureDTOs
 @model Tuple<HistoryDataStructureDto, int>
-
 @{
     var item = Model.Item1;
-    var rowIndex = Model.Item2;
-    
+    var rowIndex = Model.Item2;    
     var nodeSummary = item.NodeData.Length > 60 ? item.NodeData.Substring(0, 60) + "..." : item.NodeData;
 }
 
@@ -38,5 +36,4 @@
     <td>
         @await Html.PartialAsync("HistoryPartials/_TableActionButtonCell", item)
     </td>
-
 </tr>

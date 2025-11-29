@@ -12,7 +12,6 @@ export class HistoryPageFunctionality
 		this.attributesForHtmlTable = this.htmlConfigurationAttributesReader.getHtmlTableConfigurationsForElements();
 		this.attributesForHtmlPage = this.htmlConfigurationAttributesReader.getHtmlPageConfigurations();
 		this.attributesForHistoryTable = this.htmlConfigurationAttributesReader.getHistoryTableConfigurations();
-
 		this.htmlTableFunctionality = new HtmlTableFunctionality();
 		this.idTableHistory = this.attributesForHistoryTable.tableHistoryAttributes.defaultAttributes.id; // "idHistoryTable"
 		this.idTableHistorySearchInput = this.attributesForHistoryTable.inputTableSearchAttributes.defaultAttributes.id; // "idTableHistorySearchInput"
@@ -25,7 +24,6 @@ export class HistoryPageFunctionality
 	addEffectsToControlButtons()
 	{
 		let buttonAuthenticateEffects = new ButtonAuthenticateEffects();
-
 		let contextControlButtonEffectsAuthenticate = new ContextControlEffects(buttonAuthenticateEffects);
 		contextControlButtonEffectsAuthenticate.addEffectsToControlButton();
 		buttonAuthenticateEffects.addAuthorizationButtonBehaviorHandlers();
@@ -35,14 +33,10 @@ export class HistoryPageFunctionality
 	addEffectsToHistoryTable()
 	{
 		this.htmlTableFunctionality.addMouseEffectsForTableCells(this.idTableHistory);
-
 		this.htmlTableFunctionality.addHandlerOnTableHovering(this.idTableHistory);
 		this.htmlTableFunctionality.addHandlerOnTableSearching(this.idTableHistory, this.idTableHistorySearchInput);
 		this.htmlTableFunctionality.addHandlerOnTableSorting(this.idTableHistory);
-
-		this.htmlTableFunctionality.addResizeEffectsToHtmlTable(this.idHistoryTableContainer, this.idHistoryTableResizerVerticalContainer, this.idHistoryTableResizerBottomHorizontalContainer);
-		
+		this.htmlTableFunctionality.addResizeEffectsToHtmlTable(this.idHistoryTableContainer, this.idHistoryTableResizerVerticalContainer, this.idHistoryTableResizerBottomHorizontalContainer);		
 		this.htmlTableFunctionality.addHandlerOnTableUpdate(this.idTableHistory);
 	}
-
 }

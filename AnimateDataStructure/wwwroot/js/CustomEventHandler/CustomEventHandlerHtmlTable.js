@@ -12,7 +12,7 @@ export class CustomEventHandlerHtmlTable
     }
 
 
-    createCustomEvent(eventName, dataStructure, dataTableConfigurations) // elementNameOfNode - is value of attribute data-element-name in html
+    createCustomEvent(eventName, dataStructure, dataTableConfigurations)
     {
         if (!eventName || eventName === "")
         {
@@ -46,8 +46,7 @@ export class CustomEventHandlerHtmlTable
     }
 
 
-    // dispatch event to html-table if this html-table was created (currently opened on the page)
-    // works only after enabling buttons
+    // Dispatch event to html-table if this html-table was created (currently opened on the page). Works only after enabling buttons
     dispatchUpdateTableTreeCharacteristics(isToDisableControl, dataStructure)
     {
         if (isToDisableControl)
@@ -56,10 +55,8 @@ export class CustomEventHandlerHtmlTable
         }
 
         let contextDataToHtmlTableConfigurationAttributesReader = new ContextDataToHtmlTableConfigurationAttributesReader(dataStructure);
-
         // computing choosing methods depend on id SIDEBAR button
         let dataTableConfigurations = contextDataToHtmlTableConfigurationAttributesReader.createDataTableToHtmlTableConfigurationsForTreeCharacteristics(dataStructure);
-
         let idTable = dataTableConfigurations.idTable;
 
         if (!this.htmlPageDomUpdater.isExistHtmlPageDomElement(idTable))
@@ -67,10 +64,8 @@ export class CustomEventHandlerHtmlTable
             return;
         }
 
-        let customEventName = "updateTableTreeCharacteristics";
-
-        // fire when node added or deleted (after buttons will be enabled)
-        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations);
+        let customEventName = "updateTableTreeCharacteristics";        
+        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations); // fire when node added or deleted (after buttons will be enabled)
     }
 
 
@@ -78,42 +73,29 @@ export class CustomEventHandlerHtmlTable
     dispatchUpdateTableTreeOperations(dataStructure)
     {
         let contextDataToHtmlTableConfigurationAttributesReader = new ContextDataToHtmlTableConfigurationAttributesReader(dataStructure);
-
         let dataTableConfigurations = contextDataToHtmlTableConfigurationAttributesReader.createDataTableToHtmlTableConfigurationsForTreeOperations(dataStructure);
-
         let customEventName = "updateTableTreeOperations";
         let idTable = dataTableConfigurations.idTable;
-
-        // fire when node added or deleted (after buttons will be enabled)
-        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations);
+        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations); // fire when node added or deleted (after buttons will be enabled)
     }
 
 
     dispatchUpdateTableTreeTraversing(dataStructure)
     {
         let contextDataToHtmlTableConfigurationAttributesReader = new ContextDataToHtmlTableConfigurationAttributesReader(dataStructure);
-
         let dataTableConfigurations = contextDataToHtmlTableConfigurationAttributesReader.createDataTableToHtmlTableConfigurationsForTreeTraversing(dataStructure);
-
         let customEventName = "updateTableTreeTraversing";
-        let idTable = dataTableConfigurations.idTable;
-
-        // fire when node added or deleted (after buttons will be enabled)
-        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations);
+        let idTable = dataTableConfigurations.idTable;        
+        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations); // fire when node added or deleted (after buttons will be enabled)
     }
 
 
     dispatchUpdateTableNodeInfo(dataStructure)
     {
         let contextDataToHtmlTableConfigurationAttributesReader = new ContextDataToHtmlTableConfigurationAttributesReader(dataStructure);
-
         let dataTableConfigurations = contextDataToHtmlTableConfigurationAttributesReader.createDataTableToHtmlTableConfigurationsForNodeInfo(dataStructure);
-
         let customEventName = "updateTableNodeInfo";
-        let idTable = dataTableConfigurations.idTable;
-
-        // fire when node added or deleted (after buttons will be enabled)
-        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations);
+        let idTable = dataTableConfigurations.idTable;        
+        this.dispatchEventToHtmlTable(customEventName, idTable, dataStructure, dataTableConfigurations); // fire when node added or deleted (after buttons will be enabled)
     }
-
 }

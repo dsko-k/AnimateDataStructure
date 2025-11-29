@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class KeyframeCalculatorBalancing extends AbstractCssEntityCalculator // ConcreteStrategyC
+export class KeyframeCalculatorBalancing extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName)
     {
@@ -26,7 +26,6 @@ export class KeyframeCalculatorBalancing extends AbstractCssEntityCalculator // 
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return keyName === "transform" || (keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-");
     }
 
@@ -45,7 +44,6 @@ export class KeyframeCalculatorBalancing extends AbstractCssEntityCalculator // 
 
             let xCoordinatePrevious = nodeToAnimate.xCoordinatePrevious;
             let xCoordinate = nodeToAnimate.xCoordinate;
-
             let yCoordinatePrevious = nodeToAnimate.yCoordinatePrevious;
             let yCoordinate = nodeToAnimate.yCoordinate;
 
@@ -54,7 +52,6 @@ export class KeyframeCalculatorBalancing extends AbstractCssEntityCalculator // 
     }
 
 
-    // ??????
     calculateGradientInsideBorderAngleStart(keyName, persentage)
     {
         if (keyName.includes("--gradientInsideBorderAngleStart") && persentage === "100%")

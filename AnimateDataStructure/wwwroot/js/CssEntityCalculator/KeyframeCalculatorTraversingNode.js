@@ -1,10 +1,8 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class KeyframeCalculatorTraversingNode extends AbstractCssEntityCalculator // ConcreteStrategyD
-{
-    // constructor is differ by 3rd parameter indexOfStepAnimation. In other constructors KeyframeCalculator... there 2 arguments.
-    // Consider addition 3rd parameter in all constructor other classes KeyframeCalculator...
+export class KeyframeCalculatorTraversingNode extends AbstractCssEntityCalculator
+{    
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName, indexOfStepAnimation)
     {
         super(tree, refactoredStepAnimation);
@@ -18,7 +16,6 @@ export class KeyframeCalculatorTraversingNode extends AbstractCssEntityCalculato
     calculateEntityName(isForNodeToAnimate)
     {
         let prefixIndexOfStepAnimation = "_IndexOfStepAnimation_" + this.indexOfStepAnimation;
-
         return this.keyframePrototypeName + "_Traversing_" + super.nodeIdentifierName(false) + prefixIndexOfStepAnimation;
     }
 
@@ -26,7 +23,6 @@ export class KeyframeCalculatorTraversingNode extends AbstractCssEntityCalculato
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return keyName === "transform" || (keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-");
     }
 
@@ -43,12 +39,10 @@ export class KeyframeCalculatorTraversingNode extends AbstractCssEntityCalculato
         {
             let xCoordinate = this.refactoredStepAnimation.nodesInfoStepAnimation.relativeNodeToAnimateAccross.xCoordinate;
             let yCoordinate = this.refactoredStepAnimation.nodesInfoStepAnimation.relativeNodeToAnimateAccross.yCoordinate;
-
             let startPositionX = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate.startPositionX;
             let startPositionY = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate.startPositionY;
 
             return `translateX(${xCoordinate - startPositionX}px) translateY(${yCoordinate - startPositionY}px)`;
         }
     }
-
 }

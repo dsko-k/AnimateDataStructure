@@ -5,7 +5,6 @@ import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttribute
 import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js';
 
-
 export class CardListDataStructure extends AbstractControlButtonEffects
 {
 	constructor()
@@ -22,7 +21,6 @@ export class CardListDataStructure extends AbstractControlButtonEffects
 
 	onClickCard(idCardOfListDataStructure, urlToOpenAfterRippleEffectEnded, isOpenUrlInNewBrowserTab)
 	{
-		//let methodAfterRippleEffectEnded = (url) => this.onAfterRippleEffectEndedOpenPage(url);
 		let methodAfterRippleEffectEnded = this.onAfterRippleEffectEndedOpenPage.bind(this, urlToOpenAfterRippleEffectEnded, isOpenUrlInNewBrowserTab);
 		this.onAbstractClick(idCardOfListDataStructure, this, methodAfterRippleEffectEnded);
 	}
@@ -48,15 +46,10 @@ export class CardListDataStructure extends AbstractControlButtonEffects
 		if (!this.authenticationChecker.isUserAuthenticated())
 		{
 			let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigs.buttonAuthenticateAttributes);
-
 			this.buttonHelper.immitateClickOnButtonContainedRippleEffect(buttonAuthenticateDomElement);
-
 			this.afterAuthentication.setIdButtonToBeClickedAfterAuthorization(buttonAuthenticateDomElement, idCardOfListDataStructure);
-
 			return;
 		}
-
 		isOpenUrlInNewBrowserTab ? window.open(relativeUrl) : window.open(relativeUrl, "_self");
 	}
-
 }

@@ -37,22 +37,14 @@ export class AbstractControlButtonEffects
 
 	onAbstractMouseDown(idButton, buttonContainerDomElement, additionalClassOnMouseDown, context)
 	{
-		// ???
 		if (!buttonContainerDomElement)
         {
 			throw new Error("Container for buttons is not specified");
 		}
-
-
 		let buttonNodeDomElement = context.getDomElement(idButton);
 
 		buttonNodeDomElement.addEventListener("mousedown", function (evn)
 		{
-			//let inputContainerDomElement = context.getInputContainerDomElement();
-
-			//inputContainerDomElement.classList.toggle(additionalClassOnMouseDown);
-
-			// ???
 			buttonContainerDomElement.classList.toggle(additionalClassOnMouseDown);
 
 		}.bind(context));
@@ -61,7 +53,6 @@ export class AbstractControlButtonEffects
 
 	onAbstractMouseUp(idButton, buttonContainerDomElement, context)
 	{
-		// ???
 		if (!buttonContainerDomElement)
 		{
 			throw new Error("Container for buttons is not specified");
@@ -71,16 +62,10 @@ export class AbstractControlButtonEffects
 
 		buttonDomElement.addEventListener("mouseup", function (evn)
 		{
-			//let inputContainerDomElement = context.getInputContainerDomElement();
-
-			//this.htmlPageDomUpdater.removeLastAdditionalStyleName(inputContainerDomElement);
-
-			// ???
 			this.htmlPageDomUpdater.removeLastAdditionalStyleName(buttonContainerDomElement);
 
 		}.bind(context));
 	}
-
 
 	// Ripple Effect
 	onAbstractClick(idButton, context, callBackOnAfterRippleEffectEnded)
@@ -103,5 +88,4 @@ export class AbstractControlButtonEffects
 
 		}.bind(context));
 	}
-
 }

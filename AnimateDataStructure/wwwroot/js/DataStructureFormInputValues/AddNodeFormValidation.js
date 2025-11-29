@@ -1,7 +1,6 @@
 ﻿import { AbstractOperationFormValidation } from './AbstractOperationFormValidation.js';
 import { InputValuesFormFieldsHelper } from './InputValuesFormFieldsHelper.js';
 
-
 export class AddNodeFormValidation
 {
     constructor()
@@ -13,7 +12,6 @@ export class AddNodeFormValidation
 
     isValidFormFields(inputValuesFormDomElements, controlHandler)
     {
-        return this.abstractOperationFormValidation.isValidFormFields(inputValuesFormDomElements, controlHandler/*, valuesOfNodesInDataStructure*/);
+        return this.abstractOperationFormValidation.isValidFormFields(inputValuesFormDomElements, controlHandler);
     }
-
 }

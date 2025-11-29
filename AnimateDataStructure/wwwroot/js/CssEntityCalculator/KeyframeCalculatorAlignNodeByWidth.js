@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class KeyframeCalculatorAlignNodeByWidth extends AbstractCssEntityCalculator // ConcreteStrategyC
+export class KeyframeCalculatorAlignNodeByWidth extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName)
     {
@@ -26,7 +26,6 @@ export class KeyframeCalculatorAlignNodeByWidth extends AbstractCssEntityCalcula
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return keyName === "transform" || (keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-");
     }
 
@@ -37,9 +36,6 @@ export class KeyframeCalculatorAlignNodeByWidth extends AbstractCssEntityCalcula
     }
 
 
-    // To REFACTOR: 1. Replace with method calculateTransform(keyName, persentage) from class KeyframeCalculatorAlignNodeByHeight
-    // 2. Create abstract class AbstractKeyframeCalculator only for all KeyframeCalculators
-    // 3. (except this method from KeyframeCalculatorAddNode and KeyframeCalculatorFindNode) Move all methods calculateTransform(keyName, persentage) to abstract class AbstractKeyframeCalculator
     calculateTransform(keyName, persentage)
     {
         if (keyName.includes("transform") && persentage === "100%")

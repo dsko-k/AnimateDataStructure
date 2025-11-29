@@ -49,16 +49,14 @@ export class TreeOperationsStatuses
             heapified: "Heapified",
         };
 
-
         this.causeOfRotationInRedBlackTree = {
 
             siblingIsRed: `Its Sibling node is Red`,
             siblingIsBlackAndHasAtLeastOneRedChild: `Its Sibling is Black & has at least 1 Red child`,
             uncleIsBlack: `Its Uncle node is Black`,
-            siblingIsBlackAndHasTwoRedChildren: `Its Sibling is Black & has 2 Red children`, // no need
-            siblingIsBlackAndHasOneRedChild: `Its Sibling is Black & has 1 Red child`, // no need
+            siblingIsBlackAndHasTwoRedChildren: `Its Sibling is Black & has 2 Red children`,
+            siblingIsBlackAndHasOneRedChild: `Its Sibling is Black & has 1 Red child`,
         };
-
 
         this.causeOfFixingRedBlackTreeProperties = {
 
@@ -82,10 +80,6 @@ export class TreeOperationsStatuses
     }
 
 
-    // TO REMOVE METHODS!!!!!!
-
-    // public
-    // write State Of Tree Operation for valid node
     writeNewStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let operationStatusInfo = this.createOperationsStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -93,7 +87,6 @@ export class TreeOperationsStatuses
     }
 
 
-    // public
     updateStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let updatedOperationsStatusInfo = this.createOperationsStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -101,9 +94,6 @@ export class TreeOperationsStatuses
     }
 
 
-    // private
-
-    // add entry to the dataStructure about operation that was made
     addStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, operationStatusInfo) // operationsStatusInfo is object with information about operation on tree that was made
     {
         if (operationStatusInfo.wasUpdated) // skip updating if updatedOperationsStatusInfo was already updated
@@ -143,7 +133,6 @@ export class TreeOperationsStatuses
         }
 
         let lastOperationByType = operationsByType[operationsByType.length - 1];
-
         let indexLastOperationByType = lastOperationByType.orderNumberOfOperation;
 
         if (indexLastOperationByType === null)
@@ -158,17 +147,15 @@ export class TreeOperationsStatuses
 
         updatedOperationsStatusInfo.wasUpdated = true;
         updatedOperationsStatusInfo.orderNumberOfOperation = lastOperationByType.orderNumberOfOperation;
-
         dataStructure[propertyInDataStructureToAddState][indexLastOperationByType] = updatedOperationsStatusInfo;
     }
 
 
-    // operationsStatusInfo is object with information about operation on tree that was made
     createOperationsStatusInfo(nodeValue, typeOfOperation, statusOfOperation)
     {
         return {
 
-            orderNumberOfOperation: null, // DO NOT DELETE: orderNumberOfOperation counts from 0
+            orderNumberOfOperation: null, // counts from 0
             typeOfOperation: typeOfOperation,
             nodeValue: nodeValue,
             statusOfOperation: statusOfOperation,
@@ -177,8 +164,6 @@ export class TreeOperationsStatuses
     }
 
 
-
-    // For Traversing
     writeNewStateOfTreeTraversing(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let operationStatusInfo = this.createTraversingStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -186,7 +171,6 @@ export class TreeOperationsStatuses
     }
 
 
-    // For Traversing
     updateStateOfTreeTraversing(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let updatedOperationsStatusInfo = this.createTraversingStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -194,17 +178,14 @@ export class TreeOperationsStatuses
     }
 
 
-    // For Traversing
     createTraversingStatusInfo(nodeValue, typeOfOperation, statusOfOperation)
     {
         return {
-
-            orderNumberOfOperation: null, // DO NOT DELETE: orderNumberOfOperation counts from 0
+            orderNumberOfOperation: null, // counts from 0
             typeOfOperation: typeOfOperation,
             nodeValue: nodeValue,
             statusOfOperation: statusOfOperation,
             wasUpdated: false,
         };
     }
-
 }

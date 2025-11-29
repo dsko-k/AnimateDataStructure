@@ -3,11 +3,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AspNetCore_History</title>
-
     <link rel="stylesheet" href="/css/historyPageStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/buttonAuthenticateStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/tableStyles.css" asp-append-version="true" />
-
 </head>
 <body id="idBody">
 
@@ -19,16 +17,13 @@
 
     <div id="idAuthorizationSuperContainer" class="authorizationSuperContainer"></div>
 
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-
     @await RenderSectionAsync("Scripts", required: true)
-
 
 </body>
 </html>

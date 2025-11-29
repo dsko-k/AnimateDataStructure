@@ -1,7 +1,5 @@
-
 export class TreeStepAnimationChooserAlignNodeByWidth
 {
-    // choose array of steps to animate depends on nodeToAnimate, relativeNodeToAnimateAccross
     chooseStepsToAnimate(nodeToAnimate, relativeNodeToAnimateAccross, patternStepAnimationArrayOperation)
     {
         return patternStepAnimationArrayOperation.filter(stepObject =>

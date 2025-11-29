@@ -1,5 +1,5 @@
 
-// Pattern Strategy AbstractCssEntityCalculator (computes all values for style or @keyframe, or @property) via pattern Strategy
+// Computes all values for style or @keyframe, or @property via pattern Strategy
 export class ContextCssEntityCalculator // Context
 {
     constructor(cssEntityCalculator)
@@ -21,7 +21,6 @@ export class ContextCssEntityCalculator // Context
         if (this.isValueToCalculate(keyName))
         {
             let nameOfCalculator = this.cssEntityCalculator.combineNameOfCalculator(keyName);
-
             this.checkIsCalculatorFound(keyName);
 
             return Object.getPrototypeOf(this.cssEntityCalculator)[nameOfCalculator].call(this.cssEntityCalculator, keyName, persentage);
@@ -45,7 +44,6 @@ export class ContextCssEntityCalculator // Context
     }
 
 
-    // private
     checkIsCalculatorFound(keyName)
     {
         let nameOfCalculator = this.cssEntityCalculator.combineNameOfCalculator(keyName);
@@ -55,5 +53,4 @@ export class ContextCssEntityCalculator // Context
             throw new Error(`Unable to calculate value of the property '${keyName}'. Function-calculator for of the property '${keyName}' was not found in the class '${this.constructor.name}'`);
         }
     }
-
 }

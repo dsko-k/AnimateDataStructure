@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class KeyframeCalculatorAddRangeOfNodes extends AbstractCssEntityCalculator // ConcreteStrategyC
+export class KeyframeCalculatorAddRangeOfNodes extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName)
     {
@@ -37,14 +37,9 @@ export class KeyframeCalculatorAddRangeOfNodes extends AbstractCssEntityCalculat
         if (keyName.includes("transform") && persentage === "100%")
         {
             let nodeToAnimate = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
-            let xCoordinatePrevious = nodeToAnimate.xCoordinatePrevious;
             let xCoordinate = nodeToAnimate.xCoordinate;
-
-            let yCoordinatePrevious = nodeToAnimate.yCoordinatePrevious;
             let yCoordinate = nodeToAnimate.yCoordinate;
 
-            //return `translateX(${xCoordinate - xCoordinatePrevious}px) translateY(${yCoordinate - yCoordinatePrevious}px)`;
             return `translateX(${xCoordinate - xCoordinate}px) translateY(${yCoordinate - yCoordinate}px)`;
         }
     }

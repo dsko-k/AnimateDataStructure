@@ -2,7 +2,7 @@ import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -25,7 +25,6 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     }
 
 
-    // Duplication
     calculateXCoordinate(keyName)
     {
         if (keyName === "--xCoordinate")
@@ -62,7 +61,6 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     }
 
 
-    // private
     getCoordinate(keyName)
     {
         let targetStepAnimation = this.allStepAnimation.filter(currentStepAnimation =>
@@ -131,19 +129,14 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     }
 
 
-    // Duplication with the same method in StyleClassCalculatorBalancing
     calculateGradInitialValueInsideBorder(keyName)
     {
         if (keyName === "--gradInitialValueInsideBorder")
         {
             let nodeToAnimate = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
             let keyframeNames = this.domUpdater.getKeyframesByKeyName(nodeToAnimate, "superContainer", "--insideBorderAnimationNames");
-
             let lastKeyframeName = keyframeNames[keyframeNames.length - 1];
-
             let keyNameInKeyframe = this.refactoredStepAnimation.propertyEntityPrototypeInsideBorder.propertyPrototypeEntityName; // should be "--gradientInsideBorderAngleStart"
-
             let valueOfPreviousKeyframe = this.getKeyframeValue(lastKeyframeName, keyNameInKeyframe, "100%");
 
             return valueOfPreviousKeyframe;
@@ -151,14 +144,10 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     }
 
 
-    // Duplication with the same method in StyleClassCalculatorBalancing
-    // private
     getKeyframeValue(cssEntityPrototypeName, keyName, persentage)
     {
         let keyframeTextHandler = new KeyframeTextHandler();
-
         let keyframeValue = keyframeTextHandler.findKeyframeKeyValue(cssEntityPrototypeName, persentage, keyName).keyframeValue;
-
         return keyframeValue;
     }
 
@@ -180,7 +169,7 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
                 "own position (root)",
                 "own position (left child)",
                 "own position (right child)",
-            ]
+            ];
 
             let keyframesAlignNodeByWidth = this.getKeyframesMoveNodeNamesString(arrayOfStepNames);
 
@@ -192,7 +181,6 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     getKeyframesMoveNodeNamesString(arrayOfStepNames)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         this.allStepAnimation.forEach(currentStepAnimation =>
@@ -214,7 +202,6 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     }
 
 
-    // Refactor, using common method below
     getKeyframeMoveNodeName(stepAnimation)
     {
         return this.composeKeyframeName(stepAnimation, "keyframesPrototypeMoveNode");
@@ -226,14 +213,12 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
     {
         let relativeNodeToAnimateAccross = stepAnimation.nodesInfoStepAnimation.relativeNodeToAnimateAccross;
         let nodeToAnimate = stepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
         let keyframePrototypeName = stepAnimation[keyframePrototypeKey].keyframePrototypeName;
 
         if (!relativeNodeToAnimateAccross)
         {
             throw new Error(`Unable to compose ${keyframePrototypeKey}. Relative node is not specified`);
         }
-
 
         return keyframePrototypeName + "_Align_by_height_" + this.tree.alignedTimes + "_" + super.nodeIdentifierName(true);
     }
@@ -276,7 +261,6 @@ export class StyleClassCalculatorAlignNodeByHeight extends AbstractCssEntityCalc
         }
     }
 
-    // PRIVATES DUPLICATION
 
     getDelaysString(arrayOfStepNames)
     {

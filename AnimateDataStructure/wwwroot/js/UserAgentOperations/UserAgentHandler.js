@@ -1,7 +1,6 @@
 ﻿import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 
-
 export class UserAgentHandler
 {
     constructor()
@@ -15,9 +14,7 @@ export class UserAgentHandler
     isSupportedBrowserType()
     {
         const userAgent = navigator.userAgent;
-
         let supportedBrowsers = this.getSupportedBrowsers();
-
         return userAgent.includes(supportedBrowsers.chrome);
     }
 
@@ -34,11 +31,8 @@ export class UserAgentHandler
         {
             return;
         }
-
         let userAgentNotificationContainer = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.userAgentNotificationConfigs.divUserAgentNotificationContainerAttributes);
-
         let styleNameToShowUserAgentNotification = this.getStyleNameToShowUserAgentNotification();
-
         userAgentNotificationContainer.classList.toggle(styleNameToShowUserAgentNotification);
     }
 
@@ -53,14 +47,10 @@ export class UserAgentHandler
     {
         let closeButtonUserAgentNotification = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.userAgentNotificationConfigs.divCloseButtonUserAgentNotificationAttributes);
         let userAgentNotificationContainer = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.userAgentNotificationConfigs.divUserAgentNotificationContainerAttributes);
-
         closeButtonUserAgentNotification.addEventListener("click", function (evn)
         {
             evn.stopPropagation();
-
             userAgentNotificationContainer.remove();
-
         }.bind(this));
     }
-
 }

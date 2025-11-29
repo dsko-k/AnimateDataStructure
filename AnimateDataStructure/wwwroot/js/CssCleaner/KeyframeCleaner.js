@@ -10,7 +10,7 @@ export class KeyframeCleaner extends AbstractCssEntityCleaner
     }
 
 
-    // remove keyframes
+    // Removes keyframes
     removeCssEntities(node, elementName)
     {
         if (!this.domUpdater.isExistDomElement(node, elementName))
@@ -32,5 +32,4 @@ export class KeyframeCleaner extends AbstractCssEntityCleaner
             this.keyframeTextHandler.deleteKeyframe(keyframeNameToRemove);
         });
     }
-
 }

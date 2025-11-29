@@ -7,11 +7,10 @@ export class RedBlackTreeAnimationStepConfiguration
 				stepNumber: 1,
 				directionName: "move by line",
 				patternStepName: "above related node",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalShiftBetweenNodes: 0,
 				verticalClearanceNodes: 20,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveAboveNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationAboveNode",
@@ -19,11 +18,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: "animateInsideBorderAboveNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder:"--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -186,11 +182,10 @@ export class RedBlackTreeAnimationStepConfiguration
 				stepNumber: 2,
 				directionName: "move down",
 				patternStepName: "below to related node",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalShiftBetweenNodes: 20,
 				verticalClearanceNodes: 20,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveBelowNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
@@ -198,11 +193,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -365,12 +357,11 @@ export class RedBlackTreeAnimationStepConfiguration
 				stepNumber: 3,
 				directionName: "do not move",
 				patternStepName: "highlight left border of nodeToAnimate",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalClearanceNodes: 0,
 				verticalClearanceNodes: 20,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveHighlightNodeBelow",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -378,11 +369,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -545,12 +533,11 @@ export class RedBlackTreeAnimationStepConfiguration
 				stepNumber: 3,
 				directionName: "do not move",
 				patternStepName: "highlight right border of nodeToAnimate",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalClearanceNodes: 0,
 				verticalClearanceNodes: 20,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveHighlightNodeBelow",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -558,11 +545,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -723,14 +707,13 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -738,11 +721,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -903,14 +883,13 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -918,11 +897,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -1083,26 +1059,22 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -1260,10 +1232,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-
-				// For balancing (this section should be only for root node of AVL Tree)
-				// ??????????????????????
 				htmlLinkContainer:
 					[
 						{
@@ -1325,16 +1293,12 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-
-				// For balancing (this section should be only for root node of AVL Tree)
-				// ??????????????????????
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
 							tag: "div",
 							styleClassPrototypeName: ".glowingMovingUpLineContainer",
-							styleClassToApply: "", // was styleClassToApply: ".glowingMovingUpLineContainer", (incorrect glowingMovingLine when root is added)
+							styleClassToApply: "",
 							elementNumber: 23,
 							elementName: "glowingMovingUpLineContainer",
 							parentElementNumber: 18,
@@ -1492,27 +1456,22 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 5,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw left link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
 				keyframesPrototypeBorderRotatorContainer: null,
 				keyframesPrototypeShadowBorderRotatorContainer: null,
-				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
-				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation", //"svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
-
+				keyframesPrototypeInsideBorder: null,
+				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -1670,7 +1629,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -1732,7 +1690,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -1893,168 +1850,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2092,26 +1887,22 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 5,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw right link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
 				keyframesPrototypeBorderRotatorContainer: null,
 				keyframesPrototypeShadowBorderRotatorContainer: null,
-				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
+				keyframesPrototypeInsideBorder: null,
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -2269,7 +2060,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -2331,7 +2121,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -2492,168 +2281,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2718,7 +2345,6 @@ export class RedBlackTreeAnimationStepConfiguration
 						nodeState: "color of node changed to black",
 						description: "This style class is applied to node, that had black color, but should become red node to comply property of RBT"
 					},
-					// ????????????? for double black node
 					{
 						elementNameToApplyStyle: "insideBorder",
 						styleClassPrototypeName: "insideBorderDoubleBlackNode",
@@ -2741,14 +2367,13 @@ export class RedBlackTreeAnimationStepConfiguration
 		let patternStepAnimationArrayAddRangeOfNodes = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added from range",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -2756,11 +2381,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "0s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -2918,7 +2540,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -2980,7 +2601,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -3141,27 +2761,23 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
-					"--topSuperContainer", // +++
-					"--leftSuperContainer", // +++
-					"--xCoordinate", // +++
-					"--yCoordinate", // +++
-					"--animationNameContainerSpectrumBorder", // +++
-					"--animationNamesBorderRotatorContainerLeftRightTurn", // +++
-					"--animationNamesShadowBorderRotatorContainerLeftRightTurn", // +++
-					"--insideBorderAnimationNames", // +++
-					"--animationDelaysBorderRotatorContainer", // +++
-					"--widthEndLinkContainer", // +++
-					"--animationNameSuperContainer", // +++
-					"--animationDurationSuperContainer", // +++
-					//"--animationDurationBorderRotator",
-					"--animationDelaySuperContainer", // +++
-					"--animationDelayMovingLine", // +++
-					"--lineStrokeUrl", // +++
-					//"--linkContainerAnimationDelay", // +++
+					"--topSuperContainer",
+					"--leftSuperContainer",
+					"--xCoordinate",
+					"--yCoordinate",
+					"--animationNameContainerSpectrumBorder",
+					"--animationNamesBorderRotatorContainerLeftRightTurn",
+					"--animationNamesShadowBorderRotatorContainerLeftRightTurn",
+					"--insideBorderAnimationNames",
+					"--animationDelaysBorderRotatorContainer",
+					"--widthEndLinkContainer",
+					"--animationNameSuperContainer",
+					"--animationDurationSuperContainer",
+					"--animationDelaySuperContainer",
+					"--animationDelayMovingLine",
+					"--lineStrokeUrl",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3199,14 +2815,13 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added from range",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -3214,11 +2829,8 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "0s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -3376,7 +2988,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -3438,7 +3049,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -3599,27 +3209,23 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
-					"--topSuperContainer", // +++
-					"--leftSuperContainer", // +++
-					"--xCoordinate", // +++
-					"--yCoordinate", // +++
-					"--animationNameContainerSpectrumBorder", // +++
-					"--animationNamesBorderRotatorContainerLeftRightTurn", // +++
-					"--animationNamesShadowBorderRotatorContainerLeftRightTurn", // +++
-					"--insideBorderAnimationNames", // +++
-					"--animationDelaysBorderRotatorContainer", // +++
-					"--widthEndLinkContainer", // +++
-					"--animationNameSuperContainer", // +++
-					"--animationDurationSuperContainer", // +++
-					//"--animationDurationBorderRotator",
-					"--animationDelaySuperContainer", // +++
-					"--animationDelayMovingLine", // +++
-					"--lineStrokeUrl", // +++
-					//"--linkContainerAnimationDelay", // +++
+					"--topSuperContainer",
+					"--leftSuperContainer",
+					"--xCoordinate",
+					"--yCoordinate",
+					"--animationNameContainerSpectrumBorder",
+					"--animationNamesBorderRotatorContainerLeftRightTurn",
+					"--animationNamesShadowBorderRotatorContainerLeftRightTurn",
+					"--insideBorderAnimationNames",
+					"--animationDelaysBorderRotatorContainer",
+					"--widthEndLinkContainer",
+					"--animationNameSuperContainer",
+					"--animationDurationSuperContainer",
+					"--animationDelaySuperContainer",
+					"--animationDelayMovingLine",
+					"--lineStrokeUrl",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3657,26 +3263,22 @@ export class RedBlackTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added from range",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "0s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -3834,7 +3436,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -3896,13 +3497,12 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
 							tag: "div",
 							styleClassPrototypeName: ".glowingMovingUpLineContainer",
-							styleClassToApply: "", // was styleClassToApply: ".glowingMovingUpLineContainer", (incorrect glowingMovingLine when root is added)
+							styleClassToApply: "",
 							elementNumber: 23,
 							elementName: "glowingMovingUpLineContainer",
 							parentElementNumber: 18,
@@ -4057,25 +3657,22 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
-					"--topSuperContainer", // +++
-					"--leftSuperContainer", // +++
-					"--xCoordinate", // +++
-					"--yCoordinate", // +++
-					"--animationNameContainerSpectrumBorder", // +++
-					"--animationNamesBorderRotatorContainerLeftRightTurn", // +++
-					"--animationNamesShadowBorderRotatorContainerLeftRightTurn", // +++
-					"--insideBorderAnimationNames", // +++
-					"--animationDelaysBorderRotatorContainer", // +++
-					"--widthEndLinkContainer", // +++
-					"--animationNameSuperContainer", // +++
-					"--animationDurationSuperContainer", // +++
-					//"--animationDurationBorderRotator",
-					"--animationDelaySuperContainer", // +++
-					"--animationDelayMovingLine", // +++
-					"--lineStrokeUrl", // +++
-					//"--linkContainerAnimationDelay", // +++
+					"--topSuperContainer",
+					"--leftSuperContainer",
+					"--xCoordinate",
+					"--yCoordinate",
+					"--animationNameContainerSpectrumBorder",
+					"--animationNamesBorderRotatorContainerLeftRightTurn",
+					"--animationNamesShadowBorderRotatorContainerLeftRightTurn",
+					"--insideBorderAnimationNames",
+					"--animationDelaysBorderRotatorContainer",
+					"--widthEndLinkContainer",
+					"--animationNameSuperContainer",
+					"--animationDurationSuperContainer",
+					"--animationDelaySuperContainer",
+					"--animationDelayMovingLine",
+					"--lineStrokeUrl",
 				],
 			},
 		];
@@ -4107,15 +3704,6 @@ export class RedBlackTreeAnimationStepConfiguration
 						nodeState: "color of node changed to black",
 						description: "This style class is applied to node, that had black color, but should become red node to comply property of RBT"
 					},
-					// ????????????? for double black node
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorderDoubleBlackNode",
-					//    styleClassToApply: "insideBorderDoubleBlackNode",
-					//    applyToNodeThatHaveToBeRed: null,
-					//    nodeState: "color of node changed to double black",
-					//    description: "This style class is applied to node, that had black color, but should become double black during deletion"
-					//},
 				],
 
 			},
@@ -4149,7 +3737,6 @@ export class RedBlackTreeAnimationStepConfiguration
 						description: "This style class is applied when clicked node is black"
 					},
 				],
-
 			},
 		];
 
@@ -4181,7 +3768,6 @@ export class RedBlackTreeAnimationStepConfiguration
 						description: "This style class is applied when hide click on black node"
 					},
 				],
-
 			},
 		];
 
@@ -4194,14 +3780,13 @@ export class RedBlackTreeAnimationStepConfiguration
 		let patternStepAnimationArrayTraversingNode = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: "move to node (not visited)", // ?????? no needed (duplicated in additionalStyleClasses)
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				applyStepToNodeToAnimate: true,
+				nodeState: "move to node (not visited)",
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainerVisitor",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -4209,22 +3794,11 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderLeftTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: null, // ?????
-				//[
-				//    {
-				//        keyframesPrototype: "keyframesPrototypeInsideBorder",
-				//        propertyEntityPrototype: "--gradientInsideBorderAngleStart",
-				//        persentage: "100%",
-				//        valueOfKeyframesKey: "315deg",
-				//    },
-				//],
-
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype: null,				
 				timeDurationStep: "2s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -4391,16 +3965,7 @@ export class RedBlackTreeAnimationStepConfiguration
 					"--animationNameSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					//"--widthEndLinkContainer",
-					//"--gradInitialValueInsideBorder", // +++
-					//"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
-					//"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
-					//"--animationNameContainerSpectrumBorder",
-					//"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "insideBorder",
@@ -4418,29 +3983,13 @@ export class RedBlackTreeAnimationStepConfiguration
 						nodeState: "black node was visited",
 						description: "This style class is applied to visited black node"
 					},
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorderOnVisit",
-					//    styleClassToApply: "insideBorderOnVisit",
-					//    nodeState: "node visited",
-					//    nodeIsLeftChild: true,
-					//    description: "This style class is applied to visited node",
-					//},
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorder",
-					//    styleClassToApply: "insideBorder",
-					//    nodeState: "node visited",
-					//    nodeIsLeftChild: true,
-					//    description: "This style class is applied to restore color of node after traversing this.tree",
-					//},
-					{ // ???????????????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
 						styleClassPrototypeName: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						styleClassToApply: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						applyToFoundNode: true,
 						nodeState: "glowing borders after node was found during traversing",
-						description: "This style class is applied to found node during traversing" // case for Heap, when Heap is being traversed and target node is found
+						description: "This style class is applied to found node during traversing"
 					},
 					{
 						elementNameToApplyStyle: "borderRotatorContainer",
@@ -4448,20 +3997,19 @@ export class RedBlackTreeAnimationStepConfiguration
 						styleClassToApply: "borderRotatorContainerOnFoundLightAllBorders",
 						applyToFoundNode: true,
 						nodeState: "glowing borders after node was found during traversing",
-						description: "This style class is applied to found node during traversing" // case for Heap, when Heap is being traversed and target node is found
+						description: "This style class is applied to found node during traversing"
 					},
 				],
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: "move to node (not visited)", // ?????? no needed (duplicated in additionalStyleClasses)
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				applyStepToNodeToAnimate: true,
+				nodeState: "move to node (not visited)",
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainerVisitor",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -4469,22 +4017,11 @@ export class RedBlackTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: null, // ?????
-				//[
-				//    {
-				//        keyframesPrototype: "keyframesPrototypeInsideBorder",
-				//        propertyEntityPrototype: "--gradientInsideBorderAngleStart",
-				//        persentage: "100%",
-				//        valueOfKeyframesKey: "405deg",
-				//    },
-				//],
-
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype: null,				
 				timeDurationStep: "2s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -4642,7 +4179,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
@@ -4651,16 +4187,7 @@ export class RedBlackTreeAnimationStepConfiguration
 					"--animationNameSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					//"--widthEndLinkContainer",
-					//"--gradInitialValueInsideBorder", // +++
-					//"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
-					//"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
-					//"--animationNameContainerSpectrumBorder",
-					//"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "insideBorder",
@@ -4678,29 +4205,13 @@ export class RedBlackTreeAnimationStepConfiguration
 						nodeState: "black node was visited",
 						description: "This style class is applied to visited black node"
 					},
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorderOnVisit",
-					//    styleClassToApply: "insideBorderOnVisit",
-					//    nodeState: "node visited",
-					//    nodeIsLeftChild: false,
-					//    description: "This style class is applied to visited node",
-					//},
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorder",
-					//    styleClassToApply: "insideBorder",
-					//    nodeState: "node visited",
-					//    nodeIsLeftChild: false,
-					//    description: "This style class is applied to restore color of node after traversing this.tree",
-					//},
-					{ // ???????????????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
 						styleClassPrototypeName: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						styleClassToApply: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						applyToFoundNode: true,
 						nodeState: "glowing borders after node was found during traversing",
-						description: "This style class is applied to found node during traversing" // case for Heap, when Heap is being traversed and target node is found
+						description: "This style class is applied to found node during traversing"
 					},
 					{
 						elementNameToApplyStyle: "borderRotatorContainer",
@@ -4708,43 +4219,31 @@ export class RedBlackTreeAnimationStepConfiguration
 						styleClassToApply: "borderRotatorContainerOnFoundLightAllBorders",
 						applyToFoundNode: true,
 						nodeState: "glowing borders after node was found during traversing",
-						description: "This style class is applied to found node during traversing" // case for Heap, when Heap is being traversed and target node is found
+						description: "This style class is applied to found node during traversing"
 					},
 				],
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: "move to node (not visited)", // ?????? no needed (duplicated in additionalStyleClasses)
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				applyStepToNodeToAnimate: true,
+				nodeState: "move to node (not visited)",
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainerVisitor",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
 				keyframesPrototypeAnimationLinkContainer: "changeLinkContainerWidth",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
-				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
+				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",				
 				keyframesPrototypeGlowingMovingLine: null,
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: null, // ?????
-				//[
-				//    {
-				//        keyframesPrototype: "keyframesPrototypeInsideBorder",
-				//        propertyEntityPrototype: "--gradientInsideBorderAngleStart",
-				//        persentage: "100%",
-				//        valueOfKeyframesKey: "180deg",
-				//    },
-				//],
-
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype: null,
 				timeDurationStep: "2s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -4902,7 +4401,6 @@ export class RedBlackTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
@@ -4911,16 +4409,7 @@ export class RedBlackTreeAnimationStepConfiguration
 					"--animationNameSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					//"--widthEndLinkContainer",
-					//"--gradInitialValueInsideBorder", // +++
-					//"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
-					//"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
-					//"--animationNameContainerSpectrumBorder",
-					//"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "insideBorder",
@@ -4938,29 +4427,13 @@ export class RedBlackTreeAnimationStepConfiguration
 						nodeState: "black node was visited",
 						description: "This style class is applied to visited black node"
 					},
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorderOnVisit",
-					//    styleClassToApply: "insideBorderOnVisit",
-					//    nodeState: "node visited",
-					//    nodeIsLeftChild: null,
-					//    description: "This style class is applied to visited node",
-					//},
-					//{
-					//    elementNameToApplyStyle: "insideBorder",
-					//    styleClassPrototypeName: "insideBorder",
-					//    styleClassToApply: "insideBorder",
-					//    nodeState: "node visited",
-					//    nodeIsLeftChild: null,
-					//    description: "This style class is applied to restore color of node after traversing this.tree",
-					//},
-					{ // ???????????????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
 						styleClassPrototypeName: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						styleClassToApply: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						applyToFoundNode: true,
 						nodeState: "glowing borders after node was found during traversing",
-						description: "This style class is applied to found node during traversing" // case for Heap, when Heap is being traversed and target node is found
+						description: "This style class is applied to found node during traversing"
 					},
 					{
 						elementNameToApplyStyle: "borderRotatorContainer",
@@ -4968,7 +4441,7 @@ export class RedBlackTreeAnimationStepConfiguration
 						styleClassToApply: "borderRotatorContainerOnFoundLightAllBorders",
 						applyToFoundNode: true,
 						nodeState: "glowing borders after node was found during traversing",
-						description: "This style class is applied to found node during traversing" // case for Heap, when Heap is being traversed and target node is found
+						description: "This style class is applied to found node during traversing"
 					},
 				],
 

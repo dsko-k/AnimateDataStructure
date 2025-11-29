@@ -11,7 +11,6 @@ export class InputValuesFormFieldsHelper
         this.formConfigs = this.htmlConfigurationAttributesReader.getHtmlFormInputValuesDataStructureConfigurations();
         this.inputNodeValueConfigs = this.htmlConfigurationAttributesReader.getHtmlInputNodeConfigurations();
         this.spanErrorInputConfigs = this.htmlConfigurationAttributesReader.getFormInputValuesDataStructureSpanErrorConfigurations();
-
         this.buttonAddNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonAddNodeConfigurations();
         this.buttonFindNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonFindNodeConfigurations();
         this.buttonDeleteNodeConfigs = this.htmlConfigurationAttributesReader.getHtmlControlButtonDeleteNodeConfigurations();
@@ -41,7 +40,6 @@ export class InputValuesFormFieldsHelper
             inputForNodeValueDomElement: this.htmlPageDomUpdater.getDomElementOnPageById(this.inputNodeValueConfigs.inputAttributes.defaultAttributes.id),
             labelInputValuesDomElement: this.htmlPageDomUpdater.getDomElementOnPageById(this.inputNodeValueConfigs.labelInputValuesDataStructureAttributes.defaultAttributes.id),
             divInputProgressBarDomElement: this.htmlPageDomUpdater.getDomElementOnPageById(this.inputNodeValueConfigs.divInputProgressBarAttributes.defaultAttributes.id),
-
             errorInputValueDomElement: this.htmlPageDomUpdater.getDomElementOnPageById(this.spanErrorInputConfigs.spanErrorMessageDataStructureInputValueAttributes.defaultAttributes.id),
             buttonAddNodeDomElement: this.htmlPageDomUpdater.getDomElementOnPageById(this.buttonAddNodeConfigs.buttonAddNodeAttributes.defaultAttributes.id),
             buttonFindNodeDomElement: this.htmlPageDomUpdater.getDomElementOnPageById(this.buttonFindNodeConfigs.buttonFindNodeAttributes.defaultAttributes.id),
@@ -84,7 +82,6 @@ export class InputValuesFormFieldsHelper
     getFetchFormObject(inputValue, tempGuid, isUserAuthenticated, antiForgeryToken)
     {
         const formData = new FormData();
-
         formData.append('InputValue', inputValue);
         formData.append('TempGuid', tempGuid);
         formData.append('IsAuthenticated', isUserAuthenticated);
@@ -99,9 +96,7 @@ export class InputValuesFormFieldsHelper
         if (errorDomElement)
         {
             const errorMessages = Array.isArray(messages) ? messages : [messages]; // Ensure messages is an array, even if a single string is passed
-
-            let ulErrorListStyleName = this.getUlErrorListAttributes().defaultAttributes.class;
-           
+            let ulErrorListStyleName = this.getUlErrorListAttributes().defaultAttributes.class;           
             let ulDomElements = this.htmlPageDomUpdater.getChildrenDomElementsByParentIdAndChildrenTag(errorDomElement.id, "ul");
 
             if (ulDomElements.length > 1)
@@ -109,12 +104,9 @@ export class InputValuesFormFieldsHelper
                 throw new Error("Multiple ul tags inside dom error tag are not allowed");
             }            
 
-            let ulToAppendLiTags = ulDomElements.length === 0 ? this.createUlTag(ulErrorListStyleName) : ulDomElements[0];
-            
-            // rework this method, it should only append li to ul
+            let ulToAppendLiTags = ulDomElements.length === 0 ? this.createUlTag(ulErrorListStyleName) : ulDomElements[0];            
             this.appendErrorMessagesToLiTags(errorMessages, ulToAppendLiTags);
-
-            // DO NOT DELETE: ul should be the first child. It is necessary for css visibility in style with ~ of the button that closes error list
+            // ul should be the first child. It is necessary for css visibility in style with ~ of the button that closes error list
             // Do not use appendChild(...) here
             errorDomElement.prepend(ulToAppendLiTags); 
         }
@@ -125,7 +117,6 @@ export class InputValuesFormFieldsHelper
     {
         let errorInputValuesConfigs = this.htmlConfigurationAttributesReader.getFormInputValuesDataStructureSpanErrorConfigurations();
         let ulErrorListSpanFormAttributes = errorInputValuesConfigs.ulErrorListErrorMessageDataStructureInputValueAttributes;
-
         return ulErrorListSpanFormAttributes;
     }
     
@@ -134,7 +125,6 @@ export class InputValuesFormFieldsHelper
     {
         const ul = document.createElement('ul');
         ul.classList.add(ulTagClassNameWithoutDot);
-
         return ul;
     }
 
@@ -201,5 +191,4 @@ export class InputValuesFormFieldsHelper
             throw new Error("Values should be in array");
         }
     }
-
 }

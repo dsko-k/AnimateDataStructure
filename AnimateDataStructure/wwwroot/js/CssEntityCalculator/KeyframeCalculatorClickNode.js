@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class KeyframeCalculatorClickNode extends AbstractCssEntityCalculator // ConcreteStrategyC
+export class KeyframeCalculatorClickNode extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName)
     {
@@ -14,14 +14,13 @@ export class KeyframeCalculatorClickNode extends AbstractCssEntityCalculator // 
 
     calculateEntityName(isForNodeToAnimate)
     {
-        return this.keyframePrototypeName + this.tree.treeViewState.getClickedTimes(); // return this.getKeyframePrototypeName() + "_" + super.nodeIdentifierName(true);
+        return this.keyframePrototypeName + this.tree.treeViewState.getClickedTimes();
     }
 
 
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-";
     }
 

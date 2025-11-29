@@ -17,7 +17,7 @@ export class KeyframeBuilder
     {
         let newKeyframeName = this.getNewKeyframeName(refactoredStepAnimation);
 
-        if (!this.isExistKeyframe(newKeyframeName)) // create new style class
+        if (!this.isExistKeyframe(newKeyframeName)) // create a new style class
         {
             this.keyframeCalculatorOperation.keyframeTextHandler.copyKeyframe(this.keyframeCalculatorOperation.keyframePrototypeName, newKeyframeName);
         }
@@ -68,14 +68,11 @@ export class KeyframeBuilder
 
             keysToUpdate.forEach(currentKeyToUpdate =>
             {
-                // Update value of @keyframe
-                this.updateKeyframeValue(updatingKeyframeName, currentPersentage, currentKeyToUpdate);
+                this.updateKeyframeValue(updatingKeyframeName, currentPersentage, currentKeyToUpdate); // Update value of @keyframe
             });
         });
     }
 
-    
-    // PRIVATE
 
     isExistKeyframe(keyframeName)
     {
@@ -83,21 +80,18 @@ export class KeyframeBuilder
     }
 
 
-    // +++
     getNewKeyframeName(refactoredStepAnimation)
     {
         return this.contextCssEntityCalculator.getCssEntityNewName(refactoredStepAnimation.nodesInfoStepAnimation.applyStepToNodeToAnimate);
     }
 
 
-    // +++
     getKeyframeContent(keyframeName)
     {
         return this.keyframeCalculatorOperation.keyframeTextHandler.getKeyframe(keyframeName);
     }
 
 
-    // private
     // Update value of key in @keyframe
     updateKeyframeValue(keyframeName, persentage, currentKeyName)
     {

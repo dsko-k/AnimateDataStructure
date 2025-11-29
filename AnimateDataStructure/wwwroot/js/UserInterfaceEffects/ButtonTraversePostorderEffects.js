@@ -16,9 +16,6 @@ export class ButtonTraversePostorderEffects extends AbstractControlButtonEffects
 
 	onMouseDown()
 	{
-		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonTraversePostorderConfigurations.buttonTraversePostorderAttributes);
-		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonTraversePostorderConfigurations.buttonTraversePostorderAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
@@ -27,8 +24,6 @@ export class ButtonTraversePostorderEffects extends AbstractControlButtonEffects
 
 	onMouseUp()
 	{
-		//this.onAbstractMouseUp(this.idButton, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
@@ -36,42 +31,27 @@ export class ButtonTraversePostorderEffects extends AbstractControlButtonEffects
 
 	onMouseClick()
 	{
-		let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded(evn);	
-
+		let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded(evn);
 		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded);
 	}
 
 
-	// Close container with traversing buttons, set text into button Traverse about clicked traversal type (instead button text "Traverse")
-	//onAfterRippleEffectEnded(evn)
-	//{
-	//	this.toggleContainerOfTraverseTypes();
-	//	this.setTextOfTypeTraversalInsideButtonTraverseMenu(evn);
-	//}
-
-	// ????
 	onAfterRippleEffectEnded(evn)
 	{
 		this.toggleContainerOfTraverseTypes();
-		this.setTextOfTypeTraversalInsideButtonTraverseMenu(evn);
-
-		// fire event about Submit inputValuesForm
+		this.setTextOfTypeTraversalInsideButtonTraverseMenu(evn);		
 		let inputValuesFormFieldsHelper = new InputValuesFormFieldsHelper();
 		let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(inputValuesFormFieldsHelper);
-
 		let formInputValuesDomElements = contextInputValuesFormFieldsHelper.obtainFormDomElements();
-
 		let eventNameToFire = "submitTraversePostorder";
-
 		this.inputValuesFormSender.onClickButtonSubmitForm(formInputValuesDomElements, contextInputValuesFormFieldsHelper, eventNameToFire);
 	}
 
-
 	// For Buttons of traverse type
 
+	// close list of traverse types
 	toggleContainerOfTraverseTypes()
-	{
-		// close list of traverse types
+	{		
 		let listOfTraverseMenuConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlListOfTraverseMenuConfigurations();
 		let idlistOfTraverseMenu = listOfTraverseMenuConfigurations.listOfTraverseMenuAttributes.defaultAttributes.id;
 		let listOfTraverseMenuDomElement = this.getDomElement(idlistOfTraverseMenu);

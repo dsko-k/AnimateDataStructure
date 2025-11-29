@@ -4,16 +4,12 @@ export class DataToHtmlTableBuilder // Builder
     buildRow(rowObject)
     {
         let row = [];
-
         let keysInRowObject = Object.keys(rowObject);
-
         keysInRowObject.forEach(key =>
         {
             let cellInRow = this.convertToString(rowObject[key]);
-
             row.push(cellInRow);
         });
-
         return row;
     }
 
@@ -28,5 +24,4 @@ export class DataToHtmlTableBuilder // Builder
     {
         return Object.keys(configurationObject).length;
     }
-
 }

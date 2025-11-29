@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorLinkBeforeAfterBalancing extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorLinkBeforeAfterBalancing extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -33,7 +33,6 @@ export class StyleClassCalculatorLinkBeforeAfterBalancing extends AbstractCssEnt
     }
 
 
-    // ????????
     calculateAnimationDurationSuperContainer(keyName)
     {
         if (keyName === "--animationDurationSuperContainer")
@@ -54,7 +53,6 @@ export class StyleClassCalculatorLinkBeforeAfterBalancing extends AbstractCssEnt
     }
 
 
-    // private
     chooseKeyframeNamePrefix(firstKeyframeNamePrefix, secondKeyframeNamePrefix) // firstKeyframeNamePrefix = "_BeforeBalancing_";  secondKeyframeNamePrefix = "_AfterBalancing_"
     {
         let patternStepName = this.refactoredStepAnimation.nodesInfoStepAnimation.patternStepName;

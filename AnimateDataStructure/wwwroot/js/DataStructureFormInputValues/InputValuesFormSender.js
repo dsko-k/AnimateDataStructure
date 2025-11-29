@@ -39,7 +39,6 @@ export class InputValuesFormSender
         }
 
         contextFormFieldsHelper.clearAllErrorsInForm(formDomElements);
-
         this.eventDispatcher.dispatchEventSubmitForm(idForm, eventNameToFire);
     }
 
@@ -52,8 +51,20 @@ export class InputValuesFormSender
         form.addEventListener(eventNameToHandle, async function (submitEvent)
         {
             submitEvent.preventDefault();
-
             await this.handlerFormSubmitInputNodeValue(relativeUrlToSubmitForm, contextFormFieldsHelper, contextFormValidation, callbackAnimation, controlHandler);
+
+        }.bind(this));
+
+        this.preventReloadPageOnEnterKeyPressed(form);
+    }
+
+
+    // Prevents reload html-page if input is filled and then key Enter is pressed
+    preventReloadPageOnEnterKeyPressed(formDomElement)
+    {
+        formDomElement.addEventListener('submit', async function (submitEvent)
+        {
+            submitEvent.preventDefault();
 
         }.bind(this));
     }
@@ -65,7 +76,6 @@ export class InputValuesFormSender
         {
             throw new Error("Incorrect context");
         }
-
         if (!urlToSubmitForm || urlToSubmitForm === "")
         {
             throw new Error("Incorrect url");
@@ -75,9 +85,7 @@ export class InputValuesFormSender
                         
         if (contextFormValidation.checkFormValidity(formDomElements, controlHandler))
         {
-            //this.toggleFormProgressBarStyle();
             this.inputProgressBarHelper.toggleFormProgressBarStyle();
-
             await this.submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, callbackAnimation);
         }
     }
@@ -90,7 +98,6 @@ export class InputValuesFormSender
         {
             let inputValue = formDomElements.inputForNodeValueDomElement.value;
             const formData = await this.getFormData(formDomElements, contextFormFieldsHelper, inputValue, urlToSubmitForm);
-
             const response = await fetch(urlToSubmitForm, {
                 method: 'POST',
                 headers: {},
@@ -99,7 +106,6 @@ export class InputValuesFormSender
 
             if (response.ok)
             {
-                //this.toggleFormProgressBarStyle();
                 this.inputProgressBarHelper.toggleFormProgressBarStyle();
 
                 if (callbackAnimation)
@@ -107,16 +113,12 @@ export class InputValuesFormSender
                     callbackAnimation();
                 }
 
-                // ???
                 this.buttonSaveHelper.setInscriptionSaveForButtonSave(urlToSubmitForm);
             }
             else
             {
-                //this.toggleFormProgressBarStyle();
                 this.inputProgressBarHelper.toggleFormProgressBarStyle();
-
                 const errorData = await response.json();
-
                 this.handleResponseErrors(contextFormFieldsHelper, errorData);
             }
         }
@@ -131,9 +133,7 @@ export class InputValuesFormSender
     handleResponseErrors(contextFormFieldsHelper, errorData)
     {
         let formDomElements = contextFormFieldsHelper.obtainFormDomElements();
-
         const errorElementMap = contextFormFieldsHelper.obtainFormMapErrorDomElements(formDomElements);
-        // DO NOT DELETE
         // errorData is the direct JSON response containing field errors from BadRequest(ModelState)
         // It will be an object like: { "FieldName": ["Error1", "Error2"], "": ["General Error"] }
         if (typeof errorData === 'object' && errorData !== null)
@@ -143,7 +143,6 @@ export class InputValuesFormSender
                 const errorElement = errorElementMap[key];
                 if (errorElement)
                 {
-                    // Pass the array of messages to displayError
                     contextFormFieldsHelper.displayError(errorElement, messages);
                 }
                 else
@@ -190,7 +189,6 @@ export class InputValuesFormSender
         form.addEventListener(eventNameToHandle, async function (submitEvent)
         {
             submitEvent.preventDefault();
-
             await this.handlerFormSubmitSaveCurrentTree(relativeUrlToSubmitForm, contextFormFieldsHelper, contextFormValidation, controlHandler);
 
         }.bind(this));
@@ -210,14 +208,11 @@ export class InputValuesFormSender
         }
 
         let formDomElements = contextFormFieldsHelper.obtainFormDomElements();
-
         let nodesAsString = controlHandler.tree.getDataStructureNodesAsString();
 
         if (contextFormValidation.checkValidityStringToSaveNodes(formDomElements, nodesAsString, controlHandler))
         {
-            //this.toggleFormProgressBarStyle();
             this.inputProgressBarHelper.toggleFormProgressBarStyle();
-
             await this.submitFormSaveCurrentTree(formDomElements, urlToSubmitForm, contextFormFieldsHelper, nodesAsString);
         }
     }
@@ -227,31 +222,23 @@ export class InputValuesFormSender
     {
         try
         {
-            // DO NOT DELETE: dataStructureNodesAsString is string representation of current datastructure as it is seen in UI at the moment of save
-
+            // dataStructureNodesAsString is string representation of current datastructure as it is seen in UI at the moment of save
             const formData = await this.getFormData(formDomElements, contextFormFieldsHelper, dataStructureNodesAsString, urlToSubmitForm);
-
             const response = await fetch(urlToSubmitForm, {
                 method: 'POST',
                 headers: {},
                 body: formData
             });
 
-
             if (response.ok)
             {
-                //this.toggleFormProgressBarStyle();
                 this.inputProgressBarHelper.toggleFormProgressBarStyle();
-
                 this.buttonSaveHelper.setInscriptionSavedForButtonSave();
             }
             else
             {
-                //this.toggleFormProgressBarStyle();
                 this.inputProgressBarHelper.toggleFormProgressBarStyle();
-
                 const errorData = await response.json();
-
                 this.handleResponseErrors(contextFormFieldsHelper, errorData);
             }
         }
@@ -266,11 +253,9 @@ export class InputValuesFormSender
     async getFormData(formDomElements, contextFormFieldsHelper, inputValue, urlToSubmitForm)
     {
         let tempGuid = formDomElements.formDomElement.dataset.tempGuid;
-        //let isUserAuthenticated = contextFormValidation.isUserAuthenticated();
         let isUserAuthenticated = this.authenticationChecker.isUserAuthenticated();
         const freshAntiForgeryToken = await this.getFreshAntiForgeryToken(urlToSubmitForm);
-
-        // DO NOT DELETE: dataStructureNodesAsString is string representation of current datastructure as it is seen in UI at the moment of save
+        
         return contextFormFieldsHelper.obtainFetchFormObject(inputValue, tempGuid, isUserAuthenticated, freshAntiForgeryToken);
     }
 
@@ -280,7 +265,6 @@ export class InputValuesFormSender
         try
         {
             let urlForAntiForgeryToken = this.createUrlToGetAntiForgeryToken(urlToSubmitForm, "GetAntiForgeryToken"); // '/controller/GetAntiForgeryToken'
-
             const response = await fetch(urlForAntiForgeryToken, {
                 method: 'GET',
                 headers: {
@@ -293,9 +277,7 @@ export class InputValuesFormSender
                 throw new Error(`Server responded with status: ${response.status}`);
             }
 
-            const data = await response.json();
-
-            // The server should return the new token in a JSON object: { "token": "..." }
+            const data = await response.json();// The server should return the new token in a JSON object: { "token": "..." }            
             if (data && data.token)
             {
                 return data.token;
@@ -307,9 +289,8 @@ export class InputValuesFormSender
         } 
         catch (error)
         {
-            console.error('Failed to get a new anti-forgery token:', error);
-            // Re-throw the error so the calling function can handle it
-            throw error;
+            console.error('Failed to get a new anti-forgery token:', error);            
+            throw error; // Re-throw the error so the calling function can handle it
         }
     }
 

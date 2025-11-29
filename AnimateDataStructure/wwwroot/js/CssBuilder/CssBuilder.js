@@ -11,7 +11,6 @@ import { StyleClassCalculatorTraversingNode } from '../CssEntityCalculator/Style
 import { StyleClassCalculatorAddRangeOfNodes } from '../CssEntityCalculator/StyleClassCalculatorAddRangeOfNodes.js';
 import { StyleClassCalculatorSwapNode } from '../CssEntityCalculator/StyleClassCalculatorSwapNode.js';
 import { StyleClassCalculatorLinkBeforeAfterSwapNodes } from '../CssEntityCalculator/StyleClassCalculatorLinkBeforeAfterSwapNodes.js';
-
 import { KeyframeBuilder } from './KeyframeBuilder.js';
 import { KeyframeCalculatorAddNode } from '../CssEntityCalculator/KeyframeCalculatorAddNode.js';
 import { KeyframeCalculatorAlignNodeByWidth } from '../CssEntityCalculator/KeyframeCalculatorAlignNodeByWidth.js';
@@ -111,7 +110,6 @@ export class CssBuilder // Foreman
     }
 
 
-    // For balancing
     constructCssBalancing()
     {
         if (!this.allStepAnimation || this.allStepAnimation.length == 0)
@@ -127,7 +125,6 @@ export class CssBuilder // Foreman
     }
 
 
-    // For balancing
     constructCssLinkBeforeAfterBalancing()
     {
         if (!this.allStepAnimation || this.allStepAnimation.length == 0)
@@ -163,7 +160,6 @@ export class CssBuilder // Foreman
     }
 
 
-    // Heap
     constructCssSwapNode()
     {
         if (!this.allStepAnimation || this.allStepAnimation.length == 0)
@@ -177,7 +173,6 @@ export class CssBuilder // Foreman
     }
 
 
-    // Heap
     constructCssLinkBeforeAfterSwapNodes()
     {
         if (!this.allStepAnimation || this.allStepAnimation.length == 0)
@@ -189,13 +184,10 @@ export class CssBuilder // Foreman
     }
 
 
-    // private
     constructStyleClassAddNode()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorAddNode(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -208,9 +200,7 @@ export class CssBuilder // Foreman
     constructStyleClassAlignNodeByWidth()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorAlignNodeByWidth(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -225,10 +215,9 @@ export class CssBuilder // Foreman
         this.allStepAnimation.flat().forEach(currentStepAnimation =>
         {
             let styleClassCalculatorOperation = new StyleClassCalculatorClickNode(this.tree, currentStepAnimation.stepAnimationObject, this.allStepAnimation.flat());
-
             let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
-            styleClassBuilder.buildNewStyleClass(currentStepAnimation.stepAnimationObject); // ?????????? no needed
+            styleClassBuilder.buildNewStyleClass(currentStepAnimation.stepAnimationObject);
             styleClassBuilder.writeStyleClassState(currentStepAnimation.stepAnimationObject, true);
             styleClassBuilder.buildUpdatedStyleClass(currentStepAnimation.stepAnimationObject);
             styleClassBuilder.writeStyleClassState(currentStepAnimation.stepAnimationObject, false);
@@ -239,9 +228,7 @@ export class CssBuilder // Foreman
     constructStyleClassFindNode()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorFindNode(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -254,9 +241,7 @@ export class CssBuilder // Foreman
     constructStyleClassLinkNodeAction()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorLinkNodeAction(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -269,9 +254,7 @@ export class CssBuilder // Foreman
     constructStyleClassAlignNodeByHeight()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorAlignNodeByHeight(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -285,9 +268,7 @@ export class CssBuilder // Foreman
     constructStyleClassBalancing()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorBalancing(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -300,9 +281,7 @@ export class CssBuilder // Foreman
     constructStyleClassLinkBeforeAfterBalancing()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorLinkBeforeAfterBalancing(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -315,9 +294,7 @@ export class CssBuilder // Foreman
     constructStyleClassTraversingNode()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorTraversingNode(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -330,9 +307,7 @@ export class CssBuilder // Foreman
     constructStyleClassAddRangeOfNodes()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorAddRangeOfNodes(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -342,13 +317,10 @@ export class CssBuilder // Foreman
     }
 
 
-    // Heap
     constructStyleClassSwapNode()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorSwapNode(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -358,13 +330,10 @@ export class CssBuilder // Foreman
     }
 
 
-    // Heap
     constructStyleClassLinkBeforeAfterSwapNodes()
     {
         let stepAnimationObject = this.allStepAnimation.flat()[0].stepAnimationObject;
-
         let styleClassCalculatorOperation = new StyleClassCalculatorLinkBeforeAfterSwapNodes(this.tree, stepAnimationObject, this.allStepAnimation.flat());
-
         let styleClassBuilder = new StyleClassBuilder(this.tree, styleClassCalculatorOperation);
 
         styleClassBuilder.buildNewStyleClass(stepAnimationObject);
@@ -376,15 +345,12 @@ export class CssBuilder // Foreman
 
     // ------------- section of constructKeyframe...(keyframesPrototypePropertyName)
 
-
-    // Duplication
     constructKeyframeAddNode(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
-            // two arguments in new KeyframeCalculatorAddNode(...) not 3 like in new KeyframeCalculatorTraversingNode(...)
+            // 2 arguments in new KeyframeCalculatorAddNode(...) not 3 like in new KeyframeCalculatorTraversingNode(...)
             let keyframeCalculatorOperation = new KeyframeCalculatorAddNode(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -394,13 +360,12 @@ export class CssBuilder // Foreman
         });
     }
 
-    // Duplication
+
     constructKeyframeAlignNodeByWidth(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorAlignNodeByWidth(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -416,7 +381,6 @@ export class CssBuilder // Foreman
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorClickNode(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -426,13 +390,12 @@ export class CssBuilder // Foreman
         });
     }
 
-    // Duplication
+
     constructKeyframeFindNode(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorFindNode(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -442,13 +405,12 @@ export class CssBuilder // Foreman
         });
     }
 
-    // Duplication
+
     constructKeyframeLinkNodeAction(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorLinkNodeAction(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -459,13 +421,11 @@ export class CssBuilder // Foreman
     }
 
 
-    // Duplication
     constructKeyframeAlignNodeByHeight(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorAlignNodeByHeight(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -476,14 +436,11 @@ export class CssBuilder // Foreman
     }
 
 
-    // For balancing
-    // Duplication
     constructKeyframeBalancing(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorBalancing(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -494,13 +451,11 @@ export class CssBuilder // Foreman
     }
 
 
-    // For balancing
     constructKeyframeLinkBeforeAfterBalancing(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorLinkBeforeAfterBalancing(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -517,7 +472,6 @@ export class CssBuilder // Foreman
         {
             // 3 arguments, not 2 like in other new KeyframeCalculator...()
             let keyframeCalculatorOperation = new KeyframeCalculatorTraversingNode(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName, index);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -533,7 +487,6 @@ export class CssBuilder // Foreman
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorAddRangeOfNodes(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -544,13 +497,11 @@ export class CssBuilder // Foreman
     }
 
 
-    // Heap
     constructKeyframeSwapNode(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorSwapNode(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -561,13 +512,11 @@ export class CssBuilder // Foreman
     }
 
 
-    // Heap
     constructKeyframeLinkBeforeAfterSwapNodes(keyframesPrototypePropertyName)
     {
         this.allStepAnimation.flat().forEach((currentStepAnimation, index) =>
         {
             let keyframeCalculatorOperation = new KeyframeCalculatorLinkBeforeAfterSwapNodes(this.tree, currentStepAnimation.stepAnimationObject, keyframesPrototypePropertyName);
-
             let keyframeBuilder = new KeyframeBuilder(this.tree, keyframeCalculatorOperation);
 
             keyframeBuilder.buildNewKeyframe(currentStepAnimation.stepAnimationObject);
@@ -576,8 +525,4 @@ export class CssBuilder // Foreman
             keyframeBuilder.writeKeyframeState(currentStepAnimation.stepAnimationObject, false);
         });
     }
-
-
-    // ------------- section of constructProperty...(keyframesPrototypePropertyName)
-
 }

@@ -3,7 +3,6 @@ import { ContextInputValuesFormFieldsHelper } from '../DataStructureFormInputVal
 import { InputValuesFormFieldsHelper } from '../DataStructureFormInputValues/InputValuesFormFieldsHelper.js';
 import { InputValuesFormSender } from '../DataStructureFormInputValues/InputValuesFormSender.js';
 
-
 export class ButtonAddNodeEffects extends AbstractControlButtonEffects
 {
     constructor()
@@ -17,11 +16,7 @@ export class ButtonAddNodeEffects extends AbstractControlButtonEffects
 
     onMouseDown()
     {
-        //let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonAddNodeConfigurations.buttonAddNodeAttributes);
-        //this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
-        let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
-
+        let inputContainerDomElement = this.getInputContainerDomElement(); // from Base class
         let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonAddNodeConfigurations.buttonAddNodeAttributes);
         this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
     }
@@ -29,9 +24,7 @@ export class ButtonAddNodeEffects extends AbstractControlButtonEffects
 
     onMouseUp()
     {
-        // this.onAbstractMouseUp(this.idButton, this);
-
-        let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
+        let inputContainerDomElement = this.getInputContainerDomElement();
         this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
     }
 
@@ -39,22 +32,17 @@ export class ButtonAddNodeEffects extends AbstractControlButtonEffects
     onMouseClick()
     {
         let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded();
-
-        this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded); // method onAfterRippleEffectEnded should be implemented here instead null
+        this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded);
     }
 
 
     onAfterRippleEffectEnded(evn)
     {
-        // fire event about Submit inputValuesForm
-
         let inputValuesFormFieldsHelper = new InputValuesFormFieldsHelper();
         let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(inputValuesFormFieldsHelper);
 
         let formInputValuesDomElements = contextInputValuesFormFieldsHelper.obtainFormDomElements();
-
-        let eventNameToFire = "submitAddNode";
-
+        let eventNameToFire = "submitAddNode"; // fire event about Submit inputValuesForm
         this.inputValuesFormSender.onClickButtonSubmitForm(formInputValuesDomElements, contextInputValuesFormFieldsHelper, eventNameToFire);
     }
 }

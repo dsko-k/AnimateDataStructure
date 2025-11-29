@@ -13,22 +13,17 @@ export class ButtonLogInFormEffects extends AbstractControlButtonEffects
 		this.authentication = new Authentication();
 	}
 
-
-	// DO NOT DELETE: reimplementing
+	// reimplementing
 	getInputContainerDomElement()
 	{
 		let authenticationFormsConfigurations = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
 		let idLogInFormContainer = authenticationFormsConfigurations.divSubmitLogInContainerAttributes.defaultAttributes.id;
-
 		return this.htmlPageDomUpdater.getDomElementOnPageById(idLogInFormContainer);
 	}
 
 
 	onMouseDown()
 	{
-		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonSubmitLogInFormConfigurations.buttonSubmitLogInFormAttributes);
-		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonSubmitLogInFormConfigurations.buttonSubmitLogInFormAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
@@ -37,8 +32,6 @@ export class ButtonLogInFormEffects extends AbstractControlButtonEffects
 
 	onMouseUp()
 	{
-		//this.onAbstractMouseUp(this.idButton, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
@@ -47,24 +40,16 @@ export class ButtonLogInFormEffects extends AbstractControlButtonEffects
 	onMouseClick()
 	{
 		let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded();
-
-		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded); // method onAfterRippleEffectEnded should be implemented here instead null
+		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded);
 	}
 
 
 	onAfterRippleEffectEnded(evn)
 	{
-		//this.authentication.onClickButtonLogInForm();
-
 		let logInFormFieldsHelper = new LogInFormFieldsHelper();
-
 		let contextFormFieldsHelper = new ContextFormFieldsHelper(logInFormFieldsHelper);
-
 		let logInFormDomElements = contextFormFieldsHelper.obtainFormDomElements();
-
 		let idFormLogIn = logInFormFieldsHelper.idForm;
-
 		this.authentication.onClickButtonSubmitForm(logInFormDomElements, idFormLogIn, contextFormFieldsHelper);
 	}
-
 }

@@ -6,14 +6,13 @@ export class AbstractTreeAnimationStepConfiguration
 		let patternStepAnimationArrayAlignNodeByWidth = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node aligned by width",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -22,11 +21,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -192,9 +188,7 @@ export class AbstractTreeAnimationStepConfiguration
 					"--leftSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					"--widthEndLinkContainer",
-					//"--insideBorderAnimationNames",
-					//"--animationDelayMovingLine",
+					"--widthEndLinkContainer",					
 					"--horizontalShiftOwnNode",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
@@ -204,14 +198,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node aligned by width",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -220,11 +213,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -391,8 +381,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
 					"--widthEndLinkContainer",
-					//"--insideBorderAnimationNames",
-					//"--animationDelayMovingLine",
 					"--horizontalShiftOwnNode",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
@@ -402,27 +390,23 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node aligned by width",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
 				keyframesPrototypeAnimationLinkContainer: "changeLinkContainerWidth",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -588,9 +572,7 @@ export class AbstractTreeAnimationStepConfiguration
 					"--leftSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					"--widthEndLinkContainer",
-					//"--insideBorderAnimationNames",
-					//"--animationDelayMovingLine",
+					"--widthEndLinkContainer",					
 					"--horizontalShiftOwnNode",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
@@ -702,14 +684,13 @@ export class AbstractTreeAnimationStepConfiguration
 		let patternStepAnimationArrayClickNode = [
 			{
 				stepNumber: 1,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "node clicked (it is a left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
@@ -719,170 +700,9 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".borderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer:[],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -891,7 +711,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -909,7 +728,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -917,7 +736,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -925,7 +744,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -933,7 +752,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -941,7 +760,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ?
+					{
 						elementNameToApplyStyle: "insideBorder",
 						styleClassPrototypeName: "insideBorderOnClick",
 						styleClassToApply: "insideBorderOnClick",
@@ -961,14 +780,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "node clicked (it is a right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
@@ -978,170 +796,9 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerOnClickRightChild",
-						//    styleClassToApply: ".shadowBorderRotatorContainerOnClickRightChild",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerOnClickRightChild",
-						//    styleClassToApply: ".borderRotatorContainerOnClickRightChild",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer: [],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -1150,7 +807,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -1168,7 +824,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1176,7 +832,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1184,7 +840,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1192,7 +848,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1200,7 +856,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ?
+					{
 						elementNameToApplyStyle: "insideBorder",
 						styleClassPrototypeName: "insideBorderOnClick",
 						styleClassToApply: "insideBorderOnClick",
@@ -1217,63 +873,29 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to clicked node",
 					},
 				],
-
 			},
 			{
 				stepNumber: 1,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "node clicked (it is a root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ??????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
 				htmlNodeContainer:
 					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
 						{
 							tag: "div",
 							styleClassPrototypeName: ".shadowBorderRotatorContainerOnHoverLightAllBorders",
@@ -1282,43 +904,7 @@ export class AbstractTreeAnimationStepConfiguration
 							elementName: "shadowBorderRotatorContainer",
 							parentElementNumber: 1,
 							isHtmlElementComposite: true,
-						},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
+						},						
 						{
 							tag: "div",
 							styleClassPrototypeName: ".borderRotatorContainerOnHoverLightAllBorders",
@@ -1327,81 +913,8 @@ export class AbstractTreeAnimationStepConfiguration
 							elementName: "borderRotatorContainer",
 							parentElementNumber: 1,
 							isHtmlElementComposite: true,
-						},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
+						},						
 					],
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -1410,7 +923,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -1428,7 +940,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node",
 					},
-					{ //// ?
+					{
 						elementNameToApplyStyle: "insideBorder",
 						styleClassPrototypeName: "insideBorderOnClick",
 						styleClassToApply: "insideBorderOnClick",
@@ -1437,14 +949,13 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to clicked node",
 					},
 				],
-
 			},
 			{
 				stepNumber: 2,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "ancestor of clicked node (ancestor is root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
@@ -1458,170 +969,9 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".borderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer: [],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -1630,7 +980,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -1652,187 +1001,25 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 2,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "ancestor of clicked node (ancestor is left child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ??????????????????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer: [],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -1841,7 +1028,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -1859,7 +1045,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is left child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1867,7 +1053,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is left child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1875,7 +1061,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is left child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1883,7 +1069,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is left child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -1900,191 +1086,28 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is left child",
 					},
 				],
-
 			},
 			{
 				stepNumber: 2,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "ancestor of clicked node (ancestor is right child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ??????????????????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer: [],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -2093,7 +1116,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2111,7 +1133,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is right child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2119,7 +1141,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is right child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2127,7 +1149,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is right child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2135,7 +1157,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is right child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2152,191 +1174,28 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to ancestor of clicked node, if ancestor of clicked node is right child",
 					},
 				],
-
 			},
 			{
 				stepNumber: 3,
 				directionName: null,
 				patternStepName: "successor of clicked node (successor is left child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ???????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
-				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild", // ???????????????
+				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer: [],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -2345,7 +1204,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2355,7 +1213,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is left child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2363,7 +1221,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is left child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2371,8 +1229,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is left child",
 					},
-
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2380,7 +1237,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is left child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2405,192 +1262,28 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is left child",
 					},
 				],
-
-
 			},
 			{
 				stepNumber: 3,
 				directionName: null,
 				patternStepName: "successor of clicked node (successor is right child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ????????????????????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
+				htmlNodeContainer: [],
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationNamesBorderRotatorContainerLeftRightTurn",
@@ -2599,7 +1292,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationIterationCountGlowingMovingLine",
 					"--animationNameGlowingMovingLine"
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2617,7 +1309,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is right child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2625,7 +1317,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is right child",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2633,7 +1325,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is right child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2641,7 +1333,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is right child",
 					},
-					{ //// ??????????????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "",
 						styleClassToApply: "",
@@ -2658,8 +1350,6 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to successor of clicked node, if successor of clicked node is right child",
 					},
 				],
-
-
 			},
 		];
 
@@ -2672,14 +1362,13 @@ export class AbstractTreeAnimationStepConfiguration
 		let patternStepAnimationArrayHideClickNode = [
 			{
 				stepNumber: 1,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "node clicked (it is a left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
@@ -2689,177 +1378,10 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".borderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer: [],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2869,7 +1391,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -2877,7 +1399,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -2885,7 +1407,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -2893,7 +1415,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -2909,7 +1431,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -2917,7 +1439,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -2925,7 +1447,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -2933,7 +1455,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -2961,14 +1483,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "node clicked (it is a right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
@@ -2978,177 +1499,10 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerOnClickRightChild",
-						//    styleClassToApply: ".shadowBorderRotatorContainerOnClickRightChild",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerOnClickRightChild",
-						//    styleClassToApply: ".borderRotatorContainerOnClickRightChild",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer:[],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3158,7 +1512,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -3166,7 +1520,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -3174,7 +1528,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -3182,7 +1536,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -3198,7 +1552,6 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					// ???
 					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
@@ -3207,7 +1560,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -3215,7 +1568,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -3223,7 +1576,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -3248,63 +1601,28 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
 				],
-
 			},
 			{
 				stepNumber: 1,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "node clicked (it is a root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ??????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
+				htmlNodeContainer:[
 						{
 							tag: "div",
 							styleClassPrototypeName: ".shadowBorderRotatorContainerOnHoverLightAllBorders",
@@ -3314,42 +1632,6 @@ export class AbstractTreeAnimationStepConfiguration
 							parentElementNumber: 1,
 							isHtmlElementComposite: true,
 						},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
 						{
 							tag: "div",
 							styleClassPrototypeName: ".borderRotatorContainerOnHoverLightAllBorders",
@@ -3358,88 +1640,9 @@ export class AbstractTreeAnimationStepConfiguration
 							elementName: "borderRotatorContainer",
 							parentElementNumber: 1,
 							isHtmlElementComposite: true,
-						},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
+						},						
 					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3449,7 +1652,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -3457,7 +1660,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -3465,7 +1668,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -3473,7 +1676,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -3489,7 +1692,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -3497,7 +1700,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -3505,7 +1708,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -3513,7 +1716,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -3521,7 +1724,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ //// ?
+					{
 						elementNameToApplyStyle: "insideBorder",
 						styleClassPrototypeName: "insideBorder",
 						styleClassToApply: "insideBorder",
@@ -3530,18 +1733,16 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
 				],
-
 			},
 			{
 				stepNumber: 2,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "ancestor of clicked node (ancestor is root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
@@ -3551,177 +1752,10 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".shadowBorderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerOnClickLeftChild",
-						//    styleClassToApply: ".borderRotatorContainerOnClickLeftChild",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer:[],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3731,7 +1765,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -3739,7 +1773,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -3747,7 +1781,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -3755,7 +1789,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -3771,7 +1805,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -3779,7 +1813,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -3787,7 +1821,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -3795,7 +1829,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ?????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -3807,194 +1841,26 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 2,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "ancestor of clicked node (ancestor is left child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ??????????????????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer:[],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -4004,7 +1870,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -4012,7 +1878,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -4020,7 +1886,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -4028,7 +1894,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -4044,7 +1910,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -4052,7 +1918,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -4060,7 +1926,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -4068,7 +1934,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ??????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -4085,198 +1951,29 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
 				],
-
 			},
 			{
 				stepNumber: 2,
-				directionName: null, // ????
+				directionName: null,
 				patternStepName: "ancestor of clicked node (ancestor is right child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ??????????????????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer: [],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -4286,7 +1983,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -4294,7 +1991,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -4302,7 +1999,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -4310,7 +2007,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -4326,7 +2023,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -4334,7 +2031,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -4342,7 +2039,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -4350,7 +2047,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -4367,198 +2064,29 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to ancestor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
 				],
-
 			},
 			{
 				stepNumber: 3,
 				directionName: null,
 				patternStepName: "successor of clicked node (successor is left child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ???????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
-				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild", // ???????????????
-				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
+				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
+				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",				
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer: [],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -4568,7 +2096,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -4576,7 +2104,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -4584,7 +2112,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -4592,7 +2120,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -4608,7 +2136,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -4616,7 +2144,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -4624,7 +2152,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -4632,7 +2160,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ???
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -4649,199 +2177,29 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
 				],
-
-
 			},
 			{
 				stepNumber: 3,
 				directionName: null,
 				patternStepName: "successor of clicked node (successor is right child of its parent)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: null, // final state taken in additionalStyleClasses
+				applyStepToNodeToAnimate: true,
+				nodeState: null,
 				horizontalShiftBetweenNodes: null,
 				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleNameIsComputed: true,
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
-				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer", // ????????????????????????????
+				keyframesPrototypeAnimationLinkContainer: "unAlteredLinkContainer",
 				keyframesPrototypeBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeShadowBorderRotatorContainer: "rotateClick",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimationOnClick",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
-				/* is not used, used almost  additionalStyleClasses  keyframesPrototypeGlowingMovingLine */
-				htmlNodeContainer:
-					[
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".superContainer",
-						//    styleClassToApply: ".superContainer",
-						//    keyframesPrototypeName: "moveNode",
-						//    elementNumber: 1,
-						//    elementName: "superContainer",
-						//    parentElementNumber: null,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".containerSpectrumBorder",
-						//    styleClassToApply: ".containerSpectrumBorder",
-						//    elementNumber: 2,
-						//    elementName: "containerSpectrumBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".spectrumBorder",
-						//    styleClassToApply: ".spectrumBorder",
-						//    elementNumber: 3,
-						//    elementName: "spectrumBorder",
-						//    parentElementNumber: 2,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 4,
-						//    elementName: "shadowBorderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorClockwise",
-						//    elementNumber: 5,
-						//    elementName: "shadowBorderRotatorClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorClockwiseShift",
-						//    elementNumber: 6,
-						//    elementName: "shadowBorderRotatorClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwise",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwise",
-						//    elementNumber: 7,
-						//    elementName: "shadowBorderRotatorAntiClockwise",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".shadowBorderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".shadowBorderRotatorAntiClockwiseShift",
-						//    elementNumber: 8,
-						//    elementName: "shadowBorderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 4,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    styleClassToApply: ".borderRotatorContainerLeftRightTurnAfterAddition",
-						//    elementNumber: 9,
-						//    elementName: "borderRotatorContainer",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: true,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwise",
-						//    styleClassToApply: ".borderRotatorClockwise",
-						//    elementNumber: 10,
-						//    elementName: "borderRotatorClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorClockwiseShift",
-						//    styleClassToApply: ".borderRotatorClockwiseShift",
-						//    elementNumber: 11,
-						//    elementName: "borderRotatorClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwise",
-						//    styleClassToApply: ".borderRotatorAntiClockwise",
-						//    elementNumber: 12,
-						//    elementName: "borderRotatorAntiClockwise",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorAntiClockwiseShift",
-						//    styleClassToApply: ".borderRotatorAntiClockwiseShift",
-						//    elementNumber: 13,
-						//    elementName: "borderRotatorAntiClockwiseShift",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentLeftSide",
-						//    styleClassToApply: ".borderRotatorInTransparentLeftSide",
-						//    elementNumber: 14,
-						//    elementName: "borderRotatorInTransparentLeftSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".borderRotatorInTransparentRightSide",
-						//    styleClassToApply: ".borderRotatorInTransparentRightSide",
-						//    elementNumber: 15,
-						//    elementName: "borderRotatorInTransparentRightSide",
-						//    parentElementNumber: 9,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "div",
-						//    styleClassPrototypeName: ".insideBorder",
-						//    styleClassToApply: ".insideBorder",
-						//    elementNumber: 16,
-						//    elementName: "insideBorder",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-						//{
-						//    tag: "p",
-						//    styleClassPrototypeName: ".nodeValue",
-						//    styleClassToApply: ".nodeValue",
-						//    elementNumber: 17,
-						//    elementName: "nodeValue",
-						//    parentElementNumber: 1,
-						//    isHtmlElementComposite: false,
-						//},
-					],
-
-				styleKeysToUpdate: [
-					//"--animationDelayMovingLine",
-					//"--animationDelaysBorderRotatorContainer",
-					//"--animationIterationCountGlowingMovingLine",
-					//"--animationNameGlowingMovingLine"
-				],
-
+				htmlNodeContainer: [],
+				styleKeysToUpdate: [],
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -4851,7 +2209,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorClockwise",
 						styleClassToApply: "shadowBorderRotatorClockwise",
@@ -4859,7 +2217,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorClockwiseShift",
@@ -4867,7 +2225,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwise",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwise",
 						styleClassToApply: "shadowBorderRotatorAntiClockwise",
@@ -4875,7 +2233,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "shadowBorderRotatorAntiClockwiseShift",
 						styleClassToApply: "shadowBorderRotatorAntiClockwiseShift",
@@ -4891,7 +2249,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwise",
 						styleClassPrototypeName: "borderRotatorClockwise",
 						styleClassToApply: "borderRotatorClockwise",
@@ -4899,7 +2257,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorClockwiseShift",
 						styleClassPrototypeName: "borderRotatorClockwiseShift",
 						styleClassToApply: "borderRotatorClockwiseShift",
@@ -4907,7 +2265,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwise",
 						styleClassPrototypeName: "borderRotatorAntiClockwise",
 						styleClassToApply: "borderRotatorAntiClockwise",
@@ -4915,7 +2273,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
-					{ // ????
+					{
 						elementNameToApplyStyle: "borderRotatorAntiClockwiseShift",
 						styleClassPrototypeName: "borderRotatorAntiClockwiseShift",
 						styleClassToApply: "borderRotatorAntiClockwiseShift",
@@ -4932,8 +2290,6 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to successor of clicked node when it clicked consequently 2 times or to hide glowing of preLastClickedNode",
 					},
 				],
-
-
 			},
 		];
 
@@ -4948,11 +2304,10 @@ export class AbstractTreeAnimationStepConfiguration
 				stepNumber: 1,
 				directionName: "move by line",
 				patternStepName: "above related node",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalShiftBetweenNodes: 0,
 				verticalClearanceNodes: 20,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveAboveNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationAboveNode",
@@ -4960,11 +2315,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: "animateInsideBorderAboveNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -5122,7 +2474,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -5138,17 +2489,15 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 2,
 				directionName: "move down",
 				patternStepName: "below to related node",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalShiftBetweenNodes: 20,
 				verticalClearanceNodes: 20,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveBelowNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
@@ -5156,11 +2505,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -5318,7 +2664,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -5334,18 +2679,16 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 3,
 				directionName: "do not move",
 				patternStepName: "highlight left border of nodeToAnimate",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalClearanceNodes: 0,
 				verticalClearanceNodes: 20,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveHighlightNodeBelow",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -5353,11 +2696,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -5515,7 +2855,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -5531,18 +2870,16 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 3,
 				directionName: "do not move",
 				patternStepName: "highlight right border of nodeToAnimate",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalClearanceNodes: 0,
 				verticalClearanceNodes: 20,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveHighlightNodeBelow",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -5550,11 +2887,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -5712,7 +3046,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -5728,18 +3061,16 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -5747,11 +3078,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -5909,7 +3237,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -5925,7 +3252,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -5944,18 +3270,16 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to found node"
 					},
 				],
-
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -5963,11 +3287,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -6125,7 +3446,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -6141,7 +3461,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -6160,18 +3479,16 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to found node"
 					},
 				],
-
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
@@ -6179,11 +3496,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -6341,7 +3655,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -6357,7 +3670,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -6376,7 +3688,6 @@ export class AbstractTreeAnimationStepConfiguration
 						description: "This style class is applied to found node"
 					},
 				],
-
 			},
 		];
 
@@ -6391,11 +3702,10 @@ export class AbstractTreeAnimationStepConfiguration
 				stepNumber: 1,
 				directionName: "move by line",
 				patternStepName: "above related node",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalShiftBetweenNodes: 0,
 				verticalClearanceNodes: 20,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveAboveNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationAboveNode",
@@ -6403,11 +3713,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: "animateInsideBorderAboveNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -6565,7 +3872,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -6581,17 +3887,15 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 2,
 				directionName: "move down",
 				patternStepName: "below to related node",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalShiftBetweenNodes: 20,
 				verticalClearanceNodes: 20,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveBelowNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
@@ -6599,11 +3903,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -6761,7 +4062,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -6777,18 +4077,16 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 3,
 				directionName: "do not move",
 				patternStepName: "highlight left border of nodeToAnimate",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
 				horizontalClearanceNodes: 0,
 				verticalClearanceNodes: 20,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveHighlightNodeBelow",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -6796,11 +4094,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -6958,7 +4253,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -6974,18 +4268,16 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -6993,11 +4285,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -7155,7 +4444,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -7171,7 +4459,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -7194,14 +4481,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 4,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainerFinder",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -7209,11 +4495,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -7371,7 +4654,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--topSuperContainer",
 					"--leftSuperContainer",
@@ -7387,7 +4669,6 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationDelaySuperContainer",
 					"--animationIterationCountGlowingMovingLine",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -7419,14 +4700,13 @@ export class AbstractTreeAnimationStepConfiguration
 		let patternStepAnimationArrayLinkNodeAction = [
 			{
 				stepNumber: 1,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "erase left link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node left link erased to relocate",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -7435,12 +4715,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
 				keyframesPrototypeSvgLineLink: "svgEraseLine",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -7598,7 +4874,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -7660,7 +4935,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -7821,220 +5095,21 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", //+
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
-
-				//additionalStyleClasses: [
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "borderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//],
 			},
 			{
 				stepNumber: 1,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "erase right link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node right link erased to relocate",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -8043,11 +5118,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
 				keyframesPrototypeSvgLineLink: "svgEraseLine",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -8205,7 +5277,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -8428,222 +5499,21 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", //+
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
-
-
-				//additionalStyleClasses: [
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "borderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//],
 			},
 			{
 				stepNumber: 1,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw left link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node left link drawn after relocation",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -8652,12 +5522,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
 				keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -8815,7 +5681,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -8877,7 +5742,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -9038,222 +5902,21 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", //+
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
-
-
-				//additionalStyleClasses: [
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "borderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//],
 			},
 			{
 				stepNumber: 1,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw right link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node right link drawn after relocation",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -9262,11 +5925,8 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
 				keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -9424,7 +6084,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -9486,7 +6145,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -9647,210 +6305,10 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					//"--animationNameGlowingMovingLine",
 				],
-
-
-				//additionalStyleClasses: [
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "shadowBorderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerOnHoverLightAllBorders",
-				//        styleClassToApply: "borderRotatorContainerOnHoverLightAllBorders",
-				//        applyToLastAddedNode: true,
-				//        nodeState: "glowing borders after node addition",
-				//        description: "This style class is applied to added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "shadowBorderRotatorContainer",
-				//        styleClassPrototypeName: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "shadowBorderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//    {
-				//        elementNameToApplyStyle: "borderRotatorContainer",
-				//        styleClassPrototypeName: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        styleClassToApply: "borderRotatorContainerLeftRightTurnAfterAddition",
-				//        applyToLastAddedNode: false,
-				//        nodeState: "hide glowing borders after node addition",
-				//        description: "This style class is applied to pre-last added node, simultaneously with drawing svg line between added node and its parent"
-				//    },
-				//],
 			},
 		];
 
@@ -9863,14 +6321,13 @@ export class AbstractTreeAnimationStepConfiguration
 		let patternStepAnimationArrayAlignNodeByHeight = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node aligned by height",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -9878,10 +6335,9 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderLeftTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: // ?????
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype:
 					[
 						{
 							keyframesPrototype: "keyframesPrototypeInsideBorder",
@@ -9890,10 +6346,8 @@ export class AbstractTreeAnimationStepConfiguration
 							valueOfKeyframesKey: "315deg",
 						},
 					],
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -10051,25 +6505,21 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
 					"--topSuperContainer",
 					"--leftSuperContainer",
 					"--animationDelaySuperContainer",
-					"--animationDurationSuperContainer", // +
+					"--animationDurationSuperContainer",
 					"--widthEndLinkContainer",
-					"--gradInitialValueInsideBorder", // +++
-					"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
+					"--gradInitialValueInsideBorder",
+					"--insideBorderAnimationNames",
 					"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
 					"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -10155,14 +6605,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node aligned by height",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -10170,10 +6619,9 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: // ?????
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype:
 					[
 						{
 							keyframesPrototype: "keyframesPrototypeInsideBorder",
@@ -10182,10 +6630,8 @@ export class AbstractTreeAnimationStepConfiguration
 							valueOfKeyframesKey: "405deg",
 						},
 					],
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -10343,25 +6789,21 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
 					"--topSuperContainer",
 					"--leftSuperContainer",
 					"--animationDelaySuperContainer",
-					"--animationDurationSuperContainer", // +
+					"--animationDurationSuperContainer",
 					"--widthEndLinkContainer",
-					"--gradInitialValueInsideBorder", // +++
-					"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
+					"--gradInitialValueInsideBorder",
+					"--insideBorderAnimationNames",
 					"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
 					"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -10447,14 +6889,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node aligned by height",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
@@ -10462,10 +6903,9 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: null,
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: // ?????
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype:
 					[
 						{
 							keyframesPrototype: "keyframesPrototypeInsideBorder",
@@ -10474,10 +6914,8 @@ export class AbstractTreeAnimationStepConfiguration
 							valueOfKeyframesKey: "180deg",
 						},
 					],
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -10635,25 +7073,21 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
 					"--topSuperContainer",
 					"--leftSuperContainer",
 					"--animationDelaySuperContainer",
-					"--animationDurationSuperContainer", // +
+					"--animationDurationSuperContainer",
 					"--widthEndLinkContainer",
-					"--gradInitialValueInsideBorder", // +++
-					"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
+					"--gradInitialValueInsideBorder",
+					"--insideBorderAnimationNames",
 					"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
 					"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -10749,14 +7183,13 @@ export class AbstractTreeAnimationStepConfiguration
 		let patternStepAnimationArrayTraversingNode = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: "move to node (not visited)", // ?????? no needed (duplicated in additionalStyleClasses)
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				applyStepToNodeToAnimate: true,
+				nodeState: "move to node (not visited)",
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainerVisitor",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -10764,22 +7197,11 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderLeftTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: null, // ?????
-				//[
-				//    {
-				//        keyframesPrototype: "keyframesPrototypeInsideBorder",
-				//        propertyEntityPrototype: "--gradientInsideBorderAngleStart",
-				//        persentage: "100%",
-				//        valueOfKeyframesKey: "315deg",
-				//    },
-				//],
-
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype: null,				
 				timeDurationStep: "2s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -10946,16 +7368,7 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationNameSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					//"--widthEndLinkContainer",
-					//"--gradInitialValueInsideBorder", // +++
-					//"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
-					//"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
-					//"--animationNameContainerSpectrumBorder",
-					//"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "insideBorder",
@@ -10975,7 +7388,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: true,
 						description: "This style class is applied to restore color of node after traversing this.tree",
 					},
-					{ // ???????????????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
 						styleClassPrototypeName: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						styleClassToApply: "shadowBorderRotatorContainerOnFoundLightAllBorders",
@@ -10997,14 +7410,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: "move to node (not visited)", // ?????? no needed (duplicated in additionalStyleClasses)
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				applyStepToNodeToAnimate: true,
+				nodeState: "move to node (not visited)",
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainerVisitor",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -11012,22 +7424,11 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: null, // ?????
-				//[
-				//    {
-				//        keyframesPrototype: "keyframesPrototypeInsideBorder",
-				//        propertyEntityPrototype: "--gradientInsideBorderAngleStart",
-				//        persentage: "100%",
-				//        valueOfKeyframesKey: "405deg",
-				//    },
-				//],
-
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype: null,
 				timeDurationStep: "2s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -11185,7 +7586,6 @@ export class AbstractTreeAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
@@ -11194,16 +7594,7 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationNameSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					//"--widthEndLinkContainer",
-					//"--gradInitialValueInsideBorder", // +++
-					//"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
-					//"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
-					//"--animationNameContainerSpectrumBorder",
-					//"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "insideBorder",
@@ -11223,7 +7614,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: false,
 						description: "This style class is applied to restore color of node after traversing this.tree",
 					},
-					{ // ???????????????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
 						styleClassPrototypeName: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						styleClassToApply: "shadowBorderRotatorContainerOnFoundLightAllBorders",
@@ -11245,14 +7636,13 @@ export class AbstractTreeAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
-				nodeState: "move to node (not visited)", // ?????? no needed (duplicated in additionalStyleClasses)
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				applyStepToNodeToAnimate: true,
+				nodeState: "move to node (not visited)",
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainerVisitor",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
@@ -11260,22 +7650,11 @@ export class AbstractTreeAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: null,
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: null, // ?????
-				//[
-				//    {
-				//        keyframesPrototype: "keyframesPrototypeInsideBorder",
-				//        propertyEntityPrototype: "--gradientInsideBorderAngleStart",
-				//        persentage: "100%",
-				//        valueOfKeyframesKey: "180deg",
-				//    },
-				//],
-
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype: null,
 				timeDurationStep: "2s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -11442,16 +7821,7 @@ export class AbstractTreeAnimationStepConfiguration
 					"--animationNameSuperContainer",
 					"--animationDurationSuperContainer",
 					"--animationDelaySuperContainer",
-					//"--widthEndLinkContainer",
-					//"--gradInitialValueInsideBorder", // +++
-					//"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
-					//"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
-					//"--animationNameContainerSpectrumBorder",
-					//"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "insideBorder",
@@ -11471,7 +7841,7 @@ export class AbstractTreeAnimationStepConfiguration
 						nodeIsLeftChild: null,
 						description: "This style class is applied to restore color of node after traversing this.tree",
 					},
-					{ // ???????????????
+					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
 						styleClassPrototypeName: "shadowBorderRotatorContainerOnFoundLightAllBorders",
 						styleClassToApply: "shadowBorderRotatorContainerOnFoundLightAllBorders",
@@ -11496,6 +7866,4 @@ export class AbstractTreeAnimationStepConfiguration
 
 		return patternStepAnimationArrayTraversingNode;
 	}
-
-
 }

@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorLinkNodeAction extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorLinkNodeAction extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {

@@ -8,10 +8,7 @@ export class DataStructureActionInfo
     }
 
 
-    // !!!!!!!!!! REMOVE dataStructure and propertyInDataStructureToAddState as parameter of methods!!!!!!!!!!!!!!
-
-    // public
-    // write State Of Tree Operation for valid node
+    // Write State Of Tree Operation for valid node
     writeNewEntryAboutActionInTree(nodeValue, typeOfOperation, statusOfOperation)
     {
         let entryModelOfActionInTree = this.createModelEntryOfActionInTree(nodeValue, typeOfOperation, statusOfOperation);
@@ -19,15 +16,12 @@ export class DataStructureActionInfo
     }
 
 
-    // public
     updateAllFieldsOfEntryAboutActionInTree(nodeValue, typeOfOperation, statusOfOperation)
     {
         let updatedEntryModelOfActionInTree = this.createModelEntryOfActionInTree(nodeValue, typeOfOperation, statusOfOperation);
         this.updateLastEntryAboutActionInTree(updatedEntryModelOfActionInTree, typeOfOperation);
     }
 
-
-    // private
 
     // add entry to the dataStructure about operation that was made
     addEntryAboutActionInTree(dataStructure, propertyInDataStructureToAddState, entryModelOfActionInTree) // operationsStatusInfo is object with information about operation on tree that was made
@@ -47,15 +41,14 @@ export class DataStructureActionInfo
     }
 
 
-    updateLastEntryAboutActionInTree(updatedEntryModelOfActionInTree, typeOfOperationToUpdate) // operationsStatusInfo is object with information about operation on tree that was made
+    updateLastEntryAboutActionInTree(updatedEntryModelOfActionInTree, typeOfOperationToUpdate)
     {
-        if (updatedEntryModelOfActionInTree.wasUpdated) // skip updating if updatedEntryModelOfActionInTree was already updated
+        if (updatedEntryModelOfActionInTree.wasUpdated)
         {
             return;
         }
 
         let indexLastOperationByType = this.getIndexOfLastOperationByType(typeOfOperationToUpdate);
-
         let lastOperationByType = this.dataStructure[this.propertyInDataStructureToAddState][indexLastOperationByType];
 
         if (lastOperationByType.wasUpdated)
@@ -65,12 +58,10 @@ export class DataStructureActionInfo
 
         updatedEntryModelOfActionInTree.wasUpdated = true;
         updatedEntryModelOfActionInTree.orderNumberOfOperation = lastOperationByType.orderNumberOfOperation;
-
         this.dataStructure[this.propertyInDataStructureToAddState][indexLastOperationByType] = updatedEntryModelOfActionInTree;
     }
 
 
-    // ???
     getIndexOfLastOperationByType(typeOfOperation)
     {
         if (!this.dataStructure.hasOwnProperty(this.propertyInDataStructureToAddState) ||
@@ -88,7 +79,6 @@ export class DataStructureActionInfo
         }
 
         let lastOperationByType = operationsByType[operationsByType.length - 1];
-
         let indexLastOperationByType = lastOperationByType.orderNumberOfOperation;
 
         if (indexLastOperationByType === null)
@@ -100,7 +90,6 @@ export class DataStructureActionInfo
     }
 
 
-    // ???
     getLastOperationByType(typeOfOperation)
     {
         let indexLastOperationByType = this.getIndexOfLastOperationByType(typeOfOperation);
@@ -108,12 +97,11 @@ export class DataStructureActionInfo
     }
 
 
-    // operationsStatusInfo is object with information about operation on tree that was made
     createModelEntryOfActionInTree(nodeValue, typeOfOperation, statusOfOperation)
     {
         return {
 
-            orderNumberOfOperation: null, // DO NOT DELETE: orderNumberOfOperation counts from 0
+            orderNumberOfOperation: null, // orderNumberOfOperation counts from 0
             typeOfOperation: typeOfOperation,
             nodeValue: nodeValue,
             statusOfOperation: statusOfOperation,
@@ -132,5 +120,4 @@ export class DataStructureActionInfo
             }
         });
     }
-
 }

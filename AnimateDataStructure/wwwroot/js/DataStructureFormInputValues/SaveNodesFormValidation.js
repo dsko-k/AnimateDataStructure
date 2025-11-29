@@ -26,9 +26,7 @@ export class SaveNodesFormValidation
             return false;
         }
 
-        
-        let isRedBlackTree = controlHandler.tree.constructor.name === new RedBlackTree().constructor.name
-
+        let isRedBlackTree = controlHandler.tree.constructor.name === new RedBlackTree().constructor.name;
         let isValidStringFormat = isRedBlackTree ? this.isValidRedBlackTreeNodesStringFormatToBeSaved(stringOfNodesToSave) :
                                                    this.isValidAbstractTreeNodesStringFormatToBeSaved(stringOfNodesToSave);
 
@@ -38,7 +36,6 @@ export class SaveNodesFormValidation
         }
 
         let nodeValues = this.abstractOperationFormValidation.extractNumbers(stringOfNodesToSave);
-
         let isUniqueNodeValues = this.abstractOperationFormValidation.checkUniquenessExistedNodes(nodeValues);
 
         return isValidStringFormat && isUniqueNodeValues;
@@ -48,7 +45,6 @@ export class SaveNodesFormValidation
     isValidAbstractTreeNodesStringFormatToBeSaved(stringOfNodesToSave)
     {
         const regexCommaSeparatedListOfNumbers = /^$|^-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)*$/;
-
         return regexCommaSeparatedListOfNumbers.test(stringOfNodesToSave);
     }
 
@@ -56,9 +52,7 @@ export class SaveNodesFormValidation
     isValidRedBlackTreeNodesStringFormatToBeSaved(stringOfNodesToSave)
     {
         const regexCommaSeparatedListOfNumbersFlags = /^$|^-?[0-9]+(\.[0-9]+)?,(true|false)(,-?[0-9]+(\.[0-9]+)?,(true|false))*$/;
-
         let result = regexCommaSeparatedListOfNumbersFlags.test(stringOfNodesToSave);
-
         return result;
     }
 }

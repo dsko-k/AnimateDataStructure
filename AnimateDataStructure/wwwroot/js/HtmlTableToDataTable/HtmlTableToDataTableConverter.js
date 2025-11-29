@@ -15,17 +15,13 @@ export class HtmlTableToDataTableConverter // Foreman
     convertHtmlTableToDataTable(idtable)
     {
         let dataTableFromParsedHtmlTable = [];
-
         let rowsHtmlTableIncludingHeader = this.htmlTableDomUpdater.getNumberOfRowsHtmlTableIncludingHeader(idtable);
-
         for (let rowIndex = 1; rowIndex < rowsHtmlTableIncludingHeader; rowIndex++) // rowIndex = 1 (header is skipped)
         {
             let dataRowParsedFromHtmlRow = this.htmlTableToDataTableBuilder.buildDataTableRow(idtable, rowIndex);
-
             dataTableFromParsedHtmlTable.push(dataRowParsedFromHtmlRow);
         }
 
         return dataTableFromParsedHtmlTable;
     }
-
 }

@@ -7,8 +7,6 @@ import { TableSorting } from '../HtmlTableOperations/TableSorting.js';
 import { HtmlTableHandler } from '../HtmlTableHandler/HtmlTableHandler.js';
 import { ResizerHtmlElement } from '../HtmlDomElementHandler/ResizerHtmlElement.js';
 
-
-
 export class HtmlTableFunctionality
 {
 	constructor()
@@ -19,31 +17,21 @@ export class HtmlTableFunctionality
 		this.attributesForHtmlPage = this.htmlConfigurationAttributesReader.getHtmlPageConfigurations();
 	}
 
-	
-	// ?????? MOVE TO APPROPRIATE SIDEBAR CLASS ???????
 	addMouseEffectForSidebarButtons(idBody)
 	{
-		// Sidebar's buttons
-		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
-
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".buttonWithGlowingRadialBorder", "--mouse-x", "--mouse-y");
+		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect(); // Sidebar's buttons		
 		let classNameButtonWithGlowingRadialBorderWithDot = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForSidebar.divButtonWithGlowingRadialBorderAttributes.defaultAttributes); // ".buttonWithGlowingRadialBorder"
 		let cssVariablesDivButtonWithGlowingRadialBorderAttributes = this.htmlConfigurationAttributesReader.getCssVariablesFromAttributes(this.attributesForSidebar.divButtonWithGlowingRadialBorderAttributes);
 		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent(idBody, classNameButtonWithGlowingRadialBorderWithDot, cssVariablesDivButtonWithGlowingRadialBorderAttributes.mouseX, cssVariablesDivButtonWithGlowingRadialBorderAttributes.mouseY);
 	}
 
 
-	// CONSIDER idTable instead idBody
 	addMouseEffectsForTableCells(idBody)
 	{
-		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();
-
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".borderOfCellWithGlowingRadialBorder", "--mouse-x", "--mouse-y");		
+		let controlHandlersAbstractMouseEffect = new ControlHandlersAbstractMouseEffect();		
 		let classNameBorderOfCellWithGlowingRadialBorderWithDot = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForHtmlTable.divBorderOfCellWithGlowingRadialBorderAttributes.defaultAttributes); // ".borderOfCellWithGlowingRadialBorder"		
 		let cssVariablesBorderOfCellWithGlowingRadialBorderAttributes = this.htmlConfigurationAttributesReader.getCssVariablesFromAttributes(this.attributesForHtmlTable.divBorderOfCellWithGlowingRadialBorderAttributes);
 		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent(idBody, classNameBorderOfCellWithGlowingRadialBorderWithDot, cssVariablesBorderOfCellWithGlowingRadialBorderAttributes.mouseX, cssVariablesBorderOfCellWithGlowingRadialBorderAttributes.mouseY);
-
-		//controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent("idBody", ".textInsideCell", "--mouse-x", "--mouse-y");
 		let classNameTextInsideCellWithDot = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForHtmlTable.pTextInsideCellAttributes.defaultAttributes); // ".textInsideCell"
 		let cssVariablesPTextInsideCellAttributesAttributes = this.htmlConfigurationAttributesReader.getCssVariablesFromAttributes(this.attributesForHtmlTable.pTextInsideCellAttributes);
 		controlHandlersAbstractMouseEffect.onMouseMoveOnElementOnParent(idBody, classNameTextInsideCellWithDot, cssVariablesPTextInsideCellAttributesAttributes.mouseX, cssVariablesPTextInsideCellAttributesAttributes.mouseY);
@@ -82,7 +70,6 @@ export class HtmlTableFunctionality
 	{
 		let resizerVerticalHtmlElement = new ResizerHtmlElement(idTableResizerVerticalContainer, idTableContainer);
 		resizerVerticalHtmlElement.onResize(true);
-
 		let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement(idTableResizerBottomHorizontalContainer, idTableContainer);
 		resizerBottomHorizontalHtmlElement.onResize(false);
 	}

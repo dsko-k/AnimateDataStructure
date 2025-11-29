@@ -16,7 +16,6 @@ export class AbstractRippleEffect
 	createDomElementEmulatesRippleEffect(buttonDomElementToBeWithRippleEffect, evn)
 	{
 		let spanRippleEffectDomElement = this.buildDomElementRippleEffect();
-
 		let buttonRect = buttonDomElementToBeWithRippleEffect.getBoundingClientRect();
 		let buttonWidth = buttonRect.width;
 		let buttonHeight = buttonRect.height;
@@ -40,7 +39,6 @@ export class AbstractRippleEffect
 	{
 		let containerSpanRippleEffectDomElement = this.buildDomElementContainerRippleEffect();
 		let spanRippleEffectDomElement = this.createDomElementEmulatesRippleEffect(buttonDomElementToBeWithRippleEffect, evn);
-
 		containerSpanRippleEffectDomElement.appendChild(spanRippleEffectDomElement);
 		buttonDomElementToBeWithRippleEffect.appendChild(containerSpanRippleEffectDomElement);
 
@@ -61,7 +59,6 @@ export class AbstractRippleEffect
 	{
 		let rippleEffectAttributes = this.rippleEffectOnButtonClickConfigurations.rippleEffectOnButtonClickAttributes;
 		let spanRippleEffect = this.htmlAbstractDomElementPart.createHtmlTag(rippleEffectAttributes);
-
 		return spanRippleEffect.getCreatedDomElement();
 	}
 
@@ -70,8 +67,6 @@ export class AbstractRippleEffect
 	{
 		let containerRippleEffectAttributes = this.rippleEffectOnButtonClickConfigurations.containerRippleEffectOnButtonClickAttributes;
 		let containerSpanRippleEffect = this.htmlAbstractDomElementPart.createHtmlTag(containerRippleEffectAttributes);
-
 		return containerSpanRippleEffect.getCreatedDomElement();
 	}
-
 }

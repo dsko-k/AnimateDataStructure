@@ -9,7 +9,7 @@ export class StyleCleaner extends AbstractCssEntityCleaner
         this.styleClassTextHandler = new StyleClassTextHandler();
     }
 
-    // remove CSS style class
+    // Removes CSS style class
     removeCssEntities(node, elementName)
     {
         if (!this.domUpdater.isExistDomElement(node, elementName))

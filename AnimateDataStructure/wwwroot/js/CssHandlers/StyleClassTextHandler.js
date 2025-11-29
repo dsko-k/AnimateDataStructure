@@ -2,11 +2,9 @@ import { Style } from './Style.js';
 
 export class StyleClassTextHandler // regexps do not match if style properties have comment
 {
-    // private
     isExistRegex(textToFind, patternText, flagsString)
     {
-        let regexp = new RegExp(patternText, flagsString); // '/'+`${patternText}`+ '/' + flagsString;
-
+        let regexp = new RegExp(patternText, flagsString);
         let result = regexp.test(textToFind);
 
         return result;
@@ -15,29 +13,12 @@ export class StyleClassTextHandler // regexps do not match if style properties h
 
     getAllStyleClasses()
     {
-        // my tested
         let patternText = /(?<styleName>\.[A-Za-z0-9_:]+) *{(?<styleBody>[^}]+)+}/gm; // added : into pattern of styleName
-
         let styleInst = new Style();
-
         let styleText = styleInst.getStyleClassText();
-
         let result = styleText.match(patternText);
 
         return result;
-
-
-
-        // incorrect excluding keyframes
-        //let patternText = /@keyframes\s+[a-zA-Z0-9-_]+\s*{((?:\d+%?\s*{((?:.|\n|\r)*?)})|(?:.|\n|\r)*)}/m;
-
-        //let styleInst = new Style();
-
-        //let styleText = styleInst.getStyleClassText();
-
-        //let result = styleText.match(patternText);
-
-        //return result;
     }
 
 
@@ -49,16 +30,13 @@ export class StyleClassTextHandler // regexps do not match if style properties h
         }
 
         let foundClass = this.getStyleClass(styleName)[0];
-
-        let regexp = new RegExp(`(?<={\\n* *)(?<styleBody>[^}+]+?)\\n* *}`, "m"); // (?<={\\n* *)(?<styleBody>[^}]+)
-
+        let regexp = new RegExp(`(?<={\\n* *)(?<styleBody>[^}+]+?)\\n* *}`, "m");
         let result = foundClass.match(regexp);
 
         return result.groups.styleBody;
     }
 
 
-    // tested
     getStyleClass(styleName)
     {
         if (!styleName || styleName === "")
@@ -67,7 +45,6 @@ export class StyleClassTextHandler // regexps do not match if style properties h
         }
 
         let regexp = new RegExp(`(?<styleName>${styleName}) *(?=\\n*{)`, "m");
-
         let allStyleClasses = this.getAllStyleClasses();
 
         let foundStyleClasses = allStyleClasses.filter(foundClass =>
@@ -141,7 +118,6 @@ export class StyleClassTextHandler // regexps do not match if style properties h
 
         return {
             initialStyleLine: foundStyleValue[0].initialStyleLine,
-
             beforeStyleValue: foundStyleValue[0].beforeStyleValue,
             styleValue: foundStyleValue[0].styleValue,
             afterStyleValue: foundStyleValue[0].afterStyleValue
@@ -152,9 +128,7 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     getStyleEntries(styleName)
     {
         let regexp = new RegExp(`((?<styleKey>^[^\\n*][^:]+):+?(?<styleValue>.+?);)+?`, "gm");
-
         let styleBody = this.getStyleClassBody(styleName);
-
         let matches = styleBody.match(regexp);
 
         let result = matches.map(line =>
@@ -166,22 +140,16 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     }
 
 
-    // private
     parseStyleEntry(styleKeyValueLine)
     {
-        //let regexp = new RegExp(`(?<styleKeyLine> *${styleKey} *):(?<styleValueLine>( *[^;]+;))`, "m");
-
         let regexp = new RegExp(`(?<styleKeyLine>(?<beforeStyleKey> *)(?<styleKey>[^:]+?)(?<afterStyleKey> *)):(?<styleValueLine>(?<beforeStyleValue> *)(?<styleValue>[^;]+?)(?<afterStyleValue> *;))`, "m");
-
         let result = styleKeyValueLine.match(regexp);
 
         return {
             initialStyleLine: styleKeyValueLine,
-
             beforeStyleKey: result.groups.beforeStyleKey,
             styleKey: result.groups.styleKey,
             afterStyleKey: result.groups.afterStyleKey,
-
             beforeStyleValue: result.groups.beforeStyleValue,
             styleValue: result.groups.styleValue,
             afterStyleValue: result.groups.afterStyleValue
@@ -192,7 +160,6 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     getStyleEntry(styleName, styleKey)
     {
         let entries = this.getStyleEntries(styleName);
-
         return entries.filter(entry =>
         {
             return entry.styleKey === styleKey;
@@ -203,22 +170,16 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     getStyleKeysWithVariables(styleName)
     {
         let styleEntries = this.getStyleEntries(styleName);
-
         return styleEntries.filter(entry =>
         {
             return this.isStyleKeyVariable(entry.initialStyleLine);
         });
     }
 
-
-    // private
     parseKeyValue(keyValue)
     {
-        //let patternText = /(?! )(?<styleKey>.+)(?=:): *(?<styleValue>.+)(?=;)/gm;
         let patternText = /([^ ]+): *(.+)/;
-
         let result = keyValue.match(patternText);
-
         let obj = {
             styleKey: result[1],
             styleValue: result[2]
@@ -231,7 +192,6 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     getStyleKeys(styleName)
     {
         let styleEntries = this.getStyleEntries(styleName);
-
         return styleEntries.map(entry =>
         {
             return {
@@ -247,7 +207,6 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     getStyleValues(styleName)
     {
         let styleEntries = this.getStyleEntries(styleName);
-
         return styleEntries.map(entry =>
         {
             return {
@@ -260,24 +219,24 @@ export class StyleClassTextHandler // regexps do not match if style properties h
     }
 
 
-    isStyleValueVariable(styleValue) // check is styleValue contains variable var(--someVariable)
+    // Checks is styleValue contains variable var(--someVariable)
+    isStyleValueVariable(styleValue)
     {
         let patternText = /var\(--.+\)/;
-
         return this.isExistRegex(styleValue, patternText, 'm');
     }
 
 
-    // check is styleValue contains variable --someVariable
+    // Check is styleValue contains variable --someVariable
     isStyleKeyVariable(styleKey)
     {
         let patternText = / *[^var(](--.+):/;
-
         return this.isExistRegex(styleKey, patternText, 'm');
     }
 
 
-    trimMeasure(valueToParse, lengthSymbolsToTrim) // trim specified number of symbols in parsed value
+    // trim specified number of symbols in parsed value
+    trimMeasure(valueToParse, lengthSymbolsToTrim)
     {
         if (!valueToParse || valueToParse === '')
         {
@@ -309,56 +268,34 @@ export class StyleClassTextHandler // regexps do not match if style properties h
         }
 
         let currentStyleBody = this.getStyleClassBody(styleName);
-
         let newStyleKeyValueLine = `\n        ${styleKey}: ${styleValue};\n`;
-
         let newStyleBody = currentStyleBody + newStyleKeyValueLine;
-
-
-        // boilerplate section in   updateValue(styleName, styleKey, styleValue)
-        let regexpStyleBody = new RegExp(`(?<=${styleName} *{\\n* *)(?<styleBody>([^}]+))`, "m"); // new RegExp(`(?<=${styleName} *{\\n* *)(?<styleBody>([^}]+))`, "m")
+        let regexpStyleBody = new RegExp(`(?<=${styleName} *{\\n* *)(?<styleBody>([^}]+))`, "m");
 
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let updatedStyles = styleText.replace(regexpStyleBody, newStyleBody);
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyles;
     }
 
 
     updateValue(styleName, styleKey, newStyleValue)
     {
-        // To DO: Add chec inputs !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let regexpStyleBody = new RegExp(`(?<=${styleName} *{\\n* *)(?<styleBody>([^}]+))`, "m");
-
         let currentStyleBody = this.getStyleClassBody(styleName);
-
-
         let regexpStyleKeyValue = new RegExp(`(?<beforeStyleKey> *)(?<styleKey>${styleKey})(?<afterStyleKey> *):(?<beforeStyleValue> *)(?<styleValue>[^;]+?)(?<afterStyleValue> *;)`, "m");
-
         let resultStyleKeyValue = currentStyleBody.match(regexpStyleKeyValue);
-
         let updatedLine = resultStyleKeyValue.groups.beforeStyleKey + resultStyleKeyValue.groups.styleKey + resultStyleKeyValue.groups.afterStyleKey + ':' +
             resultStyleKeyValue.groups.beforeStyleValue + `${newStyleValue}` + resultStyleKeyValue.groups.afterStyleValue;
-
         let updatedStyleText = currentStyleBody.replace(regexpStyleKeyValue, updatedLine);
-
         let updatedStyles = styleText.replace(regexpStyleBody, updatedStyleText);
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyles;
     }
 
-
-    // Create
 
     createStyleClass(classNameWithDot, styleBody = "\n")
     {
@@ -368,9 +305,7 @@ export class StyleClassTextHandler // regexps do not match if style properties h
         }
 
         let styleClass = `\n\n    ${classNameWithDot} {${styleBody}    }`;
-
         let style = document.getElementsByTagName("style")[0];
-
         style.insertAdjacentText("beforeend", styleClass);
     }
 
@@ -391,18 +326,14 @@ export class StyleClassTextHandler // regexps do not match if style properties h
         }
 
         let bodyStyleToCopy = this.getStyleClassBody(styleNameToCopy);
-
         this.createStyleClass(newStyleName, bodyStyleToCopy);
     }
 
-
-    // DELETE
 
     deleteStyle(styleName)
     {
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let isExistStyle = this.isExistStyleClass(styleName);
 
         if (!isExistStyle)
@@ -411,14 +342,9 @@ export class StyleClassTextHandler // regexps do not match if style properties h
         }
 
         let regexpStyleBody = new RegExp(`(?<style>\\n* *${styleName} *{\\n* *(?<styleBody>([^}]+}+?)))`, "m");
-
         let updatedStyleText = "";
-
         let updatedStyles = styleText.replace(regexpStyleBody, updatedStyleText);
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyles;
     }
-
 }

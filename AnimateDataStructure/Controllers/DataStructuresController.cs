@@ -1,5 +1,4 @@
 ﻿using AnimateDataStructure.Application.Services.DataStructuresListService;
-using AnimateDataStructure.Core.Entities.CardEntities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnimateDataStructure.Web.Controllers
@@ -12,7 +11,6 @@ namespace AnimateDataStructure.Web.Controllers
         {
             this.dataStructureService = dataStructureService;
         }
-
 
         public async Task<IActionResult> ShowListDataStructures()
         {

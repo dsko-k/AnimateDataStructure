@@ -1,6 +1,6 @@
 import { AbstractControlButtonEffects } from './AbstractControlButtonEffects.js';
 
-// IS NEEDED????
+// IS NEEDED?
 export class ButtonLogInEffects extends AbstractControlButtonEffects
 {
 	constructor()
@@ -13,11 +13,7 @@ export class ButtonLogInEffects extends AbstractControlButtonEffects
 
 	onMouseDown()
 	{
-		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonLogInConfigurations.buttonLogInAttributes);
-		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
-		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
-
+		let inputContainerDomElement = this.getInputContainerDomElement(); // from Base class
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonLogInConfigurations.buttonLogInAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
 	}
@@ -25,15 +21,13 @@ export class ButtonLogInEffects extends AbstractControlButtonEffects
 
 	onMouseUp()
 	{
-		//this.onAbstractMouseUp(this.idButton, this);
-
-		let inputContainerDomElement = this.getInputContainerDomElement(); // DO NOT DELETE: from Base class
+		let inputContainerDomElement = this.getInputContainerDomElement();
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
 
 
 	onMouseClick()
 	{
-		this.onAbstractClick(this.idButton, this, null); // method onAfterRippleEffectEnded should be implemented here instead null
+		this.onAbstractClick(this.idButton, this, null);
 	}
 }

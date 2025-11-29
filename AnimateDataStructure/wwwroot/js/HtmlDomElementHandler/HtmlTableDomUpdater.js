@@ -12,16 +12,13 @@ export class HtmlTableDomUpdater
     getEvenOddTdsOfTableColumn(tdDomElementsByColumnInViewOrder, isApplyForEvenTds)
     {
         let tds = [];
-
         for (let i = 0; i < tdDomElementsByColumnInViewOrder.length; i++)
         {
-            // add only even or only odd tds relying only on isApplyForEvenTds
-            if ((isApplyForEvenTds && i % 2 === 0) || (!isApplyForEvenTds && i % 2 !== 0))
+            if ((isApplyForEvenTds && i % 2 === 0) || (!isApplyForEvenTds && i % 2 !== 0)) // add only even or only odd tds relying only on isApplyForEvenTds
             {
                 tds.push(tdDomElementsByColumnInViewOrder[i]);
             }
         }
-
         return tds;
     }
 
@@ -31,30 +28,21 @@ export class HtmlTableDomUpdater
     {
         this.htmlPageDomUpdater.throwExceptionIfAttributeNameIsIncorrect(attributeNameDataIsTableRowToBeHidden);
         this.htmlPageDomUpdater.throwExceptionIfAttributeNameIsIncorrect(attributeNameDataTableRowViewOrderNumber);
-
         let tableDom = this.htmlPageDomUpdater.getHtmlPageDomElement(tableId);
-
         let totalRowsInTable = tableDom.rows.length;
-
         if (columnIndex < 0)
         {
             throw new Error(`Specified negative Column index for table ${tableId}`);
         }
-
         let tdByColumnIndex = [];
-
         for (let i = 1; i < totalRowsInTable; i++) // i = 1 to skip tr of header
         {
-            let trDomElement = tableDom.rows[i];
-
-            // excluding hidden rows
-            if (this.getTableDomElementAttribute(trDomElement, attributeNameDataIsTableRowToBeHidden) === "true")
+            let trDomElement = tableDom.rows[i];            
+            if (this.getTableDomElementAttribute(trDomElement, attributeNameDataIsTableRowToBeHidden) === "true") // excluding hidden rows
             {
                 continue;
             }
-
             let parsedRowViewOrderNumber = this.getParsedRowViewOrderNumber(trDomElement, attributeNameDataTableRowViewOrderNumber);
-
             if (parsedRowViewOrderNumber !== null && columnIndex < trDomElement.cells.length)
             {
                 tdByColumnIndex[parsedRowViewOrderNumber] = trDomElement.cells[columnIndex];
@@ -69,7 +57,6 @@ export class HtmlTableDomUpdater
     getTableRowsToBeDisplayed(tableRows, attributeNameDataIsTableRowToBeHidden)
     {
         let tableObject = [];
-
         tableRows.forEach(row =>
         {
             if (!this.isRowToBeHiddenAfterSorting(row, attributeNameDataIsTableRowToBeHidden))
@@ -86,7 +73,6 @@ export class HtmlTableDomUpdater
     getNumberOfRowsHtmlTableIncludingHeader(tableId)
     {
         let tableDom = this.htmlPageDomUpdater.getHtmlPageDomElement(tableId);
-
         return tableDom.rows.length;
     }
 
@@ -95,9 +81,7 @@ export class HtmlTableDomUpdater
     getNumberOfColumnsInHtmlTable(tableId)
     {
         let tableDom = this.htmlPageDomUpdater.getHtmlPageDomElement(tableId);
-
         let trDomElement = this.getTableRow(tableId, 0);
-
         return trDomElement.cells.length;
     }
 
@@ -116,9 +100,7 @@ export class HtmlTableDomUpdater
     {
         let tableDom = this.htmlPageDomUpdater.getHtmlPageDomElement(tableId);
         let totalRowsInTable = tableDom.rows.length;
-
         let trDomElements = [];
-
         for (let i = startingRowIndex; i < totalRowsInTable; i++)
         {
             trDomElements.push(tableDom.rows[i]);
@@ -134,9 +116,7 @@ export class HtmlTableDomUpdater
         {
             throw new Error(`Dom element is incorrect`);
         }
-
         let foundTd = trDomElement.children[columnIndex];
-
         if (!foundTd)
         {
             throw new Error(`Incorrect column index = ${columnIndex}. It is out of range of the table columns`);
@@ -155,9 +135,7 @@ export class HtmlTableDomUpdater
     getTableRow(tableId, rowIndex)
     {
         let tableDom = this.htmlPageDomUpdater.getHtmlPageDomElement(tableId);
-
         let totalRowsInTable = tableDom.rows.length;
-
         if (rowIndex < 0 || rowIndex >= totalRowsInTable)
         {
             throw new Error(`Specified row index ${rowIndex} is out of range for table ${tableId}`);
@@ -170,10 +148,7 @@ export class HtmlTableDomUpdater
     isRowToBeHiddenAfterSearching(trDomElement, tableSearchInputDomElement)
     {
         let tableData = trDomElement.textContent.toLowerCase();
-
-        //tableSearchInputDomElement.value.toLowerCase();
         let valueToSearch = this.getValueToSearchInTable(tableSearchInputDomElement, true);
-
         return tableData.indexOf(valueToSearch) < 0;
     }
 
@@ -201,24 +176,18 @@ export class HtmlTableDomUpdater
     canColumnBeParsedToNumbers(tableId, columnIndex, styleNameForTextInsideTableCell, attributeNameDataIsTableRowToBeHidden)
     {
         let canAllBeParsedToNumbers = true;
-
         let tableRows = this.getRowsInTable(tableId, 1);
-
         let rows = this.getTableRowsToBeDisplayed(tableRows, attributeNameDataIsTableRowToBeHidden);
-
         rows.every(trDomElement =>
         {
             let textInsideCell = this.extractTextInsideTableCell(trDomElement, columnIndex, styleNameForTextInsideTableCell);
-
             if (isNaN(textInsideCell))
             {
                 canAllBeParsedToNumbers = false;
                 return false;
             }
-
             return true;
         });
-
         return canAllBeParsedToNumbers;
     }
 
@@ -226,9 +195,7 @@ export class HtmlTableDomUpdater
     extractTextInsideTableCell(trDomElement, columnIndex, styleNameForTextInsideTableCell)
     {
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(styleNameForTextInsideTableCell);
-
         let tdDomElement = this.getTdFromTableRow(trDomElement, columnIndex);
-
         let rootDivInsideTd = this.htmlPageDomUpdater.getDomElementsInsideParent(tdDomElement, styleNameForTextInsideTableCell)[0];
 
         return rootDivInsideTd.textContent;
@@ -239,9 +206,7 @@ export class HtmlTableDomUpdater
     {
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(styleNameForSortingButton);
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(thDomElementClassName);
-
         let foundThDomElements = this.htmlPageDomUpdater.getDomElementsOnPageByStyleName(thDomElementClassName);
-
         let foundSortingButtons = [...foundThDomElements].map(thDomElement =>
         {
             return this.getSortingButton(thDomElement, styleNameForSortingButton);
@@ -264,10 +229,8 @@ export class HtmlTableDomUpdater
     {
         let styleNameForSortingButtonAscend = this.selectStyleNameForSortingButton(true, styleNameForSortAscendingButton, styleNameForSortDescendingButton);
         let styleNameForSortingButtonDescend = this.selectStyleNameForSortingButton(false, styleNameForSortAscendingButton, styleNameForSortDescendingButton);
-
         let ascendingSortingButtons = this.getSortingButtonsInTableHeadersByStyleName(styleNameForSortingButtonAscend, thDomElementClassName);
-        let descendingSortingButtons = this.getSortingButtonsInTableHeadersByStyleName(styleNameForSortingButtonDescend, thDomElementClassName)
-
+        let descendingSortingButtons = this.getSortingButtonsInTableHeadersByStyleName(styleNameForSortingButtonDescend, thDomElementClassName);
         let allSortingButtons = [...ascendingSortingButtons, ...descendingSortingButtons];
 
         return allSortingButtons;
@@ -277,12 +240,10 @@ export class HtmlTableDomUpdater
     getSortingButton(thDomElement, classNameOfSortingButton)
     {
         let foundSortingButtons = this.htmlPageDomUpdater.getDomElementsInsideParent(thDomElement, classNameOfSortingButton);
-
         if (foundSortingButtons.length !== 1)
         {
             throw new Error(`${foundSortingButtons.length} is inconsistent amount of sorting buttons`);
         }
-
         return foundSortingButtons[0];
     }
 
@@ -290,9 +251,7 @@ export class HtmlTableDomUpdater
     toggleBackgroundColorToSortingButton(sortingButtonDomElement, isAscendSortingButton, styleNameOnClickSortAscendingButton, styleNameOnClickSortDescendingButton)
     {
         let additionalStyleName = this.selectStyleNameForSortingButton(isAscendSortingButton, styleNameOnClickSortAscendingButton, styleNameOnClickSortDescendingButton);
-
         let additionalStyleNameWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(additionalStyleName, ".");
-
         sortingButtonDomElement.classList.toggle(additionalStyleNameWithoutDot);
     }
 
@@ -300,20 +259,15 @@ export class HtmlTableDomUpdater
     getSortingButtonsByColumnIndex(idTable, columnIndex, classNameOfSortingButton)
     {
         let thDomElement = this.getThDomElementsByColumnIndex(idTable, columnIndex)[0];
-
         let sortingButtonsByColumnIndex = [...this.htmlPageDomUpdater.getDomElementsInsideParent(thDomElement, classNameOfSortingButton)];
-
         return sortingButtonsByColumnIndex;
     }
 
 
-    // ???
     getThDomElementsByColumnIndex(idTable, columnIndex)
     {
         let thDomElements = this.htmlPageDomUpdater.getChildrenDomElementsByParentIdAndChildrenTag(idTable, "th");
-
         let thDomElementsByColumn = [...thDomElements].filter(thDomElement => thDomElement.cellIndex === columnIndex);
-
         return thDomElementsByColumn;
     }
 
@@ -324,17 +278,13 @@ export class HtmlTableDomUpdater
         {
             return;
         }
-
-        let additionalStyleName = this.selectStyleNameForSortingButton(isAscendSortingButton, styleNameOnClickSortAscendingButton, styleNameOnClickSortDescendingButton)
-
+        let additionalStyleName = this.selectStyleNameForSortingButton(isAscendSortingButton, styleNameOnClickSortAscendingButton, styleNameOnClickSortDescendingButton);
         let additionalStyleNameWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(additionalStyleName, ".");
-
         sortingButtonDomElement.classList.toggle(additionalStyleNameWithoutDot);
     }
 
 
-    // hide all soretd buttons, except last clicked
-    // show all soretd buttons, that were hidden
+    // Hide all soretd buttons, except last clicked. Show all soretd buttons, that were hidden
     hideShowUnusedSortingButtons(isTableSorted, lastClickedSortingButton, sortingButtons)
     {
         sortingButtons.forEach(sortingButtonDomElement =>
@@ -343,7 +293,6 @@ export class HtmlTableDomUpdater
             {
                 sortingButtonDomElement.hidden = true;
             }
-
             if (!isTableSorted)
             {
                 sortingButtonDomElement.hidden = false;
@@ -364,7 +313,6 @@ export class HtmlTableDomUpdater
     changeTableRowColorForEvenRow(trDomElement, cssVariableNameRowColor, cssVariableValueColorForEvenRow)
     {
         this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(cssVariableNameRowColor);
-
         this.setTableRowInlineStyleProperty(trDomElement, cssVariableNameRowColor, cssVariableValueColorForEvenRow);
     }
 
@@ -372,7 +320,6 @@ export class HtmlTableDomUpdater
     changeTableRowColorForOddRow(trDomElement, cssVariableNameRowColor, cssVariableValueColorForOddRow)
     {
         this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(cssVariableNameRowColor);
-
         this.setTableRowInlineStyleProperty(trDomElement, cssVariableNameRowColor, cssVariableValueColorForOddRow);
     }
 
@@ -380,7 +327,6 @@ export class HtmlTableDomUpdater
     isEvenRowViewOrderNumber(trDomElement, attributeNameDataTableRowViewOrderNumber)
     {
         let parsedRowViewOrderNumber = this.getParsedRowViewOrderNumber(trDomElement, attributeNameDataTableRowViewOrderNumber);
-
         if (parsedRowViewOrderNumber === null)
         {
             throw new Error(`Table row should not be dispalyed`);
@@ -393,12 +339,10 @@ export class HtmlTableDomUpdater
     getParsedRowViewOrderNumber(trDomElement, attributeNameDataTableRowViewOrderNumber)
     {
         let rowViewOrderNumber = this.getTableDomElementAttribute(trDomElement, attributeNameDataTableRowViewOrderNumber);
-
         if (rowViewOrderNumber === "null")
         {
             return null;
         }
-
         return parseInt(rowViewOrderNumber);
     }
 
@@ -406,14 +350,11 @@ export class HtmlTableDomUpdater
     changeCellColorOnHoveringTableHeader(trDomElement, hoveredColumnIndex, newAdditionalStyleNameForTdOnHover)
     {
         let tdDomElement = this.getTdFromTableRow(trDomElement, hoveredColumnIndex);
-
         let rootDivInsideTd = tdDomElement.children[0];
-
         if (rootDivInsideTd.classList.length !== 2)
         {
             return;
         }
-
         this.htmlPageDomUpdater.updateLastAdditionalStyleName(rootDivInsideTd, newAdditionalStyleNameForTdOnHover);
     }
 
@@ -422,7 +363,6 @@ export class HtmlTableDomUpdater
     {
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(divCellEvenAdditionalStyleNameOnHoverColumn);
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(divCellOddAdditionalStyleNameOnHoverColumn);
-
         let newAdditionalStyleName = !isRowEvenAfterSorting ? divCellEvenAdditionalStyleNameOnHoverColumn : divCellOddAdditionalStyleNameOnHoverColumn;
 
         return newAdditionalStyleName;
@@ -454,9 +394,7 @@ export class HtmlTableDomUpdater
     getAttributeAboutTableSorting(tableId, attributeNameData)
     {
         this.htmlPageDomUpdater.throwExceptionIfAttributeNameIsIncorrect(attributeNameData);
-
         let tableDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(tableId);
-
         let attributeValue = this.htmlPageDomUpdater.getAttributeOfHtmlElement(tableDomElement, attributeNameData);
 
         return attributeValue;
@@ -467,9 +405,7 @@ export class HtmlTableDomUpdater
     setAttributeAboutTableSorting(tableId, attributeNameData, newValueForAttributeNameData)
     {
         this.htmlPageDomUpdater.throwExceptionIfAttributeNameIsIncorrect(attributeNameData);
-
         let tableDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(tableId);
-
         this.setTableDomElementAttribute(tableDomElement, attributeNameData, newValueForAttributeNameData);
     }
 
@@ -498,15 +434,11 @@ export class HtmlTableDomUpdater
     parseAttributeAboutTableSorting(tableId, attributeNameData, isParseAsNullBoolean)
     {
         let valueOfAttribute = this.getAttributeAboutTableSorting(tableId, attributeNameData);
-
-        // to Parse as Boolean or Null
-        if (isParseAsNullBoolean)
+        if (isParseAsNullBoolean) // to Parse as Boolean or Null
         {
             return this.parseTextToBooleanOrNull(valueOfAttribute);
-        }
-
-        //  Parse as integer
-        return parseInt(valueOfAttribute, 10);
+        }        
+        return parseInt(valueOfAttribute, 10); // Parse as integer
     }
 
 
@@ -535,11 +467,8 @@ export class HtmlTableDomUpdater
     setDelayBeforeRowAnimation(trDomElement, attributeNameDataTableRowViewOrderNumberInInitialUnsortedTable, cssVariableNameToDelayRowAnimation)
     {
         this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(cssVariableNameToDelayRowAnimation);
-
         let initialTableUnsortedNumber = this.getTableDomElementAttribute(trDomElement, attributeNameDataTableRowViewOrderNumberInInitialUnsortedTable);
-
-        let delayRowAnimation = `${initialTableUnsortedNumber / 25}s`
-
+        let delayRowAnimation = `${initialTableUnsortedNumber / 25}s`;
         this.setTableRowInlineStyleProperty(trDomElement, cssVariableNameToDelayRowAnimation, delayRowAnimation);
     }
 
@@ -561,11 +490,8 @@ export class HtmlTableDomUpdater
     {
         this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(cssVariableNameRowDisplayState);
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(styleNameToHideTableRow);
-
         this.setTableRowInlineStyleProperty(trDomElement, cssVariableNameRowDisplayState, "none");
-
         let styleNameToHideTableRowWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(styleNameToHideTableRow, ".");
-
         this.setTableDomElementAttribute(trDomElement, "class", styleNameToHideTableRowWithoutDot);
     }
 
@@ -573,7 +499,6 @@ export class HtmlTableDomUpdater
     updateStyleRowToBeDisplayed(trDomElement, cssVariableNameRowDisplayState)
     {
         this.htmlPageDomUpdater.throwExceptionIfCssVariableNameIsIncorrect(cssVariableNameRowDisplayState);
-
         this.setTableRowInlineStyleProperty(trDomElement, cssVariableNameRowDisplayState, "table-row");
         this.removeAttributeTableDomElement(trDomElement, "class");
     }
@@ -582,9 +507,7 @@ export class HtmlTableDomUpdater
     updateRowStyleNameAfterSorting(trDomElement, isRowToBeHiddenAfterSort, styleNameToSortTableRow)
     {
         this.htmlPageDomUpdater.throwExceptionIfStyleNameIsIncorrect(styleNameToSortTableRow);
-
         let styleNameToSortTableRowWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(styleNameToSortTableRow, ".");
-
         if (!isRowToBeHiddenAfterSort)
         {
             trDomElement.classList.toggle(styleNameToSortTableRowWithoutDot);
@@ -595,7 +518,6 @@ export class HtmlTableDomUpdater
     updateRowCoordinateAfterSorting(trModelObj, cssVariableNameToPlaceRowAfterSorting, rowYCoordinateAfterSorting)
     {
         this.htmlPageDomUpdater.throwExceptionIfCssKeyNameIsIncorrect(cssVariableNameToPlaceRowAfterSorting);
-
         this.setTableRowInlineStyleProperty(trModelObj.trDomElement, cssVariableNameToPlaceRowAfterSorting, `${rowYCoordinateAfterSorting}px`);
     }
 
@@ -603,18 +525,14 @@ export class HtmlTableDomUpdater
     getCellDomElementByAttributes(trDomElement, columnIndex, attributeNameOfElementWithTextToBeUpdated, attributeValueOfElementWithTextToBeUpdated)
     {
         let tdDomElement = this.getTdFromTableRow(trDomElement, columnIndex);
-
         let domElementWithTextToBeUpdated = this.htmlPageDomUpdater.getDomElementsInsideParentByAttributeNameAndPartOfValue(tdDomElement, attributeNameOfElementWithTextToBeUpdated, attributeValueOfElementWithTextToBeUpdated)[0];
 
         return domElementWithTextToBeUpdated;
     }
 
 
-    // private use updateTextInsideTd
     updateTextInsideDomElement(domElementWithTextToBeUpdated, newText)
     {
         domElementWithTextToBeUpdated.textContent = newText;
     }
-
-
 }

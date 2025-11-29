@@ -15,7 +15,7 @@ export class ButtonSaveHelper
     }
 
 
-    // DO NOT DELETE: Set inscription Saved for button Save
+    // Set inscription Saved for button Save
     setInscriptionSavedForButtonSave()
     {
         let buttonSaveDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonSaveConfigs.buttonSaveAttributes);
@@ -24,7 +24,7 @@ export class ButtonSaveHelper
     }
 
 
-    // DO NOT DELETE: Set inscription Save for button Save
+    // Set inscription Save for button Save
     setInscriptionSaveForButtonSave(urlToSubmitForm)
     {
         if (urlToSubmitForm && (urlToSubmitForm.includes("Add") || urlToSubmitForm.includes("Delete")))

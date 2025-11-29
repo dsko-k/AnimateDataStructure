@@ -1,7 +1,6 @@
 ﻿import { AbstractOperationFormValidation } from './AbstractOperationFormValidation.js';
 import { InputValuesFormFieldsHelper } from './InputValuesFormFieldsHelper.js';
 
-
 export class TraverseNodesFormValidation
 {
     constructor()
@@ -15,33 +14,23 @@ export class TraverseNodesFormValidation
     isValidFormFields(inputValuesFormDomElements, controlHandler)
     {
         this.inputValuesFormFieldsHelper.throwIfEmptyFormDomElements(inputValuesFormDomElements);
-
         let inputValueDomElement = inputValuesFormDomElements.inputForNodeValueDomElement;
         let errorInputValueDomElement = inputValuesFormDomElements.errorInputValueDomElement;
-
         let isDataStructureHaveNodes = this.abstractOperationFormValidation.validateDatastructureNonEmpty(controlHandler, errorInputValueDomElement);
 
         if (!isDataStructureHaveNodes)
         {
             return false;
         }
-
-        // DO NOT DELETE: Empty string in input field is acceptable
-        if (inputValueDomElement.value === "")
+        if (inputValueDomElement.value === "") // Empty string in input field is acceptable
         {
             return true;
         }
 
-        //let isValidInputNumber = this.abstractOperationFormValidation.validateInputNumber(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberWithoutComma = this.abstractOperationFormValidation.validateInputNumberComma(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberWithoutSpace = this.abstractOperationFormValidation.validateInputNumberSpace(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberWithoutLetter = this.abstractOperationFormValidation.validateInputWithoutLetter(inputValueDomElement, errorInputValueDomElement);
-        //let isInputNumberNonEmpty = this.abstractOperationFormValidation.validateInputNumberNonEmptiness(inputValueDomElement, errorInputValueDomElement);
-
-
-        // NO NEED checking input value on uniqueness
-
-        return isInputNumberWithoutComma && isInputNumberWithoutSpace && isInputNumberWithoutLetter;
+                
+        return isInputNumberWithoutComma && isInputNumberWithoutSpace && isInputNumberWithoutLetter; // NO NEED checking input value on uniqueness
     }
-
 }

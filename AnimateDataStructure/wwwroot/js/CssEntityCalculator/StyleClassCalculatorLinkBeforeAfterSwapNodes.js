@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -33,7 +33,6 @@ export class StyleClassCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEnt
     }
 
 
-    // ????????
     calculateAnimationDurationSuperContainer(keyName)
     {
         if (keyName === "--animationDurationSuperContainer")
@@ -50,5 +49,4 @@ export class StyleClassCalculatorLinkBeforeAfterSwapNodes extends AbstractCssEnt
             return this.refactoredStepAnimation["keyframesPrototypeSvgLineLink"].keyframePrototypeName + "_" + super.nodeIdentifierName(true);
         }
     }
-
 }

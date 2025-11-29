@@ -31,5 +31,4 @@ export class ContextFormValidation
 
         return formDomElement.querySelector('input[name="__RequestVerificationToken"]').value;
     }
-
 }

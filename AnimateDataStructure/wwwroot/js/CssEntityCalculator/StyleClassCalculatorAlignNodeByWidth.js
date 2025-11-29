@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -24,8 +24,6 @@ export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalcu
     }
 
 
-    // CONSIDER MOVING TO THE BASE CLASS !!!!!!!!!!
-    // Duplication
     calculateXCoordinate(keyName)
     {
         if (keyName === "--xCoordinate")
@@ -34,8 +32,6 @@ export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalcu
         }
     }
 
-
-    // CONSIDER MOVING TO THE BASE CLASS !!!!!!!!!!
     calculateYCoordinate(keyName)
     {
         if (keyName === "--yCoordinate")
@@ -45,7 +41,6 @@ export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalcu
     }
 
 
-    // CONSIDER MOVING TO THE BASE CLASS !!!!!!!!!!
     calculateTopSuperContainer(keyName)
     {
         if (keyName === "--topSuperContainer")
@@ -55,7 +50,6 @@ export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalcu
     }
 
 
-    // CONSIDER MOVING TO THE BASE CLASS !!!!!!!!!!
     calculateLeftSuperContainer(keyName)
     {
         if (keyName === "--leftSuperContainer")
@@ -65,8 +59,6 @@ export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalcu
     }
 
 
-    // CONSIDER MOVING TO THE BASE CLASS !!!!!!!!!!
-    // private
     getCoordinate(keyName)
     {
         let targetStepAnimation = this.allStepAnimation.filter(currentStepAnimation =>
@@ -254,8 +246,6 @@ export class StyleClassCalculatorAlignNodeByWidth extends AbstractCssEntityCalcu
         }
     }
 
-
-    // PRIVATES DUPLICATION
 
     getDelaysString(arrayOfStepNames)
     {

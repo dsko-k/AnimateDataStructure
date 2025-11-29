@@ -11,7 +11,6 @@ export class TraversingTreePreorder extends AbstractTraversingTree
         this.traverseUntillFindValue = traverseUntillFindValue;
     }
 
-
     // get next node during Inorder Traverse
     getNextNodeToTraverse(currentNode)
     {
@@ -19,64 +18,45 @@ export class TraversingTreePreorder extends AbstractTraversingTree
         {
             throw new Error(`Node to traverse can not be null`);
         }
-
-
         if (!currentNode.isVisitedNode)
         {
             return currentNode;
-        }
-
-        // leftChild is is not visited
-        if (currentNode.leftChild && !currentNode.leftChild.isVisitedNode)
+        }        
+        if (currentNode.leftChild && !currentNode.leftChild.isVisitedNode) // leftChild is is not visited
         {
             return currentNode.leftChild;
-        }
-
-        // leftChild is visited and rightChild is not visited
+        }        
         if (currentNode.leftChild && currentNode.leftChild.isVisitedNode &&
-            currentNode.rightChild && !currentNode.rightChild.isVisitedNode)
+            currentNode.rightChild && !currentNode.rightChild.isVisitedNode) // leftChild is visited and rightChild is not visited
         {
             return currentNode.rightChild;
-        }
-
-        // both children are visited
+        }        
         if (currentNode.leftChild && currentNode.leftChild.isVisitedNode &&
-            currentNode.rightChild && currentNode.rightChild.isVisitedNode)
+            currentNode.rightChild && currentNode.rightChild.isVisitedNode) // both children are visited
         {
             return currentNode.parentNode;
         }
-
-
         if (!currentNode.leftChild && currentNode.rightChild && !currentNode.rightChild.isVisitedNode)
         {
             return currentNode.rightChild;
         }
-
-
         if (!currentNode.leftChild && currentNode.rightChild && currentNode.rightChild.isVisitedNode)
         {
             return currentNode.parentNode;
         }
-
-
         if (currentNode.leftChild && currentNode.leftChild.isVisitedNode && !currentNode.rightChild)
         {
             return currentNode.parentNode;
         }
-
-
         if (currentNode.leftChild && currentNode.leftChild.isVisitedNode && !currentNode.rightChild)
         {
             return currentNode.parentNode;
         }
-
-
         if (!currentNode.leftChild && !currentNode.rightChild)
         {
             return currentNode.parentNode;
         }
     }
-
 
     // set state currentNode.isVisitedNode = true
     setNodeVisited(currentNode)
@@ -87,5 +67,4 @@ export class TraversingTreePreorder extends AbstractTraversingTree
             return;
         }
     }
-
 }

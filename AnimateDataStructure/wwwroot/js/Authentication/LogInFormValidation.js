@@ -1,4 +1,4 @@
-﻿import { AbstractFormValidation } from './AbstractFormValidation.js'
+﻿import { AbstractFormValidation } from './AbstractFormValidation.js';
 
 
 export class LogInFormValidation extends AbstractFormValidation
@@ -12,7 +12,6 @@ export class LogInFormValidation extends AbstractFormValidation
     isValidFormFields(logInFormDomElements)
     {
         this.abstractFormFieldsHelper.throwIfEmptyFormDomElements(logInFormDomElements);
-
         let isValidEmailIfSpecified = this.validateEmail(logInFormDomElements.emailLogInInput, logInFormDomElements.emailLogInError);
         let isValidPassword = this.validatePassword(logInFormDomElements.passwordLogInInput, logInFormDomElements.passwordLogInError);
 

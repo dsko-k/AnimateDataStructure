@@ -19,8 +19,6 @@ import { HtmlFindNodeBuilder } from '../HtmlElementNodeBuilder/HtmlFindNodeBuild
 import { HtmlTraversingNodeBuilder } from '../HtmlElementNodeBuilder/HtmlTraversingNodeBuilder.js';
 import { DomUpdater } from '../HtmlDomElementHandler/DomUpdater.js';
 
-
-// To control all steps of all operations
 export class SequenceSteps
 {
     constructor(tree)
@@ -28,6 +26,7 @@ export class SequenceSteps
         this.tree = tree;
         this.sequenceSteps = [];
     }
+
 
     addNextStep(stepAnimation, cssEntity)
     {
@@ -37,28 +36,22 @@ export class SequenceSteps
         });
     }
 
+
     getSequenceSteps()
     {
         return this.sequenceSteps;
     }
 
-    // TO DO: TEMPLATE Method
-    // create SequenceSteps for adding node in Tree
+
     createSequenceStepsAdditionNode(nodeToAnimate, patternStepAnimationArrayOperation)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserAddNode());
 
-        // add moving nodeToAnimate along Tree
-
         let stepAnimations = animationMovingAcrossNodes.animateAddNode(nodeToAnimate);
-
-        // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityAddNode();
-
-        // create html
 
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
@@ -69,8 +62,6 @@ export class SequenceSteps
         htmlElementContainerClient.createHtmlElementContainer(lastStep.htmlGlowingMovingUpLineContainer);
 
         let htmlElementContainerParts = htmlElementContainerClient.getHtmlElementContainerParts();
-
-        // Add AppliedNodeStyles
 
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
         nodeToAnimate.appliedNodeStyles.addAppliedNodeStyles(nodeToAnimate, nodeState);
@@ -85,19 +76,13 @@ export class SequenceSteps
 
         let stepAnimations = animationMovingAcrossNodes.animateAlignNode(nodeToAnimate);
 
-        // create or update css
-
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
         cssUpdater.createOrUpdateCssEntityAlignNodeByWidth();
 
-        // update html
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
 
-        // Add AppliedNodeStyles
-
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
-        //nodeToAnimate.appliedNodeStyles.addAppliedNodeStyles(nodeToAnimate, "alignNode");
         nodeToAnimate.appliedNodeStyles.addAppliedNodeStyles(nodeToAnimate, nodeState);
 
         return this.getSequenceSteps();
@@ -109,8 +94,6 @@ export class SequenceSteps
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserClickNode());
 
         let stepAnimations = animationMovingAcrossNodes.animateClickNode(nodeToAnimate, relativeNodeToAnimateAccross);
-
-        // create or update css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
         cssUpdater.createOrUpdateCssEntityClickNode();
@@ -135,7 +118,6 @@ export class SequenceSteps
 
         let stepAnimations = animationMovingAcrossNodes.animateClickNode(nodeToAnimate, relativeNodeToAnimateAccross);
 
-
         let domUpdater = new DomUpdater();
 
         let lastStepIndex = stepAnimations.flat().length - 1;
@@ -154,16 +136,11 @@ export class SequenceSteps
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserFindNode());
 
-
         let stepAnimations = animationMovingAcrossNodes.animateFindNode(nodeToAnimate);
-
-        // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityFindNode();
-
-        // create html
 
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
@@ -174,8 +151,6 @@ export class SequenceSteps
         htmlElementContainerClient.createHtmlElementContainer(lastStep.htmlGlowingMovingUpLineContainer);
 
         let htmlElementContainerParts = htmlElementContainerClient.getHtmlElementContainerParts();
-
-        // Add AppliedNodeStyles in glowBorderAfterNodeFound
 
         return stepAnimations.flat();
     }
@@ -187,13 +162,9 @@ export class SequenceSteps
 
         let stepAnimations = animationMovingAcrossNodes.animateFindSuccessorNode(nodeToDelete, nodeFinder);
 
-        // create css
-
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityFindNode();
-
-        // create html
 
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
@@ -205,8 +176,6 @@ export class SequenceSteps
 
         let htmlElementContainerParts = htmlElementContainerClient.getHtmlElementContainerParts();
 
-        // Add AppliedNodeStyles in glowBorderAfterNodeFound
-
         return stepAnimations.flat();
     }
 
@@ -217,8 +186,6 @@ export class SequenceSteps
 
         let stepAnimations = animationMovingAcrossNodes.animateLinkNodeAction(nodeToAnimateLinkAction);
 
-        // update html
-
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
 
@@ -226,8 +193,6 @@ export class SequenceSteps
         {
             this.updateHtmlLinkContainerLinkNodeAction(lastStep);
         }
-
-        // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
@@ -265,7 +230,6 @@ export class SequenceSteps
     }
 
 
-    // Balancing
     updateHtmlLinkContainerBalancing(nodeToUnfadeLinkContainer)
     {
         let correctStyleClassLinkContainer = "";
@@ -280,13 +244,11 @@ export class SequenceSteps
 
         domUpdater.updateStyleClass(nodeToUnfadeLinkContainer, elementNameLinkContainer, correctStyleClassLinkContainer);
 
-        // set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
-
         let elementNameGlowingMovingUpLineContainer = "glowingMovingUpLineContainer";
 
         if (nodeToUnfadeLinkContainer.isLeftChild === null)
         {
-            domUpdater.updateStyleClass(nodeToUnfadeLinkContainer, elementNameGlowingMovingUpLineContainer, ""); // (for node that was not root, but after balancing became root) It for correct showing glowingMovingLine
+            domUpdater.updateStyleClass(nodeToUnfadeLinkContainer, elementNameGlowingMovingUpLineContainer, "");
         }
     }
 
@@ -306,13 +268,11 @@ export class SequenceSteps
 
         domUpdater.updateStyleClass(nodeToUpdateLinkContainer, elementNameLinkContainer, correctStyleClassLinkContainer);
 
-        // set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
-
         let elementNameGlowingMovingUpLineContainer = "glowingMovingUpLineContainer";
 
         if (nodeToUpdateLinkContainer.isLeftChild === null)
         {
-            domUpdater.updateStyleClass(nodeToUpdateLinkContainer, elementNameGlowingMovingUpLineContainer, ""); // (for node that was not root, but after balancing became root) It for correct showing glowingMovingLine
+            domUpdater.updateStyleClass(nodeToUpdateLinkContainer, elementNameGlowingMovingUpLineContainer, "");
         }
     }
 
@@ -324,8 +284,6 @@ export class SequenceSteps
             return;
         }
 
-        // if nodeToAlignByHeight is successor, which became a root
-
         let correctStyleClassLinkContainer = "";
         let elementNameLinkContainer = "linkContainer";
 
@@ -333,16 +291,13 @@ export class SequenceSteps
 
         domUpdater.updateStyleClass(nodeToAlignByHeight, elementNameLinkContainer, correctStyleClassLinkContainer);
 
-        //// set correct class to elementName: "glowingMovingUpLineContainer" (if node is not root, but was root)
-
         let elementNameGlowingMovingUpLineContainer = "glowingMovingUpLineContainer";
 
-        domUpdater.updateStyleClass(nodeToAlignByHeight, elementNameGlowingMovingUpLineContainer, ""); // For successor node that after alignment by height became root. It is for correct showing glowingMovingLine
+        domUpdater.updateStyleClass(nodeToAlignByHeight, elementNameGlowingMovingUpLineContainer, "");
 
     }
 
 
-    // private
     updateHtmlLinkContainer(stepAnimation)
     {
         let linkContainerElement = stepAnimation.htmlLinkContainer[0];
@@ -372,16 +327,11 @@ export class SequenceSteps
 
         let stepAnimations = animationMovingAcrossNodes.animateAlignNode(nodeToAnimate);
 
-        // create or update css
-
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
         cssUpdater.createOrUpdateCssEntityAlignNodeByHeight();
 
-        // update html
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        // Add AppliedNodeStyles
 
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
 
@@ -391,23 +341,17 @@ export class SequenceSteps
     }
 
 
-    // For balancing
     createSequenceStepsNodeBalanced(nodeToBalance, patternStepAnimationArrayOperation)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserNodeBalancing());
 
         let stepAnimations = animationMovingAcrossNodes.animateAlignNode(nodeToBalance);
 
-        // create or update css
-
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
         cssUpdater.createOrUpdateCssEntityBalancing();
 
-        // update html
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        // Add AppliedNodeStyles
 
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
         nodeToBalance.appliedNodeStyles.addAppliedNodeStyles(nodeToBalance, nodeState);
@@ -416,20 +360,15 @@ export class SequenceSteps
     }
 
 
-    // For balancing
     createSequenceStepsLinkBeforeAfterBalancing(nodeToAnimateLink, patternStepAnimationLinkBeforeAfterBalancing, isHideLink)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationLinkBeforeAfterBalancing, new TreeStepAnimationChooserLinkBeforeAfterBalancing(isHideLink));
 
         let stepAnimations = animationMovingAcrossNodes.animateLinkNodeAction(nodeToAnimateLink);
 
-        // update html
-
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-                
-        // create css
-
+        
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityLinkBeforeAfterBalancing();
@@ -438,21 +377,15 @@ export class SequenceSteps
     }
 
 
-    // Traversing
     createSequenceStepsTraversingNode(nodeVisistor, startNode, traversingTreeOperationInstance, patternStepAnimationArrayOperation)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserTraversingNode());
 
-        // startNode is a node to begin traversing tree
         let stepAnimations = animationMovingAcrossNodes.animateTraversingNode(nodeVisistor, startNode, traversingTreeOperationInstance);
-
-        // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
         cssUpdater.createOrUpdateCssEntityTraversingNode();
-
-        // create html
 
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
@@ -464,8 +397,6 @@ export class SequenceSteps
 
         let htmlElementContainerParts = htmlElementContainerClient.getHtmlElementContainerParts();
 
-        // Add AppliedNodeStyles in glowBorderAfterNodeFound
-
         return stepAnimations.flat();
     }
 
@@ -476,12 +407,8 @@ export class SequenceSteps
 
         let stepAnimations = animationMovingAcrossNodes.animateAlignNode(nodeToAnimate);
 
-        // create or update css
-
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
         cssUpdater.createOrUpdateCssEntityAddRangeOfNodes();
-
-        // create html
 
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
@@ -493,11 +420,6 @@ export class SequenceSteps
 
         let htmlElementContainerParts = htmlElementContainerClient.getHtmlElementContainerParts();
 
-
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // TO DO: Add nodeState to patternStepAnimationArrayAddRangeOfNodes
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
         nodeToAnimate.appliedNodeStyles.addAppliedNodeStyles(nodeToAnimate, nodeState);
 
@@ -505,24 +427,17 @@ export class SequenceSteps
     }
 
 
-    // Heap
     createSequenceStepsSwapNodes(nodeToSwap, relativeNodeToPlaceOnItPreviousPlace, patternStepAnimationArrayOperation)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationArrayOperation, new TreeStepAnimationChooserSwapNode());
 
-        // node relativeNodeToPlaceOnItPreviousPlace uses only for names in keyframes to specify nodeIds (order numbers) to swap
         let stepAnimations = animationMovingAcrossNodes.animateSwapNode(nodeToSwap, relativeNodeToPlaceOnItPreviousPlace);
-
-        // create or update css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
         cssUpdater.createOrUpdateCssEntitySwapNode();
 
-        // update html
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        // Add AppliedNodeStyles
 
         let nodeState = lastStep.nodesInfoStepAnimation.nodeState;
 
@@ -532,19 +447,14 @@ export class SequenceSteps
     }
 
 
-    // Heap
     createSequenceStepsLinkBeforeAfterSwapNodes(nodeToAnimateLink, patternStepAnimationLinkBeforeAfterSwapNodes, isHideLink)
     {
         let animationMovingAcrossNodes = new AnimationMovingAcrossNodes(this.tree, patternStepAnimationLinkBeforeAfterSwapNodes, new TreeStepAnimationChooserLinkBeforeAfterSwapNodes(isHideLink));
 
         let stepAnimations = animationMovingAcrossNodes.animateLinkNodeAction(nodeToAnimateLink);
 
-        // update html
-
         let lastStepIndex = stepAnimations.flat().length - 1;
         let lastStep = stepAnimations.flat()[lastStepIndex].stepAnimationObject;
-
-        // create css
 
         let cssUpdater = new CssUpdater(this.tree, stepAnimations.flat());
 
@@ -552,5 +462,4 @@ export class SequenceSteps
 
         return stepAnimations.flat();
     }
-
 }

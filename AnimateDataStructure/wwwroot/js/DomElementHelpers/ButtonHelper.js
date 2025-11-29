@@ -1,7 +1,6 @@
 ﻿import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 import { EventDispatcher } from '../CustomEventHandler/EventDispatcher.js';
 
-
 export class ButtonHelper
 {
     constructor()
@@ -10,7 +9,7 @@ export class ButtonHelper
     }
 
 
-    // DO NOT DELETE: It is applicable only for the buttons WITHOUT ripple effect
+    // It is applicable only for the buttons WITHOUT ripple effect
     emulateClickOnButton(buttonDomElementToBeClicked)
     {
         this.throwIncorrectButtonDomElement(buttonDomElementToBeClicked);
@@ -18,7 +17,7 @@ export class ButtonHelper
     }
 
 
-    // DO NOT DELETE: It is applicable only for the buttons WITHOUT ripple effect
+    // It is applicable only for the buttons WITHOUT ripple effect
     emulateClickOnButtonFromConfigurations(attributeObject)
     {
         let buttonDomElementToBeClicked = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(attributeObject);
@@ -26,12 +25,10 @@ export class ButtonHelper
     }
 
 
-    // ????
     // DO NOT DELETE: It is applicable only for the buttons WITH ripple effect
     immitateClickOnButtonContainedRippleEffect(buttonContainedRippleEffectDomElement)
     {
         let eventDispatcher = new EventDispatcher();
-        // DO NOT DELETE:
         // dispatch MouseEvent about to trigger ending ripple effect event on the button Authenticate (not simply "click")
         eventDispatcher.dispatchMouseEvent(buttonContainedRippleEffectDomElement, "mousedown");
         eventDispatcher.dispatchMouseEvent(buttonContainedRippleEffectDomElement, "click");
@@ -44,7 +41,6 @@ export class ButtonHelper
     {
         this.throwIncorrectButtonDomElement(buttonDomElement);
         this.throwIncorrectButtonTextInscription(newInscription);
-
         buttonDomElement.textContent = newInscription;
     }
 
@@ -65,5 +61,4 @@ export class ButtonHelper
             throw new Error("Incorrect text for the button inscription");
         }
     }
-
 }

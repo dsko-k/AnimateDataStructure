@@ -7,24 +7,18 @@ import { DataToHtmlTableConfigurationAttributesReaderAvlTree } from '../HtmlConf
 import { DataToHtmlTableConfigurationAttributesReaderHeap } from '../HtmlConfigurationAttributes/DataToHtmlTableConfigurationAttributesReaderHeap.js';
 import { DataToHtmlTableConfigurationAttributesReaderRedBlackTree } from '../HtmlConfigurationAttributes/DataToHtmlTableConfigurationAttributesReaderRedBlackTree.js';
 
-
-// ---------- Begin pattern Strategy DataToHtmlTableConfigurationAttributesReader ----------
-
-
+// ---------- Pattern Strategy DataToHtmlTableConfigurationAttributesReader ----------
 export class ContextDataToHtmlTableConfigurationAttributesReader
 {
     constructor(dataStructure)
     {
         this.dataStructure = dataStructure;
-
         this.dataStructureInstanceDataToHtmlTableConfiguration = {
-
             [new BinarySearchTree().constructor.name]: new DataToHtmlTableConfigurationAttributesReaderBinarySearchTree(),
             [new AvlTree().constructor.name]: new DataToHtmlTableConfigurationAttributesReaderAvlTree(),
             [new Heap().constructor.name]: new DataToHtmlTableConfigurationAttributesReaderHeap(),
             [new RedBlackTree().constructor.name]: new DataToHtmlTableConfigurationAttributesReaderRedBlackTree(),
         };
-
         this.dataToHtmlTableConfigurationAttributesReader = this.computeInstanceDataToHtmlTableConfigurationAttributesReader(this.dataStructure);
     }
 

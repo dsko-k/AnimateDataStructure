@@ -14,7 +14,6 @@ import { AfterAuthentication } from '../Authentication/AfterAuthentication.js';
 import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 import { AuthenticationFormsProgressBarHelper } from '../DomElementHelpers/AuthenticationFormsProgressBarHelper.js';
 
-
 export class Authentication
 {
     constructor()
@@ -35,7 +34,6 @@ export class Authentication
 
     addAuthenticationHandlers()
     {
-        // or pass an existing one if available.
         this.onClickLinkToggleForms();
         this.onClickButtonCloseForm();
 
@@ -56,7 +54,6 @@ export class Authentication
         this.handlerClickFormLink(registerLinkFromLoginForm, this.contextFormFieldsHelperLogIn);
     }
 
-
     // Handler on click by link below form to switch on other form
     handlerClickFormLink(linkDomElement, contextFormFieldsHelper)
     {
@@ -68,9 +65,7 @@ export class Authentication
         linkDomElement.addEventListener("click", function (evn)
         {
             let formContainerDomElements = contextFormFieldsHelper.obtainFormContainerDomElements();
-
             let wrapper = formContainerDomElements.wrapper;
-
             wrapper.classList.toggle('active');
 
         }.bind(this));
@@ -79,8 +74,6 @@ export class Authentication
 
     onClickButtonCloseForm()
     {
-        //let closeFormButton = this.containerOfFormsDomElements.closeFormButton;
-
         let formContainerDomElements = this.contextFormFieldsHelperSignUp.obtainFormContainerDomElements();
         let closeFormButton = formContainerDomElements.closeFormButton;
         let wrapper = formContainerDomElements.wrapper;
@@ -88,11 +81,7 @@ export class Authentication
         closeFormButton.addEventListener("click", function (evn)
         {
             evn.stopPropagation();
-
             wrapper.remove();
-
-            // ????
-            //this.afterAuthentication.clearIdButtonToBeClickedAfterAuthorization();
 
         }.bind(this));
     }
@@ -111,7 +100,6 @@ export class Authentication
         contextControlEffects.addEffectsToControlButton();
     }
 
-
     // Handler after ripple effectEnded after click on button Sign Up or Log In
     onClickButtonSubmitForm(formDomElements, idForm, contextFormFieldsHelper)
     {
@@ -119,18 +107,14 @@ export class Authentication
         {
             throw Error("Unspecified context");
         }
-
-        this.updateSubmitButtonActivity(contextFormFieldsHelper, true); // disables button related to Submit form
-
+        this.updateSubmitButtonActivity(contextFormFieldsHelper, true);
         let errorFieldsWithErrorList = contextFormFieldsHelper.getFormFieldsWithErrorList(formDomElements);
 
         if (errorFieldsWithErrorList.length === 0)
         {
             this.eventDispatcher.dispatchEventSubmitForm(idForm, "submit");
-
             return;
         }
-
         contextFormFieldsHelper.clearAllErrorsInForm(formDomElements);
     }
 
@@ -139,7 +123,6 @@ export class Authentication
     {
         let contextFormFieldsHelper = new ContextFormFieldsHelper(new SignUpFormFieldsHelper());
         let contextFormValidation = new ContextFormValidation(new SignUpFormValidation());
-
         this.onSubmitForm(contextFormFieldsHelper, contextFormValidation, '/Authentication/Register');
     }
 
@@ -148,12 +131,10 @@ export class Authentication
     {
         let contextFormFieldsHelper = new ContextFormFieldsHelper(new LogInFormFieldsHelper());
         let contextFormValidation = new ContextFormValidation(new LogInFormValidation());
-
         this.onSubmitForm(contextFormFieldsHelper, contextFormValidation, '/Authentication/Login');
     }
 
 
-    // common method
     onSubmitForm(contextFormFieldsHelper, contextFormValidation, relativeUrlToSubmitForm)
     {
         let idFormSignUp = contextFormFieldsHelper.findFormId();
@@ -173,16 +154,13 @@ export class Authentication
         {
             throw new Error("Tag to paste authentication form is not specified");
         }
-
         try
         {
             const response = await fetch('/Authentication/Authenticate');
-
             if (response.ok)
             {
                 const html = await response.text();
                 domElementToPasteAuthenticationForm.innerHTML = html;
-
                 // Dynamically import the login modal module AFTER the HTML is loaded
                 const { initFormsModal } = await import('/js/mainAuthentication.js');
                 initFormsModal(); // Call the initialization function from the module
@@ -191,7 +169,6 @@ export class Authentication
             {
                 domElementToPasteAuthenticationForm.innerHTML = '<p>Error loading login form</p>';
             }
-
         }
         catch (error)
         {
@@ -206,21 +183,16 @@ export class Authentication
         {
             throw new Error("Incorrect context");
         }
-
         if (!urlToSubmitForm || urlToSubmitForm === "")
         {
             throw new Error("Incorrect url");
         }
-
         let formDomElements = contextFormFieldsHelper.obtainFormDomElements();
-
         submitEvent.preventDefault();
 
         if (contextFormValidation.checkFormValidity(formDomElements))
         {
-            //this.toggleFormProgressBarStyle();
             this.authenticationFormsProgressBarHelper.toggleFormProgressBarStyle();
-
             await this.submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation);
         }
         else
@@ -229,17 +201,14 @@ export class Authentication
         }
     }
 
-    
-    //Submits the form data to the server using Fetch API
+
     async submitFormData(formDomElements, urlToSubmitForm, contextFormFieldsHelper, contextFormValidation)
     {
         const formData = contextFormFieldsHelper.obtainMappedFormFields(formDomElements);
-
         try
         {
             let idForm = contextFormFieldsHelper.findFormId();
             const antiForgeryToken = contextFormValidation.getAntiForgeryToken(idForm);
-
             const response = await fetch(urlToSubmitForm, {
                                                                     method: 'POST',
                                                                     headers: {
@@ -248,36 +217,20 @@ export class Authentication
                                                                     },
                                                                     body: JSON.stringify(formData)
                                                                 });
-
             if (response.ok)
             {
                 contextFormFieldsHelper.resetFields(formDomElements);
-
                 this.updateSubmitButtonActivity(contextFormFieldsHelper, false); // enables button related to Submit form
-
-                // ???
-                //this.toggleFormProgressBarStyle();
                 this.authenticationFormsProgressBarHelper.toggleFormProgressBarStyle();
-
                 this.closeFormContainer(contextFormFieldsHelper);
-
-
-                //let buttonAuthenticateDomElement = this.getButtonAuthenticateDomElement();
                 let buttonAuthenticateDomElement = this.converterConfigirationsToDomElement.getDomElementFromConfigurations(this.buttonAuthenticateConfigurations.buttonAuthenticateAttributes);
-
                 this.eventDispatcher.dispatchCustomEvent(buttonAuthenticateDomElement, "userLoggedIn", {});
-
-                // TO DO: show a success message to the user
             }
-            else // Server returned a non-2xx status code (e.g., 400 Bad Request)
+            else
             {
                 this.updateSubmitButtonActivity(contextFormFieldsHelper, false); // enables button related to Submit form
-
-                //this.toggleFormProgressBarStyle();
                 this.authenticationFormsProgressBarHelper.toggleFormProgressBarStyle();
-
                 const errorData = await response.json();
-
                 this.handleResponseErrors(contextFormFieldsHelper, errorData);
             }
         }
@@ -292,7 +245,6 @@ export class Authentication
     handleResponseErrors(contextFormFieldsHelper, errorData)
     {
         let formDomElements = contextFormFieldsHelper.obtainFormDomElements();
-
         // Map form field names to their corresponding error display elements
         const errorElementMap = contextFormFieldsHelper.obtainFormMapErrorDomElements(formDomElements);
 
@@ -305,12 +257,10 @@ export class Authentication
                 const errorElement = errorElementMap[key];
                 if (errorElement)
                 {
-                    // Pass the array of messages to displayError
                     contextFormFieldsHelper.displayError(errorElement, messages);
                 }
                 else
                 {
-                    // Log errors that don't have a mapped element for debugging
                     console.warn(`No specific error element found for field "${key}". Errors: ${messages.join(', ')}`);
                 }
             }
@@ -326,6 +276,7 @@ export class Authentication
     }
 
 
+    // disables or enables button related to Submit form
     updateSubmitButtonActivity(contextFormFieldsHelper, isButtonDisabled)
     {
         let buttonSubmitForm = contextFormFieldsHelper.obtainFormDomElements().buttonSubmitForm;
@@ -336,41 +287,6 @@ export class Authentication
     closeFormContainer(contextFormFieldsHelper)
     {
         let closeFormButton = contextFormFieldsHelper.obtainFormContainerDomElements().closeFormButton;
-        closeFormButton.click(); // CLOSE FORM
+        closeFormButton.click();
     }
-
-
-    //getButtonAuthenticateDomElement()
-    //{
-    //    let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-    //    let styleNameButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.class;
-    //    let buttonAuthenticateDomElement = document.querySelector(`.${styleNameButtonAuthenticate}`);
-
-    //    return buttonAuthenticateDomElement;
-    //}
-
-        
-    //toggleFormProgressBarStyle()
-    //{
-    //    let formProgressBarDomElement = this.getFormProgressBarDomElement();
-
-    //    let authenticationFormsDatastructuresConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
-
-    //    let styleNameToShowProgressBar = authenticationFormsDatastructuresConfigs.divProgressBarAttributes.additionalStyleToShowProgressBar.class;
-
-    //    formProgressBarDomElement.classList.toggle(styleNameToShowProgressBar);
-    //}
-
-
-    //getFormProgressBarDomElement()
-    //{
-    //    let authenticationFormsDatastructuresConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
-
-    //    let idProgressBar = authenticationFormsDatastructuresConfigs.divProgressBarAttributes.defaultAttributes.id;
-
-    //    let progressBarDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idProgressBar);
-
-    //    return progressBarDomElement;
-    //}
-
 }

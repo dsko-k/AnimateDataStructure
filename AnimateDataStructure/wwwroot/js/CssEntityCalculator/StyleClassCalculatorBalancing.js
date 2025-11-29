@@ -2,7 +2,7 @@ import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator // ConcreteStrategyB
+export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -25,7 +25,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     }
 
 
-    // Duplication
     calculateXCoordinate(keyName)
     {
         if (keyName === "--xCoordinate")
@@ -62,7 +61,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     }
 
 
-    // private
     getCoordinate(keyName)
     {
         let targetStepAnimation = this.allStepAnimation.filter(currentStepAnimation =>
@@ -95,7 +93,7 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
         throw new Error(`Incorrect keyName '${keyName}' it should be '--xCoordinate' or '--yCoordinate' or '--topSuperContainer' or '--leftSuperContainer'`);
     }
 
-    // is needed ?????????????
+
     calculateAnimationNameContainerSpectrumBorder(keyName)
     {
         if (keyName === "--animationNameContainerSpectrumBorder")
@@ -114,7 +112,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     }
 
 
-    // + ?????
     calculateAnimationDurationSuperContainer(keyName)
     {
         if (keyName === "--animationDurationSuperContainer")
@@ -123,20 +120,15 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
         }
     }
 
-    
-    // ???????????????
+
     calculateGradInitialValueInsideBorder(keyName)
     {
         if (keyName === "--gradInitialValueInsideBorder")
         {
             let nodeToAnimate = this.refactoredStepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
             let keyframeNames = this.domUpdater.getKeyframesByKeyName(nodeToAnimate, "superContainer", "--insideBorderAnimationNames");
-
             let lastKeyframeName = keyframeNames[keyframeNames.length - 1];
-
             let keyNameInKeyframe = this.refactoredStepAnimation.propertyEntityPrototypeInsideBorder.propertyPrototypeEntityName; // should be "--gradientInsideBorderAngleStart"
-
             let valueOfPreviousKeyframe = this.getKeyframeValue(lastKeyframeName, keyNameInKeyframe, "100%");
 
             return valueOfPreviousKeyframe;
@@ -144,19 +136,15 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     }
 
 
-    // ???????????????
-    // private
     getKeyframeValue(cssEntityPrototypeName, keyName, persentage)
     {
         let keyframeTextHandler = new KeyframeTextHandler();
-
         let keyframeValue = keyframeTextHandler.findKeyframeKeyValue(cssEntityPrototypeName, persentage, keyName).keyframeValue;
 
         return keyframeValue;
     }
 
 
-    // ??????
     calculateInsideBorderAnimationNames(keyName)
     {
         if (keyName === "--insideBorderAnimationNames")
@@ -186,7 +174,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     getKeyframesMoveNodeNamesString(arrayOfStepNames)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         this.allStepAnimation.forEach(currentStepAnimation =>
@@ -220,7 +207,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     {
         let relativeNodeToAnimateAccross = stepAnimation.nodesInfoStepAnimation.relativeNodeToAnimateAccross;
         let nodeToAnimate = stepAnimation.nodesInfoStepAnimation.nodeToAnimate;
-
         let keyframePrototypeName = stepAnimation[keyframePrototypeKey].keyframePrototypeName;
 
         if (relativeNodeToAnimateAccross)
@@ -232,7 +218,7 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
     }
 
 
-    calculateWidthEndLinkContainer(keyName) // ???????????????????????????????????????????????????????????
+    calculateWidthEndLinkContainer(keyName)
     {
         if (keyName === "--widthEndLinkContainer")
         {            
@@ -256,8 +242,6 @@ export class StyleClassCalculatorBalancing extends AbstractCssEntityCalculator /
         }
     }
     
-
-    // PRIVATES DUPLICATION
 
     getDelaysString(arrayOfStepNames)
     {

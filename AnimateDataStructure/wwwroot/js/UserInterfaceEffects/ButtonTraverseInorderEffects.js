@@ -36,37 +36,22 @@ export class ButtonTraverseInorderEffects extends AbstractControlButtonEffects
 	}
 
 
-	// Close container with traversing buttons, set text into button Traverse about clicked traversal type (instead button text "Traverse")
-	//onAfterRippleEffectEnded(evn)
-	//{
-	//	this.toggleContainerOfTraverseTypes();
-	//	this.setTextOfTypeTraversalInsideButtonTraverseMenu(evn);
-	//}
-
-
-	// ????
 	onAfterRippleEffectEnded(evn)
 	{
 		this.toggleContainerOfTraverseTypes();
 		this.setTextOfTypeTraversalInsideButtonTraverseMenu(evn);
-
-		// fire event about Submit inputValuesForm
 		let inputValuesFormFieldsHelper = new InputValuesFormFieldsHelper();
 		let contextInputValuesFormFieldsHelper = new ContextInputValuesFormFieldsHelper(inputValuesFormFieldsHelper);
-
 		let formInputValuesDomElements = contextInputValuesFormFieldsHelper.obtainFormDomElements();
-
 		let eventNameToFire = "submitTraverseInorder";
-
 		this.inputValuesFormSender.onClickButtonSubmitForm(formInputValuesDomElements, contextInputValuesFormFieldsHelper, eventNameToFire);
 	}
 
-
 	// For Buttons of traverse type
 
+	// close list of traverse types
 	toggleContainerOfTraverseTypes()
 	{
-		// close list of traverse types
 		let listOfTraverseMenuConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlListOfTraverseMenuConfigurations();
 		let idlistOfTraverseMenu = listOfTraverseMenuConfigurations.listOfTraverseMenuAttributes.defaultAttributes.id;
 		let listOfTraverseMenuDomElement = this.getDomElement(idlistOfTraverseMenu);
@@ -82,5 +67,4 @@ export class ButtonTraverseInorderEffects extends AbstractControlButtonEffects
 		let buttonTraverseMenuDomElement = this.getDomElement(idButtonTraverseMenu);
 		buttonTraverseMenuDomElement.textContent = evn.target.textContent;
 	}
-
 }

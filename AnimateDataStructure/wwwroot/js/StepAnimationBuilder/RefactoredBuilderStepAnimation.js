@@ -26,7 +26,6 @@ export class RefactoredBuilderStepAnimation // builder
     {
         let xCoordinateEndMovingStep = this.coordinatesOperationStepAnimation.computeXCoordinateEndMovingStep();
         let yCoordinateEndMovingStep = this.coordinatesOperationStepAnimation.computeYCoordinateEndMovingStep();
-
         this.patternStepAnimation.addCoordinatesStepAnimation(xCoordinateEndMovingStep, yCoordinateEndMovingStep);
     }
 
@@ -35,7 +34,6 @@ export class RefactoredBuilderStepAnimation // builder
     {
         let styleName = this.extractedStepAcrossRelativeNode.styleName;
         let styleKeysToUpdate = this.extractedStepAcrossRelativeNode.styleKeysToUpdate ?? null;
-
         this.patternStepAnimation.addStyleClassPrototypeStepAnimation(styleName, styleKeysToUpdate);
     }
 
@@ -43,7 +41,6 @@ export class RefactoredBuilderStepAnimation // builder
     buildAdditionalStyleClassesPrototypeStepAnimation()
     {
         let additionalStyleClasses = this.extractedStepAcrossRelativeNode.additionalStyleClasses;
-
         this.patternStepAnimation.addAdditionalStyleClassesPrototypeStepAnimation(additionalStyleClasses);
     }
 
@@ -54,7 +51,6 @@ export class RefactoredBuilderStepAnimation // builder
         {
             throw new Error(`patternStepAnimationArray does not contain htmlNodeContainer`)
         }
-
         this.patternStepAnimation.addHtmlNodeContainerStepAnimation(this.extractedStepAcrossRelativeNode.htmlNodeContainer);
     }
 
@@ -89,7 +85,6 @@ export class RefactoredBuilderStepAnimation // builder
     buildKeyframesPrototypeStepAnimation(propertyNameInStepAnimation)
     {
         let keyframeName = this.extractedStepAcrossRelativeNode[propertyNameInStepAnimation];
-
         if (this.extractedStepAcrossRelativeNode.hasOwnProperty(propertyNameInStepAnimation))
         {
             this.patternStepAnimation.addKeyframesPrototype(keyframeName, propertyNameInStepAnimation);
@@ -97,11 +92,9 @@ export class RefactoredBuilderStepAnimation // builder
     }
 
 
-    // ???
     buildKeyframesPrototypeRelatedWithPropertyEntityPrototypeStepAnimation(propertyNameInStepAnimation)
     {
         let keyframesPrototypeRelatedWithPropertyEntityPrototype = this.extractedStepAcrossRelativeNode[propertyNameInStepAnimation];
-
         if (this.extractedStepAcrossRelativeNode.hasOwnProperty(propertyNameInStepAnimation))
         {
             this.patternStepAnimation.addKeyframesPrototypeRelatedWithPropertyEntityPrototypeStepAnimation(keyframesPrototypeRelatedWithPropertyEntityPrototype, propertyNameInStepAnimation);
@@ -109,11 +102,9 @@ export class RefactoredBuilderStepAnimation // builder
     }
 
 
-    // ???
     buildPropertyPrototypeStepAnimation(propertyNameInStepAnimation)
     {
         let propertyEntityName = this.extractedStepAcrossRelativeNode[propertyNameInStepAnimation];
-
         if (this.extractedStepAcrossRelativeNode.hasOwnProperty(propertyNameInStepAnimation))
         {
             this.patternStepAnimation.addPropertyPrototype(propertyEntityName, propertyNameInStepAnimation);

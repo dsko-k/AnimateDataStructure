@@ -5,14 +5,13 @@ export class HeapAnimationStepConfiguration
 		let patternStepAnimationArrayAddNodeToHeap = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -20,11 +19,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -185,14 +181,13 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: null,
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -200,11 +195,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -365,26 +357,22 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -542,10 +530,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-
-				// For balancing (this section should be only for root node of AVL Tree)
-				// ??????????????????????
 				htmlLinkContainer:
 					[
 						{
@@ -607,16 +591,12 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-
-				// For balancing (this section should be only for root node of AVL Tree)
-				// ??????????????????????
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
 							tag: "div",
 							styleClassPrototypeName: ".glowingMovingUpLineContainer",
-							styleClassToApply: "", // was styleClassToApply: ".glowingMovingUpLineContainer", (incorrect glowingMovingLine when root is added)
+							styleClassToApply: "",
 							elementNumber: 23,
 							elementName: "glowingMovingUpLineContainer",
 							parentElementNumber: 18,
@@ -774,27 +754,22 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 2,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw left link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
 				keyframesPrototypeBorderRotatorContainer: null,
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
-				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation", //"svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
-
+				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -952,7 +927,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -1014,7 +988,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -1175,168 +1148,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -1374,14 +1185,13 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 2,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw right link to parent",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -1389,11 +1199,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: null,
 				keyframesPrototypeInsideBorder: null, // don't change gradient inside border (stay the same as in previous step)
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -1551,7 +1358,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -1613,7 +1419,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -1774,168 +1579,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
-				//htmlGlowingMovingDownLineContainer:
-				//    [
-				//        {
-				//            tag: "div",
-				//            styleClassPrototypeName: ".glowingMovingDownLineContainer",
-				//            styleClassToApply: ".glowingMovingDownLineContainer",
-				//            elementNumber: 36,
-				//            elementName: "glowingMovingDownLineContainer",
-				//            parentElementNumber: 18,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLineShadow",
-				//            styleClassToApply: ".svgGlovingMovingLineShadow",
-				//            elementNumber: 37,
-				//            elementName: "svgGlovingMovingLineShadow",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 38,
-				//            elementName: "defsSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 39,
-				//            elementName: "linearGradientSvgGlovingMovingLineShadow",
-				//            parentElementNumber: 38,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 40,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 41,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 39,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 42,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 37,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "svg",
-				//            styleClassPrototypeName: ".svgGlovingMovingLine",
-				//            styleClassToApply: ".svgGlovingMovingLine",
-				//            elementNumber: 43,
-				//            elementName: "svgGlovingMovingLine",
-				//            parentElementNumber: 36,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "defs",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            elementNumber: 44,
-				//            elementName: "defsSvgGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "linearGradient",
-				//            styleClassPrototypeName: "",
-				//            styleClassToApply: "",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//                { "gradientUnits": "userSpaceOnUse" },
-				//                { "gradientTransform": "rotate(0)" },
-				//            ],
-				//            elementNumber: 45,
-				//            elementName: "linearGradientSvgGlovingMovingLine",
-				//            parentElementNumber: 44,
-				//            isHtmlElementComposite: true,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineFirstColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineFirstColor",
-				//            attributes: [
-				//                { "offset": "0" },
-				//            ],
-				//            elementNumber: 46,
-				//            elementName: "gradientSvgGlovingMovingLineFirstColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "stop",
-				//            styleClassPrototypeName: ".gradientSvgGlovingMovingLineSecondColor",
-				//            styleClassToApply: ".gradientSvgGlovingMovingLineSecondColor",
-				//            attributes: [
-				//                { "offset": "1" },
-				//            ],
-				//            elementNumber: 47,
-				//            elementName: "gradientSvgGlovingMovingLineSecondColor",
-				//            parentElementNumber: 45,
-				//            isHtmlElementComposite: false,
-				//        },
-				//        {
-				//            tag: "line",
-				//            styleClassPrototypeName: ".strokeGlovingMovingLine",
-				//            styleClassToApply: ".strokeGlovingMovingLine",
-				//            attributes: [
-				//                { "x1": "50%" },
-				//                { "y1": "50%" },
-				//                { "x2": "75%" },
-				//                { "y2": "75%" },
-				//            ],
-				//            elementNumber: 48,
-				//            elementName: "strokeGlovingMovingLine",
-				//            parentElementNumber: 43,
-				//            isHtmlElementComposite: false,
-				//        },
-				//    ],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -1982,14 +1625,13 @@ export class HeapAnimationStepConfiguration
 		let patternStepAnimationArrayAddRangeOfNodes = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added from range",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -1997,11 +1639,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "0s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -2159,7 +1798,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -2221,7 +1859,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -2382,27 +2019,23 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
-					"--topSuperContainer", // +++
-					"--leftSuperContainer", // +++
-					"--xCoordinate", // +++
-					"--yCoordinate", // +++
-					"--animationNameContainerSpectrumBorder", // +++
-					"--animationNamesBorderRotatorContainerLeftRightTurn", // +++
-					"--animationNamesShadowBorderRotatorContainerLeftRightTurn", // +++
-					"--insideBorderAnimationNames", // +++
-					"--animationDelaysBorderRotatorContainer", // +++
-					"--widthEndLinkContainer", // +++
-					"--animationNameSuperContainer", // +++
-					"--animationDurationSuperContainer", // +++
-					//"--animationDurationBorderRotator",
-					"--animationDelaySuperContainer", // +++
-					"--animationDelayMovingLine", // +++
-					"--lineStrokeUrl", // +++
-					//"--linkContainerAnimationDelay", // +++
+					"--topSuperContainer",
+					"--leftSuperContainer",
+					"--xCoordinate",
+					"--yCoordinate",
+					"--animationNameContainerSpectrumBorder",
+					"--animationNamesBorderRotatorContainerLeftRightTurn",
+					"--animationNamesShadowBorderRotatorContainerLeftRightTurn",
+					"--insideBorderAnimationNames",
+					"--animationDelaysBorderRotatorContainer",
+					"--widthEndLinkContainer",
+					"--animationNameSuperContainer",
+					"--animationDurationSuperContainer",
+					"--animationDelaySuperContainer",
+					"--animationDelayMovingLine",
+					"--lineStrokeUrl",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2440,14 +2073,13 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added from range",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -2455,11 +2087,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChild",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "0s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -2617,7 +2246,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -2679,7 +2307,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -2840,27 +2467,23 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
-					"--topSuperContainer", // +++
-					"--leftSuperContainer", // +++
-					"--xCoordinate", // +++
-					"--yCoordinate", // +++
-					"--animationNameContainerSpectrumBorder", // +++
-					"--animationNamesBorderRotatorContainerLeftRightTurn", // +++
-					"--animationNamesShadowBorderRotatorContainerLeftRightTurn", // +++
-					"--insideBorderAnimationNames", // +++
-					"--animationDelaysBorderRotatorContainer", // +++
-					"--widthEndLinkContainer", // +++
-					"--animationNameSuperContainer", // +++
-					"--animationDurationSuperContainer", // +++
-					//"--animationDurationBorderRotator",
-					"--animationDelaySuperContainer", // +++
-					"--animationDelayMovingLine", // +++
-					"--lineStrokeUrl", // +++
-					//"--linkContainerAnimationDelay", // +++
+					"--topSuperContainer",
+					"--leftSuperContainer",
+					"--xCoordinate",
+					"--yCoordinate",
+					"--animationNameContainerSpectrumBorder",
+					"--animationNamesBorderRotatorContainerLeftRightTurn",
+					"--animationNamesShadowBorderRotatorContainerLeftRightTurn",
+					"--insideBorderAnimationNames",
+					"--animationDelaysBorderRotatorContainer",
+					"--widthEndLinkContainer",
+					"--animationNameSuperContainer",
+					"--animationDurationSuperContainer",
+					"--animationDelaySuperContainer",
+					"--animationDelayMovingLine",
+					"--lineStrokeUrl",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -2898,26 +2521,22 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node added from range",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
 				keyframesPrototypeGlowingMovingLine: null,
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "0s",
 				timeDelayStep: "0s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -3075,7 +2694,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -3137,13 +2755,12 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
 							tag: "div",
 							styleClassPrototypeName: ".glowingMovingUpLineContainer",
-							styleClassToApply: "", // was styleClassToApply: ".glowingMovingUpLineContainer", (incorrect glowingMovingLine when root is added)
+							styleClassToApply: "",
 							elementNumber: 23,
 							elementName: "glowingMovingUpLineContainer",
 							parentElementNumber: 18,
@@ -3298,25 +2915,22 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
-					"--topSuperContainer", // +++
-					"--leftSuperContainer", // +++
-					"--xCoordinate", // +++
-					"--yCoordinate", // +++
-					"--animationNameContainerSpectrumBorder", // +++
-					"--animationNamesBorderRotatorContainerLeftRightTurn", // +++
-					"--animationNamesShadowBorderRotatorContainerLeftRightTurn", // +++
-					"--insideBorderAnimationNames", // +++
-					"--animationDelaysBorderRotatorContainer", // +++
-					"--widthEndLinkContainer", // +++
-					"--animationNameSuperContainer", // +++
-					"--animationDurationSuperContainer", // +++
-					//"--animationDurationBorderRotator",
-					"--animationDelaySuperContainer", // +++
-					"--animationDelayMovingLine", // +++
-					"--lineStrokeUrl", // +++
-					//"--linkContainerAnimationDelay", // +++
+					"--topSuperContainer",
+					"--leftSuperContainer",
+					"--xCoordinate",
+					"--yCoordinate",
+					"--animationNameContainerSpectrumBorder",
+					"--animationNamesBorderRotatorContainerLeftRightTurn",
+					"--animationNamesShadowBorderRotatorContainerLeftRightTurn",
+					"--insideBorderAnimationNames",
+					"--animationDelaysBorderRotatorContainer",
+					"--widthEndLinkContainer",
+					"--animationNameSuperContainer",
+					"--animationDurationSuperContainer",
+					"--animationDelaySuperContainer",
+					"--animationDelayMovingLine",
+					"--lineStrokeUrl",
 				],
 			},
 		];
@@ -3330,14 +2944,13 @@ export class HeapAnimationStepConfiguration
 		let patternStepAnimationArraySwapNode = [
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node swapped",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -3345,10 +2958,9 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderLeftTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: // ?????
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype:
 					[
 						{
 							keyframesPrototype: "keyframesPrototypeInsideBorder",
@@ -3357,10 +2969,8 @@ export class HeapAnimationStepConfiguration
 							valueOfKeyframesKey: "315deg",
 						},
 					],
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -3518,25 +3128,21 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
 					"--topSuperContainer",
 					"--leftSuperContainer",
 					"--animationDelaySuperContainer",
-					"--animationDurationSuperContainer", // +
+					"--animationDurationSuperContainer",
 					"--widthEndLinkContainer",
-					"--gradInitialValueInsideBorder", // +++
-					"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
+					"--gradInitialValueInsideBorder",
+					"--insideBorderAnimationNames",
 					"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
 					"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3622,14 +3228,13 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node swapped",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -3637,10 +3242,9 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: // ?????
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype:
 					[
 						{
 							keyframesPrototype: "keyframesPrototypeInsideBorder",
@@ -3649,10 +3253,8 @@ export class HeapAnimationStepConfiguration
 							valueOfKeyframesKey: "405deg",
 						},
 					],
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -3810,25 +3412,21 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
 					"--topSuperContainer",
 					"--leftSuperContainer",
 					"--animationDelaySuperContainer",
-					"--animationDurationSuperContainer", // +
+					"--animationDurationSuperContainer",
 					"--widthEndLinkContainer",
-					"--gradInitialValueInsideBorder", // +++
-					"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
+					"--gradInitialValueInsideBorder",
+					"--insideBorderAnimationNames",
 					"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
 					"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -3914,25 +3512,23 @@ export class HeapAnimationStepConfiguration
 			},
 			{
 				stepNumber: 1,
-				directionName: "move by line", // ????
+				directionName: "move by line",
 				patternStepName: "own position (root)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node swapped",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: null,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveNodeOwnPosition",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationBelowNode",
 				keyframesPrototypeAnimationLinkContainer: "changeLinkContainerWidth",
-				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn", // show right border, but consider animation 2 border simultaneously
+				keyframesPrototypeBorderRotatorContainer: "animateBorderRightTurn",
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderRightTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderBelowNode",
-				//keyframesPrototypeSvgLineLink: "svgDrawLine",
 				keyframesPrototypeGlowingMovingLine: null,
-				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-				keyframesPrototypeRelatedWithPropertyEntityPrototype: // ?????
+				propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart",
+				keyframesPrototypeRelatedWithPropertyEntityPrototype:
 					[
 						{
 							keyframesPrototype: "keyframesPrototypeInsideBorder",
@@ -3941,10 +3537,8 @@ export class HeapAnimationStepConfiguration
 							valueOfKeyframesKey: "180deg",
 						},
 					],
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -4102,25 +3696,21 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--xCoordinate",
 					"--yCoordinate",
 					"--topSuperContainer",
 					"--leftSuperContainer",
 					"--animationDelaySuperContainer",
-					"--animationDurationSuperContainer", // +
+					"--animationDurationSuperContainer",
 					"--widthEndLinkContainer",
-					"--gradInitialValueInsideBorder", // +++
-					"--insideBorderAnimationNames", // +++
-					//"--animationDelayMovingLine",
+					"--gradInitialValueInsideBorder",
+					"--insideBorderAnimationNames",
 					"--horizontalShiftOwnNode",
-					//"--animationSvgLineLink",
 					"--animationNameContainerSpectrumBorder",
 					"--animationNameSuperContainer",
 					"--animationLinkContainer",
 				],
-
 				additionalStyleClasses: [
 					{
 						elementNameToApplyStyle: "shadowBorderRotatorContainer",
@@ -4216,14 +3806,13 @@ export class HeapAnimationStepConfiguration
 		let patternStepAnimationLinkBeforeAfterSwapNodes = [
 			{
 				stepNumber: 1,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw link (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node link is drawn after swapping nodes",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -4232,12 +3821,9 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
 				keyframesPrototypeSvgLineLink: "svgLineShowAfterSwapNodes",
-				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation", // ????????
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
+				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -4395,7 +3981,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -4457,7 +4042,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -4618,24 +4202,21 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", // +
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
 			},
 			{
 				stepNumber: 1,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "draw link (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node link is drawn after swapping nodes",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -4645,11 +4226,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
 				keyframesPrototypeSvgLineLink: "svgLineShowAfterSwapNodes",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "1s",
-
 				htmlNodeContainer:
 					[
 						{
@@ -4807,7 +4385,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -4869,7 +4446,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -5034,20 +4610,18 @@ export class HeapAnimationStepConfiguration
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", // +
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
 			},
 			{
 				stepNumber: 2,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "erase link (left child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node link is erased before swapping nodes",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: true,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightLeftChild",
@@ -5056,12 +4630,9 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeShadowBorderRotatorContainer: "animateShadowBorderLeftTurn",
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightLeftChildAlign",
 				keyframesPrototypeSvgLineLink: "svgLineHideBeforeSwapNodes",
-				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation", // ????????
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
+				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
 				timeDurationStep: "3s",
 				timeDelayStep: "0s", // always "0s"
-
 				htmlNodeContainer:
 					[
 						{
@@ -5219,7 +4790,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -5281,7 +4851,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -5446,20 +5015,18 @@ export class HeapAnimationStepConfiguration
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", // +
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
 			},
 			{
 				stepNumber: 2,
-				directionName: "do not move", // ????
+				directionName: "do not move",
 				patternStepName: "erase link (right child)",
-				applyStepToNodeToAnimate: true, // false - when animation step should be applied to relativeNodeToAnimateAccross
+				applyStepToNodeToAnimate: true,
 				nodeState: "node link is erased before swapping nodes",
-				horizontalShiftBetweenNodes: null, // !!!!!!!!!!!!!  according this.tree updating
-				verticalClearanceNodes: null,   // !!!!!!!!!!!!!
+				horizontalShiftBetweenNodes: null,
+				verticalClearanceNodes: null,
 				isNodeToAnimateLeftChild: false,
-
 				styleName: ".superContainer",
 				keyframesPrototypeMoveNode: "moveDrawLineNode",
 				keyframesPrototypeContainerSpectrumBorder: "containerSpectrumBorderRotationHighlightRightChild",
@@ -5469,11 +5036,8 @@ export class HeapAnimationStepConfiguration
 				keyframesPrototypeInsideBorder: "animateInsideBorderHighlightRightChildAlign",
 				keyframesPrototypeSvgLineLink: "svgLineHideBeforeSwapNodes",
 				keyframesPrototypeGlowingMovingLine: "svgGlowingMovingLineAnimation",
-				//propertyEntityPrototypeInsideBorder: "--gradientInsideBorderAngleStart", // ?????
-
 				timeDurationStep: "3s",
 				timeDelayStep: "0s", // always "0s"
-
 				htmlNodeContainer:
 					[
 						{
@@ -5631,7 +5195,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlLinkContainer:
 					[
 						{
@@ -5693,7 +5256,6 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				htmlGlowingMovingUpLineContainer:
 					[
 						{
@@ -5854,17 +5416,14 @@ export class HeapAnimationStepConfiguration
 							isHtmlElementComposite: false,
 						},
 					],
-
 				styleKeysToUpdate: [
 					"--animationDelayMovingLine",
 					"--animationSvgLineLink",
-					"--animationDurationSuperContainer", // +
-					//"--animationNameGlowingMovingLine",
+					"--animationDurationSuperContainer",
 				],
 			},
 		];
 
 		return patternStepAnimationLinkBeforeAfterSwapNodes;
 	}
-
 }

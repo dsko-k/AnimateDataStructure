@@ -1,6 +1,5 @@
 import { DataStructurePageConfigurations } from '../HtmlConfigurationAttributes/DataStructurePageConfigurations.js';
 
-
 export class CssFileReaderWriter
 {
 	constructor()
@@ -24,9 +23,7 @@ export class CssFileReaderWriter
 				}
 
 				concatenatedCssContent += await response.text();
-
 				concatenatedCssContent = this.normalizeText(concatenatedCssContent);
-
 				concatenatedCssContent += '\n';
 			}
 
@@ -91,8 +88,6 @@ export class CssFileReaderWriter
 	getPageConfigurations()
 	{
 		let dataStructurePageConfigurations = new DataStructurePageConfigurations();
-
 		return dataStructurePageConfigurations.getDataStructurePageConfigurations();
 	}
-
 }

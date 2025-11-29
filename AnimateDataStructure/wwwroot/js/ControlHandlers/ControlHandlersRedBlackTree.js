@@ -18,100 +18,57 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
     onClickButtonAddNode()
     {
-        // dispatch event to disable buttons and input
         this.customEventHandler.dispatchDisableGroupControls(true);
 
-        // "automatically" hide clicking on node if a new node is added
-        if (this.tree.treeViewState.getLastClickedNode())
+        if (this.tree.treeViewState.getLastClickedNode()) // "automatically" hide clicking on node if a new node is added
         {
             this.onHideClickNode();
             this.tree.treeViewState.setLastClickedNode(null);
         }
 
         this.hideGlowingBorderForPreviouslyFoundNode();
-
         let preLastNode = this.tree.lastAddedNode;
-
-        let valueToAdd = this.processInputForNodeValue(); // check the value of an input
-
+        let valueToAdd = this.processInputForNodeValue();
         this.tree.insert(valueToAdd);
-
-        // DUPLICATION
         let screenCoordinates = new ScreenCoordinates();
         let screenXCenterCoorditate = screenCoordinates.getScreenXCenter();
         let treeCoordinates = new TreeCoordinates(this.tree, screenXCenterCoorditate, 300);
-
         treeCoordinates.setStartPositions(this.tree.lastAddedNode);
         treeCoordinates.setCoordinates(this.tree.lastAddedNode);
-
-        let addedNode = this.tree.lastAddedNode; // ????????????????????????????
-
-        // ???????
-        // add info about this.tree operation add node - processing
-        //this.treeOperationsStatuses.writeNewStateOfTreeOperation(this.tree, addedNode, this.treeOperationsStatuses.typesOfOperations.addNode, this.treeOperationsStatuses.statusesOfOperation.addition);
-        //this.customEventHandlerHtmlTable.dispatchUpdateTableTreeOperations(this.tree);
+        let addedNode = this.tree.lastAddedNode;
         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnAddNode(addedNode);
-
-
-
-        //// for balancing
-        //this.tree.nodeToCheckBalance = {
-        //    nodeToCheck: addedNode,
-        //    isAddition: true
-        //};
-
-
-        // correct ADD node
         let patternStepAnimationArrayAddingNode = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationArrayAddingNode();
-
-        // get sequence of the steps
         let sequenceSteps = new SequenceSteps(this.tree);
-
         let stepsAdditionNode = sequenceSteps.createSequenceStepsAdditionNode(addedNode, patternStepAnimationArrayAddingNode);
-
         this.onAnimationEndAddNode(addedNode, treeCoordinates, stepsAdditionNode, preLastNode);
     }
 
 
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!
-    // TO DO: TO OVERRIDE IN ALL DERIVED CLASSES !!!!!!!!!!!!!
-
     onAnimationEndAddNode(nodeToAdd, treeCoordinates, sequenceStepsAdditionNode, preLastNode)
     {
         let superContainerElementName = sequenceStepsAdditionNode[0].stepAnimationObject.htmlNodeContainer[0].elementName;
-
         let nodeDomElement;
-
         if (this.domUpdater.isExistDomElement(nodeToAdd, superContainerElementName))
         {
             nodeDomElement = this.domUpdater.getDomElement(nodeToAdd, superContainerElementName);
         }
-
         if (nodeDomElement)
         {
-            // ???
             nodeDomElement.addEventListener("nodeAdded", function (evn)
             {
                 this.onAlignTreeByWidth(evn, this.tree, treeCoordinates);
-
-                // add info about this.tree operation add node: added
                 this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnAddNode(nodeToAdd);
 
             }.bind(this),
-
-                { once: true }); // this.tree is a global variable
-
+                { once: true });
 
             nodeDomElement.addEventListener("nodeDeleted", function (evn)
             {
                 this.onAlignTreeByWidth(evn, this.tree, treeCoordinates);
 
             }.bind(this),
+                { once: true });
 
-                { once: true }); // this.tree is a global variable
-
-
-            // ????????
             nodeDomElement.addEventListener("alignedByHeight", function (evn)
             {
                 this.onAnimationEndRelocationNode(evn, nodeToAdd);
@@ -119,13 +76,8 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             }.bind(this));
         }
 
-        // REPLACE HARDCODE
-
         let svgLineLinkElementName = "svgLineLink";
-
         let delayMsBeforeRecoloring = 1000; // 1000 ms
-
-
         let svgLineDomElement = this.domUpdater.getDomElement(nodeToAdd, svgLineLinkElementName);
 
         if (svgLineDomElement)
@@ -135,39 +87,24 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 this.glowBorderAfterNodeAddition(evn, nodeToAdd, sequenceStepsAdditionNode, preLastNode);
 
             }.bind(this),
-
                 { once: true });
-
 
             svgLineDomElement.addEventListener("animationend", function (evn)
             {
                 this.customEventHandler.dispatchSVGLinkErasedBeforeAlignmentByHeight(evn.animationName, svgLineLinkElementName, nodeToAdd);
-
                 this.customEventHandler.dispatchSVGLinkDrawnAfterAlignmentByHeight(evn.animationName, svgLineLinkElementName, nodeToAdd);
-
-                //this.customEventHandler.dispatchLinkHiddenBeforeBalancing(evn.animationName, svgLineLinkElementName, nodeToAdd);
                 this.customEventHandler.dispatchLinkHiddenBeforeRotation(evn.animationName, svgLineLinkElementName, nodeToAdd);
-
-
-                //this.customEventHandler.dispatchLinkShowAfterBalancing(evn.animationName, svgLineLinkElementName, nodeToAdd);
                 this.customEventHandler.dispatchLinkShowAfterRotation(evn.animationName, svgLineLinkElementName, nodeToAdd);
 
             }.bind(this));
 
 
-            // for balancing (start update balance factors and start balancing if it needed)
+            // start update balance factors and start balancing if it needed
             svgLineDomElement.addEventListener("linkHiddenBeforeBalancing", function (evn)
             {
-                //this.tree.updateBalancingFactors();
-
                 let screenCoordinates = new ScreenCoordinates();
                 let screenXCenterCoorditate = screenCoordinates.getScreenXCenter();
                 let treeCoordinates = new TreeCoordinates(this.tree, screenXCenterCoorditate, 300);
-
-                //this.onAlignTreeAfterBalancingTemplateMethod(evn, this.tree, treeCoordinates);
-
-                // ???
-
                 let nodeToCheck = evn.detail.nodeWhereFiredEvent;
 
                 if (this.tree.treeViewState.isNodeToBeDeleted)
@@ -178,11 +115,7 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                     }
 
                     let siblingOfNodeToDelete = nodeToCheck;
-
-                    //????
-                    // add new entry to the html-table info about this.tree operation: rotate node - rotating
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnRotateNodes(nodeToCheck);
-
 
                     // sibling is black and has two red children
                     if (!this.tree.checkIsNodeRed(siblingOfNodeToDelete) &&
@@ -207,22 +140,15 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 }
                 else
                 {
-                    //????
-                    // add new entry to the html-table info about this.tree operation: rotate node - rotating
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnRotateNodes(nodeToCheck);
-
                     this.tree.rotateNodesWhenUncleIsBlack(nodeToCheck);
                 }
 
                 treeCoordinates.alignTreeNodesAfterBalancing();
-
-
                 this.onAlignTreeAfterBalancingTemplateMethod(evn, this.tree, treeCoordinates);
 
-            }.bind(this)); // should not include { once: true }
+            }.bind(this));
 
-
-            // ???????????????????????
             svgLineDomElement.addEventListener("linkShownAfterRotation", function (evn)
             {
                 // recoloring
@@ -231,7 +157,7 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
                 let nodeToRecolorAfterRotation = evn.detail.nodeWhereFiredEvent;
 
-                if (!Object.is(nodeToRecolorAfterRotation, this.tree.root)) // handle only on root (move to up block????)
+                if (!Object.is(nodeToRecolorAfterRotation, this.tree.root))
                 {
                     return;
                 }
@@ -245,69 +171,39 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                     this.onRecolorAfterAdditionAndRotation(superContainerElementName, delayMsBeforeRecoloring);
                 }
 
-            }.bind(this)); // should not include { once: true }
+            }.bind(this));
         }
-
-
-        // attach custom event handler when node relocated DUPLICATION of above !!!!!!!!!!!!!!!!!!!!
-
 
         if (nodeDomElement)
         {
             nodeDomElement.addEventListener("animationend", function (evn)
             {
                 this.customEventHandler.dispatchNodeAdded(evn.animationName, superContainerElementName, nodeToAdd); // fire event "nodeAdded"
-
                 this.customEventHandler.dispatchNodeAlignedByHeight(evn.animationName, superContainerElementName, nodeToAdd);
+                this.customEventHandler.dispatchNodeAlignedByWidth(evn.animationName, superContainerElementName, nodeToAdd); // fire event "alignedByWidth" to start update balance factors and start balancing if it needed
+                this.customEventHandler.dispatchLinkDrawnErasedBeforeAfterAlignmentByHeight(evn.animationName, superContainerElementName, nodeToAdd);
+                this.customEventHandler.dispatchBalanceMovingNodeEnded(evn.animationName, superContainerElementName, nodeToAdd); // fire event "balanceMovingNodeEnded" to start drawing
 
-                this.customEventHandler.dispatchNodeAlignedByWidth(evn.animationName, superContainerElementName, nodeToAdd); // for balancing (fire event "alignedByWidth" to start update balance factors and start balancing if it needed)
-
-                this.customEventHandler.dispatchLinkDrawnErasedBeforeAfterAlignmentByHeight(evn.animationName, superContainerElementName, nodeToAdd); // added ????
-
-                this.customEventHandler.dispatchBalanceMovingNodeEnded(evn.animationName, superContainerElementName, nodeToAdd); // for balancing (fire event "balanceMovingNodeEnded" to start drawing
-
-                // moved to svgDomElement
-                //this.customEventHandler.dispatchLinkHiddenBeforeBalancing(evn.animationName, superContainerElementName, nodeToAdd); // for balancing (fire event "linkHiddenBeforeBalancing" to start moving nodes during balancing
-
-                // moved to svgDomElement
-                //this.customEventHandler.dispatchLinkShowAfterBalancing(evn.animationName, superContainerElementName, nodeToAdd); // for balancing (fire event "linkShownAfterBalancing" to signal that link drawn after balancing
-
-                //this.onAnimationEndRelocationNode(evn, nodeToAdd);
-
-            }.bind(this)); // this.tree is a global variable
-
-
-
+            }.bind(this));
 
             // for balancing
             nodeDomElement.addEventListener("alignedByWidth", function (evn)
             {
-                // dispatch event to enable buttons and input
                 this.customEventHandler.dispatchDisableGroupControls(true); // ???????
-
-                // balancing
-                //this.tree.updateBalancingFactors();
-                //this.onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn);
 
                 if (this.tree.treeViewState.isNodeToBeDeleted)
                 {
                     if (this.tree.currentAmountOfNodesInTree === 1)
                     {
-                        // enable controls !!!!!!!!!!
-
                         this.onNodeToDeleteOrSuccessorIsRed(this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring);
-
                         this.onWhenPropertiesRestoredAfterDeletion();
-
                         return;
                     }
-
 
                     let nodeToFireEvent;
 
                     if (!this.tree.checkIsSuccessorDoubleBlackNode(this.tree.lastDeletedNode, this.tree.successorOfDeletedNode))
                     {
-                        //????
                         //nodeToDelete is Red and successor is Black and successor is not null
                         if (this.tree.checkIsNodeRed(this.tree.lastDeletedNode) && this.tree.successorOfDeletedNode && !this.tree.checkIsNodeRed(this.tree.successorOfDeletedNode))
                         {
@@ -321,67 +217,50 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                         {
                             this.onNodeToDeleteOrSuccessorIsRed(this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring);
                         }
-
-                        //this.onNodeToDeleteOrSuccessorIsRed(this.tree.lastDeletedNode, this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring);
-                        //return;
                     }
                     else // if nodeToDelete is double black, then fire event on sibling of nodeToDelete
                     {
                         // if successor !== null, operate with sibling of successor before successor was moved on the place of deleted root
                         // if successor === null, operate with sibling of nodeToDelete
-
-                        nodeToFireEvent = this.tree.initialSiblingToCheckAfterDeletion; //this.tree.getSiblingOf(this.tree.lastDeletedNode);
+                        nodeToFireEvent = this.tree.initialSiblingToCheckAfterDeletion;
                     }
-
                     this.customEventHandler.dispatchStepFixingDeletionNodeEnded(superContainerElementName, this.tree.lastDeletedNode, nodeToFireEvent);
                 }
                 else
                 {
                     this.customEventHandler.dispatchStepFixingAdditionNodeEnded(superContainerElementName, this.tree.lastAddedNode);
                 }
-
             }.bind(this));
 
 
             nodeDomElement.addEventListener("stepFixingAdditionNodeEnded", function (evn)
             {
                 let nodeWhereFiredEvent = evn.detail.nodeWhereFiredEvent;
-
                 if (this.tree.isNeedToFixTreeAfterAddition(nodeWhereFiredEvent))
                 {
                     if (Object.is(nodeWhereFiredEvent, this.tree.root))
                     {
-                        // add new entry to the html-table info about this.tree operation: balance node - balancing...
                         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(nodeWhereFiredEvent, this.treeOperationsStatuses.causeOfFixingRedBlackTreeProperties.nodeIsRootDuringAddititon);
-
                         this.onNodeIsRootDuringAddititon(nodeWhereFiredEvent, superContainerElementName, delayMsBeforeRecoloring);
                     }
                     else if (this.tree.isRedUncleOfNode(nodeWhereFiredEvent))
                     {
-                        // add new entry to the html-table info about this.tree operation: balance node - balancing...
                         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(nodeWhereFiredEvent, this.treeOperationsStatuses.causeOfFixingRedBlackTreeProperties.uncleNodeIsRedDuringAddititon);
-
                         this.onUncleNodeIsRedDuringAddititon(nodeWhereFiredEvent, superContainerElementName, delayMsBeforeRecoloring);
                     }
                     else if (!this.tree.isRedUncleOfNode(nodeWhereFiredEvent))
                     {
-                        // add new entry to the html-table info about this.tree operation: balance node - balancing...
                         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(nodeWhereFiredEvent, this.treeOperationsStatuses.causeOfRotationInRedBlackTree.uncleIsBlack);
-
                         this.onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn);
-
-                        let nodeToBeHeadAfterRotationDuringAddition = this.tree.getNodeToBeHeadAfterRotationDuringAddition(nodeWhereFiredEvent)
-
+                        let nodeToBeHeadAfterRotationDuringAddition = this.tree.getNodeToBeHeadAfterRotationDuringAddition(nodeWhereFiredEvent);
                         this.glowBordersDuringFixingRBTProperties(nodeToBeHeadAfterRotationDuringAddition);
-
                         nodeWhereFiredEvent.isNodeToBeRotatedWithAncestors = true; // set flag false when rotation will be ended!!!!!!!
                     }
                 }
                 else
                 {
                     this.tree.nodeToCheckRbtProperties = null;
-
-                    this.customEventHandler.dispatchDisableGroupControls(false); // ???????
+                    this.customEventHandler.dispatchDisableGroupControls(false);
                 }
 
             }.bind(this));
@@ -390,13 +269,10 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             nodeDomElement.addEventListener("stepFixingDeletionNodeEnded", function (evn)
             {
                 let nodeWhereFiredEvent = evn.detail.nodeWhereFiredEvent;
-
                 let siblingOfNodeToDelete = nodeWhereFiredEvent;
-
 
                 // if sibling is black and has at least one red children or
                 // if sibling is red, then - hide links before rotation
-
                 if ((!this.tree.checkIsNodeRed(siblingOfNodeToDelete) && this.tree.isAnyChildIsRed(siblingOfNodeToDelete)) ||
                     this.tree.checkIsNodeRed(siblingOfNodeToDelete))
                 {
@@ -414,47 +290,30 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                     //      (i) Left Case(s is left child of its parent).This is mirror of right right case shown in below diagram.We right rotate the parent p.
                     //      (ii) Right Case(s is right child of its parent).We left rotate the parent p.
 
-
-
                     let causeOfFixingRbtProperties = this.tree.checkIsNodeRed(siblingOfNodeToDelete) ?
                         this.treeOperationsStatuses.causeOfRotationInRedBlackTree.siblingIsRed :
                         this.treeOperationsStatuses.causeOfRotationInRedBlackTree.siblingIsBlackAndHasAtLeastOneRedChild;
+
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(siblingOfNodeToDelete, causeOfFixingRbtProperties);
-
-
                     this.tree.nodeToCheckRbtProperties = siblingOfNodeToDelete;
-
                     this.onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn);
-
-                    nodeWhereFiredEvent.isNodeToBeRotatedWithAncestors = true; // set false when rotation will be ended!!!!!!!
+                    nodeWhereFiredEvent.isNodeToBeRotatedWithAncestors = true; // set false when rotation will be ended
                 }
-                // move clause to upper if!!!!!!!!
                 else if (!this.tree.checkIsNodeRed(siblingOfNodeToDelete) && !this.tree.isAnyChildIsRed(siblingOfNodeToDelete))
                 {
-                    // ?????????
-                    //this.onChangeNodeColor(this.tree.doubleBlackNode, true); // recolor black node to double black
-
                     // 3.2
                     //  (b): If sibling is black and its both children are black, perform recoloring, and recur for the parent if parent is black.
                     //       If parent was red, then we didn’t need to recur for parent, we can simply make it black (red + double black = single black)
 
-
-
-                    //????
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(siblingOfNodeToDelete, this.treeOperationsStatuses.causeOfFixingRedBlackTreeProperties.siblingIsBlackAndChildrenAreBlack);
-
-
                     // recolor. Repeat step if parent is black
                     this.onRecolorAfterDeletionWhenSiblingIsBlackAndChildrenAreBlack(siblingOfNodeToDelete, superContainerElementName, delayMsBeforeRecoloring);
                 }
 
-                // ??????
                 this.glowBordersDuringFixingRBTProperties(siblingOfNodeToDelete);
 
             }.bind(this));
 
-
-            // ??????????
             // for change color to double black
             nodeDomElement.addEventListener("findigNodeEnd", function (evn)
             {
@@ -467,19 +326,14 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 if (this.tree.treeViewState.isNodeToBeDeleted && this.tree.currentAmountOfNodesInTree === 0 && this.tree.treeViewState.wasFoundNodeToBeDeleted === true)
                 {
                     this.customEventHandler.dispatchNodeDeleted(nodeToAdd);
-
-                    // update html-table about this.tree operation: delete node - deleted (not deleted)
                     this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnDeleteNode(nodeToAdd, nodeToAdd.value);
-
                     this.domUpdater.removeDomElement(nodeToAdd, "superContainer");
-
                     this.onWhenPropertiesRestoredAfterDeletion();
                 }
                 else if (this.tree.treeViewState.isNodeToBeDeleted && this.tree.treeViewState.wasFoundNodeToBeDeleted === false)
                 {
                     let enteredValueOfNodeToBeDeleted = this.tree.treeViewState.enteredValueOfNodeToBeDeleted;
                     this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnDeleteNode(null, enteredValueOfNodeToBeDeleted);
-
                     this.resetFlagsAfterDeletion();
                 }
                 else if (this.tree.treeViewState.isNodeToBeDeleted && this.tree.treeViewState.wasFoundNodeToBeDeleted === null)
@@ -489,30 +343,21 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
             }.bind(this));
 
-
-            // for balancing
             nodeDomElement.addEventListener("balanceMovingNodeEnded", function (evn)
             {
-                // Update entry to the html-table info about this.tree operation: rotate node - rotated
                 this.redBlackTreeOperation.onUpdateEntryToHtmlTableOnRotateNodes();
-
                 this.onAnimationShowAllLinksAfterBalancing(evn);
 
             }.bind(this));
-
         }
 
-
-        this.addOnClickEventHandler(nodeToAdd); // from this class ????
+        this.addOnClickEventHandler(nodeToAdd);
     }
 
 
-
-    // duplication of method onAnimationEndAddNode(...) except body of the "animationstart"
     onAnimationEndAddRangeOfNodes(nodeToAdd, treeCoordinates, sequenceStepsAdditionNode, preLastNode)
     {
         let superContainerElementName = sequenceStepsAdditionNode[0].stepAnimationObject.htmlNodeContainer[0].elementName;
-
         let nodeDomElement;
 
         if (this.domUpdater.isExistDomElement(nodeToAdd, superContainerElementName))
@@ -522,17 +367,13 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
         if (nodeDomElement)
         {
-            // ???
             nodeDomElement.addEventListener("nodeAdded", function (evn)
             {
                 this.onAlignTreeByWidth(evn, this.tree, treeCoordinates);
-
-                // add info about this.tree operation add node: added
                 this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnAddNode(nodeToAdd);
 
             }.bind(this),
-
-                { once: true }); // this.tree is a global variable
+                { once: true });
 
 
             nodeDomElement.addEventListener("nodeDeleted", function (evn)
@@ -540,11 +381,8 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 this.onAlignTreeByWidth(evn, this.tree, treeCoordinates);
 
             }.bind(this),
+                { once: true });
 
-                { once: true }); // this.tree is a global variable
-
-
-            // ????????
             nodeDomElement.addEventListener("alignedByHeight", function (evn)
             {
                 this.onAnimationEndRelocationNode(evn, nodeToAdd);
@@ -553,53 +391,33 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         }
 
         let svgLineLinkElementName = "svgLineLink";
-
         let delayMsBeforeRecoloring = 1000; // 1000 ms
-
         let svgLineDomElement = this.domUpdater.getDomElement(nodeToAdd, svgLineLinkElementName);
 
         if (svgLineDomElement)
         {
             svgLineDomElement.addEventListener("animationstart", function (evn)
             {
-                //this.glowBorderAfterNodeAddition(evn, nodeToAdd, sequenceStepsAdditionNode, preLastNode);
-                // the only difference between method onAnimationEndAddNode(...)
-                this.glowBorderAfterAdditionRangeOfNodes(evn, nodeToAdd, sequenceStepsAdditionNode, preLastNode); // + tested for AddRange()
+                this.glowBorderAfterAdditionRangeOfNodes(evn, nodeToAdd, sequenceStepsAdditionNode, preLastNode);
 
             }.bind(this),
-
                 { once: true });
-
 
             svgLineDomElement.addEventListener("animationend", function (evn)
             {
                 this.customEventHandler.dispatchSVGLinkErasedBeforeAlignmentByHeight(evn.animationName, svgLineLinkElementName, nodeToAdd);
-
                 this.customEventHandler.dispatchSVGLinkDrawnAfterAlignmentByHeight(evn.animationName, svgLineLinkElementName, nodeToAdd);
-
-                //this.customEventHandler.dispatchLinkHiddenBeforeBalancing(evn.animationName, svgLineLinkElementName, nodeToAdd);
                 this.customEventHandler.dispatchLinkHiddenBeforeRotation(evn.animationName, svgLineLinkElementName, nodeToAdd);
-
-
-                //this.customEventHandler.dispatchLinkShowAfterBalancing(evn.animationName, svgLineLinkElementName, nodeToAdd);
                 this.customEventHandler.dispatchLinkShowAfterRotation(evn.animationName, svgLineLinkElementName, nodeToAdd);
 
             }.bind(this));
 
-
-            // for balancing (start update balance factors and start balancing if it needed)
+            // start update balance factors and start balancing if it needed
             svgLineDomElement.addEventListener("linkHiddenBeforeBalancing", function (evn)
             {
-                //this.tree.updateBalancingFactors();
-
                 let screenCoordinates = new ScreenCoordinates();
                 let screenXCenterCoorditate = screenCoordinates.getScreenXCenter();
                 let treeCoordinates = new TreeCoordinates(this.tree, screenXCenterCoorditate, 300);
-
-                //this.onAlignTreeAfterBalancingTemplateMethod(evn, this.tree, treeCoordinates);
-
-                // ???
-
                 let nodeToCheck = evn.detail.nodeWhereFiredEvent;
 
                 if (this.tree.treeViewState.isNodeToBeDeleted)
@@ -609,12 +427,8 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                         return;
                     }
 
-                    let siblingOfNodeToDelete = nodeToCheck; // ??????  //this.tree.getSiblingOf(this.tree.lastDeletedNode);
-
-                    //????
-                    // add new entry to the html-table info about this.tree operation: rotate node - rotating
+                    let siblingOfNodeToDelete = nodeToCheck;
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnRotateNodes(nodeToCheck);
-
 
                     // sibling is black and has two red children
                     if (!this.tree.checkIsNodeRed(siblingOfNodeToDelete) &&
@@ -639,22 +453,15 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 }
                 else
                 {
-                    //????
-                    // add new entry to the html-table info about this.tree operation: rotate node - rotating
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnRotateNodes(nodeToCheck);
-
                     this.tree.rotateNodesWhenUncleIsBlack(nodeToCheck);
                 }
 
                 treeCoordinates.alignTreeNodesAfterBalancing();
-
-
                 this.onAlignTreeAfterBalancingTemplateMethod(evn, this.tree, treeCoordinates);
 
-            }.bind(this)); // should not include { once: true }
+            }.bind(this));
 
-
-            // ???????????????????????
             svgLineDomElement.addEventListener("linkShownAfterRotation", function (evn)
             {
                 // recoloring
@@ -677,61 +484,40 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                     this.onRecolorAfterAdditionAndRotation(superContainerElementName, delayMsBeforeRecoloring);
                 }
 
-            }.bind(this)); // should not include { once: true }
+            }.bind(this));
         }
-
-
-        // attach custom event handler when node relocated DUPLICATION of above !!!!!!!!!!!!!!!!!!!!
-
 
         if (nodeDomElement)
         {
             nodeDomElement.addEventListener("animationend", function (evn)
             {
                 this.customEventHandler.dispatchNodeAdded(evn.animationName, superContainerElementName, nodeToAdd); // fire event "nodeAdded"
-
                 this.customEventHandler.dispatchNodeAlignedByHeight(evn.animationName, superContainerElementName, nodeToAdd);
+                this.customEventHandler.dispatchNodeAlignedByWidth(evn.animationName, superContainerElementName, nodeToAdd); // fire event "alignedByWidth" to start update balance factors and start balancing if it needed
+                this.customEventHandler.dispatchLinkDrawnErasedBeforeAfterAlignmentByHeight(evn.animationName, superContainerElementName, nodeToAdd);
+                this.customEventHandler.dispatchBalanceMovingNodeEnded(evn.animationName, superContainerElementName, nodeToAdd); // fire event "balanceMovingNodeEnded" to start drawing
 
-                this.customEventHandler.dispatchNodeAlignedByWidth(evn.animationName, superContainerElementName, nodeToAdd); // for balancing (fire event "alignedByWidth" to start update balance factors and start balancing if it needed)
-
-                this.customEventHandler.dispatchLinkDrawnErasedBeforeAfterAlignmentByHeight(evn.animationName, superContainerElementName, nodeToAdd); // added ????
-
-                this.customEventHandler.dispatchBalanceMovingNodeEnded(evn.animationName, superContainerElementName, nodeToAdd); // for balancing (fire event "balanceMovingNodeEnded" to start drawing
-
-            }.bind(this)); // this.tree is a global variable
-
-
+            }.bind(this));
 
             // for balancing
             nodeDomElement.addEventListener("alignedByWidth", function (evn)
             {
-                // dispatch event to enable buttons and input
-                this.customEventHandler.dispatchDisableGroupControls(true); // ???????
-
-                // balancing
-                //this.tree.updateBalancingFactors();
-                //this.onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn);
+                this.customEventHandler.dispatchDisableGroupControls(true);
 
                 if (this.tree.treeViewState.isNodeToBeDeleted)
                 {
                     if (this.tree.currentAmountOfNodesInTree === 1)
                     {
-                        // enable controls !!!!!!!!!!
-
                         this.onNodeToDeleteOrSuccessorIsRed(this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring);
-
                         this.onWhenPropertiesRestoredAfterDeletion();
-
                         return;
                     }
-
 
                     let nodeToFireEvent;
 
                     if (!this.tree.checkIsSuccessorDoubleBlackNode(this.tree.lastDeletedNode, this.tree.successorOfDeletedNode))
                     {
-                        //????
-                        //nodeToDelete is Red and successor is Black and successor is not null
+                        // nodeToDelete is Red and successor is Black and successor is not null
                         if (this.tree.checkIsNodeRed(this.tree.lastDeletedNode) && this.tree.successorOfDeletedNode && !this.tree.checkIsNodeRed(this.tree.successorOfDeletedNode))
                         {
                             this.onNodeToDeleteIsRedAndSuccessorIsBlack(this.tree.lastDeletedNode, this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring)
@@ -744,9 +530,6 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                         {
                             this.onNodeToDeleteOrSuccessorIsRed(this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring);
                         }
-
-                        //this.onNodeToDeleteOrSuccessorIsRed(this.tree.lastDeletedNode, this.tree.successorOfDeletedNode, superContainerElementName, delayMsBeforeRecoloring);
-                        //return;
                     }
                     else // if nodeToDelete is double black, then fire event on sibling of nodeToDelete
                     {
@@ -765,7 +548,6 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
             }.bind(this));
 
-
             nodeDomElement.addEventListener("stepFixingAdditionNodeEnded", function (evn)
             {
                 let nodeWhereFiredEvent = evn.detail.nodeWhereFiredEvent;
@@ -774,29 +556,20 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 {
                     if (Object.is(nodeWhereFiredEvent, this.tree.root))
                     {
-                        // add new entry to the html-table info about this.tree operation: balance node - balancing...
                         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(nodeWhereFiredEvent, this.treeOperationsStatuses.causeOfFixingRedBlackTreeProperties.nodeIsRootDuringAddititon);
-
                         this.onNodeIsRootDuringAddititon(nodeWhereFiredEvent, superContainerElementName, delayMsBeforeRecoloring);
                     }
                     else if (this.tree.isRedUncleOfNode(nodeWhereFiredEvent))
                     {
-                        // add new entry to the html-table info about this.tree operation: balance node - balancing...
                         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(nodeWhereFiredEvent, this.treeOperationsStatuses.causeOfFixingRedBlackTreeProperties.uncleNodeIsRedDuringAddititon);
-
                         this.onUncleNodeIsRedDuringAddititon(nodeWhereFiredEvent, superContainerElementName, delayMsBeforeRecoloring);
                     }
                     else if (!this.tree.isRedUncleOfNode(nodeWhereFiredEvent))
                     {
-                        // add new entry to the html-table info about this.tree operation: balance node - balancing...
                         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(nodeWhereFiredEvent, this.treeOperationsStatuses.causeOfRotationInRedBlackTree.uncleIsBlack);
-
                         this.onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn);
-
-                        let nodeToBeHeadAfterRotationDuringAddition = this.tree.getNodeToBeHeadAfterRotationDuringAddition(nodeWhereFiredEvent)
-
+                        let nodeToBeHeadAfterRotationDuringAddition = this.tree.getNodeToBeHeadAfterRotationDuringAddition(nodeWhereFiredEvent);
                         this.glowBordersDuringFixingRBTProperties(nodeToBeHeadAfterRotationDuringAddition);
-
                         nodeWhereFiredEvent.isNodeToBeRotatedWithAncestors = true; // set flag false when rotation will be ended!!!!!!!
                     }
                 }
@@ -804,11 +577,9 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 {
                     this.tree.nodeToCheckRbtProperties = null;
 
-                    // Uses after range of nodes was added. Event should be fired only once on the last node from range of nodes to add
-                    //(differs by this line from method onAnimationEndAddNode(...))
+                    // Uses after range of nodes was added. Event should be fired only once on the last node from range of nodes to add                    
                     this.customEventHandler.dispatchTreePropertiesCompliedAfterAdditionRangeOfNodes(superContainerElementName, nodeToAdd);
-
-                    this.customEventHandler.dispatchDisableGroupControls(false); // ???????
+                    this.customEventHandler.dispatchDisableGroupControls(false);
                 }
 
             }.bind(this));
@@ -817,9 +588,7 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             nodeDomElement.addEventListener("stepFixingDeletionNodeEnded", function (evn)
             {
                 let nodeWhereFiredEvent = evn.detail.nodeWhereFiredEvent;
-
                 let siblingOfNodeToDelete = nodeWhereFiredEvent;
-
 
                 // if sibling is black and has at least one red children or
                 // if sibling is red, then - hide links before rotation
@@ -841,48 +610,32 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                     //      (i) Left Case(s is left child of its parent).This is mirror of right right case shown in below diagram.We right rotate the parent p.
                     //      (ii) Right Case(s is right child of its parent).We left rotate the parent p.
 
-
-
                     let causeOfFixingRbtProperties = this.tree.checkIsNodeRed(siblingOfNodeToDelete) ?
                         this.treeOperationsStatuses.causeOfRotationInRedBlackTree.siblingIsRed :
                         this.treeOperationsStatuses.causeOfRotationInRedBlackTree.siblingIsBlackAndHasAtLeastOneRedChild;
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(siblingOfNodeToDelete, causeOfFixingRbtProperties);
 
-
                     this.tree.nodeToCheckRbtProperties = siblingOfNodeToDelete;
-
                     this.onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn);
-
-                    nodeWhereFiredEvent.isNodeToBeRotatedWithAncestors = true; // set false when rotation will be ended!!!!!!!
+                    nodeWhereFiredEvent.isNodeToBeRotatedWithAncestors = true; // set false when rotation will be ended
                 }
-                // move clause to upper if!!!!!!!!
                 else if (!this.tree.checkIsNodeRed(siblingOfNodeToDelete) && !this.tree.isAnyChildIsRed(siblingOfNodeToDelete))
                 {
-                    // ?????????
-                    //this.onChangeNodeColor(this.tree.doubleBlackNode, true); // recolor black node to double black
-
                     // 3.2
                     //  (b): If sibling is black and its both children are black, perform recoloring, and recur for the parent if parent is black.
                     //       If parent was red, then we didn’t need to recur for parent, we can simply make it black (red + double black = single black)
 
 
-
-                    //????
                     this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnFixRbtProperties(siblingOfNodeToDelete, this.treeOperationsStatuses.causeOfFixingRedBlackTreeProperties.siblingIsBlackAndChildrenAreBlack);
-
-
                     // recolor. Repeat step if parent is black
                     this.onRecolorAfterDeletionWhenSiblingIsBlackAndChildrenAreBlack(siblingOfNodeToDelete, superContainerElementName, delayMsBeforeRecoloring);
                 }
 
-                // ??????
                 this.glowBordersDuringFixingRBTProperties(siblingOfNodeToDelete);
 
             }.bind(this));
 
-
-            // ??????????
-            // for change color to double black
+            // for changing color to double black
             nodeDomElement.addEventListener("findigNodeEnd", function (evn)
             {
                 if (this.tree.treeViewState.isNodeToBeDeleted && Object.is(nodeToAdd, this.tree.doubleBlackNode))
@@ -894,19 +647,14 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 if (this.tree.treeViewState.isNodeToBeDeleted && this.tree.currentAmountOfNodesInTree === 0 && this.tree.treeViewState.wasFoundNodeToBeDeleted === true)
                 {
                     this.customEventHandler.dispatchNodeDeleted(nodeToAdd);
-
-                    // update html-table about this.tree operation: delete node - deleted (not deleted)
                     this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnDeleteNode(nodeToAdd, nodeToAdd.value);
-
                     this.domUpdater.removeDomElement(nodeToAdd, "superContainer");
-
                     this.onWhenPropertiesRestoredAfterDeletion();
                 }
                 else if (this.tree.treeViewState.isNodeToBeDeleted && this.tree.treeViewState.wasFoundNodeToBeDeleted === false)
                 {
                     let enteredValueOfNodeToBeDeleted = this.tree.treeViewState.enteredValueOfNodeToBeDeleted;
                     this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnDeleteNode(null, enteredValueOfNodeToBeDeleted);
-
                     this.resetFlagsAfterDeletion();
                 }
                 else if (this.tree.treeViewState.isNodeToBeDeleted && this.tree.treeViewState.wasFoundNodeToBeDeleted === null)
@@ -916,21 +664,15 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
             }.bind(this));
 
-
-            // for balancing
             nodeDomElement.addEventListener("balanceMovingNodeEnded", function (evn)
             {
-                // Update entry to the html-table info about this.tree operation: rotate node - rotated
                 this.redBlackTreeOperation.onUpdateEntryToHtmlTableOnRotateNodes();
-
                 this.onAnimationShowAllLinksAfterBalancing(evn);
 
             }.bind(this));
-
         }
 
-
-        this.addOnClickEventHandler(nodeToAdd); // from this class ????
+        this.addOnClickEventHandler(nodeToAdd);
     }
 
 
@@ -951,14 +693,11 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         }
 
         super.onHideClickNode();
-
         let nodeToHideClick = this.tree.findNode(valueOfNodeToHideClick);
-
         this.onChangeColorWhenRedOrBlackNodeHideClick(nodeToHideClick);
     }
 
 
-    // reimplementation in this class
     addOnClickEventHandler(nodeToAdd)
     {
         let nodeDomElement = this.domUpdater.getDomElement(nodeToAdd, "superContainer");
@@ -968,11 +707,7 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             nodeDomElement.addEventListener("click", function (evn)
             {
                 this.onClickNode(nodeToAdd);
-
-                // ???
                 this.customEventHandlerHtmlTable.dispatchUpdateTableNodeInfo(this.tree);
-
-                // ???
                 this.customEventHandlerHtmlTable.dispatchUpdateTableTreeCharacteristics(false, this.tree);
 
                 if (this.tree.treeViewState.lastClickedNode)
@@ -991,39 +726,22 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
     onAlignTreeAfterBalancingTemplateMethod(evn, tree, treeCoordinates)
     {
-        // 1
         if (!this.isAlignTreeAfterBalancing(evn))
         {
             return;
         }
 
         let nodeToCheck = evn.detail.nodeWhereFiredEvent;
-
-
-        // moved to handler body
-
-        //this.tree.rotateNodesWhenUncleIsBlack(nodeToCheck);
-
-        //treeCoordinates.alignTreeNodesAfterBalancing();
-
-
-        // 5 from base class AVL
         this.onAlignTreeAfterBalancing(evn, this.tree, treeCoordinates);
-
-
-        // 6
-        this.tree.isNeedAlignmentByWidth = false; // ??? after balancing this.tree is deemed as aligned by width
-
-        nodeToCheck.isNodeToBeRotatedWithAncestors = false; // ???
+        this.tree.isNeedAlignmentByWidth = false; // after balancing tree is deemed as aligned by width
+        nodeToCheck.isNodeToBeRotatedWithAncestors = false;
     }
 
 
-    // private
     // check is event and other clauses allow to invoke onAlignTreeAfterBalancing()
     isAlignTreeAfterBalancing(evn)
     {
-        // ??????????????????????????????????????????????????????????????????
-        if (evn.detail.customEventName !== "linkHiddenBeforeBalancing" || this.tree.treeLevels <= 2 /* || !this.tree.nodeToCheckBalance.nodeToCheck */)
+        if (evn.detail.customEventName !== "linkHiddenBeforeBalancing" || this.tree.treeLevels <= 2)
         {
             return false;
         }
@@ -1032,72 +750,24 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    // For balancing
-    // Template method to hide or show ALL links of all nodes before after balancing
+    // Hide or show ALL links of all nodes before after balancing
     onAnimationHideAllLinksBeforeBalancingTemplateMethod(evn)
     {
-        // 1
-
-        //if (evn.detail.customEventName !== "alignedByWidth" || this.tree.treeLevels <= 2 || !this.tree.nodeToCheckBalance.nodeToCheck)
-        //{
-        //    return;
-        //}
-
         if (!this.isAnimateHideAllLinksBeforeBalancing(evn))
         {
             return;
         }
-
-
-        // ????????????????????????????????????????????????????????????
-        // 2
-
-        //let unbalancedNodes = this.tree.findUnbalancedHeadMidLowestNodes();
-
-        //if (!unbalancedNodes)
-        //{
-        //    return;
-        //}
-
-
-        // ????????????????????????????????????????????????????????????
-        // 3
 
         if (this.tree.isLinkContainerShown === false)
         {
             return;
         }
 
-
-        // ????????????????????????????????????????????????????????????
-        // 4
-        // this.customEventHandler.dispatchDisableGroupControls(true); // ??????
-
-
-        // 5
-
-        //let allNodesByLevels = this.tree.getAllNodesByLevels();
-
-        //for (let currentLevel = 1; currentLevel < allNodesByLevels.length; currentLevel++) // root node is omitted
-        //{
-
-        //    for (let n = 0; n < allNodesByLevels[currentLevel].length; n++)
-        //    {
-        //        let nodeToShowHideLink = allNodesByLevels[currentLevel][n];
-
-        //        this.onAnimationLinkBeforeAfterBalancing(evn, nodeToShowHideLink, true);
-        //    }
-        //}
-
-
-        // from base class AVL
-        this.onAnimationHideAllLinksBeforeBalancing(evn);
-
+        this.onAnimationHideAllLinksBeforeBalancing(evn); // from base class AVL
     }
 
 
-    // private
-    // check is event and other clauses alow to invoke method onAnimationHideAllLinksBeforeBalancing(evn)
+    // Check is event and other clauses alow to invoke method onAnimationHideAllLinksBeforeBalancing(evn)
     isAnimateHideAllLinksBeforeBalancing(evn)
     {
         if (this.tree.treeLevels <= 2)
@@ -1109,33 +779,24 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-
-    // change the color of node to opposite
+    // Change the color of node to opposite
     onChangeNodeColor(nodeToAnimate, isNodeToAnimateShouldBecomeDoubleBlack)
     {
         let patternStepAnimationChangeNodeColor = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationChangeNodeColor();
-
         let additionalStyleClasses = patternStepAnimationChangeNodeColor[0].additionalStyleClasses;
-
         let elementNameToApplyStyle = additionalStyleClasses[0].elementNameToApplyStyle;
 
         let styleOfRedNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", true);
         let styleOfBlackNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", false);
-
-        // ?????
         let styleOfDoubleBlackNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", null);
 
         if (isNodeToAnimateShouldBecomeDoubleBlack === true)
         {
             this.domUpdater.updateStyleClass(nodeToAnimate, elementNameToApplyStyle, styleOfDoubleBlackNode);
-
             return;
         }
 
-
-        /////////
         let currentStyleOfInsideBorderElement = this.domUpdater.getAttributeDomElement(nodeToAnimate, elementNameToApplyStyle, "class");
-
         let newStyleInsideBorderToApply = '';
 
         if (currentStyleOfInsideBorderElement === styleOfRedNode)
@@ -1159,20 +820,18 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    // private
-    // change color from red to black OR from black to red
+    // Change color from red to black OR from black to red
     // Changing the color from black to double black is made by passing true into the method onChangeNodeColor(nodeToAnimate, true);
     changeNodeColorTemplateMethod(nodeToAnimate)
     {
         nodeToAnimate.changeNodeColorToOpposite();
-
         this.onChangeNodeColor(nodeToAnimate, false);
 
         return nodeToAnimate;
     }
 
 
-    // restore node color double black node to black node
+    // Restore node color double black node to black node
     restoreNodeColorFromDoubleBlackToBlack()
     {
         if (this.tree.doubleBlackNode !== null && !Object.is(this.tree.doubleBlackNode, this.tree.lastDeletedNode))
@@ -1182,13 +841,11 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    // when added node is root (to fix RBT properties after addition)
+    // When added node is root (to fix RBT properties after addition)
     onNodeIsRootDuringAddititon(nodeToCheckAfterAddition, superContainerElementName, delayMsBeforeRecoloring)
     {
         this.tree.addToListOfNodesToRecolor(nodeToCheckAfterAddition); // nodeToCheckAfterAddition is root
-
-        this.tree.nodeToCheckRbtProperties = null; //nodeToCheckAfterAddition;  // set null after checking +++
-
+        this.tree.nodeToCheckRbtProperties = null; // set null after checking
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, true); // set false when after deletion
     }
 
@@ -1207,50 +864,21 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         this.tree.nodeToCheckRbtProperties = grandParentNode;
 
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, true); // set false when after deletion
-
-        //setTimeout(() =>
-        //{
-        //    this.changeNodeColorTemplateMethod(parentNode, superContainerElementName);
-        //    this.changeNodeColorTemplateMethod(uncleNode, superContainerElementName);
-        //    this.changeNodeColorTemplateMethod(grandParentNode, superContainerElementName);
-
-        //    this.customEventHandler.dispatchStepFixingAdditionNodeEnded(superContainerElementName, grandParentNode);
-
-        //}, delayMsBeforeRecoloring);
-
     }
 
 
     // change color of node after addition and rotation
     onRecolorAfterAdditionAndRotation(superContainerElementName, delayMsBeforeRecoloring)
     {
-        // ????????
-        //this.tree.nodeToCheckRbtProperties = nodeToRecolorAfterRotation;
-
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, true); // set false when after deletion
-
-
-        //setTimeout(() =>
-        //{
-        //    this.changeNodeColorTemplateMethod(nodeToRecolorAfterRotation);
-
-        //    //this.customEventHandler.dispatchStepFixingAdditionNodeEnded(superContainerElementName, nodeToRecolorAfterRotation);
-
-        //}, delayMsBeforeRecoloring);
     }
-
-
-
-    // To fix RBT properties after DELETION
 
 
     // Recoloring after deletion
     onRecolorAfterDeletionRedRoot(superContainerElementName, delayMsBeforeRecoloring)
     {
-        this.tree.nodeToCheckRbtProperties = null; // ????
-
-        this.tree.addToListOfNodesToRecolor(this.tree.root); // ????
-
+        this.tree.nodeToCheckRbtProperties = null;
+        this.tree.addToListOfNodesToRecolor(this.tree.root);
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false);
     }
 
@@ -1258,7 +886,7 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     // Recoloring after deletion
     onNodeToDeleteOrSuccessorIsRed(successor, superContainerElementName, delayMsBeforeRecoloring)
     {
-        this.tree.nodeToCheckRbtProperties = null; // ????
+        this.tree.nodeToCheckRbtProperties = null;
 
         if (successor && this.tree.checkIsNodeRed(successor))
         {
@@ -1267,10 +895,6 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false); // set false when do fixing after deletion
     }
-
-
-    // ?????????
-    // For deletion
 
     // Run before operations on fix RBT properties - we only recolor successor after nodeToDelete was replaced with successor
     // i.e. black successor is recolored in red color that was in nodeToDelete then there examining node that
@@ -1283,18 +907,12 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         }
 
         this.tree.addToListOfNodesToRecolor(successor); // recolor successor in red (in color of nodeToDelete)
-
         this.tree.nodeToCheckRbtProperties = this.tree.initialSiblingToCheckAfterDeletion; // check RBT properties on sibling of the successor (successor before moving it on the place of nodeToDelete)
-
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false); // set false when do fixing after deletion
     }
 
 
-    // ?????????
-    // For deletion
-
-    // Run during checking RBT properties when nodeToDelete was red and successor is red
-    // No need any recoloring or rotation in this case
+    // Run during checking RBT properties when nodeToDelete was red and successor is red. No need any recoloring or rotation in this case    
     onNodeToDeleteIsRedAndSuccessorIsRed(nodeToDelete, successor, superContainerElementName, delayMsBeforeRecoloring)
     {
         if (!this.tree.treeViewState.isNodeToBeDeleted || !nodeToDelete.isNodeRed || !successor || !successor.isNodeRed)
@@ -1303,19 +921,13 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         }
 
         this.tree.nodeToCheckRbtProperties = null;
-
         // list of nodes to recolor is always empty in this case
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false); // set false when do fixing after deletion
     }
 
-
-    // ??????
-    // Recoloring after deletion (and after rotation)
-    //onRecolorAfterDeletionAndRotationWhenSiblingWasBlackWithAtLeastOneRedChild(superContainerElementName, delayMsBeforeRecoloring)
+    // Recoloring after deletion (and after rotation)    
     onRecolorAfterDeletionAndRotation(superContainerElementName, delayMsBeforeRecoloring)
     {
-        //this.tree.nodeToCheckRbtProperties = sibling;
-
         this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false); // set false when after deletion
     }
 
@@ -1324,40 +936,26 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     onRecolorAfterDeletionWhenSiblingIsBlackAndChildrenAreBlack(sibling, superContainerElementName, delayMsBeforeRecoloring)
     {
         //If the double black's sibling node is also a black node and its child nodes are also black in color, follow the steps below −
-
         // Recolor its parent to black (if the parent is a red node, it becomes black; if the parent is already a black node, it becomes double black)
-
         // Recolor the parent's sibling with red
-
         // If double black node still exists, we apply other cases
 
         if (this.tree.checkIsNodeRed(sibling.parentNode))
         {
             this.tree.addToListOfNodesToRecolor(sibling.parentNode);
-
             this.tree.nodeToCheckRbtProperties = null; // no need further examination
         }
         else
         {
-            // next node to examine is a sibling of sibling.parentNode
-            //this.tree.nodeToCheckRbtProperties = this.tree.getSiblingOf(sibling.parentNode); // double black becomes sibling.parentNode, but examining is SIBLING of double black
-
-            // ???
             this.restoreNodeColorFromDoubleBlackToBlack(); // restore previous double black node to black node
-            // ???
             this.tree.doubleBlackNode = sibling.parentNode;
-
             this.onChangeNodeColor(this.tree.doubleBlackNode, true); // recolor black node to double black
-
             this.setNodeToCheckAfterDeletionWhenSiblingIsBlackAndChildrenAreBlackAndParentIsBlack(sibling.parentNode); // double black becomes sibling.parentNode, but examining is SIBLING of double black
-
-            // ??????
             this.hideGlowingBorderForPreviouslyFoundNode();
         }
 
-        this.tree.addToListOfNodesToRecolor(sibling); // ????
-
-        this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false); // set false when after deletion
+        this.tree.addToListOfNodesToRecolor(sibling);
+        this.onAbstractRecoloringNodes(superContainerElementName, delayMsBeforeRecoloring, false); // set false after deletion
     }
 
 
@@ -1373,7 +971,6 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         else
         {
             nodeToCheckAfterDeletionWhenSiblingIsBlackAndChildrenAreBlack = this.tree.getSiblingOf(node);
-
             this.tree.nodeToCheckRbtProperties = nodeToCheckAfterDeletionWhenSiblingIsBlackAndChildrenAreBlack;
         }
 
@@ -1381,7 +978,6 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    // For deletion
     // Restore flags after deletion when RBT properties were restored
     onWhenPropertiesRestoredAfterDeletion()
     {
@@ -1406,10 +1002,8 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         {
             this.tree.nodesToRecolor.forEach(currentNodeToRecolor =>
             {
-
                 this.changeNodeColorTemplateMethod(currentNodeToRecolor);
 
-                // Update entry to the html-table info about this.tree operation: recolor node - Node is Red or black after recoloring
                 this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnRecolorNode(currentNodeToRecolor);
             });
 
@@ -1419,12 +1013,9 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    //???
     onAfterRecoloringNodes(superContainerElementName, isAfterNodeAddition)
     {
         this.tree.nodesToRecolor.length = 0; // clear list of nodes to recolor
-
-        // dispatch on proper node to continue step
 
         if (this.tree.nodeToCheckRbtProperties === null)
         {
@@ -1434,9 +1025,7 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             }
 
             this.hideGlowingBorderForPreviouslyFoundNode();
-
-            // enable controls
-            this.customEventHandler.dispatchDisableGroupControls(false); // ???????
+            this.customEventHandler.dispatchDisableGroupControls(false);
 
             return;
         }
@@ -1453,18 +1042,13 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
 
 
-    // For addition and deletion
-    // glow borders for nodes during fixing RBT properties
+    // Glow borders for nodes during fixing RBT properties
     glowBordersDuringFixingRBTProperties(nodeWithRedGlowingBorder)
     {
-        this.showRedGlowingBorder(nodeWithRedGlowingBorder); // taken from base class ControlHandlersAbstractTree
-
-        // for arrayOfNodesWithYellowBorders
-        //
+        this.showRedGlowingBorder(nodeWithRedGlowingBorder); // from base class
     }
 
 
-    // TO DO: TO OVERRIDE IN ALL DERIVED CLASSES !!!!!!!!!!!!!
     // What to do in case when root is single node in RBT:
     // 1. In any case use always search node to delete even RBT has only root. Use line: valueToFind = this.onClickButtonFindNode(true, true);
     // 2. In method onAnimationEndAddNode(...) related to class ControlHandlersRedBlackTree add addEventListener(...) on event "findigNodeEnd"
@@ -1485,22 +1069,16 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             return;
         }
 
-        // dispatch event to disable buttons and input
         this.customEventHandler.dispatchDisableGroupControls(true);
-
         let valueToFind = this.onClickButtonFindNode(true, true);
-
-
         this.hideGlowingBorderForPreviouslyFoundNode();
 
         let nodeToDelete = this.tree.findNode(valueToFind);
 
-        this.tree.treeViewState.isNodeToBeDeleted = true; // !!!! TO DO: set false after the end node deletion
-        this.tree.treeViewState.wasFoundNodeToBeDeleted = nodeToDelete !== null; // !!!! TO DO: set NULL after the end node deletion
+        this.tree.treeViewState.isNodeToBeDeleted = true; // set false after the end node deletion
+        this.tree.treeViewState.wasFoundNodeToBeDeleted = nodeToDelete !== null; // set NULL after the end node deletion
         this.tree.treeViewState.enteredValueOfNodeToBeDeleted = valueToFind;
 
-        // ?????
-        // add new entry to the html-table info about this.tree operation: delete node - deleting
         this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnDeleteNode(valueToFind);
 
         if (!nodeToDelete) // for case when trying to delete node that does not exist in this.tree (nodeFinder will go down through branch and disappears)
@@ -1508,23 +1086,14 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             return;
         }
 
-
         let successor = this.tree.findSuccessorOf(nodeToDelete);
-
         this.tree.successorOfDeletedNode = successor;
         this.tree.initialSiblingToCheckAfterDeletion = this.tree.getInitialSiblingToCheckAfterDeletion(nodeToDelete, successor);
 
         if (this.tree.checkIsSuccessorDoubleBlackNode(nodeToDelete, successor))
         {
-            this.tree.doubleBlackNode = successor === null ? nodeToDelete : successor; // set null after restore RBT properties+++
+            this.tree.doubleBlackNode = successor === null ? nodeToDelete : successor; // set null after restore RBT properties
         }
-
-
-        // for balancing
-        //this.tree.nodeToCheckBalance = {
-        //    nodeToCheck: successor ? successor : nodeToDelete.parentNode,
-        //    isAddition: false
-        //};
 
         let superContainerName = "superContainer";
 
@@ -1538,98 +1107,61 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
                 domElementSvgLineLinkOfNodeToDelete.addEventListener("linkErasedBeforeAlignmentByHeight", function (evn)
                 {
-                    this.customEventHandler.dispatchNodeDeleted(nodeToDelete); // ??????
-
+                    this.customEventHandler.dispatchNodeDeleted(nodeToDelete);
                     this.onBeforeDeletionNode(superContainerName);
 
-                    // dispatch event to enable buttons and input
-                    //this.customEventHandler.dispatchDisableGroupControls(false);
-
                 }.bind(this),
-
                     { once: true });
 
                 return;
             }
             else
             {
-                //this.customEventHandler.dispatchNodeDeleted(nodeToDelete);
-
-                ////this.onBeforeDeletionNode(superContainerName); // BUG IF UNCOMMENTED
-
-                //// ?????
-                //// another place to update html-table about this.tree operation: delete node - deleted (not deleted)
-                //this.onUpdateEntryInHtmlTableOnDeleteNode(this.tree, nodeToDelete, nodeToDelete.value);
-
-
-                //this.domUpdater.removeDomElement(nodeToDelete, superContainerName);
-
-                //// dispatch event to enable buttons and input
-                //this.customEventHandler.dispatchDisableGroupControls(false);
-
-                //// ????
-                //if (this.tree.currentAmountOfNodesInTree === 0) // nodeToDelete was removed above
-                //{
-                //    this.onWhenPropertiesRestoredAfterDeletion();
-                //}
-
-                //return;
-
                 return;
             }
         }
 
-        let domElementSvgLineForLinkDrawnAfterAlignmentByHeight = this.domUpdater.getDomElement(successor, "svgLineLink"); // +++
+        let domElementSvgLineForLinkDrawnAfterAlignmentByHeight = this.domUpdater.getDomElement(successor, "svgLineLink");
 
         if (successor)
         {
             domElementSvgLineForLinkDrawnAfterAlignmentByHeight.addEventListener("linkErasedBeforeAlignmentByHeight", function (evn)
             {
-                // ???
-                // add new entry to the html-table info about this.tree operation: relocate successor node - relocating
                 this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnAlignmentByHeight(successor);
-
                 let operation = this.tree.deleteNode.bind(this.tree, nodeToDelete);
                 this.onAlignTreeByHeight(evn, this.tree, operation, nodeToDelete, successor);
 
             }.bind(this),
-
-                { once: true }); // handler invokes once (alternative to removeEventListener)
+                { once: true });
         }
 
-        if (nodeToDelete.isLeftChild === null && successor && !successor.leftChild && !successor.rightChild) // + and successor no children +++
+        if (nodeToDelete.isLeftChild === null && successor && !successor.leftChild && !successor.rightChild) // and successor no children
         {
             let domElementNodeSuccessorSuperContainer = this.domUpdater.getDomElement(successor, superContainerName);
 
             domElementNodeSuccessorSuperContainer.addEventListener("alignedByHeight", function (evn)
             {
-                // ???
-                // Update entry in the html-table info about this.tree operation: relocate successor node - relocated
                 this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnAlignmentByHeight(successor);
-
                 this.customEventHandler.dispatchNodeDeleted(nodeToDelete);
-
                 this.onBeforeDeletionNode(superContainerName);
 
             }.bind(this),
-
                 { once: true });
 
             return;
         }
 
         // 2 cases: successor has rightChild and successor has not rightChild
-
         if (successor && successor.rightChild)
         {
             domElementSvgLineForLinkDrawnAfterAlignmentByHeight = this.domUpdater.getDomElement(successor.rightChild, "svgLineLink");
         }
-        else if (successor && !successor.rightChild && !successor.leftChild) // ????? + no successor.leftChild
+        else if (successor && !successor.rightChild && !successor.leftChild) // no successor.leftChild
         {
             domElementSvgLineForLinkDrawnAfterAlignmentByHeight = this.domUpdater.getDomElement(successor, "svgLineLink");
         }
         else if ((successor && nodeToDelete.isLeftChild === null && successor.leftChild && !successor.rightChild) ||
-            (successor && successor.leftChild && !successor.rightChild)) // + successor.leftChild and successor is root
+            (successor && successor.leftChild && !successor.rightChild)) // successor.leftChild and successor is root
         {
             domElementSvgLineForLinkDrawnAfterAlignmentByHeight = this.domUpdater.getDomElement(successor.leftChild, "svgLineLink");
         }
@@ -1637,26 +1169,18 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
 
         domElementSvgLineForLinkDrawnAfterAlignmentByHeight.addEventListener("linkDrawnAfterAlignmentByHeight", function (evn)
         {
-            // ???
-            // Update entry in the html-table info about this.tree operation: relocate successor node - relocated
             this.redBlackTreeOperation.onUpdateEntryInHtmlTableOnAlignmentByHeight(successor);
-
             this.customEventHandler.dispatchNodeDeleted(nodeToDelete);
-
             this.onBeforeDeletionNode(superContainerName);
 
         }.bind(this),
-
             { once: true });
     }
 
 
-    // boilerplate
     onAddRangeOfNodes()
     {
-        // correct ADD RANGE of nodes
         let patternStepAnimationArrayAddRangeOfNodes = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationArrayAddRangeOfNodes();
-
         let parsedValueFlagsOfRange = this.processInputRangeValues();
 
         parsedValueFlagsOfRange.forEach(valueFlagPairOfRange =>
@@ -1665,49 +1189,27 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             addedNodeOfRedBlackTree.isNodeRed = valueFlagPairOfRange.parsedFlag;
         });
 
-        // ?????????
         let screenCoordinates = new ScreenCoordinates();
         let screenXCenterCoorditate = screenCoordinates.getScreenXCenter();
         let treeCoordinates = new TreeCoordinates(this.tree, screenXCenterCoorditate, 300);
 
-        // for consistency
-        let addedNode = this.tree.lastAddedNode; // ????????????????????????????
-
-        // for consistency (balancing no needed: this.tree is balanced when it is being builded from saved data in server)
-        // for balancing
-        //this.tree.nodeToCheckBalance = {
-        //    nodeToCheck: addedNode,
-        //    isAddition: true
-        //};
-
+        let addedNode = this.tree.lastAddedNode;
 
         treeCoordinates.alignTreeNodesAfterAddRange();
-
-
-        // get sequence of the steps
         let sequenceSteps = new SequenceSteps(this.tree);
-
-        // ????
         let nodesTheirCorrectColors = [];
         let superContainerElementName;
 
-        // DO NOT DELETE:
         // to avoid firing events from onAnimationEndAddRangeOfNodes() right after addition a range of nodes:
         // all nodes of range are set to black disregard to entered flags (true, false)
         // aftre nodes of range will be added and their colors are changed to correct ones
 
-        // changed names of parameters and usind object
         parsedValueFlagsOfRange.forEach((parsedValueFlag, index) =>
         {
             let nodeFromRangeToAdd = this.tree.findNode(parsedValueFlag.parsedValue);
-
-            //nodeFromRangeToAdd.isNodeRed = parsedValueFlag.parsedFlag;
-            // ????
             nodeFromRangeToAdd.isNodeRed = false; // initially all nodes are always black
-
             let stepsAddNodeFromRange = sequenceSteps.createSequenceStepsAddRangeOfNodes(nodeFromRangeToAdd, patternStepAnimationArrayAddRangeOfNodes);
             superContainerElementName = stepsAddNodeFromRange[0].stepAnimationObject.htmlNodeContainer[0].elementName;
-
 
             let preLastNode = null;
 
@@ -1717,23 +1219,11 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
                 preLastNode = this.tree.findNode(preLastValue);
             }
 
-            //??????
             nodesTheirCorrectColors.push(this.setNodeItsCorrectColor(nodeFromRangeToAdd, parsedValueFlag.parsedFlag));
-
             this.onSetRedOrBlackNodeColor(nodeFromRangeToAdd);
-
-            //???
             this.redBlackTreeOperation.onAddNewEntryToHtmlTableOnAddRangeOfNodes(nodeFromRangeToAdd);
-
             this.onAnimationEndAddRangeOfNodes(nodeFromRangeToAdd, treeCoordinates, stepsAddNodeFromRange, preLastNode);
         });
-
-        //setTimeout(function ()
-        //{
-        //	this.setCorrectNodeColorsAfterAddRangeOfNodes(nodesTheirCorrectColors);
-
-        //}.bind(this), 500);
-
 
         let lastAddedNodeDomElement = this.domUpdater.getDomElement(this.tree.lastAddedNode, superContainerElementName);
 
@@ -1742,32 +1232,23 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
             this.setCorrectNodeColorsAfterAddRangeOfNodes(nodesTheirCorrectColors);
 
         }.bind(this),
-
             { once: true });
-
-
     }
 
-
-    // ???
     // Set correct colors of nodes when added range of nodes (to avoid firing events from onAnimationEndAddRangeOfNodes() right after addition a range of nodes)
-    // intitially all nodes set to black disregard to entered flags (true, false)
+    // intitially all nodes are set to black disregard to entered flags (true, false)
     setCorrectNodeColorsAfterAddRangeOfNodes(nodesTheirCorrectColors)
     {
         nodesTheirCorrectColors.forEach(nodeItsCorrectColor =>
         {
-
             let currentNode = nodeItsCorrectColor.node;
             let isNodeRed = nodeItsCorrectColor.isNodeRed;
-
             currentNode.isNodeRed = isNodeRed;
-
             this.onSetRedOrBlackNodeColor(currentNode);
         });
     }
 
 
-    // ????
     setNodeItsCorrectColor(node, isNodeRed)
     {
         if (!node)
@@ -1785,11 +1266,8 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     processInputRangeValues()
     {
         let textElement = document.getElementById('idInputForNodeValue');
-
         let arrayOfValueFlags = this.parseInputRangeNodeValues(textElement.value);
-
         this.clearInputValue();
-
         return arrayOfValueFlags;
     }
 
@@ -1805,23 +1283,14 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     // private
     parseInputRangeNodeValues(textFromInput)
     {
-        // 10.254,true,11.512,false,21,true,22.554,false,35,true
-        // 10,false,11,false,9,false,12,true
-
-        //let patternText = /(?<number>[0-9]+|[0-9]+.[0-9]), *(?<flag>true|false)/gm;
-        // let regexp = new RegExp(`(?<number>[0-9]+|[0-9]+.[0-9]), *(?<flag>true|false),*`, "");
-
         let regexp = new RegExp(`(?<number>[0-9]+\.[0-9]+|[0-9]+), *(?<flag>true|false)+`, "g");
-
         let valueFlagPairsArray = textFromInput.match(regexp);
-
         let parsedValueFlagPairsArray = this.parseValueFlagPairs(valueFlagPairsArray);
 
         return parsedValueFlagPairsArray;
     }
 
 
-    // private
     parseValueFlagPairs(valueFlagPairs)
     {
         let arrayOfObjects = valueFlagPairs.map(valueFlag =>
@@ -1858,7 +1327,6 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    // private
     parseValueInValueFlagPair(valueFlagPair)
     {
         let parsed = parseFloat(valueFlagPair);
@@ -1876,29 +1344,12 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     // (after range of values added and Red-Black Tree was built, it intially does not have red or black colors I.e. style .insideBorder class is incorrect and not appropriate for RBT)
     onSetRedOrBlackNodeColor(nodeToAnimate)
     {
-        // colors of nodes after addition a range of values for Red-Black Tree
         let patternStepAnimationChangeNodeColor = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationChangeNodeColorAfterAddRange();
-
         let additionalStyleClasses = patternStepAnimationChangeNodeColor[0].additionalStyleClasses;
-
         let elementNameToApplyStyle = additionalStyleClasses[0].elementNameToApplyStyle;
 
         let styleOfRedNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", true);
         let styleOfBlackNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", false);
-
-        // ?????
-        //let styleOfDoubleBlackNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", null);
-
-        //if (isNodeToAnimateShouldBecomeDoubleBlack === true)
-        //{
-        //    this.domUpdater.updateStyleClass(nodeToAnimate, elementNameToApplyStyle, styleOfDoubleBlackNode);
-
-        //    return;
-        //}
-
-
-
-        //let currentStyleOfInsideBorderElement = this.domUpdater.getAttributeDomElement(nodeToAnimate, elementNameToApplyStyle, "class");
 
         let newStyleInsideBorderToApply = '';
 
@@ -1923,12 +1374,10 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     {
         let patternStepAnimationChangeNodeColor = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationChangeNodeColorWhenRedOrBlackNodeClicked();
         let additionalStyleClasses = patternStepAnimationChangeNodeColor[0].additionalStyleClasses;
-
         let elementNameToApplyStyle = additionalStyleClasses[0].elementNameToApplyStyle;
 
         let styleOfClickedRedNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", true);
         let styleOfClickedBlackNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", false);
-
 
         let newStyleInsideBorderToApply = '';
 
@@ -1952,14 +1401,11 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     onChangeColorWhenRedOrBlackNodeHideClick(nodeToAnimate)
     {
         let patternStepAnimationChangeNodeColor = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationChangeNodeColorWhenRedOrBlackNodeHideClick();
-
         let additionalStyleClasses = patternStepAnimationChangeNodeColor[0].additionalStyleClasses;
-
         let elementNameToApplyStyle = additionalStyleClasses[0].elementNameToApplyStyle;
 
         let styleOfClickedRedNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", true);
         let styleOfClickedBlackNode = this.domUpdater.getStyleToApplyOfAdditionalStyleClasses(additionalStyleClasses, elementNameToApplyStyle, "applyToNodeThatHaveToBeRed", false);
-
 
         let newStyleInsideBorderToApply = '';
 
@@ -1980,35 +1426,25 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
     }
 
 
-    // part for Traversing
-    // reimplementation in ControlHandlersRedBlackTree
     getSequenceStepsTraversingNode(nodeVisitor, startNode, traversingTreeOperationInstance)
     {
-        // correct TRAVERSING NODE
         let patternStepAnimationArrayTraversingNode = this.redBlackTreeAnimationStepConfiguration.getPatternStepAnimationArrayTraversingNode();
-
-        // get sequence of the steps
         let sequenceSteps = new SequenceSteps(this.tree);
-
         let sequenceStepsTraversingNode = sequenceSteps.createSequenceStepsTraversingNode(nodeVisitor, startNode, traversingTreeOperationInstance, patternStepAnimationArrayTraversingNode);
 
         return sequenceStepsTraversingNode;
     }
 
 
-    // part for Traversing
     restoreNodesColorsAfterTraversing(stepAnimations)
     {
         stepAnimations.forEach(currentStepAnimation =>
         {
             let currentNodeToVisit = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross;
-
             this.onSetRedOrBlackNodeColor(currentNodeToVisit);
         });
     }
 
-
-    // Part for traversing
 
     onChangeColorForVisitedNode(currentNodeToVisit, currentStepAnimation, traversingTreeOperationInstance)
     {
@@ -2018,14 +1454,10 @@ export class ControlHandlersRedBlackTree extends ControlHandlersAVLTree
         }
 
         let additionalStyleClasses = currentStepAnimation.stepAnimationObject.additionalStyleClasses;
-
         let indexInAdditionalStyleClass = additionalStyleClasses
             .findIndex(additionalStyleElement => additionalStyleElement.applyToNodeThatHaveToBeRed === currentNodeToVisit.isNodeRed);
 
-
         this.setAdditionalStyleClassDuringTraversing(currentNodeToVisit, currentStepAnimation, indexInAdditionalStyleClass);
-
         currentNodeToVisit.wasChangedNodeColorAfterVisiting = true;
     }
-
 }

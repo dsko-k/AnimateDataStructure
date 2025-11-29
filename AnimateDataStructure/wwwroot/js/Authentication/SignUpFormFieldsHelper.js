@@ -1,5 +1,4 @@
-﻿//import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
-import { AbstractFormFieldsHelper } from './AbstractFormFieldsHelper.js';
+﻿import { AbstractFormFieldsHelper } from './AbstractFormFieldsHelper.js';
 
 
 export class SignUpFormFieldsHelper extends AbstractFormFieldsHelper
@@ -7,40 +6,26 @@ export class SignUpFormFieldsHelper extends AbstractFormFieldsHelper
     constructor()
     {
         super();
-        //this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
-        this.authConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
-        //this.htmlPageDomUpdater = new HtmlPageDomUpdater();
-
-        //this.form = elements.form;
-
-
+        this.authConfigs = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();        
         // Forms Container Configurations
         this.closeFormButtonConfig = this.authConfigs.divCloseFormButtonAttributes;
         this.wrapperConfig = this.authConfigs.divWrapperFormsAttributes;
-
-        // signUp Configurations
-
+        // SignUp Configurations
         this.formSignUpConfig = this.authConfigs.formSignUpAttributes;
-        this.idForm = this.formSignUpConfig.defaultAttributes.id; // added
-
+        this.idForm = this.formSignUpConfig.defaultAttributes.id;
         this.usernameSignUpInputConfig = this.authConfigs.inputUserNameSignUpFormAttributes;
         this.emailSignUpInputConfig = this.authConfigs.inputEmailSignUpFormAttributes;
         this.passwordSignUpInputConfig = this.authConfigs.inputPasswordSignUpFormAttributes;
         this.confirmPasswordSignUpInputConfig = this.authConfigs.inputConfirmPasswordSignUpFormAttributes;
         this.agreeCheckboxSignUpConfig = this.authConfigs.inputRememberCheckboxSignUpFormAttributes;
-
         this.usernameSignUpErrorConfig = this.authConfigs.spanErrorUserNameSignUpFormAttributes;
         this.emailSignUpErrorConfig = this.authConfigs.spanErrorEmailSignUpFormAttributes;
         this.passwordSignUpErrorConfig = this.authConfigs.spanErrorPasswordSignUpFormAttributes;
         this.confirmPasswordSignUpErrorConfig = this.authConfigs.spanErrorConfirmPasswordSignUpFormAttributes;
-
         this.buttonSubmitFormConfig = this.authConfigs.buttonSubmitSignUpFormAttributes;
-
         this.loginLinkConfig = this.authConfigs.aLoginLinkFromSignUpFormAttributes;
         this.registerLinkConfig = this.authConfigs.aLinkRegisterAttributes;
-
         // Login Fields
-
         this.registerLink = this.htmlPageDomUpdater.getDomElementOnPageById(this.registerLinkConfig.defaultAttributes.id);
     }
 
@@ -60,19 +45,14 @@ export class SignUpFormFieldsHelper extends AbstractFormFieldsHelper
             passwordSignUpInput: this.htmlPageDomUpdater.getDomElementOnPageById(this.passwordSignUpInputConfig.defaultAttributes.id),
             confirmPasswordSignUpInput: this.htmlPageDomUpdater.getDomElementOnPageById(this.confirmPasswordSignUpInputConfig.defaultAttributes.id),
             agreeCheckboxSignUp: this.htmlPageDomUpdater.getDomElementOnPageById(this.agreeCheckboxSignUpConfig.defaultAttributes.id),
-
             usernameSignUpError: this.htmlPageDomUpdater.getDomElementOnPageById(this.usernameSignUpErrorConfig.defaultAttributes.id),
             emailSignUpError: this.htmlPageDomUpdater.getDomElementOnPageById(this.emailSignUpErrorConfig.defaultAttributes.id),
             passwordSignUpError: this.htmlPageDomUpdater.getDomElementOnPageById(this.passwordSignUpErrorConfig.defaultAttributes.id),
             confirmPasswordSignUpError: this.htmlPageDomUpdater.getDomElementOnPageById(this.confirmPasswordSignUpErrorConfig.defaultAttributes.id),
-
             buttonSubmitForm: this.htmlPageDomUpdater.getDomElementOnPageById(this.buttonSubmitFormConfig.defaultAttributes.id),
-
             loginLinkFromSignUpForm: this.htmlPageDomUpdater.getDomElementOnPageById(this.loginLinkConfig.defaultAttributes.id),
         };
     }
-
-
 
 
     getMappedFormFields(signUpFormDomElements)
@@ -96,8 +76,6 @@ export class SignUpFormFieldsHelper extends AbstractFormFieldsHelper
             Email: signUpFormDomElements.emailSignUpError,
             Password: signUpFormDomElements.passwordSignUpError,
             ConfirmPassword: signUpFormDomElements.confirmPasswordSignUpError,
-            // Add any other error spans here, e.g., general errors
-            //General: signUpFormDomElements.generalSignUpError // If there is a general error span
         };
 
         return errorElementMap;
@@ -107,11 +85,6 @@ export class SignUpFormFieldsHelper extends AbstractFormFieldsHelper
     // Get forms Containers DOM elements (parents for Login Form and SignUp Form)
     getFormContainerDomElements()
     {
-        //return {
-        //    closeFormButton: this.htmlPageDomUpdater.getDomElementOnPageById(this.closeFormButtonConfig.defaultAttributes.id),
-        //    wrapper: this.htmlPageDomUpdater.getDomElementOnPageById(this.wrapperConfig.defaultAttributes.id),
-        //};
-
         let idCloseFormButton = this.closeFormButtonConfig.defaultAttributes.id;
         let idWrapper = this.wrapperConfig.defaultAttributes.id;
 
@@ -119,11 +92,9 @@ export class SignUpFormFieldsHelper extends AbstractFormFieldsHelper
     }
 
 
-        
     resetFormFields(signUpFormDomElements)
     {
         this.throwIfEmptyFormDomElements(signUpFormDomElements);
-
         signUpFormDomElements.usernameSignUpInput.value = '';
         signUpFormDomElements.emailSignUpInput.value = '';
         signUpFormDomElements.passwordSignUpInput.value = '';

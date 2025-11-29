@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalculator // ConcreteStrategyA
+export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -15,7 +15,6 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
     calculateEntityName(isForNodeToAnimate)
     {
         let nodeToAnimate = this.allStepAnimation[this.allStepAnimation.length - 1].stepAnimationObject.nodesInfoStepAnimation.nodeToAnimate;
-
         return this.styleClassPrototypeName + "_" + super.nodeIdentifierName(true);
     }
 
@@ -95,7 +94,6 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
                 "own position (right child)",
                 "own position (root)",
             ];
-
             let keyframesNamesString = this.getKeyframesNamesString("keyframesPrototypeMoveNode", arrayOfStepNames, keyName);
 
             return keyframesNamesString;
@@ -117,13 +115,11 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
         if (keyName === "--animationDelaySuperContainer")
         {
             // every possible step name
-
             let arrayOfStepNames = [
                 "own position (left child)",
                 "own position (right child)",
                 "own position (root)",
             ];
-
             let stringDelays = this.getDelaysString(arrayOfStepNames);
 
             return stringDelays;
@@ -131,15 +127,10 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
     }
 
 
-
-    // PRIVATES
-
     getDelaysString(arrayOfStepNames)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
-
         let totalDelaysSoFar = 0;  // current step delay should include
         let totalDurationsSoFar = 0; // current step duration should NOT include
 
@@ -173,7 +164,6 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
     getKeyframesNamesString(keyframesPrototypePropertyNameStep, arrayOfStepNames, styleKeyName)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         this.allStepAnimation.forEach((currentStepAnimation, index) =>
@@ -189,8 +179,7 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
                 }
                 else if (keyframesPrototypePropertyNameStep === "keyframesPrototypeInsideBorder")
                 {
-                    let nodeId = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross.nodeId
-
+                    let nodeId = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross.nodeId;
                     newValue += keyframePrototypeName + "_Traversing_" + nodeId + ", ";
                 }
                 else
@@ -199,7 +188,6 @@ export class StyleClassCalculatorTraversingNode extends AbstractCssEntityCalcula
                 }
             }
         });
-
 
         if (newValue === "")
         {

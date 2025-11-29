@@ -1,8 +1,7 @@
 import { HtmlAbstractDomElementPart } from '../HtmlDomElementHandler/HtmlAbstractDomElementPart.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 
-
-// -------------------------------------------- Begin Build html-sidebar via pattern Builder  --------------------------------------------
+// -------------------------------------------- Build html-sidebar via pattern Builder  --------------------------------------------
 
 // Contains methods that nesting html-elements with children (except text content)
 export class HtmlSidebarCreator // Foreman
@@ -24,17 +23,13 @@ export class HtmlSidebarCreator // Foreman
     constructSidebar()
     {
         let divSidebarContainer = this.htmlAbstractDomElementPart.createHtmlTag(this.attributesForSidebar.divSidebarContainerAttributes);
-
         let divSidebar = this.htmlAbstractDomElementPart.createHtmlTag(this.attributesForSidebar.divSidebarAttributes);
-
         // buttons
         let divSidebarButtonMenu = this.constructButtonMenu();
         let divSidebarButtonSecond = this.constructButtonSecond();
         let divSidebarButtonThird = this.constructButtonThird();
         let divSidebarButtonFourth = this.constructButtonFourth();
         let divSidebarButtonFifth = this.constructButtonFifth();
-
-
         // Inserting
         divSidebarContainer.addChildDomElement(divSidebar);
         divSidebar.addChildDomElement(divSidebarButtonMenu);
@@ -42,21 +37,16 @@ export class HtmlSidebarCreator // Foreman
         divSidebar.addChildDomElement(divSidebarButtonThird);
         divSidebar.addChildDomElement(divSidebarButtonFourth);
         divSidebar.addChildDomElement(divSidebarButtonFifth);
-
-
         let bodyDomElement = document.getElementById("idBody");
         bodyDomElement.insertAdjacentElement("afterbegin", divSidebarContainer.getCreatedDomElement());
     }
-
 
     // Sidebar buttons
 
     constructButtonMenu()
     {
         let arrayOfPathAttributes = [this.attributesForButtonMenu.pathSvgButtonIconFirstAttributes];
-
         let divSidebarButtonMenu = this.htmlSidebarBuilder.buildSidebarButton(this.attributesForButtonMenu, arrayOfPathAttributes);
-
         return divSidebarButtonMenu;
     }
 
@@ -65,9 +55,7 @@ export class HtmlSidebarCreator // Foreman
     {
         let arrayOfPathAttributes = [this.attributesForButtonSecond.pathSvgButtonIconFirstAttributes,
         this.attributesForButtonSecond.pathSvgButtonIconSecondAttributes];
-
         let divSidebarButtonMenu = this.htmlSidebarBuilder.buildSidebarButton(this.attributesForButtonSecond, arrayOfPathAttributes);
-
         return divSidebarButtonMenu;
     }
 
@@ -75,9 +63,7 @@ export class HtmlSidebarCreator // Foreman
     constructButtonThird()
     {
         let arrayOfPathAttributes = [this.attributesForButtonThird.pathSvgButtonIconFirstAttributes];
-
         let divSidebarButtonMenu = this.htmlSidebarBuilder.buildSidebarButton(this.attributesForButtonThird, arrayOfPathAttributes);
-
         return divSidebarButtonMenu;
     }
 
@@ -92,9 +78,7 @@ export class HtmlSidebarCreator // Foreman
             this.attributesForButtonFourth.pathSvgButtonIconFifthAttributes,
             this.attributesForButtonFourth.pathSvgButtonIconSixthAttributes
         ];
-
         let divSidebarButtonMenu = this.htmlSidebarBuilder.buildSidebarButton(this.attributesForButtonFourth, arrayOfPathAttributes);
-
         return divSidebarButtonMenu;
     }
 
@@ -102,9 +86,7 @@ export class HtmlSidebarCreator // Foreman
     constructButtonFifth()
     {
         let arrayOfPathAttributes = [this.attributesForButtonFifth.pathSvgButtonIconFirstAttributes];
-
         let divSidebarButtonMenu = this.htmlSidebarBuilder.buildSidebarButton(this.attributesForButtonFifth, arrayOfPathAttributes);
-
         return divSidebarButtonMenu;
     }
 }

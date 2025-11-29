@@ -1,7 +1,6 @@
 import { HtmlAbstractDomElementPart } from '../HtmlDomElementHandler/HtmlAbstractDomElementPart.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 
-
 // Contains methods that create html-elements with attributes, but without any nesting children (except text content)
 export class HtmlSidebarBuilder // abstract Builder
 {
@@ -11,39 +10,24 @@ export class HtmlSidebarBuilder // abstract Builder
         this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
     }
 
-
     // ------------- Nesting button parts -----------
-
-
     buildSidebarButton(attributesForElements, arrayOfPathAttributes)
     {
-        // <div id="idButtonSidebarMenu" class="buttonWithGlowingRadialBorder menuButtonWithGlowingRadialBorder">
-        // or
+        // <div id="idButtonSidebarMenu" class="buttonWithGlowingRadialBorder menuButtonWithGlowingRadialBorder"> or        
         // <div id="idButtonSidebarMenu" class="buttonWithGlowingRadialBorder"> </div>
-
         let divButtonWithGlowingRadialBorder = this.htmlAbstractDomElementPart.createHtmlTag(attributesForElements.divButtonWithGlowingRadialBorderAttributes);
-
         // <div class="borderOfButtonWithGlowingRadialBorder"></div>
         let divBorderOfButtonWithGlowingRadialBorder = this.htmlAbstractDomElementPart.createHtmlTag(attributesForElements.divBorderOfButtonWithGlowingRadialBorderAttributes);
-
         // <div class="contentOfButtonWithGlowingRadialBorder"> </div>
         let divContentOfButtonWithGlowingRadialBorder = this.htmlAbstractDomElementPart.createHtmlTag(attributesForElements.divContentOfButtonWithGlowingRadialBorderAttributes);
-
         // <div class="glowingRadialGradientInsideButtonContent"></div>
         let divGlowingRadialGradientInsideButtonContent = this.htmlAbstractDomElementPart.createHtmlTag(attributesForElements.divGlowingRadialGradientInsideButtonContentAttributes);
-
         // <div class="sidebarIconContainer">
         let divSidebarIconContainer = this.buildSidebarIconContainer(attributesForElements.divSidebarIconContainerAttributes, attributesForElements.svgButtonMenuIconAttributes, arrayOfPathAttributes);
-
         // <div id="idMenuSidebarSvgTextForButtonContainer" class="sidebarSvgTextForButtonContainer">
         let divSidebarSvgTextForButtonContainer = this.buildSidebarSvgTextForButtonContainer(attributesForElements.divSidebarSvgTextForButtonContainerAttributes, attributesForElements.svgContainerSvgTextInsideButtonContentAttributes, attributesForElements.textOfButtonInsideSidebarAttributes);
-
-
-        // Inserting
-
         divButtonWithGlowingRadialBorder.addChildDomElement(divBorderOfButtonWithGlowingRadialBorder);
         divButtonWithGlowingRadialBorder.addChildDomElement(divContentOfButtonWithGlowingRadialBorder);
-
         divContentOfButtonWithGlowingRadialBorder.addChildDomElement(divGlowingRadialGradientInsideButtonContent);
         divContentOfButtonWithGlowingRadialBorder.addChildDomElement(divSidebarIconContainer);
         divContentOfButtonWithGlowingRadialBorder.addChildDomElement(divSidebarSvgTextForButtonContainer);
@@ -57,14 +41,10 @@ export class HtmlSidebarBuilder // abstract Builder
     {
         // <div class="sidebarIconContainer">
         let divSidebarIconContainer = this.htmlAbstractDomElementPart.createHtmlTag(sidebarIconContainerConfigurationObject);
-
         // <svg class="svgButtonIcon" xmlns="http://www.w3.org/2000/svg" viewBox=".....">
         let svgButtonIcon = this.htmlAbstractDomElementPart.createHtmlTag(svgContainerSvgTextConfigurationObject);
-
         let paths = this.buildPaths(arrayOfPathAttributes);
-
         svgButtonIcon.addChildren(paths);
-
         divSidebarIconContainer.addChildDomElement(svgButtonIcon);
 
         return divSidebarIconContainer;
@@ -90,17 +70,11 @@ export class HtmlSidebarBuilder // abstract Builder
     {
         // <div id="idMenuSidebarSvgTextForButtonContainer" class="sidebarSvgTextForButtonContainer">
         let divSidebarSvgTextForButtonContainer = this.htmlAbstractDomElementPart.createHtmlTag(sidebarSvgTextForButtonContainerConfigurationObject);
-
         // <svg class="containerSvgTextInsideButtonContent" viewBox="140 -17 1 25" xmlns="http://www.w3.org/2000/svg">
         let svgContainerSvgTextInsideButtonContent = this.htmlAbstractDomElementPart.createHtmlTag(svgContainerSvgTextConfigurationObject);
-
         // <text class="textOfButtonInsideSidebar">MENU</text>
         let text = this.htmlAbstractDomElementPart.createHtmlTag(textOfButtonConfigurationObject);
         this.htmlAbstractDomElementPart.createHtmlTagWithText(text, textOfButtonConfigurationObject.defaultTextInsideButton);
-
-
-        // Inserting
-
         divSidebarSvgTextForButtonContainer.addChildDomElement(svgContainerSvgTextInsideButtonContent);
         svgContainerSvgTextInsideButtonContent.addChildDomElement(text);
 

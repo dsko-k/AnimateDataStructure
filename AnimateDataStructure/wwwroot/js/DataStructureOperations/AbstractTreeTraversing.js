@@ -5,10 +5,6 @@ import { TraversingTreeInorder } from '../DatastructureTraversingTypes/Traversin
 import { TraversingTreePreorder } from '../DatastructureTraversingTypes/TraversingTreePreorder.js';
 import { TraversingTreePostorder } from '../DatastructureTraversingTypes/TraversingTreePostorder.js';
 
-// ------------ Beging pattern for writing and updating info about tree traversing -------------
-
-// Folder DataStructureOperations
-
 export class AbstractTreeTraversing
 {
     constructor(dataStructure)
@@ -30,7 +26,6 @@ export class AbstractTreeTraversing
 
         let typesOfTraversing = this.mapTreeTraversingType(traversingTreeOperationInstance);
         let statusOfTraversing = this.treeTraversingStatuses.statusesOfTraversing.traversed;
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(nodeVisited.value, typesOfTraversing, statusOfTraversing);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeTraversing(this.dataStructure);
     }
@@ -40,7 +35,6 @@ export class AbstractTreeTraversing
     {
         let isConditional = this.isConditionalTraversing(traversingTreeOperationInstance);
         let typesOfTraversing = this.treeTraversingStatuses.typesOfTraversing;
-
         this.mapTraversingTypes = {
 
             [new TraversingTreeInorder(this.dataStructure).constructor.name]: isConditional ? typesOfTraversing.conditionalTraverseInOrder : typesOfTraversing.traverseInOrder,
@@ -69,7 +63,6 @@ export class AbstractTreeTraversing
         let typesOfTraversing = this.mapTreeTraversingType(traversingTreeOperationInstance);
         let statusOfTraversing;
         let traverseUntillFindValue;
-
         if (isNaN(traversingTreeOperationInstance.traverseUntillFindValue)) // for Unconditional traversing
         {
             statusOfTraversing = this.treeTraversingStatuses.statusesOfTraversing.traversingStarted;
@@ -80,7 +73,6 @@ export class AbstractTreeTraversing
             statusOfTraversing = this.treeTraversingStatuses.statusesOfTraversing.searchingDuringTraversing;
             traverseUntillFindValue = traversingTreeOperationInstance.traverseUntillFindValue;
         }
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(traverseUntillFindValue, typesOfTraversing, statusOfTraversing);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeTraversing(this.dataStructure);
     }
@@ -91,7 +83,6 @@ export class AbstractTreeTraversing
         let typesOfTraversing = this.mapTreeTraversingType(traversingTreeOperationInstance);
         let statusOfTraversing;
         let traverseUntillFindValue;
-
         if (isNaN(traversingTreeOperationInstance.traverseUntillFindValue)) // for Unconditional traversing
         {
             statusOfTraversing = this.treeTraversingStatuses.statusesOfTraversing.traversingEnded;
@@ -101,12 +92,9 @@ export class AbstractTreeTraversing
         {
             let statuses = this.treeTraversingStatuses.statusesOfTraversing;
             statusOfTraversing = wasFoundTargetValue ? statuses.targetNodeFound : statuses.targetNodeNotFound;
-
             traverseUntillFindValue = traversingTreeOperationInstance.traverseUntillFindValue;
         }
-
         this.dataStructureActionInfo.writeNewEntryAboutActionInTree(traverseUntillFindValue, typesOfTraversing, statusOfTraversing);
         this.customEventHandlerHtmlTable.dispatchUpdateTableTreeTraversing(this.dataStructure);
     }
-
 }

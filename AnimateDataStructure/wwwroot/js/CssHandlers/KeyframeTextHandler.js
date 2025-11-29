@@ -3,18 +3,11 @@ import { Style } from './Style.js';
 export class KeyframeTextHandler // regexps do not match if style properties have comment
 {
 
-    // TO DO: add method that returns all parsed key-values for specified persentage:  getKeyValuesByPersentage(keyframeName, persentage)
-
     getAllKeyframes()
     {
-        //let patternText = /(\n*( *(?<persentage>\d+%|to|from) *(?<bodyPersentage>{+?\n*[^}]+}+?))\n *)/gm;    // persentage
-
         let patternText = / *@keyframes *(?<keyframeName>[A-Za-z0-9_]+) *\n*({ *((?<subBody>(\n*( *(?<persentage>\d+%+?|to|from)+? *(?<bodyPersentage>{\n*[^}]+})+?)))\n*)+ *})/gm;
-
         let styleInst = new Style();
-
         let styleText = styleInst.getStyleClassText();
-
         let result = styleText.match(patternText);
 
         return result;
@@ -24,7 +17,6 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
     getKeyframe(keyframeName)
     {
         let allKeyframes = this.getAllKeyframes();
-
         let regexp = new RegExp(` *@keyframes *${keyframeName} *\n*{`, "m");
 
         let foundKeyframe = allKeyframes.filter(keyframe =>
@@ -41,7 +33,6 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
     }
 
 
-    // ........
     getUnparsedKeyframeNameAndBody(keyframeName)
     {
         if (!this.isExistKeyframe(keyframeName))
@@ -50,10 +41,8 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         }
 
         let regexpKeyframe = new RegExp(`( *@keyframes *${keyframeName} *{\\n*)( *\\d+% *{\\n+[^}]+}\\n*)+\\n* *}`, "gm");
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let unparsedKeyframeBody = styleText.match(regexpKeyframe);
 
         return unparsedKeyframeBody[0];
@@ -68,10 +57,8 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         }
 
         let regexpKeyframe = new RegExp(`(?<=@keyframes *${keyframeName} *{\\n*)( *\\d+% *{\\n+[^}]+}\\n*)+(?=\\n* *})`, "gm");
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let unparsedKeyframeBody = styleText.match(regexpKeyframe);
 
         return unparsedKeyframeBody[0];
@@ -91,9 +78,7 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         }
 
         let regexpKeyframePersentage = new RegExp(` *[^\\d+]${persentage} *{\\n*[^}]+}`, "gm");
-
         let unparsedKeyframeBody = this.getUnparsedKeyframeBody(keyframeName);
-
         let result = unparsedKeyframeBody.match(regexpKeyframePersentage);
 
         return result[0];
@@ -108,16 +93,13 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         }
 
         let foundKeyframe = this.getKeyframe(keyframeName)[0];
-
-        let regexp = new RegExp(` *((?<persentage>(\\d+%+?|to|from)) *{(?<bodyPersentage>([^}]+)) *}+?\\n*)+`, "gm"); //new RegExp(` *((?<persentage>(\\d+%+?|to|from)) *{(?<bodyPersentage>([^}]+?))\\n* *}+?\\n*)+`, "gm");
-
+        let regexp = new RegExp(` *((?<persentage>(\\d+%+?|to|from)) *{(?<bodyPersentage>([^}]+)) *}+?\\n*)+`, "gm");
         let result = foundKeyframe.match(regexp);
 
         return result;
     }
 
 
-    // main
     getParsedKeyframe(keyframeName)
     {
         let foundKeyframe = this.getKeyframeBody(keyframeName);
@@ -130,11 +112,10 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         return result;
     }
 
-    // private
+
     parsePersentage(persentageWithBody)
     {
         let regexp = new RegExp(`(?<persentageLine>(?<beforePersentage> *)(?<persentage>(\\d+%+?|to|from))(?<afterPersentage> *)){(?<body>[^}]+)`, "m");
-
         let result = persentageWithBody.match(regexp);
 
         return {
@@ -178,7 +159,6 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         {
             throw new Error(`${keyframeName} was not found`);
         }
-
         let parsedKeyframe = this.getParsedKeyframe(keyframeName);
 
         return parsedKeyframe.map(entry => entry.persentage);
@@ -188,7 +168,6 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
     findPersentageBody(keyframeName, persentage)
     {
         let foundKeyframeBodies = this.getParsedKeyframe(keyframeName);
-
         let bodyOfPersentage = foundKeyframeBodies.filter(persentageEntry =>
         {
             return persentageEntry.persentage === persentage;
@@ -197,11 +176,11 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         return bodyOfPersentage;
     }
 
+
     // Return Key:Value entry by keyframeName, persentage and keyName
     findKeyframeKeyValue(keyframeName, persentage, keyName)
     {
         let foundKeyframeBodies = this.getParsedKeyframe(keyframeName);
-
         let result;
 
         foundKeyframeBodies.filter(persentageEntry =>
@@ -222,11 +201,11 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         return result;
     }
 
+
     // Return all persentages and Key:Value entries that occur in bodies of keyframeName
     findKeyframeAllKeyValues(keyframeName, keyName)
     {
         let foundKeyframeBodies = this.getParsedKeyframe(keyframeName);
-
         let result = [];
 
         foundKeyframeBodies.filter(persentageEntry =>
@@ -255,7 +234,6 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
     parseKeyframeEntry(keyframeBody)
     {
         let regexp = new RegExp(`(?<beforeKey>(^ *))(?<keyframeKey>([^:^{]+?))(?<afterKey>( *)):(?<beforeValue>( *))(?<keyframeValue>([^;]+?))(?<afterValue>( *;))`, "m");
-
         let bodyEntries = this.getPersentageBodyEntries(keyframeBody);
 
         let result = bodyEntries.map(entry =>
@@ -279,10 +257,10 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         return result;
     }
 
+
     isExistKeyframe(keyframeName)
     {
         let foundKeyframe = this.getKeyframe(keyframeName);
-
         return foundKeyframe.length === 1;
     }
 
@@ -345,16 +323,14 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         }
 
         let newKeyframe = `\n\n    @keyframes ${nameNewKeyframe} {\n${keyframeBody}}\n`;
-
         let style = document.getElementsByTagName("style")[0];
-
         style.insertAdjacentText("beforeend", newKeyframe);
     }
 
 
     copyKeyframe(keyframeNameToCopy, nameNewKeyframe)
     {
-        let bodyToCopy = /* "\n" + */ this.getKeyframeBody(keyframeNameToCopy).join("");
+        let bodyToCopy = this.getKeyframeBody(keyframeNameToCopy).join("");
 
         if (!this.isExistKeyframe(keyframeNameToCopy))
         {
@@ -395,7 +371,6 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         let newKeyValueLine = `    ${keyframeKeyName}: ${keyframeValue};\n`;
         let newPersentageBody = currentPersentageLine + `{` + currentPersentageBody + newKeyValueLine + `        }`;
 
-
         let currentKeyframeBody = this.getUnparsedKeyframeBody(keyframeName);
 
         let regexpPersentage = new RegExp(` *[^\\d+]${persentage} *{(?<bodyPersentage>([^}]+?))\\n* *}+?`, "gm"); // incorrect:  new RegExp(` *( ${persentage} *{(?<bodyPersentage>([^}]+)) *}+?\\n*)+`, "gm");
@@ -404,18 +379,14 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         let styleText = styleInst.getStyleClassText();
 
         let updatedKeyframeBody = currentKeyframeBody.replace(regexpPersentage, newPersentageBody);
-
         let regexpKeyframe = new RegExp(`(?<=@keyframes *${keyframeName} *{\\n*)( *\\d+% *{\\n+[^}]+}\\n*)+(?=\\n* *})`, "gm"); //
 
         let updatedStyle = styleText.replace(regexpKeyframe, updatedKeyframeBody);
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyle;
     }
 
 
-    // public
     // Update a value of the key
     updateValue(keyframeName, persentage, keyName, newValue)
     {
@@ -427,14 +398,10 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
     updateKeyName(keyframeName, persentage, keyNameToRename, newKeyName)
     {
         let foundKeyValueLine = this.findKeyframeKeyValue(keyframeName, persentage, keyNameToRename);
-
         let unchangedValue = foundKeyValueLine.keyframeValue;
-
         this.updateKeyframeKeyAndValue(keyframeName, persentage, keyNameToRename, newKeyName, unchangedValue);
     }
 
-
-    // private
     // Update Key and Value
     updateKeyframeKeyAndValue(keyframeName, persentage, keyNameToRename, newKeyName, newValue)
     {
@@ -452,45 +419,20 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         {
             throw new Error(`Unable to update key '${keyNameToRename}'. Keyframe '${keyframeName}' does not contain key '${keyNameToRename}' in body with persentage '${persentage}'`);
         }
-
-        // Get unparsed keyframege persentage
-
-        // Find target key-value
-
-        // Replace found key-value to new one
-
-        // Replace current keyframe with string from previous step
-
-        // Replace current style text with keyframe from previous step
-
+                
         let unparsedKeyframegePersentage = this.getUnparsedPersentage(keyframeName, persentage);
-
         let regexpKeyValue = new RegExp(`(^ *${keyNameToRename} *: *(?<keyframeValue>([^;]+?)) *;)`, "gm");
-
         let foundKeyValueLine = this.findKeyframeKeyValue(keyframeName, persentage, keyNameToRename);
-
         let updatedKeyValue = foundKeyValueLine.beforeKey + newKeyName + foundKeyValueLine.afterKey + ':' + foundKeyValueLine.beforeValue + newValue + foundKeyValueLine.afterValue;
-
         let newPersentageBody = unparsedKeyframegePersentage.replace(regexpKeyValue, updatedKeyValue);
-
         let currentUnparsedKeyframe = this.getUnparsedKeyframeNameAndBody(keyframeName);
-
         let regexpKeyframePersentage = new RegExp(` *[^\\d+]${persentage} *{\\n*[^}]+}`, "gm");
-
         let updatedKeyframe = currentUnparsedKeyframe.replace(regexpKeyframePersentage, newPersentageBody);
-
-
         let regexpUnparsedKeyframe = new RegExp(`( *@keyframes *${keyframeName} *{\\n*)( *\\d+% *{\\n+[^}]+}\\n*)+\\n* *}`, "gm");
-
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
-
         let updatedStyle = styleText.replace(regexpUnparsedKeyframe, updatedKeyframe);
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyle;
     }
 
@@ -503,17 +445,11 @@ export class KeyframeTextHandler // regexps do not match if style properties hav
         }
 
         let currentUnparsedKeyframe = this.getUnparsedKeyframeNameAndBody(keyframeName);
-
         let regexpKeyframe = new RegExp(`( *@keyframes *${keyframeName} *{\\n*)( *\\d+% *{\\n+[^}]+}\\n*)+\\n* *}`, "gm");
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let updatedStyle = styleText.replace(regexpKeyframe, '');
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyle;
     }
-
 }

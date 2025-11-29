@@ -1,4 +1,3 @@
-
 export class TreeStepAnimationChooserLinkBeforeAfterBalancing
 {
     constructor(isHideLink)
@@ -6,7 +5,6 @@ export class TreeStepAnimationChooserLinkBeforeAfterBalancing
         this.isHideLink = isHideLink;
     }
 
-    // choose array of steps to animate depends on nodeToAnimate, relativeNodeToAnimateAccross
     chooseStepsToAnimate(nodeToAnimate, relativeNodeToAnimateAccross, patternStepAnimationArrayOperation)
     {
         return patternStepAnimationArrayOperation.filter(stepObject =>
@@ -33,5 +31,4 @@ export class TreeStepAnimationChooserLinkBeforeAfterBalancing
             }
         });
     }
-
 }

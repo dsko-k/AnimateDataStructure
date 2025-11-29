@@ -25,47 +25,28 @@ export class HtmlTableCreator // Foreman
         let idTableToConstruct = dataTableToHtmlTableConfigurations.idTable;
         let tableHeadersText = this.dataToHtmlTableCreator.constructTableHeaders(dataTableToHtmlTableConfigurations.tableHeaderAttributes);
         let tableTextDataArray = this.dataToHtmlTableCreator.constructDataForHtmlTable(dataStructure, dataTableToHtmlTableConfigurations);
-
         let idTableContainer = dataTableToHtmlTableConfigurations.idTableContainer;
         let divTableContainer = this.htmlAbstractDomElementPart.createHtmlTagWithConfigurationParameter(this.attributesOfHtmlTable.divTableContainerAttributes, idTableContainer);
-
         let tableTitle = dataTableToHtmlTableConfigurations.tableTitle;
-        let divTableTitle = this.htmlTableBuilder.buildTableTitle(tableTitle);
-
-        //???
+        let divTableTitle = this.htmlTableBuilder.buildTableTitle(tableTitle);        
         let divTableButtonClose = this.htmlTableBuilder.buildTableButtonClose();
-
-
         let idTableSearchInput = dataTableToHtmlTableConfigurations.idTableSearchInput;
         let divTableSearchContainer = this.htmlTableBuilder.buildTableSearchContainer(idTableSearchInput);
-
         let divTableBody = this.htmlAbstractDomElementPart.createHtmlTag(this.attributesOfHtmlTable.divTableBodyAttributes);
-
-        let tableTag = this.constructTable(idTableToConstruct, tableHeadersText, tableTextDataArray);
-
-        // Resizer
+        let tableTag = this.constructTable(idTableToConstruct, tableHeadersText, tableTextDataArray);        
         let idVerticalResizer = dataTableToHtmlTableConfigurations.idTableResizerVerticalContainer;
         let divVerticalResizer = this.htmlTableBuilder.buildVerticalResizer(idVerticalResizer);
-
         let idHorizontalResizer = dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer;
-        let divHorizontalResizer = this.htmlTableBuilder.buildHorizontalResizer(idHorizontalResizer);
-
-        // Inserting
-
+        let divHorizontalResizer = this.htmlTableBuilder.buildHorizontalResizer(idHorizontalResizer);        
         divTableContainer.addChildDomElement(divTableTitle);
         divTableContainer.addChildDomElement(divTableButtonClose);
         divTableContainer.addChildDomElement(divTableSearchContainer);
         divTableContainer.addChildDomElement(divTableBody);
-
         divTableBody.addChildDomElement(tableTag);
-
         divTableContainer.addChildDomElement(divVerticalResizer);
         divTableContainer.addChildDomElement(divHorizontalResizer);
-
-
         let idSidebarContainer = this.attributesForSidebar.divSidebarContainerAttributes.defaultAttributes.id;
         let sidebarDomElement = document.getElementById(idSidebarContainer);
-
         let divTableContainerDomElement = divTableContainer.getCreatedDomElement();
         sidebarDomElement.insertAdjacentElement("afterend", divTableContainerDomElement);
 
@@ -76,13 +57,10 @@ export class HtmlTableCreator // Foreman
     constructTable(idTableToConstruct, tableHeadersText, tableTextDataArray)
     {
         let tableTag = this.htmlAbstractDomElementPart.createHtmlTagWithConfigurationParameter(this.attributesOfHtmlTable.tableAttributes, idTableToConstruct);
-
         let thead = this.htmlTableBuilder.buildTableThead(tableHeadersText);
         let tbody = this.htmlTableBuilder.buildTableTbody(tableTextDataArray);
-
         tableTag.addChildDomElement(thead);
         tableTag.addChildDomElement(tbody);
-
         return tableTag;
     }
 
@@ -91,7 +69,6 @@ export class HtmlTableCreator // Foreman
     constructTableRow(tableRowTextArray, rowViewOrderNumber)
     {
         let tr = this.htmlTableBuilder.buildTableTrForTds(tableRowTextArray, rowViewOrderNumber);
-
         return tr;
     }
 

@@ -10,10 +10,8 @@ namespace AnimateDataStructure.Web.Helpers
         {
             {ValidationErrorKeys.DuplicateValues, "InputValue"  }, // { "DuplicateValues", "InputValue" },
             {ValidationErrorKeys.ExistingValue, "InputValue"  }, // { "ExistingValue", "InputValue" }
-
             {ValidationErrorKeys.UserNotFound, string.Empty },
             {ValidationErrorKeys.UnexpectedError, string.Empty },
-
             {ValidationErrorKeys.BSTViolation, "InputValue" },
             {ValidationErrorKeys.AVLBalanceViolation, "InputValue" },
             {ValidationErrorKeys.MaxHeapViolation, "InputValue" },
@@ -21,7 +19,6 @@ namespace AnimateDataStructure.Web.Helpers
             {ValidationErrorKeys.RBTRedRootViolation, "InputValue" },
             {ValidationErrorKeys.RBTRedNodeHasRedChildViolation, "InputValue" }
         };
-
 
         public static void AddServiceResultErrorsToModelState(this ModelStateDictionary modelState, ServiceResult result)
         {

@@ -6,44 +6,14 @@ export class RedBlackTree extends AvlTree
 {
     constructor()
     {
-        super(); // !!!!!!!!!!!!!
-        this.creatorNode = new CreatorNodeRedBlackTree(this); // CHECK DATA STRUCTURE after new ... !!!!!!!
-
-        this.successorOfDeletedNode = null; // ??? node that became successor after deletion node
+        super();
+        this.creatorNode = new CreatorNodeRedBlackTree(this);
+        this.successorOfDeletedNode = null;
         this.initialSiblingToCheckAfterDeletion = null;
-
-        this.nodesToRecolor = []; // ??? list of nodes that have to be recolored
-        this.nodeToCheckRbtProperties = null; // ??? node that need to be checked on violation RBT properties
-        this.doubleBlackNode = null; // ?????
-
-
-        //this.root = null;
-        //this.treeLevelsBeforeNodeOperation = 0; // +++
-        //this.treeLevels = 0;
-        //this.currentAmountOfNodesInTree = 0; // +++
-        //this.totalAddedNodes = 0; // counter of nodes, that was added in this (if node deleted, then counter still unchanged). counter is never decreased
-        //this.lastAddedNode = null;
-        //this.lastDeletedNode = null;
-        //this.isTreeToBeAlignedByWidth = false; // for BinarySearchTree: Have to be aligned by width after addition or deletion node. For AVL this also takes into account previous balancing
-        //this.alignedTimes = 0; // how many times node was alligned
-        //this.treeViewState = new TreeViewState();
-        //this.creatorNode = new CreatorNodeBinarySearchTree(this); // CHECK DATA STRUCTURE after new ... !!!!!!!
-
-        // for balancing
-        //this.balancedTimes = 0; // how many times node was balanced  // for balancing
-        // for balancing
-        //this.nodeToCheckBalance = null; // {nodeToCheck: someNode, isAddition: true/false } nodeToCheck - added node or parent of successor node (after deletion), isAddition - node to check after addition or after deletion
-
-        // for balancing
-        // in base AbstractTree
-        //this.isLinkContainerShown = true; // set true in onAnimationEndBalancingUnfadeLinkContainer(..).   set false in onAnimationEndFadeLinkContainer(...)
-
-        // heap
-        //this.isMaxHeap = true; // TO DO: create as argument of constructor in class Heap. This class should be derived from class BinarySearchTree
+        this.nodesToRecolor = [];
+        this.nodeToCheckRbtProperties = null;
+        this.doubleBlackNode = null;
     }
-
-
-    // https://www.geeksforgeeks.org/insertion-in-red-black-this/
 
     /* Algorithm to fix RBT properties after ADDITION:
 
@@ -78,12 +48,10 @@ export class RedBlackTree extends AvlTree
         {
             return false;
         }
-
         if (Object.is(node, this.root))
         {
             return this.root.isNodeRed;
         }
-
         return !(node.parentNode.isNodeRed === false);
     }
 
@@ -94,7 +62,6 @@ export class RedBlackTree extends AvlTree
         {
             throw new Error(`Unable to find grandparent: node has level ${node.currentLevel}`);
         }
-
         return node.parentNode.parentNode;
     }
 
@@ -102,19 +69,15 @@ export class RedBlackTree extends AvlTree
     getUncleOfNode(node)
     {
         let parentNode = node.parentNode;
-
         let grandParentNode = this.getGrandParentNode(node);
-
         if (parentNode.isLeftChild === true)
         {
             return grandParentNode.rightChild;
         }
-
         if (parentNode.isLeftChild === false)
         {
             return grandParentNode.leftChild;
         }
-
         throw new Error(`Unable to find Uncle: node has level ${node.currentLevel}`);
     }
 
@@ -125,12 +88,10 @@ export class RedBlackTree extends AvlTree
         {
             return false;
         }
-
         return node.isNodeRed;
     }
 
 
-    // add value to the list of nodes to recolor
     addToListOfNodesToRecolor(nodeToRecolor)
     {
         this.nodesToRecolor.push(nodeToRecolor);
@@ -146,123 +107,76 @@ export class RedBlackTree extends AvlTree
     isRedUncleOfNode(nodeToCheckItUncle)
     {
         let uncleNode = this.getUncleOfNode(nodeToCheckItUncle);
-
         return this.checkIsNodeRed(uncleNode);
     }
 
 
-    // For addition in RBT
-    // rotate nodeToCheck with its ancestors
+    // For addition in RBT. Rotate nodeToCheck with its ancestors
     rotateNodesWhenUncleIsBlack(nodeToCheck)
     {
         let uncleNode = this.getUncleOfNode(nodeToCheck);
-
         if (this.checkIsNodeRed(uncleNode))
         {
             return;
         }
-
         let parentNode = nodeToCheck.parentNode;
         let grandParentNode = this.getGrandParentNode(nodeToCheck);
-
-
         this.setNodesToRecolorWhenUncleIsBlack(grandParentNode, parentNode, nodeToCheck);
-
-
         // Left Left Rotation (parentNode is left child of grandParentNode and nodeToCheck is left child of parentNode)
         if (Object.is(grandParentNode.leftChild, parentNode) && Object.is(parentNode.leftChild, nodeToCheck))
         {
             this.rotateRight(grandParentNode, parentNode);
-
-            //this.addToListOfNodesToRecolor(parentNode);
-            //this.addToListOfNodesToRecolor(grandParentNode);
         }
         // Right Right Rotation
         else if (Object.is(grandParentNode.rightChild, parentNode) && Object.is(parentNode.rightChild, nodeToCheck))
         {
             this.rotateLeft(grandParentNode, parentNode);
-
-            //this.addToListOfNodesToRecolor(parentNode);
-            //this.addToListOfNodesToRecolor(grandParentNode);
         }
         // Left Right Rotation (parentNode is left child of grandParentNode and nodeToCheck is the right child of parentNode)
         else if (Object.is(grandParentNode.leftChild, parentNode) && Object.is(parentNode.rightChild, nodeToCheck))
         {
             this.rotateLeftRight(grandParentNode, parentNode, nodeToCheck);
-
-            //this.addToListOfNodesToRecolor(grandParentNode);
-            //this.addToListOfNodesToRecolor(nodeToCheck);
         }
         // Right Left Rotation
         else if (Object.is(grandParentNode.rightChild, parentNode) && Object.is(parentNode.leftChild, nodeToCheck))
         {
             this.rotateRightLeft(grandParentNode, parentNode, nodeToCheck);
-
-            //this.addToListOfNodesToRecolor(grandParentNode);
-            //this.addToListOfNodesToRecolor(nodeToCheck);
         }
-
         this.nodeToCheckRbtProperties = null;
-
-        this.balancedTimes++; // Increase balancing counter
-
+        this.balancedTimes++;
         this.updateNodesLevelInTree(); // recalculate levelInTree for every node
     }
 
 
-    // For addition in RBT
-    // glow border of the node, that will be the head after rotation
+    // For addition in RBT. Glow border of the node, that will be the head after rotation
     getNodeToBeHeadAfterRotationDuringAddition(nodeToCheck) // nodeToCheck is nodeWhereFiredEvent during addition
     {
         let uncleNode = this.getUncleOfNode(nodeToCheck);
-
         if (this.checkIsNodeRed(uncleNode))
         {
             return;
         }
-
         let parentNode = nodeToCheck.parentNode;
         let grandParentNode = this.getGrandParentNode(nodeToCheck);
-
-
         // Left Left Rotation (parentNode is left child of grandParentNode and nodeToCheck is left child of parentNode)
         if (Object.is(grandParentNode.leftChild, parentNode) && Object.is(parentNode.leftChild, nodeToCheck))
         {
             return parentNode;
-            //this.rotateRight(grandParentNode, parentNode);
-
-            //this.addToListOfNodesToRecolor(parentNode);
-            //this.addToListOfNodesToRecolor(grandParentNode);
         }
         // Right Right Rotation
         else if (Object.is(grandParentNode.rightChild, parentNode) && Object.is(parentNode.rightChild, nodeToCheck))
         {
             return parentNode;
-
-            //this.rotateLeft(grandParentNode, parentNode);
-
-            //this.addToListOfNodesToRecolor(parentNode);
-            //this.addToListOfNodesToRecolor(grandParentNode);
         }
         // Left Right Rotation (parentNode is left child of grandParentNode and nodeToCheck is the right child of parentNode)
         else if (Object.is(grandParentNode.leftChild, parentNode) && Object.is(parentNode.rightChild, nodeToCheck))
         {
             return nodeToCheck;
-
-            //this.rotateLeftRight(grandParentNode, parentNode, nodeToCheck);
-
-            //this.addToListOfNodesToRecolor(grandParentNode);
-            //this.addToListOfNodesToRecolor(nodeToCheck);
         }
         // Right Left Rotation
         else if (Object.is(grandParentNode.rightChild, parentNode) && Object.is(parentNode.leftChild, nodeToCheck))
         {
             return nodeToCheck;
-
-            //this.rotateRightLeft(grandParentNode, parentNode, nodeToCheck);
-
-            //this.addToListOfNodesToRecolor(grandParentNode);
-            //this.addToListOfNodesToRecolor(nodeToCheck);
         }
     }
 
@@ -293,46 +207,37 @@ export class RedBlackTree extends AvlTree
     }
 
 
-    // For deletion in RBT
-    // When a black node is deleted and replaced by a black successor, the successor is marked as double black
+    // For deletion in RBT. When a black node is deleted and replaced by a black successor, the successor is marked as double black
     checkIsSuccessorDoubleBlackNode(nodeToDelete, successor)
     {
         return !this.checkIsNodeRed(nodeToDelete) && !this.checkIsNodeRed(successor);
     }
 
 
-    // For deletion in RBT
     isAnyChildIsRed(node)
     {
         if (!node)
         {
             return false;
         }
-
-        //return (node.leftChild && node.leftChild.isNodeRed) || (node.rightChild && node.rightChild.isNodeRed);
         return this.checkIsNodeRed(node.leftChild) || this.checkIsNodeRed(node.rightChild);
     }
 
 
-    // IS NEEDED+++
-    // For deletion in RBT
     getSiblingOf(node)
     {
-        if (node.isLeftChild === null) // ???????????????????
+        if (node.isLeftChild === null)
         {
             throw new Error(`Sibling of root node does not exist`);
         }
-
         if (node.isLeftChild)
         {
             return node.parentNode.rightChild;
         }
-
         return node.parentNode.leftChild;
     }
 
 
-    // ??????
     getInitialSiblingToCheckAfterDeletion(nodeToDelete, successor)
     {
         if (successor !== null)
@@ -343,93 +248,62 @@ export class RedBlackTree extends AvlTree
         {
             return null;
         }
-
         return nodeToDelete.isLeftChild ? nodeToDelete.parentNode.rightChild : nodeToDelete.parentNode.leftChild;
     }
 
 
-    // for fix after deletion (case when sibling is red)
-    // Determing a new sibling after rotation using rotateNodesWhenSiblingIsRed(siblingOfNodeToDelete)
+    // For fix after deletion (case when sibling is red). Determing a new sibling after rotation
     getNewSiblingAfterRotationNodesWhenSiblingIsRed(parentOfSiblingBeforeRotation, leftChildOfParentOfSiblingBeforeRotation, rightChildOfParentOfSiblingBeforeRotation)
     {
-        // DO NOT DELETE COMMENT:
-        // if left or right child of parentOfSiblingBeforeRotation is not changed after rotation, then it is unchanged child is double black
+        // If left or right child of parentOfSiblingBeforeRotation is not changed after rotation, then it is unchanged child is double black
         // sibling of unchanged child is a new sibling after rotation
-
         // Note: parentOfSiblingBeforeRotation is not changed after rotation (changed only one of its child)
-
         if (Object.is(parentOfSiblingBeforeRotation.leftChild, leftChildOfParentOfSiblingBeforeRotation))
         {
             return parentOfSiblingBeforeRotation.rightChild;
         }
-
         return parentOfSiblingBeforeRotation.leftChild;
     }
 
 
-    // For deletion in RBT
-    // When sibling is black and sibling has TWO red child
+    // For deletion in RBT. When sibling is black and sibling has TWO red child
     rotateNodesWhenSiblingIsBlackAndHasTwoRedChildren(siblingOfNodeToDelete)
     {
-        let areBothChildrenOfSiblingRed = this.checkIsNodeRed(siblingOfNodeToDelete.leftChild) &&
-            this.checkIsNodeRed(siblingOfNodeToDelete.rightChild);
-
+        let areBothChildrenOfSiblingRed = this.checkIsNodeRed(siblingOfNodeToDelete.leftChild) && this.checkIsNodeRed(siblingOfNodeToDelete.rightChild);
         if (!areBothChildrenOfSiblingRed)
         {
             throw new Error(`Sibling of node to delete has no two red children`);
         }
-
         let parentOfSibling = siblingOfNodeToDelete.parentNode;
-
-        // for recoloring
-
-        this.setNodesToRecolorWhenSiblingIsBlackAndHasTwoRedChildren(siblingOfNodeToDelete, parentOfSibling);
-
-
-        // Left Left rotation when both children of sibling are red
-        if (siblingOfNodeToDelete.isLeftChild)
+        this.setNodesToRecolorWhenSiblingIsBlackAndHasTwoRedChildren(siblingOfNodeToDelete, parentOfSibling);        
+        if (siblingOfNodeToDelete.isLeftChild) // Left Left rotation when both children of sibling are red
         {
             this.rotateRight(parentOfSibling, siblingOfNodeToDelete);
-        }
-        // Right Right rotation when both children of sibling are red
-        else
+        }        
+        else // Right Right rotation when both children of sibling are red
         {
             this.rotateLeft(parentOfSibling, siblingOfNodeToDelete);
         }
-
-        this.nodeToCheckRbtProperties = null; // siblingOfNodeToDelete; // ??????
-
-
-        this.balancedTimes++; // Increase balancing counter
-
-        this.updateNodesLevelInTree(); // recalculate levelInTree for every node
+        this.nodeToCheckRbtProperties = null;
+        this.balancedTimes++;
+        this.updateNodesLevelInTree();
     }
 
 
     // For deletion in RBT
     setNodesToRecolorWhenSiblingIsBlackAndHasTwoRedChildren(siblingBeforeRotation, parentBeforeRotation)
     {
-        // for recoloring
-
-        // add to list of nodes to recolor (black sibling with 2 red children):
-        // 1. Red child: left child if siblingOfNodeToDelete is left child or right child if siblingOfNodeToDelete is right child
-        // 2. siblingOfNodeToDelete (if parent of siblingOfNodeToDelete is red)
-        // 3. parent of siblingOfNodeToDelete if this parent is red
-
         if (this.checkIsNodeRed(parentBeforeRotation))
         {
             this.addToListOfNodesToRecolor(parentBeforeRotation);
             this.addToListOfNodesToRecolor(siblingBeforeRotation);
         }
-
         let redChildToRecolor = siblingBeforeRotation.isLeftChild ? siblingBeforeRotation.leftChild : siblingBeforeRotation.rightChild;
-
         this.addToListOfNodesToRecolor(redChildToRecolor);
     }
 
 
-    // For deletion in RBT
-    // When sibling is black and sibling has only ONE red child
+    // For deletion in RBT. When sibling is black and sibling has only ONE red child
     rotateNodesWhenSiblingIsBlackAndHasOneRedChild(siblingOfNodeToDelete)
     {
         if (!this.isAnyChildIsRed(siblingOfNodeToDelete))
@@ -440,29 +314,9 @@ export class RedBlackTree extends AvlTree
         {
             throw new Error(`Sibling has two red children`);
         }
-
         let redChildOfSibling = this.checkIsNodeRed(siblingOfNodeToDelete.leftChild) ? siblingOfNodeToDelete.leftChild : siblingOfNodeToDelete.rightChild;
-
         let parentOfSibling = siblingOfNodeToDelete.parentNode;
-
-
-        // for recoloring ?????
-
-        //// add to list of nodes to recolor (black sibling with 2 red children):
-        //// 1. Red child
-        //// 2. swap colors of sibling and its parent (if they are not the same color)
-
-        //this.addToListOfNodesToRecolor(redChildOfSibling); // ????
-
-        //if (this.checkIsNodeRed(siblingOfNodeToDelete) != this.checkIsNodeRed(siblingOfNodeToDelete.parentNode))
-        //{
-        //    this.addToListOfNodesToRecolor(siblingOfNodeToDelete);
-        //    this.addToListOfNodesToRecolor(siblingOfNodeToDelete.parentNode);
-        //}
-
         this.setNodesToRecolorWhenSiblingIsBlackAndHasOneRedChild(siblingOfNodeToDelete, parentOfSibling, redChildOfSibling);
-
-
         // Left Left Rotation (s is left child of its parent and r is left child of s or both children of s are red)
         if (siblingOfNodeToDelete.isLeftChild && redChildOfSibling.isLeftChild)
         {
@@ -476,21 +330,16 @@ export class RedBlackTree extends AvlTree
         // Left Right Rotation (s is left child of its parent and r is right child)
         else if (siblingOfNodeToDelete.isLeftChild && !redChildOfSibling.isLeftChild)
         {
-            this.rotateLeftRight(parentOfSibling, siblingOfNodeToDelete, redChildOfSibling); // incorrect naming method when it was defined ??????????????
+            this.rotateLeftRight(parentOfSibling, siblingOfNodeToDelete, redChildOfSibling);
         }
         // Right Left Rotation (s is right child of its parent and r is left child of s)
         else if (!siblingOfNodeToDelete.isLeftChild && redChildOfSibling.isLeftChild)
         {
-            this.rotateRightLeft(parentOfSibling, siblingOfNodeToDelete, redChildOfSibling); // incorrect naming method when it was defined ??????????????
+            this.rotateRightLeft(parentOfSibling, siblingOfNodeToDelete, redChildOfSibling);
         }
-
-
-        this.nodeToCheckRbtProperties = null; //????   //siblingOfNodeToDelete;
-
-
-        this.balancedTimes++; // Increase balancing counter
-
-        this.updateNodesLevelInTree(); // recalculate levelInTree for every node
+        this.nodeToCheckRbtProperties = null;
+        this.balancedTimes++;
+        this.updateNodesLevelInTree();
     }
 
 
@@ -525,31 +374,20 @@ export class RedBlackTree extends AvlTree
                 this.addToListOfNodesToRecolor(redChildBeforeRotation);
             }
         }
-
     }
 
 
-    // For deletion in RBT
-    // rotate nodeToCheck with its ancestors
+    // For deletion in RBT. Rotate nodeToCheck with its ancestors
     rotateNodesWhenSiblingIsRed(siblingOfNodeToDelete)
     {
         if (!this.checkIsNodeRed(siblingOfNodeToDelete))
         {
             throw new Error(`Sibling is not red`);
         }
-
         let parentOfSibling = siblingOfNodeToDelete.parentNode;
-
         let leftChildOfParentOfSiblingBeforeRotation = parentOfSibling.leftChild;
         let rightChildOfParentOfSiblingBeforeRotation = parentOfSibling.rightChild;
-
-        // for recoloring
-
         this.setNodesToRecolorWhenSiblingIsRed(siblingOfNodeToDelete, siblingOfNodeToDelete.parentNode);
-
-
-
-
         // Left Left rotation when both children of sibling are red
         if (siblingOfNodeToDelete.isLeftChild)
         {
@@ -560,38 +398,21 @@ export class RedBlackTree extends AvlTree
         {
             this.rotateLeft(parentOfSibling, siblingOfNodeToDelete);
         }
-
-        // see picture in case 3.2 (c)   https://www.geeksforgeeks.org/deletion-in-red-black-this/
-        // sibling of deleted node after rotation
-
         this.nodeToCheckRbtProperties = this.getNewSiblingAfterRotationNodesWhenSiblingIsRed(parentOfSibling, leftChildOfParentOfSiblingBeforeRotation, rightChildOfParentOfSiblingBeforeRotation);
-
-
-
-        this.balancedTimes++; // Increase balancing counter
-
-        this.updateNodesLevelInTree(); // recalculate levelInTree for every node
+        this.balancedTimes++;
+        this.updateNodesLevelInTree();
     }
 
 
     // For deletion in RBT
     setNodesToRecolorWhenSiblingIsRed(siblingBeforeRotation, parentBeforeRotation)
     {
-        // add to list of nodes to recolor (black sibling with 2 red children):
-        // 1. Swap colors of sibling and its parent
-        // Reapply other cases that are suitable
-
-        if (this.checkIsNodeRed(siblingBeforeRotation) != this.checkIsNodeRed(parentBeforeRotation)) // no need (sibling is red and its parent is black always in this case)???
+        if (this.checkIsNodeRed(siblingBeforeRotation) != this.checkIsNodeRed(parentBeforeRotation))
         {
             this.addToListOfNodesToRecolor(siblingBeforeRotation);
             this.addToListOfNodesToRecolor(parentBeforeRotation);
         }
     }
-
-
-    // ?????
-
-    // DO NOT DELETE:
 
     // Represent tree as array of numbers from top level of tree to the bottom level with addition elements of flag isRedNode (BFS)
     // 10.254,true,11.512,false,21,true,22.554,false,35,true
@@ -599,13 +420,10 @@ export class RedBlackTree extends AvlTree
     getDataStructureNodesAsString()
     {
         let allNodesByLevels = this.getAllNodesByLevels();
-
         // flatten array allNodesByLevels with addition elements of flag isRedNode: [ 10, false, 11, false, 9, false, 12, true ]
         let flattenNodeValuesIsRedNodeFlag = allNodesByLevels
             .flatMap(level => level.flatMap(node => [node.value, node.isNodeRed]));
-
         // converts array [ 10, false, 11, false, 9, false, 12, true ] into string "10,false,11,false,9,false,12,true"
         return flattenNodeValuesIsRedNodeFlag.join(',');
     }
-
 }

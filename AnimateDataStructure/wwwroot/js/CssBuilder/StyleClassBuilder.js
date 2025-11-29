@@ -28,7 +28,7 @@ export class StyleClassBuilder // ConcreteBuilder for Style class
         }
     }
 
-    // TO DO: remove to Base class
+
     writeStyleClassState(refactoredStepAnimation, isBeforeUpdate)
     {
         let newStyleClassName = this.getNewStyleClassName(refactoredStepAnimation);
@@ -66,10 +66,6 @@ export class StyleClassBuilder // ConcreteBuilder for Style class
     }
 
 
-    // PRIVATE
-
-    // MOVE TO BASE CLASS
-
     getKeysToUpdate(refactoredStepAnimation, updatingStyleClassName)
     {
         let keysToUpdate = refactoredStepAnimation.styleClassPrototypeStepAnimation.styleKeysToUpdate;
@@ -90,22 +86,20 @@ export class StyleClassBuilder // ConcreteBuilder for Style class
         return this.styleClassCalculatorOperation.styleClassTextHandler.isExistStyleClass(styleClassName);
     }
 
-    // PRIVATE MOVE TO BASE CLASS
+
     getNewStyleClassName(refactoredStepAnimation)
     {
         return this.contextCssEntityCalculator.getCssEntityNewName(refactoredStepAnimation.nodesInfoStepAnimation.applyStepToNodeToAnimate);
     }
 
 
-    // PRIVATE MOVE TO BASE CLASS
     getStyleClassContent(styleClassName)
     {
         return this.styleClassCalculatorOperation.styleClassTextHandler.getStyleClass(styleClassName);
     }
 
 
-    // update value of Style class by name of its key
-    // private
+    // Update value of Style class by name of its key
     updateStyleClassValue(updatingStyleClassName, styleKeyToUpdate)
     {
         if (this.contextCssEntityCalculator.isValueToCalculate(styleKeyToUpdate))
@@ -120,5 +114,4 @@ export class StyleClassBuilder // ConcreteBuilder for Style class
             this.styleClassCalculatorOperation.styleClassTextHandler.updateValue(updatingStyleClassName, styleKeyToUpdate, newValue);
         }
     }
-
 }

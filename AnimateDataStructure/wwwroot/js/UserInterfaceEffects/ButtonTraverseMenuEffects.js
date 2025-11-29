@@ -14,9 +14,6 @@ export class ButtonTraverseMenuEffects extends AbstractControlButtonEffects
 
 	onMouseDown()
 	{
-		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonTraverseMenuConfigurations.buttonTraverseMenuAttributes);
-		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonTraverseMenuConfigurations.buttonTraverseMenuAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
@@ -25,8 +22,6 @@ export class ButtonTraverseMenuEffects extends AbstractControlButtonEffects
 
 	onMouseUp()
 	{
-		//this.onAbstractMouseUp(this.idButton, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
@@ -34,28 +29,16 @@ export class ButtonTraverseMenuEffects extends AbstractControlButtonEffects
 
 	onAbstractMouseDown(idButton, buttonContainerDomElement, additionalClassOnMouseDown, context)
 	{
-		// ???
 		if (!buttonContainerDomElement)
 		{
 			throw new Error("Container for buttons is not specified");
 		}
-
 		let buttonNodeDomElement = context.getDomElement(idButton);
 
 		buttonNodeDomElement.addEventListener("mousedown", function (evn)
 		{
-			//let inputContainerDomElement = context.getInputContainerDomElement();
-			//inputContainerDomElement.classList.toggle(additionalClassOnMouseDown);
-
-			//// show or hide list of traverse menu
-			//this.showHideTraverseMenuList(this.idlistOfTraverseMenu, this.listOfTraverseMenuConfigurations.listOfTraverseMenuAttributes);
-
-
 			buttonContainerDomElement.classList.toggle(additionalClassOnMouseDown);
-
-			// show or hide list of traverse menu
 			this.showHideTraverseMenuList(this.idlistOfTraverseMenu, this.listOfTraverseMenuConfigurations.listOfTraverseMenuAttributes)
-
 		}.bind(context));
 	}
 
@@ -72,5 +55,4 @@ export class ButtonTraverseMenuEffects extends AbstractControlButtonEffects
 		let additionalClassForListOfTraverseMenu = this.getAdditionalClassOnMouseDown(listOfTraverseMenuAttributes);
 		listOfTraverseMenuDomElement.classList.toggle(additionalClassForListOfTraverseMenu);
 	}
-
 }

@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 
-export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator // ConcreteStrategyA
+export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, allStepAnimation)
     {
@@ -15,7 +15,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
     calculateEntityName(isForNodeToAnimate)
     {
         let lastRelativeNodeToAnimateAccross = this.allStepAnimation[this.allStepAnimation.length - 1].stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross;
-
         return this.styleClassPrototypeName + "_" + lastRelativeNodeToAnimateAccross.nodeId;
     }
 
@@ -41,7 +40,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
     {
         if (keyName === "--topSuperContainer")
         {
-            //return this.getCurrentValue(this.styleClassPrototypeName, keyName);
             return this.allStepAnimation[0].stepAnimationObject.nodesInfoStepAnimation.nodeToAnimate.startPositionY + "px";
         }
     }
@@ -74,7 +72,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
     }
 
 
-    // private
     getCoordinate(keyName)
     {
         let targetStepAnimation = this.allStepAnimation[this.allStepAnimation.length - 1];
@@ -122,7 +119,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
     {
         if (keyName === "--animationNamesBorderRotatorContainerLeftRightTurn")
         {
-
             let arrayOfStepNames = [
                 "highlight left border of nodeToAnimate",
                 "highlight right border of nodeToAnimate",
@@ -233,7 +229,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
         if (keyName === "--animationDelaySuperContainer")
         {
             // every possible step name
-
             let arrayOfStepNames = [
                 "above related node",
                 "below to related node",
@@ -260,14 +255,10 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
     }
 
 
-    // PRIVATES
-
     getDelaysString(arrayOfStepNames)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
-
         let totalDelaysSoFar = 0;  // current step delay should include
         let totalDurationsSoFar = 0; // current step duration should NOT include
 
@@ -301,7 +292,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
     getKeyframesNamesString(keyframesPrototypePropertyNameStep, arrayOfStepNames, styleKeyName)
     {
         let setOfTargetStepNames = new Set(arrayOfStepNames);
-
         let newValue = "";
 
         this.allStepAnimation.forEach(currentStepAnimation =>
@@ -317,8 +307,7 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
                 }
                 else if (keyframesPrototypePropertyNameStep === "keyframesPrototypeInsideBorder")
                 {
-                    let nodeId = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross.nodeId
-
+                    let nodeId = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross.nodeId;
                     newValue += keyframePrototypeName + "_Find_" + nodeId + ", ";
                 }
                 else
@@ -327,7 +316,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
                 }
             }
         });
-
 
         if (newValue === "")
         {
@@ -347,8 +335,6 @@ export class StyleClassCalculatorFindNode extends AbstractCssEntityCalculator //
         let nodeId = currentStepAnimation.stepAnimationObject.nodesInfoStepAnimation.relativeNodeToAnimateAccross.nodeId;
         return keyframePrototypeName + "_Find_" + nodeId;
     }
-
-    // --------------------------- The end of calculation properties ---------------------------
 
 
     checkIsCalculatorFound(keyName)

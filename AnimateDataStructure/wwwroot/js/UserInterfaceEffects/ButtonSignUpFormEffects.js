@@ -3,8 +3,6 @@ import { Authentication } from '../Authentication/Authentication.js';
 import { SignUpFormFieldsHelper } from '../Authentication/SignUpFormFieldsHelper.js';
 import { ContextFormFieldsHelper } from '../Authentication/ContextFormFieldsHelper.js';
 
-
-
 export class ButtonSignUpFormEffects extends AbstractControlButtonEffects
 {
 	constructor()
@@ -16,21 +14,17 @@ export class ButtonSignUpFormEffects extends AbstractControlButtonEffects
 	}
 
 
-	// DO NOT DELETE: reimplementing
+	// reimplementing
 	getInputContainerDomElement()
 	{
 		let authenticationFormsConfigurations = this.htmlConfigurationAttributesReader.getAuthenticationFormsDatastructuresConfigurations();
 		let idSignUpFormContainer = authenticationFormsConfigurations.divSubmitSignUpContainerAttributes.defaultAttributes.id;
-
 		return this.htmlPageDomUpdater.getDomElementOnPageById(idSignUpFormContainer);
 	}
 
 
 	onMouseDown()
 	{
-		//let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonSubmitSignUpFormConfigurations.buttonSubmitSignUpFormAttributes);
-		//this.onAbstractMouseDown(this.idButton, additionalClassOnMouseDown, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		let additionalClassOnMouseDown = this.getAdditionalClassOnMouseDown(this.buttonSubmitSignUpFormConfigurations.buttonSubmitSignUpFormAttributes);
 		this.onAbstractMouseDown(this.idButton, inputContainerDomElement, additionalClassOnMouseDown, this);
@@ -39,8 +33,6 @@ export class ButtonSignUpFormEffects extends AbstractControlButtonEffects
 
 	onMouseUp()
 	{
-		//this.onAbstractMouseUp(this.idButton, this);
-
 		let inputContainerDomElement = this.getInputContainerDomElement();
 		this.onAbstractMouseUp(this.idButton, inputContainerDomElement, this);
 	}
@@ -49,22 +41,16 @@ export class ButtonSignUpFormEffects extends AbstractControlButtonEffects
 	onMouseClick()
 	{
 		let methodAfterRippleEffectEnded = (evn) => this.onAfterRippleEffectEnded();
-
-		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded); // method onAfterRippleEffectEnded should be implemented here instead null
+		this.onAbstractClick(this.idButton, this, methodAfterRippleEffectEnded);
 	}
 
 
 	onAfterRippleEffectEnded(evn)
 	{
 		let signUpFormFieldsHelper = new SignUpFormFieldsHelper();
-
-		let contextFormFieldsHelper = new ContextFormFieldsHelper(signUpFormFieldsHelper);				
-
+		let contextFormFieldsHelper = new ContextFormFieldsHelper(signUpFormFieldsHelper);
 		let signUpFormDomElements = contextFormFieldsHelper.obtainFormDomElements();
-
 		let idFormSignUp = signUpFormFieldsHelper.idForm;
-
 		this.authentication.onClickButtonSubmitForm(signUpFormDomElements, idFormSignUp, contextFormFieldsHelper);
 	}
-
 }

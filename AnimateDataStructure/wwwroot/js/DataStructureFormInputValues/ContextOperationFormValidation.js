@@ -23,11 +23,8 @@ export class ContextOperationFormValidation
     }
 
 
-    // ???
     checkValidityNodeParentListToSaveNodes(formDomElements, nodeParentListToSave, controlHandler)
     {
         return this.operationFormValidation.isValidNodeParentListToBeSaved(formDomElements, nodeParentListToSave, controlHandler);
     }
-
-
 }

@@ -1,6 +1,6 @@
 ﻿import { HtmlPageDomUpdater } from '../HtmlDomElementHandler/HtmlPageDomUpdater.js';
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
-import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js'
+import { ButtonHelper } from '../DomElementHelpers/ButtonHelper.js';
 import { ConverterConfigirationsToDomElement } from '../HtmlDomElementHandler/ConverterConfigirationsToDomElement.js';
 import { AuthenticationChecker } from './AuthenticationChecker.js';
 
@@ -32,7 +32,7 @@ export class AfterAuthentication
     }
 
 
-    // DO NOT DELETE: convention: tag related to buttonAuthenticateDomElement should contains attribute
+    // Convention: tag related to buttonAuthenticateDomElement should contains attribute
     // data-idButtonToClickAfterAuthentication
     getIdButtonToBeClickedAfterAuthentication(buttonAuthenticateDomElement)
     {

@@ -1,6 +1,5 @@
 ﻿import { InputValuesFormFieldsHelper } from './InputValuesFormFieldsHelper.js';
 
-
 export class AbstractOperationFormValidation
 {
     constructor()
@@ -12,16 +11,13 @@ export class AbstractOperationFormValidation
     isValidFormFields(inputValuesFormDomElements, controlHandler)
     {
         this.inputValuesFormFieldsHelper.throwIfEmptyFormDomElements(inputValuesFormDomElements);
-
         let inputValueDomElement = inputValuesFormDomElements.inputForNodeValueDomElement;
         let errorInputValueDomElement = inputValuesFormDomElements.errorInputValueDomElement;
-
         let isValidInputNumber = this.validateInputNumber(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberWithoutComma = this.validateInputNumberComma(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberWithoutSpace = this.validateInputNumberSpace(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberWithoutLetter = this.validateInputWithoutLetter(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberNonEmpty = this.validateInputNumberNonEmptiness(inputValueDomElement, errorInputValueDomElement);
-
         let valuesOfNodesInDataStructure = this.getCurrentNodesInDataStructure(controlHandler);
         let isInputNumberUnique = this.validateUniquenessInputNumber(inputValueDomElement, errorInputValueDomElement, valuesOfNodesInDataStructure);
 
@@ -47,9 +43,7 @@ export class AbstractOperationFormValidation
 
     isValidInputNumber(inputValue)
     {
-        //const regex = /^\d+(\.\d+)?$/;
         const regex = /^-?\d+(\.\d+)?$/; // accept one positive or negative integer or float number
-
         return regex.test(inputValue);
     }
 
@@ -142,7 +136,6 @@ export class AbstractOperationFormValidation
     validateUniquenessInputNumber(inputValuesDomElement, errorInputValueDomElement, valuesOfNodesInDataStructure)
     {
         this.inputValuesFormFieldsHelper.throwIfInputEmpty(inputValuesDomElement, errorInputValueDomElement);
-        
         const inputValue = inputValuesDomElement.value;
 
         if (!this.isInputNumberUnique(inputValue, valuesOfNodesInDataStructure))
@@ -158,7 +151,6 @@ export class AbstractOperationFormValidation
     isInputNumberUnique(inputValue, valuesOfNodesInDataStructure)
     {
         let newNodeValueWithExistedNodeValues = [inputValue, ...valuesOfNodesInDataStructure];
-
         return this.checkUniquenessExistedNodes(newNodeValueWithExistedNodeValues);
     }
 
@@ -178,12 +170,9 @@ export class AbstractOperationFormValidation
 
     extractNumbers(stringOfNodesInDataStructure)
     {
-        const numberRegex = /[0-9]+(?:\.[0-9]+)?/g; // universal for string with flags and without their
-                
+        const numberRegex = /[0-9]+(?:\.[0-9]+)?/g;
         const numbers = stringOfNodesInDataStructure.match(numberRegex);
-
-        // Return an empty array if no matches are found, to avoid a null return
-        return numbers || [];
+        return numbers || []; // Return an empty array if no matches are found to avoid a null return
     }
 
 

@@ -13,9 +13,7 @@ export class AppliedNodeStyles
 		{
 			throw new Error(`Node is ${node}`);
 		}
-
 		let foundDomElements = Array.from(document.querySelectorAll(`[id*=${node.nodeId}]`));
-
 		return !foundDomElements ? foundDomElements : foundDomElements.map(domElement =>
 		{
 			return {
@@ -30,11 +28,9 @@ export class AppliedNodeStyles
 	addAppliedNodeStyles(node, nodeState)
 	{
 		let allDomNodes = this.getAllDomNodes(node);
-
 		this.appliedNodeStyles.push({
 			allDomNodes: allDomNodes,
 			nodeState: nodeState,
 		});
 	}
-
 }

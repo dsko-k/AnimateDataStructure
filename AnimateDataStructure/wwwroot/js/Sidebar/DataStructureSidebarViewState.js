@@ -11,8 +11,8 @@ export class DataStructureSidebarViewState
         this.idOfLastClosedEntityReletedWithSidebarMenuItem = null;
     }
 
-
-    checkIsSidebarExpanded(idOfSidebar, styleNameForExpandingSidebar) // computed based on current sidebar's style
+    // Compute based on current sidebar's style
+    checkIsSidebarExpanded(idOfSidebar, styleNameForExpandingSidebar)
     {
         return this.htmlPageDomUpdater.isClassContainsStyleName(idOfSidebar, styleNameForExpandingSidebar);
     }

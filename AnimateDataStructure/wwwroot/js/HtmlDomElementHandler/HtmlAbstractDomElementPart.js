@@ -1,8 +1,6 @@
 import { HtmlDomElement } from '../HtmlDomElementHandler/HtmlDomElement.js';
 
-
-// table part, sidebar part
-// To create any html-element and configure it with specified attributes
+// table part, sidebar part. To create any html-element and configure it with specified attributes
 export class HtmlAbstractDomElementPart
 {
     // Create and return any html-element and configure it with specified attributes
@@ -10,7 +8,7 @@ export class HtmlAbstractDomElementPart
     // To add text content or other functionality, invoke method from class HtmlDomElement on returned instance
     createDomElement(tag, attributes)
     {
-        let div = new HtmlDomElement(tag); // "div"
+        let div = new HtmlDomElement(tag);
         div.setAttributes(attributes); // class="cell"
 
         return div;
@@ -31,9 +29,7 @@ export class HtmlAbstractDomElementPart
     createHtmlTag(htmlTagConfigurationObject)
     {
         let configuredAttributes = htmlTagConfigurationObject.defaultAttributes;
-
         let htmlTag = this.createDomElement(htmlTagConfigurationObject.tag, configuredAttributes);
-
         return htmlTag;
     }
 
@@ -42,9 +38,7 @@ export class HtmlAbstractDomElementPart
     createHtmlTagWithConfigurationParameter(htmlTagConfigurationObject, parmeterForConfigurationAttributes)
     {
         let configuredAttributes = htmlTagConfigurationObject.configureAttributes(parmeterForConfigurationAttributes);
-
         let htmlTag = this.createDomElement(htmlTagConfigurationObject.tag, configuredAttributes);
-
         return htmlTag;
     }
 
@@ -53,7 +47,6 @@ export class HtmlAbstractDomElementPart
     createHtmlTagWithText(htmlTag, textInsideHtmlTag)
     {
         htmlTag.setTextContent(textInsideHtmlTag);
-
         return htmlTag;
     }
 }

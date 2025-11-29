@@ -1,7 +1,7 @@
 import { AbstractCssEntityCalculator } from './AbstractCssEntityCalculator.js';
 import { KeyframeTextHandler } from '../CssHandlers/KeyframeTextHandler.js';
 
-export class KeyframeCalculatorLinkBeforeAfterBalancing extends AbstractCssEntityCalculator // ConcreteStrategyD
+export class KeyframeCalculatorLinkBeforeAfterBalancing extends AbstractCssEntityCalculator
 {
     constructor(tree, refactoredStepAnimation, keyframePrototypePropertyName)
     {
@@ -14,8 +14,7 @@ export class KeyframeCalculatorLinkBeforeAfterBalancing extends AbstractCssEntit
 
     calculateEntityName(isForNodeToAnimate)
     {
-        let keyframeNamePrefix = this.chooseKeyframeNamePrefix("_BeforeBalancing_", "_AfterBalancing_") // firstKeyframeNamePrefix = "_BeforeBalancing_";  secondKeyframeNamePrefix = "_AfterBalancing_"
-
+        let keyframeNamePrefix = this.chooseKeyframeNamePrefix("_BeforeBalancing_", "_AfterBalancing_");
         return this.keyframePrototypeName + keyframeNamePrefix + this.tree.balancedTimes + "_" + super.nodeIdentifierName(true);
     }
 
@@ -23,7 +22,6 @@ export class KeyframeCalculatorLinkBeforeAfterBalancing extends AbstractCssEntit
     isValueToCalculate(keyName)
     {
         this.checkKeyNameCorrectness(keyName);
-
         return (keyName.length > 1 && keyName[0] === "-" && keyName[1] === "-");
     }
 
@@ -34,7 +32,6 @@ export class KeyframeCalculatorLinkBeforeAfterBalancing extends AbstractCssEntit
     }
 
 
-    // private
     chooseKeyframeNamePrefix(firstKeyframeNamePrefix, secondKeyframeNamePrefix) // firstKeyframeNamePrefix = "_BeforeBalancing_";  secondKeyframeNamePrefix = "_AfterBalancing_"
     {
         let patternStepName = this.refactoredStepAnimation.nodesInfoStepAnimation.patternStepName;

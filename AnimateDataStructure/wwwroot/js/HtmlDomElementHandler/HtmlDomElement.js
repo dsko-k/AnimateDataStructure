@@ -1,31 +1,23 @@
 import { HtmlPageDomUpdater } from './HtmlPageDomUpdater.js';
 
 // RIGHT APPROACH TO BUILD HTML-ELEMENTS
-// TO DO: place at the same folder with class DomUpdater
-
-// Pattern Composite
 export class HtmlDomElement
 {
     constructor(tagName)
     {
         this.htmlPageDomUpdater = new HtmlPageDomUpdater();
-
         this.tagName = this.validateTagName(tagName);
         this.createdDomElement = this.htmlPageDomUpdater.createDomElement(this.tagName);
-
-        //this.attibutes = []; // array of objects
         this.childrenDomElements = [];
     }
 
 
-    // private
     validateTagName(tagName)
     {
         if (!tagName || tagName === "")
         {
             throw new Error("Tag name is empty");
         }
-
         return tagName;
     }
 
@@ -56,7 +48,6 @@ export class HtmlDomElement
     setAttribute(attibuteName, attibuteValue)
     {
         this.createdDomElement.setAttribute(attibuteName, attibuteValue);
-
         return this; // for chaining attributes
     }
 
@@ -67,7 +58,6 @@ export class HtmlDomElement
         {
             throw new Error(`Attribute is not specified`);
         }
-
         Object.keys(attributeNameValuesObject).forEach(attributeName =>
         {
             let attributeValue = attributeNameValuesObject[attributeName];
@@ -80,8 +70,6 @@ export class HtmlDomElement
     setTextContent(text)
     {
         this.createdDomElement.textContent = text;
-
         return this; // for chaining text content
     }
-
 }

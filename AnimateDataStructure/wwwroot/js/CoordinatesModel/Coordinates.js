@@ -22,7 +22,7 @@ export class Coordinates
         return parseFloat(styleClassTextHandler.getStyleValue(styleNamePrototype, keyName).styleValue);
     }
 
-    //private
+
     checkParameter(param)
     {
         if (!param || param === '')
@@ -69,7 +69,6 @@ export class Coordinates
     {
         nodeToRelocate.xCoordinatePrevious = nodeToRelocate.xCoordinate;
         nodeToRelocate.yCoordinatePrevious = nodeToRelocate.yCoordinate;
-
         nodeToRelocate.xCoordinate = newXCoordinate;
         nodeToRelocate.yCoordinate = newYCoordinate;
     }
@@ -94,13 +93,11 @@ export class Coordinates
 
         rootNode.xCoordinatePrevious = rootNode.xCoordinate;
         rootNode.yCoordinatePrevious = rootNode.yCoordinate;
-
         rootNode.xCoordinate = screenXCenter;
-        rootNode.yCoordinate = 300; // Replace HARDCODE (the same 300 occured somwhere)
+        rootNode.yCoordinate = 300;
     }
 
 
-    // Heap
     swapTwoNodeCoordinates(firstNodeToSwap, secondNodeToSwap)
     {
         let xCoordinateFirstNode = firstNodeToSwap.xCoordinate;
@@ -114,7 +111,6 @@ export class Coordinates
     }
 
 
-    // Heap
     // update coordinates of every node of Heap after swapping two nodes
     updateHeapCoordinatesAfterSwapTwoNode(allNodesByLevels, firstNodeToSwap, secondNodeToSwap)
     {
@@ -123,10 +119,8 @@ export class Coordinates
             for (let n = 0; n < allNodesByLevels[currentLevel].length; n++)
             {
                 let currentNode = allNodesByLevels[currentLevel][n];
-
                 // setting xCoordinate = xCoordinatePrevious and yCoordinate = yCoordinatePrevious
                 // for the all nodes, that are not firstNodeToSwap or secondNodeToSwap
-
                 if (!Object.is(currentNode, firstNodeToSwap) && !Object.is(currentNode, secondNodeToSwap))
                 {
                     this.setCoordinatesRelocation(currentNode, currentNode.xCoordinate, currentNode.yCoordinate);

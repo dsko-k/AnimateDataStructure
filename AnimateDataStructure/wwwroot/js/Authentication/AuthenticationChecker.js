@@ -20,31 +20,4 @@ export class AuthenticationChecker
 		
 		return inputUserAuthenticationStatusDomElement && inputUserAuthenticationStatusDomElement.value === `${true}`;
 	}
-
-
-	//?????
-	//getInputUserAuthenticationStatusDomElement()
-	//{
-	//	let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-
-	//	let inputUserAuthenticationStatusAttributes = buttonAuthenticateConfigurations.inputUserAuthenticationStatusAttributes;
-
-	//	let idInputUserAuthenticationStatus = inputUserAuthenticationStatusAttributes.defaultAttributes.id;
-
-	//	const inputUserAuthenticationStatus = this.htmlPageDomUpdater.getDomElementOnPageById(idInputUserAuthenticationStatus);
-
-	//	return inputUserAuthenticationStatus;
-	//}
-
-
-	// ????
-	//getButtonAuthenticateDomElement()
-	//{
-	//	let buttonAuthenticateConfigurations = this.htmlConfigurationAttributesReader.getHtmlControlButtonAuthenticateConfigurations();
-	//	let idButtonAuthenticate = buttonAuthenticateConfigurations.buttonAuthenticateAttributes.defaultAttributes.id;
-
-	//	return this.htmlPageDomUpdater.getDomElementOnPageById(idButtonAuthenticate);
-	//}
-
-
 }

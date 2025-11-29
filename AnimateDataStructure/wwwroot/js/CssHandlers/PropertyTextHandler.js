@@ -6,9 +6,7 @@ export class PropertyTextHandler
     {
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let regexProperty = new RegExp(` *@property *${propertyName} *{(?<propertyBody>[^}]+)+}`, "gm");
-
         let result = styleText.match(regexProperty);
 
         if (!result)
@@ -32,15 +30,9 @@ export class PropertyTextHandler
             return false;
         }
 
-        // get unparsed property body by propertyName
-        let unparsedPropertyBody = this.getUnparsedPropertyEntityBody(propertyName);
-
+        let unparsedPropertyBody = this.getUnparsedPropertyEntityBody(propertyName); // get unparsed property body by propertyName
         let regexpKeyValue = new RegExp(`(?<beforeKey>( *))(?<propertyKey>(${keyName}))(?<afterKey>( *)):(?<beforeValue>( *))(?<propertyValue>([^;]+?))(?<afterValue>( *;))`, "gm");
-
-        // find line with keyName
-
         let result = unparsedPropertyBody.match(regexpKeyValue);
-
 
         if (result && result.length > 1)
         {
@@ -59,11 +51,8 @@ export class PropertyTextHandler
     getAllPropertyEntities()
     {
         let patternText = new RegExp(`( *@property +[-A-Za-z0-9_]+ *\\n*{[^}]+})`, "gm");
-
         let styleInst = new Style();
-
         let styleText = styleInst.getStyleClassText();
-
         let result = styleText.match(patternText);
 
         return result;
@@ -79,9 +68,7 @@ export class PropertyTextHandler
 
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let regexProperty = new RegExp(` *@property *${propertyName} *{(?<propertyBody>[^}]+)+}`, "gm");
-
         let result = styleText.match(regexProperty);
 
         return result[0];
@@ -96,12 +83,9 @@ export class PropertyTextHandler
         }
 
         let regexpPropertyBody = new RegExp(`(?<=@property *${propertyName} *)(?<propertyBody>({\n* *[^}+]+?)})`, "m");
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let unparsedPropertyBody = styleText.match(regexpPropertyBody);
-
         let body = unparsedPropertyBody.groups.propertyBody;
 
         return body;
@@ -110,16 +94,9 @@ export class PropertyTextHandler
 
     getParsedKeyValue(propertyName, keyName)
     {
-        // get unparsed property body by propertyName
-        let unparsedPropertyBody = this.getUnparsedPropertyEntityBody(propertyName);
-
+        let unparsedPropertyBody = this.getUnparsedPropertyEntityBody(propertyName); // get unparsed property body by propertyName
         let regexpKeyValue = new RegExp(`(?<beforeKey>( *))(?<propertyKey>(${keyName}))(?<afterKey>( *)):(?<beforeValue>( *))(?<propertyValue>([^;]+?))(?<afterValue>( *;))`, "m");
-
-        // find line with keyName
-
         let result = unparsedPropertyBody.match(regexpKeyValue);
-
-        // parse line with keyName
 
         return result.groups;
     }
@@ -128,13 +105,9 @@ export class PropertyTextHandler
     getParsedKeyValueLines(propertyName)
     {
         let unparsedPropertyBody = this.getUnparsedPropertyEntityBody(propertyName);
-
         let regexpLineKeyValue = new RegExp(`(?<keyValueLine>(^ *[^\\n^;]+;\\n+))`, "gm");
-
         let keyValueLines = unparsedPropertyBody.match(regexpLineKeyValue);
-
         let regexpParsedKeyValue = new RegExp(`(?<beforeKey>(^ *))(?<propertyKey>([^:^\\n]+?))(?<afterKey>( *)):(?<beforeValue>( *))(?<propertyValue>([^;^\\n]+?))(?<afterValue>( *;\\n{0,1}))`, "m");
-
         let parsedKeyValueLines = [];
 
         if (keyValueLines)
@@ -153,8 +126,6 @@ export class PropertyTextHandler
         return parsedKeyValueLines;
     }
 
-
-    // necessary
 
     getAllKeys(propertyName)
     {
@@ -184,7 +155,6 @@ export class PropertyTextHandler
         }
 
         let style = document.getElementsByTagName("style")[0];
-
         style.insertAdjacentText("beforeend", newProperty);
     }
 
@@ -202,44 +172,25 @@ export class PropertyTextHandler
         }
 
         let bodyOfPropertyEntityToCopy = this.getUnparsedPropertyEntityBody(propertyEntityNameToCopyFrom);
-
         this.createPropertyEntity(newPropertyEntityName, bodyOfPropertyEntityToCopy);
     }
 
 
     addPropertyKeyValue(propertyEntityName, propertyKeyName, propertyValue)
     {
-        // get unparsed property
-        // get unparsed property body
-
-        // get parsed property body
-
-        //Simpler regexp:   (^ *[^;^\n]+;)
-
-        //let regexpKeyValue = new RegExp(`((?<beforeKey>( *))(?<propertyKey>([^:^ ]+))(?<afterKey>( *)):(?<beforeValue>( *))(?<propertyValue>([^;]+?))(?<afterValue>( *;)))+`, "m");
-
         if (this.isPropertyKeyExist(propertyEntityName, propertyKeyName))
         {
             throw new Error(`Unable to add key '${propertyKeyName}' to the @property ${propertyEntityName}. Key '${propertyKeyName}' is already exist`);
         }
 
-        let keyValueLineToInsert = `        ${propertyKeyName}: ${propertyValue};`
-
+        let keyValueLineToInsert = `        ${propertyKeyName}: ${propertyValue};`;
         let bodyProperty = this.getUnparsedPropertyEntityBodyAndName(propertyEntityName);
-
         let updatedProperty = this.insertTextInsideBody(bodyProperty, keyValueLineToInsert);
-
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let regexProperty = new RegExp(` *@property *${propertyEntityName} *{(?<propertyBody>[^}]+)+}`, "gm");
-
         let updatedStyle = styleText.replace(regexProperty, updatedProperty);
-
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyle;
     }
 
@@ -253,9 +204,7 @@ export class PropertyTextHandler
         }
 
         let regexpClosedCurlyBracet = new RegExp(`(?<untilLastLine>(^ *.+[^{]+?))(?<lastLine>( *}))`, "m");
-
         let splittedBody = body.match(regexpClosedCurlyBracet);
-
         let updatedProperty = splittedBody.groups.untilLastLine + textToInsert + "\n" + splittedBody.groups.lastLine;
 
         return updatedProperty;
@@ -274,36 +223,16 @@ export class PropertyTextHandler
             throw new Error(`Unable to update key '${propertyKeyName}' of the @property ${propertyEntityName}. Key '${propertyKeyName}' was not found`);
         }
 
-        // get unparsed property
-
         let unparsedPropertyEntityBodyAndName = this.getUnparsedPropertyEntityBodyAndName(propertyEntityName);
-
-
-        // find parsed keyValue
-
         let regexpKeyValue = new RegExp(`(?<beforeKey>( *))(?<propertyKey>(${propertyKeyName}))(?<afterKey>( *)):(?<beforeValue>( *))(?<propertyValue>([^;]+?))(?<afterValue>( *;))`, "m");
-
-
         let parsedKeyValue = this.getParsedKeyValue(propertyEntityName, propertyKeyName);
-
         let newKeyValueLine = parsedKeyValue.beforeKey + parsedKeyValue.propertyKey + parsedKeyValue.afterKey + ":" + parsedKeyValue.beforeValue + newValue + parsedKeyValue.afterValue;
-
-        // replace old value with a new value
-
         let updatedPropertyEntity = unparsedPropertyEntityBodyAndName.replace(regexpKeyValue, newKeyValueLine);
-
-        // update style
-
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let regexProperty = new RegExp(` *@property *${propertyEntityName} *{(?<propertyBody>[^}]+)+}`, "gm");
-
         let updatedStyle = styleText.replace(regexProperty, updatedPropertyEntity);
-
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyle;
     }
 
@@ -317,14 +246,9 @@ export class PropertyTextHandler
 
         let styleInst = new Style();
         let styleText = styleInst.getStyleClassText();
-
         let regexProperty = new RegExp(` *@property *${propertyEntityName} *{(?<propertyBody>[^}]+)+}`, "gm");
-
         let updatedStyle = styleText.replace(regexProperty, "");
-
         let styleElement = styleInst.getStyle();
-
         styleElement.innerHTML = updatedStyle;
     }
-
 }

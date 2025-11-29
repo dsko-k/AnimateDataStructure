@@ -13,10 +13,8 @@ export class DeleteNodeFormValidation
     isValidFormFields(inputValuesFormDomElements, controlHandler)
     {
         this.inputValuesFormFieldsHelper.throwIfEmptyFormDomElements(inputValuesFormDomElements);
-
         let inputValueDomElement = inputValuesFormDomElements.inputForNodeValueDomElement;
         let errorInputValueDomElement = inputValuesFormDomElements.errorInputValueDomElement;
-
         let isDataStructureHaveNodes = this.abstractOperationFormValidation.validateDatastructureNonEmpty(controlHandler, errorInputValueDomElement);
 
         if (!isDataStructureHaveNodes)
@@ -30,9 +28,7 @@ export class DeleteNodeFormValidation
         let isInputNumberWithoutLetter = this.abstractOperationFormValidation.validateInputWithoutLetter(inputValueDomElement, errorInputValueDomElement);
         let isInputNumberNonEmpty = this.abstractOperationFormValidation.validateInputNumberNonEmptiness(inputValueDomElement, errorInputValueDomElement);
 
-        // DO NOT DELETE: NO NEED checking input value on uniqueness
+        // NO NEED checking input value on uniqueness
         return isValidInputNumber && isInputNumberWithoutComma && isInputNumberWithoutSpace && isInputNumberWithoutLetter && isInputNumberNonEmpty;
     }
-
-
 }

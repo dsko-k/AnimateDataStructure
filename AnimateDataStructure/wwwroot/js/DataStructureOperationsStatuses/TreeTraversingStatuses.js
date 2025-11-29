@@ -3,31 +3,24 @@ export class TreeTraversingStatuses
     constructor()
     {
         this.typesOfTraversing = {
-
             traverseInOrder: "Traversing Inorder",
             traversePreOrder: "Traversing Preorder",
             traversePostOrder: "Traversing Postorder",
-
             conditionalTraverseInOrder: "Conditional Traversing Inorder",
             conditionalTraversePreOrder: "Conditional Traversing Preorder",
             conditionalTraversePostOrder: "Conditional Traversing Postorder",
         };
 
         this.statusesOfTraversing = {
-
             traversingStarted: "Started...", // for starting unconditional traversing
             searchingDuringTraversing: "Searching value...", // for starting conditional traversing
-
             traversed: "Node traversed",
-
             targetNodeFound: "Node found, traversing terminated",
             targetNodeNotFound: "Node not found during traversing",
-
             traversingEnded: "Finished",
         };
 
         this.valueToFindDuringTraversing = {
-
             unspecifiedValue: "-",
         };
     }
@@ -45,10 +38,6 @@ export class TreeTraversingStatuses
     }
 
 
-    // TO REMOVE METHODS!!!!!!
-
-    // public
-    // write State Of Tree Operation for valid node
     writeNewStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let operationStatusInfo = this.createOperationsStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -56,7 +45,6 @@ export class TreeTraversingStatuses
     }
 
 
-    // public
     updateStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let updatedOperationsStatusInfo = this.createOperationsStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -64,10 +52,7 @@ export class TreeTraversingStatuses
     }
 
 
-    // private
-
-    // add entry to the dataStructure about operation that was made
-    addStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, operationStatusInfo) // operationsStatusInfo is object with information about operation on tree that was made
+    addStateOfTreeOperation(dataStructure, propertyInDataStructureToAddState, operationStatusInfo)
     {
         if (operationStatusInfo.wasUpdated) // skip updating if updatedOperationsStatusInfo was already updated
         {
@@ -80,7 +65,6 @@ export class TreeTraversingStatuses
         }
 
         operationStatusInfo.orderNumberOfOperation = dataStructure[propertyInDataStructureToAddState].length;
-
         dataStructure[propertyInDataStructureToAddState].push(operationStatusInfo);
     }
 
@@ -107,7 +91,6 @@ export class TreeTraversingStatuses
         }
 
         let lastOperationByType = operationsByType[operationsByType.length - 1];
-
         let indexLastOperationByType = lastOperationByType.orderNumberOfOperation;
 
         if (indexLastOperationByType === null)
@@ -122,7 +105,6 @@ export class TreeTraversingStatuses
 
         updatedOperationsStatusInfo.wasUpdated = true;
         updatedOperationsStatusInfo.orderNumberOfOperation = lastOperationByType.orderNumberOfOperation;
-
         dataStructure[propertyInDataStructureToAddState][indexLastOperationByType] = updatedOperationsStatusInfo;
     }
 
@@ -131,8 +113,7 @@ export class TreeTraversingStatuses
     createOperationsStatusInfo(nodeValue, typeOfOperation, statusOfOperation)
     {
         return {
-
-            orderNumberOfOperation: null, // DO NOT DELETE: orderNumberOfOperation counts from 0
+            orderNumberOfOperation: null, // counts from 0
             typeOfOperation: typeOfOperation,
             nodeValue: nodeValue,
             statusOfOperation: statusOfOperation,
@@ -141,8 +122,6 @@ export class TreeTraversingStatuses
     }
 
 
-
-    // For Traversing
     writeNewStateOfTreeTraversing(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let operationStatusInfo = this.createTraversingStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -150,7 +129,6 @@ export class TreeTraversingStatuses
     }
 
 
-    // For Traversing
     updateStateOfTreeTraversing(dataStructure, propertyInDataStructureToAddState, nodeValue, typeOfOperation, statusOfOperation)
     {
         let updatedOperationsStatusInfo = this.createTraversingStatusInfo(nodeValue, typeOfOperation, statusOfOperation);
@@ -158,17 +136,14 @@ export class TreeTraversingStatuses
     }
 
 
-    // For Traversing
     createTraversingStatusInfo(nodeValue, typeOfOperation, statusOfOperation)
     {
         return {
-
-            orderNumberOfOperation: null, // DO NOT DELETE: orderNumberOfOperation counts from 0
+            orderNumberOfOperation: null, // counts from 0
             typeOfOperation: typeOfOperation,
             nodeValue: nodeValue,
             statusOfOperation: statusOfOperation,
             wasUpdated: false,
         };
     }
-
 }

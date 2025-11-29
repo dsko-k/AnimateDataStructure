@@ -13,46 +13,27 @@ export class ControlHandlersDataStructureSidebar
         this.htmlPageDomUpdater = new HtmlPageDomUpdater();
         this.dataStructureSidebarViewState = new DataStructureSidebarViewState();
         this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
-
         this.attributesForSidebar = this.htmlConfigurationAttributesReader.getHtmlSidebarConfigurations();
-
         this.attributesForButtonMenu = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonMenuConfigurations();
         this.attributesForButtonSecond = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonSecondConfigurations();
         this.attributesForButtonThird = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonThirdConfigurations();
         this.attributesForButtonFourth = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonFourthConfigurations();
         this.attributesForButtonFifth = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonFifthConfigurations();
-
         this.additionalClassNameSidebarExpand = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForSidebar.divSidebarContainerAttributes.sidebarContainerExpandAttributes); // ".sidebarContainerExpand";
         this.additionalClassNameSidebarNarrow = this.htmlConfigurationAttributesReader.getClassFromAttributesWithDot(this.attributesForSidebar.divSidebarContainerAttributes.sidebarContainerNarrowAttributes); // ".sidebarContainerNarrow";
         this.idOfPreLastClickedSidebarIcon = null;
         this.idOfLastClickedSidebarIcon = null;
         this.idOfOpenedContainerByClickingSidebarIcon = null;
-
-
         this.idSidebarContainer = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForSidebar.divSidebarContainerAttributes.defaultAttributes.id); // "idSidebarContainer";
         this.idSidebar = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForSidebar.divSidebarAttributes.defaultAttributes.id); // "idSidebar";
-
         this.idButtonSidebarMenu = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForButtonMenu.divButtonWithGlowingRadialBorderAttributes.defaultAttributes.id); // "idButtonSidebarMenu";
         this.idButtonSidebarSecond = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForButtonSecond.divButtonWithGlowingRadialBorderAttributes.defaultAttributes.id); // "idButtonSidebarSecond";
         this.idButtonSidebarThird = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForButtonThird.divButtonWithGlowingRadialBorderAttributes.defaultAttributes.id); // "idButtonSidebarThird";
         this.idButtonSidebarFourth = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForButtonFourth.divButtonWithGlowingRadialBorderAttributes.defaultAttributes.id); // "idButtonSidebarFourth";
         this.idButtonSidebarFifth = this.htmlConfigurationAttributesReader.getValueFromAttributes(this.attributesForButtonFifth.divButtonWithGlowingRadialBorderAttributes.defaultAttributes.id); // "idButtonSidebarFifth";
-
-        // ?????
         this.htmlTableCreator = new HtmlTableCreator(new HtmlTableBuilder());
         this.htmlTableFunctionality = new HtmlTableFunctionality();
-        //this.dataToHtmlTableConfigurations = this.htmlTableCreator.dataToHtmlTableConfigurationAttributesReader.getDataTableToHtmlTableConfigurationsForTreeCharacteristics();
-
-        //this.sidebarButtonsToHtmlTableConfigurations = new SidebarButtonsToHtmlTableConfigurations();
-
-        // no needed
-        this.idButtonSidebarSecondSvgTextContainer = "idButtonSidebarSecondSvgTextContainer"; // text of menu item
-        this.idButtonSidebarThirdSvgTextContainer = "idButtonSidebarThirdSvgTextContainer"; // text of menu item
-        this.idButtonSidebarFourthSvgTextContainer = "idButtonSidebarFourthSvgTextContainer"; // text of menu item
-        this.idButtonSidebarFifthSvgTextContainer = "idButtonSidebarFifthSvgTextContainer"; // text of menu item
-
     }
-
 
     /*
         If sidebar is not expanded:
@@ -67,7 +48,7 @@ export class ControlHandlersDataStructureSidebar
         2.3. Closing related entity restores colors of icon and text of the menu items,
     */
 
-    // click on button menue to expand (narrow) sidebar
+    // Click on button menu to expand (narrow) sidebar
     onClickSidebarIcons(dataStructure)
     {
         this.onClickSidebarIcon(this.idButtonSidebarMenu, false, this.attributesForButtonMenu, dataStructure);
@@ -82,52 +63,39 @@ export class ControlHandlersDataStructureSidebar
     onClickSidebarIcon(idSidebarIcon, isToAccountSidebarExpanding, htmlSidebarButtonConfigurations, dataStructure)
     {
         let buttonSidebarIconDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idSidebarIcon);
-
         buttonSidebarIconDomElement.addEventListener("click", (evn) =>
         {
             this.setIdToLastAndPrelastClickedIcon(idSidebarIcon);
-
             // when container with table (that was created by clicking on sidebar button) is opened and has been clicked other sidebar button
             if (this.idOfOpenedContainerByClickingSidebarIcon && this.idOfLastClickedSidebarIcon === this.idButtonSidebarMenu)
             {
                 let buttonCloseTableDomElement = this.getButtonCloseTableContainer(this.idOfOpenedContainerByClickingSidebarIcon);
-
                 buttonCloseTableDomElement.click();
-
                 return;
             }
             else if (this.idOfOpenedContainerByClickingSidebarIcon && this.idOfLastClickedSidebarIcon !== this.idOfPreLastClickedSidebarIcon &&
                 this.idOfLastClickedSidebarIcon !== this.idButtonSidebarMenu)
             {
                 let openedContainerByClickingSidebarIconDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(this.idOfOpenedContainerByClickingSidebarIcon);
-
                 openedContainerByClickingSidebarIconDomElement.remove();
             }
             else if (this.idOfOpenedContainerByClickingSidebarIcon && this.idOfLastClickedSidebarIcon === this.idOfPreLastClickedSidebarIcon || this.idOfOpenedContainerByClickingSidebarIcon && this.idOfLastClickedSidebarIcon !== this.idButtonSidebarMenu)
             {
                 return;
             }
-
-
             let isExpanded = this.dataStructureSidebarViewState.checkIsSidebarExpanded(this.idSidebarContainer, this.additionalClassNameSidebarExpand);
-
             if (!isExpanded)
             {
                 this.updateAdditionalStyle(this.idSidebarContainer, this.additionalClassNameSidebarExpand, this.additionalClassNameSidebarNarrow);
-
                 return;
             }
-
             if (isToAccountSidebarExpanding)
             {
                 // icon should change color after clicking sidebar menu item and after closing the entity that was invoked by clicking sidebar menu item
-
                 if (isExpanded)
                 {
                     this.onChangeColorSidebarMenuItem(htmlSidebarButtonConfigurations);
-
                     this.createHtmlTableOnClickSidebarButton(idSidebarIcon, dataStructure, htmlSidebarButtonConfigurations);
-
                     this.addEffectsToHtmlTable(idSidebarIcon, dataStructure);
                 }
             }
@@ -135,7 +103,6 @@ export class ControlHandlersDataStructureSidebar
             {
                 this.updateAdditionalStyle(this.idSidebarContainer, this.additionalClassNameSidebarExpand, this.additionalClassNameSidebarNarrow);
             }
-
         });
     }
 
@@ -144,16 +111,12 @@ export class ControlHandlersDataStructureSidebar
     {
         // style to change color of icon and text on click
         let additionalStyleNameOnClickIcon = htmlSidebarButtonConfigurations.divButtonWithGlowingRadialBorderAttributes.additionalAttributesOnClick.class;
-
         if (this.idOfLastClickedSidebarIcon === this.idOfPreLastClickedSidebarIcon || this.idOfPreLastClickedSidebarIcon === null)
         {
             this.changeSidebarIconStyle(this.idOfLastClickedSidebarIcon, additionalStyleNameOnClickIcon);
-
             return;
         }
-
         this.changeSidebarIconStyle(this.idOfLastClickedSidebarIcon, additionalStyleNameOnClickIcon);
-
         if (this.htmlPageDomUpdater.isClassContainsStyleName(this.idOfPreLastClickedSidebarIcon, additionalStyleNameOnClickIcon))
         {
             this.changeSidebarIconStyle(this.idOfPreLastClickedSidebarIcon, additionalStyleNameOnClickIcon);
@@ -164,9 +127,7 @@ export class ControlHandlersDataStructureSidebar
     changeSidebarIconStyle(idOfClickedSidebarIcon, additionalStyleName)
     {
         let domElement = this.htmlPageDomUpdater.getDomElementOnPageById(idOfClickedSidebarIcon);
-
         let additionalStyleNameWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(additionalStyleName, ".");
-
         domElement.classList.toggle(additionalStyleNameWithoutDot);
     }
 
@@ -174,7 +135,6 @@ export class ControlHandlersDataStructureSidebar
     setIdToLastAndPrelastClickedIcon(idLastClickedSidebarIcon)
     {
         this.idOfPreLastClickedSidebarIcon = this.idOfLastClickedSidebarIcon;
-
         this.idOfLastClickedSidebarIcon = idLastClickedSidebarIcon;
     }
 
@@ -184,20 +144,16 @@ export class ControlHandlersDataStructureSidebar
     selectStyleName(currentStyleNameOfSidebarContainer, additionalClassNameSidebarExpand, additionalClassNameSidebarNarrow)
     {
         let firstStyleNameOfSidebarContainer = currentStyleNameOfSidebarContainer.split(" ")[0];
-
         let additionalClassNameSidebarExpandWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(additionalClassNameSidebarExpand, ".");
         let additionalClassNameSidebarNarrowWithoutDot = this.htmlPageDomUpdater.trimSymbolAtStart(additionalClassNameSidebarNarrow, ".");
-
         let newStyleNameToExpandSidebarContainer = `${firstStyleNameOfSidebarContainer} ${additionalClassNameSidebarExpandWithoutDot}`;
         let newStyleNameToNarrowSidebarContainer = `${firstStyleNameOfSidebarContainer} ${additionalClassNameSidebarNarrowWithoutDot}`;
-
 
         if (currentStyleNameOfSidebarContainer === firstStyleNameOfSidebarContainer ||
             currentStyleNameOfSidebarContainer === newStyleNameToNarrowSidebarContainer)
         {
             return newStyleNameToExpandSidebarContainer;
         }
-
         if (currentStyleNameOfSidebarContainer === newStyleNameToExpandSidebarContainer)
         {
             return newStyleNameToNarrowSidebarContainer;
@@ -208,9 +164,7 @@ export class ControlHandlersDataStructureSidebar
     updateAdditionalStyle(idOfHtmlElement, additionalStyle, additionalOppositeStyle)
     {
         let currentStyleNameOfHtmlElement = this.htmlPageDomUpdater.getAttributeOfHtmlElementById(idOfHtmlElement, 'class');
-
         let selectedStyleNameToApplyToHtmlElement = this.selectStyleName(currentStyleNameOfHtmlElement, additionalStyle, additionalOppositeStyle);
-
         this.htmlPageDomUpdater.setAttributeOfHtmlElementById(idOfHtmlElement, 'class', selectedStyleNameToApplyToHtmlElement);
     }
 
@@ -220,99 +174,46 @@ export class ControlHandlersDataStructureSidebar
     {
         // computing dataTableToHtmlTableConfigurations depend on id sidebar button
         let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);
-
         let tableContainerDomElement = this.htmlTableCreator.constructTableContainer(dataStructure, dataTableToHtmlTableConfigurations);
-
         this.idOfOpenedContainerByClickingSidebarIcon = tableContainerDomElement.getAttribute("id");
-
         this.onClickButtonCloseTableContainer(this.idOfOpenedContainerByClickingSidebarIcon, htmlSidebarButtonConfigurations);
     }
 
 
     // add htmlTable effects
-    //addEffectsToHtmlTable(idClickedSidebarButton, dataStructure)
-    //{
-    //    let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);
-    //    let idTable = dataTableToHtmlTableConfigurations.idTable;
-
-    //    let contextTableEffect = new ContextTableEffect(new TableHovering(idTable));
-    //    contextTableEffect.appendTableOperation();
-
-    //    contextTableEffect = new ContextTableEffect(new TableSearching(idTable, dataTableToHtmlTableConfigurations.idTableSearchInput));
-    //    contextTableEffect.appendTableOperation();
-
-    //    contextTableEffect = new ContextTableEffect(new TableSorting(idTable));
-    //    contextTableEffect.appendTableOperation();
-
-
-    //    // DO NOT REMOVE:
-    //    //let resizerVerticalHtmlElement = new ResizerHtmlElement("idTableResizerVerticalContainer", "idTableContainer");
-    //    let resizerVerticalHtmlElement = new ResizerHtmlElement(dataTableToHtmlTableConfigurations.idTableResizerVerticalContainer, dataTableToHtmlTableConfigurations.idTableContainer);
-    //    resizerVerticalHtmlElement.onResize(true);
-
-    //    //let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement("idTableResizerBottomHorizontalContainer", "idTableContainer");
-    //    let resizerBottomHorizontalHtmlElement = new ResizerHtmlElement(dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer, dataTableToHtmlTableConfigurations.idTableContainer);
-    //    resizerBottomHorizontalHtmlElement.onResize(false);
-
-
-    //    // Handler for updating HtmlTable
-    //    // ????
-    //    let htmlTableHandler = new HtmlTableHandler();
-    //    htmlTableHandler.onUpdateHtmlTable(idTable);
-    //}
-
-
-    // ?????
-    // add htmlTable effects
     addEffectsToHtmlTable(idClickedSidebarButton, dataStructure)
     {
         let dataTableToHtmlTableConfigurations = this.findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure);
         let idTable = dataTableToHtmlTableConfigurations.idTable;
-
         this.htmlTableFunctionality.addHandlerOnTableHovering(idTable);
-
         let idTableSearchInput = dataTableToHtmlTableConfigurations.idTableSearchInput;
         this.htmlTableFunctionality.addHandlerOnTableSearching(idTable, idTableSearchInput);
-
         this.htmlTableFunctionality.addHandlerOnTableSorting(idTable);
-
         let idTableContainer = dataTableToHtmlTableConfigurations.idTableContainer;
         let idTableResizerVerticalContainer = dataTableToHtmlTableConfigurations.idTableResizerVerticalContainer;
-        let idTableResizerBottomHorizontalContainer = dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer;
-        
+        let idTableResizerBottomHorizontalContainer = dataTableToHtmlTableConfigurations.idTableResizerBottomHorizontalContainer;        
         this.htmlTableFunctionality.addResizeEffectsToHtmlTable(idTableContainer, idTableResizerVerticalContainer, idTableResizerBottomHorizontalContainer);
-
-        // Handler for updating HtmlTable
         this.htmlTableFunctionality.addHandlerOnTableUpdate(idTable);
     }
-
 
 
     findDataTableToHtmlTableConfigurations(idClickedSidebarButton, dataStructure)
     {
         let contextSidebarButtons = new ContextSidebarButtons(idClickedSidebarButton, dataStructure);
         let dataTableToHtmlTableConfigurations = contextSidebarButtons.retrieveDataTableToHtmlTableConfigurations();
-
         return dataTableToHtmlTableConfigurations;
     }
-
 
     // Close container contained a table
     onClickButtonCloseTableContainer(idOfOpenedContainerByClickingSidebarIcon, htmlSidebarButtonConfigurations)
     {
         let buttonCloseTableDomElement = this.getButtonCloseTableContainer(idOfOpenedContainerByClickingSidebarIcon);
-
         buttonCloseTableDomElement.addEventListener("click", function (evn)
         {
-            // restore color of sidebar icon that corresponds to html table
-            this.onChangeColorSidebarMenuItem(htmlSidebarButtonConfigurations);
-
+            this.onChangeColorSidebarMenuItem(htmlSidebarButtonConfigurations); // restore color of sidebar icon that corresponds to html table
             let tableContainerDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(this.idOfOpenedContainerByClickingSidebarIcon);
-
             tableContainerDomElement.remove();
-
             this.idOfOpenedContainerByClickingSidebarIcon = null;
-
         }.bind(this));
     }
 
@@ -323,7 +224,6 @@ export class ControlHandlersDataStructureSidebar
         let idDivTableButtonClose = this.htmlConfigurationAttributesReader.getValueFromAttributes(attributesForHtmlTable.divTableButtonCloseAttributes.defaultAttributes.id);
         let tableContainerDomElement = this.htmlPageDomUpdater.getDomElementOnPageById(idOfOpenedContainerByClickingSidebarIcon);
         let buttonCloseTableDomElement = this.htmlPageDomUpdater.getDomElementsInsideParentByAttributeNameValue(tableContainerDomElement, "id", idDivTableButtonClose)[0];
-
         return buttonCloseTableDomElement;
     }
 }

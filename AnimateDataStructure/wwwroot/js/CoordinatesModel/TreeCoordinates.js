@@ -2,7 +2,7 @@ import { StyleClassTextHandler } from '../CssHandlers/StyleClassTextHandler.js';
 import { Coordinates } from './Coordinates.js';
 import { ScreenCoordinates } from './ScreenCoordinates.js';
 
-export class TreeCoordinates // alignment tree nodes
+export class TreeCoordinates
 {
     constructor(tree, xCoordinateRoot, yCoordinateRoot)
     {
@@ -76,15 +76,15 @@ export class TreeCoordinates // alignment tree nodes
             node.yCoordinatePrevious = node.yCoordinate;
         }
 
-        // ????
         if (node.xCoordinatePrevious !== node.xCoordinate)
         {
-            this.tree.isNeedAlignmentByWidth = true; // ??????
+            this.tree.isNeedAlignmentByWidth = true;
         }
     }
 
 
-    getStartPositionX(node) // where will be placed node on the screen before animation will be started
+    // Where will be placed node on the screen before animation will be started
+    getStartPositionX(node)
     {
         if (!node.startPositionX)
         {
@@ -108,7 +108,7 @@ export class TreeCoordinates // alignment tree nodes
         this.getStartPositionY(node);
     }
 
-    // private
+
     getTrimmedStyleValue(styleName, keyName, lengthSymbolsToTrim)
     {
         let rawStyleValue = this.styleClassTextHandler.getStyleValue(styleName, keyName).styleValue;
@@ -138,22 +138,18 @@ export class TreeCoordinates // alignment tree nodes
         if (treeShift != 0)
         {
             this.shiftTree(treeShift);
-            this.tree.isNeedAlignmentByWidth = true; // ??????
+            this.tree.isNeedAlignmentByWidth = true;
         }
     }
 
 
-    // For balancing (align tree after rebalancing). Consider uising this method when draw tree after opening tree that was saved
+    // Align tree after rebalancing
     alignTreeNodesAfterBalancing()
     {
         this.tree.setCounterNodeAligned();
-
-        // initialize coordinates for root after balancing (shift of root will be added soon when tree shift will be computed)
         let coordinates = new Coordinates();
         coordinates.setInitialRootCoordinates(this.tree.root);
-
         this.changeDistanceBetweenNodes(1);
-
         let treeShift = this.computeTreeShift();
 
         if (treeShift != 0)
@@ -163,17 +159,11 @@ export class TreeCoordinates // alignment tree nodes
     }
 
 
-    // Tree Alignment after addition range of nodes
     alignTreeNodesAfterAddRange()
     {
-        //this.tree.setCounterNodeAligned();
-
-        // initialize coordinates for root after balancing (shift of root will be added soon when tree shift will be computed)
-        let coordinates = new Coordinates();
+        let coordinates = new Coordinates(); // initialize coordinates for root after balancing (shift of root will be added soon when tree shift will be computed)
         coordinates.setInitialRootCoordinates(this.tree.root);
-
         this.changeDistanceBetweenNodes(0);
-
         let treeShift = this.computeTreeShift();
 
         if (treeShift != 0)
@@ -183,7 +173,6 @@ export class TreeCoordinates // alignment tree nodes
     }
 
 
-    // private
     changeDistanceBetweenNodes(startingLevel = 0)
     {
         let allNodesByLevels = this.tree.getAllNodesByLevels();
@@ -198,14 +187,12 @@ export class TreeCoordinates // alignment tree nodes
             for (let n = 0; n < allNodesByLevels[currentLevel].length; n++)
             {
                 let currentNode = allNodesByLevels[currentLevel][n];
-
                 this.setCoordinates(currentNode);
             }
         }
     }
 
 
-    // private
     computeTreeShift()
     {
         if (this.tree.treeLevels === 1)
@@ -215,7 +202,6 @@ export class TreeCoordinates // alignment tree nodes
 
         let screenCoordinates = new ScreenCoordinates();
         let screenXCenter = screenCoordinates.getScreenXCenter();
-
         let outermostLeftNode = this.tree.getOutermostLeftNode(this.tree.root);
 
         // shift tree and suppose, that next node will be left child of current outermostLeftNode
@@ -227,7 +213,6 @@ export class TreeCoordinates // alignment tree nodes
         if (outermostLeftNode.xCoordinate <= screenXCenter)
         {
             let multiplier = outermostLeftNode.isLeftChild ? -1 : 1;
-
             return screenXCenter - (outermostLeftNode.parentNode.xCoordinate + multiplier * Math.pow(2, (this.tree.treeLevels - outermostLeftNode.levelInTree)) * this.widthNode);
         }
 
@@ -238,16 +223,13 @@ export class TreeCoordinates // alignment tree nodes
     shiftTree(treeShift)
     {
         let allNodesByLevels = this.tree.getAllNodesByLevels();
-
         for (let currentLevel = 0; currentLevel < allNodesByLevels.length; currentLevel++)
         {
             for (let n = 0; n < allNodesByLevels[currentLevel].length; n++)
             {
                 let currentNode = allNodesByLevels[currentLevel][n];
-
                 currentNode.xCoordinate += treeShift;
             }
         }
     }
-
 }

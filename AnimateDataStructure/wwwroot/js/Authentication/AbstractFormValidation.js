@@ -1,5 +1,4 @@
-﻿import { AbstractFormFieldsHelper } from './AbstractFormFieldsHelper.js'
-
+﻿import { AbstractFormFieldsHelper } from './AbstractFormFieldsHelper.js';
 
 export class AbstractFormValidation
 {
@@ -11,26 +10,10 @@ export class AbstractFormValidation
 
     validateUsername(usernameInputDomElement, usernameError)
     {
-        //this.signUpFormFieldsHelper.throwIfInputEmpty(usernameInputDomElement, usernameError);
         this.abstractFormFieldsHelper.throwIfInputEmpty(usernameInputDomElement, usernameError);
 
         const username = usernameInputDomElement.value.trim();
-        //if (username === '')
-        //{
-        //    this.signUpFormFieldsHelper.showError(usernameError, 'Username is required.');
-        //    return false;
-        //}
-        //else if (username.length >= 50)
-        //{
-        //    this.signUpFormFieldsHelper.showError(usernameError, 'Username must be less than 50 characters long.');
-        //    return false;
-        //}
-        //else if (username.length < 3)
-        //{
-        //    this.signUpFormFieldsHelper.showError(usernameError, 'Username must be at least 3 characters long.');
-        //    return false;
-        //}
-
+        
         if (username.length >= 50)
         {
             this.abstractFormFieldsHelper.showError(usernameError, 'Username is longer than 50 characters');
@@ -60,8 +43,6 @@ export class AbstractFormValidation
     // Validate email format
     isValidEmail(emailText)
     {
-        // DO NOT DELETE:
-
         // ^                       - Start of the string
         // (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)* - User part (local-part)
         //   [a-z0-9!#$%&'*+/=?^_`{|}~-]+  - One or more valid characters
@@ -85,7 +66,6 @@ export class AbstractFormValidation
     validatePassword(passwordInputDomElement, passwordError)
     {
         this.abstractFormFieldsHelper.throwIfInputEmpty(passwordInputDomElement, passwordError);
-
         const password = passwordInputDomElement.value.trim();
 
         if (password === '')
@@ -98,6 +78,7 @@ export class AbstractFormValidation
             this.abstractFormFieldsHelper.showError(passwordError, 'Password must be at least 8 characters long');
             return false;
         }
+
         return true;
     }
 
@@ -106,6 +87,7 @@ export class AbstractFormValidation
     {
         const confirmPassword = confirmPasswordSignUpInput.value.trim();
         const password = passwordSignUpInput.value.trim();
+
         if (confirmPassword === '')
         {
             this.abstractFormFieldsHelper.showError(confirmPasswordSignUpError, 'Confirm Password is required');
@@ -116,6 +98,7 @@ export class AbstractFormValidation
             this.abstractFormFieldsHelper.showError(confirmPasswordSignUpError, 'Passwords do not match');
             return false;
         }
+
         return true;
     }
 }
