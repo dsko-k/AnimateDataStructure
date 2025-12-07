@@ -12,7 +12,13 @@
     ViewData[ViewDataKeys.ActionNameTraversePostorder] = ActionNames.TraversePostorder;
 }
 
-
+@* 
 @section Scripts {
     <script type="module" src="~/js/mainBinarySearchTree.js" defer></script>
+} *@
+
+
+@section Scripts {
+    <script src="~/dist/mainBinarySearchTree.bundle.js" asp-append-version="true"></script>
 }
+

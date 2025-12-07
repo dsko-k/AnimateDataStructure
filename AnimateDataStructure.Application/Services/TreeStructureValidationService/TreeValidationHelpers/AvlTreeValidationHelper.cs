@@ -1,10 +1,5 @@
 ﻿using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
@@ -12,9 +7,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
     public static class AvlTreeValidationHelper
     {
         /// <summary>
-        /// Builds the tree structure by inserting nodes sequentially according to BST rules.
-        /// FIX: Replaces level-order indexing (which is incompatible with sparse trees from a non-placeholder list)
-        /// with BST insertion logic to correctly define the topology based on values.
+        /// Builds the tree structure by inserting nodes sequentially according to BST rules
         /// </summary>
         public static ValidationNodeAvlTree BuildTreeFromLevelOrder(ICollection<NodeAvlTree> nodes)
         {
@@ -102,9 +95,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
             }
 
             InOrderTraversal(node.Left, values);
-
             values.Add(node.Value);
-
             InOrderTraversal(node.Right, values);
         }
     }

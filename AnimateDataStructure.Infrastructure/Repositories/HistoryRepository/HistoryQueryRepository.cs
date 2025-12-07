@@ -3,19 +3,17 @@ using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Xml.Linq;
 using System.Linq.Expressions;
 
 namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
 {
     public class HistoryQueryRepository : IHistoryQueryRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
 
         public HistoryQueryRepository(ApplicationDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public async Task<IEnumerable<HistoryDataStructureDto>> GetCombinedHistoryForUserAsync(string userId)
@@ -36,7 +34,7 @@ namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
             // 3. Sort the combined list in memory and return
             return combinedResults
                 .OrderByDescending(h => h.UpdatedAt)
-                .ToList(); // ToList() is redundant here but safe
+                .ToList();
         }
 
 
@@ -44,7 +42,7 @@ namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
             where TDataStructure : class, IDataStructure<TNode>
             where TNode : class, INode
         {
-            return _context.Set<TDataStructure>()
+            return context.Set<TDataStructure>()
                 .Where(ds => ds.UserId == userId)
                 .Select(ds => new HistoryDataStructureDto
                 {
@@ -53,7 +51,7 @@ namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
                     CreatedAt = ds.CreatedAt,
                     UpdatedAt = ds.UpdatedAt,
 
-                    // ⭐️ FIX: Explicitly cast the ICollection to IQueryable to enable OrderBy
+                    // Explicitly cast the ICollection to IQueryable to enable OrderBy
                     NodeData = string.Join(",", ds.Nodes
                                          .AsQueryable()
                                          .OrderBy(pkSelector)
@@ -92,7 +90,7 @@ namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
         // 5. Red-Black Tree (Specific Case)
         private IQueryable<HistoryDataStructureDto> GetRbtHistory(string userId)
         {
-            return _context.Set<RedBlackTree>()
+            return context.Set<RedBlackTree>()
                 .Where(r => r.UserId == userId)
                 .Select(r => new HistoryDataStructureDto
                 {
@@ -101,10 +99,9 @@ namespace AnimateDataStructure.Infrastructure.Repositories.HistoryRepository
                     CreatedAt = r.CreatedAt,
                     UpdatedAt = r.UpdatedAt,
 
-                    // ⭐️ FIX: Simplify the projection. Create the delimited string 
-                    // for EACH node inside the inner Select. EF Core translates this better.
+                    // Create the delimited string for each node inside the inner Select.
                     NodeData = string.Join(",", r.Nodes
-                                         .AsQueryable() // Keep AsQueryable for compilation if needed
+                                         .AsQueryable()
                                          .OrderBy(n => n.NodeRedBlackTreeId)
                                          .Select(n => $"{n.Value.ToString()},{n.IsRedNode.ToString().ToLower()}"))
                 });

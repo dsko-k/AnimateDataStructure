@@ -1,11 +1,7 @@
 ﻿using AnimateDataStructure.Core.Interfaces;
-using AnimateDataStructure.Web.ViewModels;
 using AnimateDataStructure.Web.ViewModels.AuthenticationViewModels;
 using AnimateDataStructure.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-
 
 namespace AnimateDataStructure.Web.Controllers
 {

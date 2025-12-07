@@ -11,13 +11,11 @@ namespace AnimateDataStructure.Application.Services.DataStructuresListService
         // Data is injected via IOptions<DataStructureOptions>
         public DataStructureListService(IOptions<DataStructureListOptions> options)
         {
-            // Read the data from the bound options object
-            _cards = options.Value.Cards;
+            _cards = options.Value.Cards; // Read the data from the bound options object
         }
 
         public Task<List<DataStructureListCard>> GetAvailableDataStructuresAsync()
         {
-            // Return the data without any hardcoding inside the method
             return Task.FromResult(_cards);
         }
     }

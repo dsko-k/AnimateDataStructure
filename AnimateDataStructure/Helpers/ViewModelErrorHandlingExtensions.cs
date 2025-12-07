@@ -8,8 +8,8 @@ namespace AnimateDataStructure.Web.Helpers
     {
         private static readonly Dictionary<string, string> ErrorToPropertyMap = new()
         {
-            {ValidationErrorKeys.DuplicateValues, "InputValue"  }, // { "DuplicateValues", "InputValue" },
-            {ValidationErrorKeys.ExistingValue, "InputValue"  }, // { "ExistingValue", "InputValue" }
+            {ValidationErrorKeys.DuplicateValues, "InputValue"  },
+            {ValidationErrorKeys.ExistingValue, "InputValue"  },
             {ValidationErrorKeys.UserNotFound, string.Empty },
             {ValidationErrorKeys.UnexpectedError, string.Empty },
             {ValidationErrorKeys.BSTViolation, "InputValue" },

@@ -3,11 +3,9 @@ using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Core.Parsers;
-using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.Services.NodesValidationService;
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider;
 using AnimateDataStructure.Core.Translators;
-using AnimateDataStructure.Core.ValidationErrors;
 using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
 
 namespace AnimateDataStructure.Core.Services.TreeServices

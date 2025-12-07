@@ -2,11 +2,6 @@
 using AnimateDataStructure.Core.Parsers;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Translators
 {
@@ -65,14 +60,10 @@ namespace AnimateDataStructure.Core.Translators
         public virtual void UpdateTreeFromDto(AbstractSaveTreeDto dto, TTree existingTree)
         {
             var specificDto = (TDto)dto;
-
             existingTree.UpdatedAt = DateTime.UtcNow;
 
-            // 1. Update: Clear existing nodes
-            ClearExistingNodes(existingTree);
-
-            // 2. Update: Populate the new nodes
-            PopulateTreeWithNodes(existingTree, specificDto.InputValue);
+            ClearExistingNodes(existingTree); // 1. Update: Clear existing nodes
+            PopulateTreeWithNodes(existingTree, specificDto.InputValue); // 2. Update: Populate the new nodes
         }
     }
 }

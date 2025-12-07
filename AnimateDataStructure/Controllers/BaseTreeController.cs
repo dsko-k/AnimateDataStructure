@@ -15,7 +15,7 @@ using System.Security.Claims;
 namespace AnimateDataStructure.Web.Controllers
 {
     public abstract class BaseTreeController<TService, TViewModel, TDto> : Controller
-    where TService : IBaseTreeService<TDto> // This is the correct, fixed constraint
+    where TService : IBaseTreeService<TDto>
     where TViewModel : BaseSaveTreeViewModel, IHasAuthenticatedProperty
     where TDto : AbstractSaveTreeDto, IHasAuthenticatedProperty, new()
     {
@@ -31,12 +31,13 @@ namespace AnimateDataStructure.Web.Controllers
             TreeControllerLogger = treeControllerLogger;
         }
 
-        public async Task<IActionResult> Template()
+        public IActionResult Template()
         {
             if (ViewData[ViewDataKeys.TempGuid] == null)
             {
                 ViewData[ViewDataKeys.TempGuid] = Guid.NewGuid();
             }
+
             return View();
         }
 
@@ -46,17 +47,22 @@ namespace AnimateDataStructure.Web.Controllers
         public virtual async Task<IActionResult> LoadSavedDataStructure(Guid tempGuid)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (string.IsNullOrEmpty(userId))
             {
                 return Unauthorized();
             }
+
             string? fullNodeData = await Service.GetFullNodeDataByTempGuidAsync(tempGuid, userId);
+
             if (string.IsNullOrEmpty(fullNodeData))
             {
                 return NotFound();
             }
+
             ViewData[ViewDataKeys.SavedDataStructureNodes] = fullNodeData;
             ViewData[ViewDataKeys.TempGuid] = tempGuid;
+
             return View("Template");
         }
 
@@ -67,16 +73,18 @@ namespace AnimateDataStructure.Web.Controllers
         [HttpGet]
         public IActionResult GetAntiForgeryToken()
         {
-            var tokens = antiforgery.GetAndStoreTokens(HttpContext); // Get and store a new token for the current session            
+            var tokens = antiforgery.GetAndStoreTokens(HttpContext); // Get and store a new token for the current session
+
             return Ok(new { token = tokens.RequestToken });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddNode([FromForm] AddNodeViewModel formData)
+        public IActionResult AddNode([FromForm] AddNodeViewModel formData)
         {
             // '_ = ' syntax discards the task, making it "fire-and-forget"
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(AddNode), formData);
+
             if (ModelState.IsValid)
             {
                 return Json(new { success = true });
@@ -86,55 +94,63 @@ namespace AnimateDataStructure.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> FindNode([FromForm] FindNodeViewModel formData)
+        public IActionResult FindNode([FromForm] FindNodeViewModel formData)
         {
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(FindNode), formData);
+
             if (ModelState.IsValid)
             {
                 return Json(new { success = true });
             }
+
             return BadRequest(ModelState);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteNode([FromForm] DeleteNodeViewModel formData)
+        public IActionResult DeleteNode([FromForm] DeleteNodeViewModel formData)
         {
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(DeleteNode), formData);
+
             if (ModelState.IsValid)
             {
                 return Json(new { success = true });
             }
+
             return BadRequest(ModelState);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> TraverseInorder([FromForm] TraverseNodesViewModel formData)
+        public IActionResult TraverseInorder([FromForm] TraverseNodesViewModel formData)
         {
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(TraverseInorder), formData);
+
             if (ModelState.IsValid)
             {
                 return Json(new { success = true });
             }
+
             return BadRequest(ModelState);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> TraversePreorder([FromForm] TraverseNodesViewModel formData)
+        public IActionResult TraversePreorder([FromForm] TraverseNodesViewModel formData)
         {
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(TraversePreorder), formData);
+
             if (ModelState.IsValid)
             {
                 return Json(new { success = true });
             }
+
             return BadRequest(ModelState);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> TraversePostorder([FromForm] TraverseNodesViewModel formData)
+        public IActionResult TraversePostorder([FromForm] TraverseNodesViewModel formData)
         {
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(TraversePostorder), formData);
             if (ModelState.IsValid)
@@ -150,23 +166,29 @@ namespace AnimateDataStructure.Web.Controllers
         public virtual async Task<IActionResult> SaveNodes([FromForm] TViewModel formData)
         {
             _ = TreeControllerLogger.LogInputData(this.GetType().Name, nameof(SaveNodes), formData);
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (string.IsNullOrEmpty(userId))
             {
                 ModelState.AddServiceResultErrorsToModelState(ServiceResult.UserNotFound());
                 return BadRequest(ModelState);
             }
+
             var saveDto = TranslatorSaveTreeViewModelToDto.TranslateToSaveTreeDto<TViewModel, TDto>(formData);
             var result = await Service.SaveNodesAsync(saveDto, userId);
+
             if (!result.IsSuccess)
             {
                 ModelState.AddServiceResultErrorsToModelState(result);
                 return BadRequest(ModelState);
             }
+
             return Json(new { success = true });
         }
     }

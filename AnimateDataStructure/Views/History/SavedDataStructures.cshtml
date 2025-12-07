@@ -73,7 +73,12 @@
     <div id="idHistoryTableResizerBottomHorizontalContainer" class="resizerBottomHorizontalContainer"></div>
 </div>
 
-
+@* 
 @section Scripts {
     <script type="module" src="~/js/mainHistory.js" defer></script>
+} *@
+
+
+@section Scripts {
+    <script src="~/dist/mainHistory.bundle.js" asp-append-version="true"></script>
 }

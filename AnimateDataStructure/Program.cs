@@ -5,6 +5,7 @@ using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Entities.CardEntities;
 using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
+using AnimateDataStructure.Core.Entities.SecurityHeaders;
 using AnimateDataStructure.Core.Interfaces;
 using AnimateDataStructure.Core.Parsers;
 using AnimateDataStructure.Core.Services.AuthenticationService;
@@ -17,6 +18,7 @@ using AnimateDataStructure.Core.Translators;
 using AnimateDataStructure.Infrastructure.Identity;
 using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
 using AnimateDataStructure.Infrastructure.Repositories.HistoryRepository;
+using AnimateDataStructure.Web.Helpers;
 using Serilog;
 
 // SERILOG BOOTSTRAPPING (MUST OCCUR BEFORE builder.Build())
@@ -28,6 +30,8 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Host.UseSerilog();
+
+builder.Services.Configure<SecurityHeaderOptions>(builder.Configuration.GetSection(SecurityHeaderOptions.SectionName));
 builder.Services.Configure<DataStructureListOptions>(builder.Configuration.GetSection(DataStructureListOptions.SectionName));
 builder.Services.AddScoped<IDataStructureListService, DataStructureListService>();
 
@@ -109,6 +113,12 @@ var app = builder.Build();
 // Ensures that any buffered logs (especially for file writing) are written out before the application process fully terminates
 app.Lifetime.ApplicationStopped.Register(Log.CloseAndFlush);
 
+// MIDDLEWARE PIPELINE
+
+// 1. Security Headers should be FIRST (or immediately after error handling/HSTS)
+// This ensures they apply to Static Files and all other requests.
+app.UseSecurityHeaders();
+
 // Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
@@ -119,10 +129,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseAntiforgery();
+
 app.MapStaticAssets();
 
 app.MapControllerRoute(

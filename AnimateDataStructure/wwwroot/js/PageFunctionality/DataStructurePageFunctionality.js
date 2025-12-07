@@ -206,7 +206,7 @@ export class DataStructurePageFunctionality
 		let contextControlButtonEffectsTraversePostorder = new ContextControlEffects(new ButtonTraversePostorderEffects());
 		contextControlButtonEffectsTraversePostorder.addEffectsToControlButton();
 		let contextControlButtonEffectsSave = new ContextControlEffects(new ButtonSaveEffects());
-		contextControlButtonEffectsSave.addEffectsToControlButton();		
+		contextControlButtonEffectsSave.addEffectsToControlButton();
 		let buttonAuthenticateEffects = new ButtonAuthenticateEffects();
 		let contextControlButtonEffectsAuthenticate = new ContextControlEffects(buttonAuthenticateEffects);
 		contextControlButtonEffectsAuthenticate.addEffectsToControlButton();

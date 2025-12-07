@@ -5,8 +5,3 @@ export function initFormsModal()
     const authentication = new Authentication();
     authentication.addAuthenticationHandlers();
 }
-
-
-
-
-

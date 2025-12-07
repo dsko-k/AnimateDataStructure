@@ -1,11 +1,5 @@
 ﻿using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using AnimateDataStructure.Core.ValidationErrors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers;
 
@@ -27,14 +21,11 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 return ServiceResult.Success();
             }
 
-            // 1. Prepare the array for index-based validation
             ValidationNodeMaxHeap[] validationArray = MaxHeapValidationHelper.PrepareValidationArray(Nodes);
 
-            // 2. Check the Max Heap Property starting from the root (index 0)
-            ServiceResult failureResult = ServiceResult.Success();
+            ServiceResult failureResult = ServiceResult.Success(); // Check the Max Heap Property starting from the root (index 0)
 
-            // The check will stop and update failureResult on the first violation.
-            MaxHeapValidationHelper.CheckMaxHeapProperty(validationArray, 0, ref failureResult);
+            MaxHeapValidationHelper.CheckMaxHeapProperty(validationArray, 0, ref failureResult); // The check will stop and update failureResult on the first violation
 
             return failureResult;
         }

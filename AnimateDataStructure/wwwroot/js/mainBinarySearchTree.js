@@ -17,6 +17,6 @@ import { DataStructurePageFunctionality } from './PageFunctionality/DataStructur
     dataStructurePageFunctionality.addAbstractMouseEffect();
     dataStructurePageFunctionality.addHandlerOnClickSidebarIcons(newTree);
     dataStructurePageFunctionality.addEffectsToInputField();
-    controlHandlers.attachGroupControlActivityHandlers();    
+    controlHandlers.attachGroupControlActivityHandlers();
     dataStructurePageFunctionality.onPageLoadClickOnButtonAddRange(); // Run at the end of the script
 })();

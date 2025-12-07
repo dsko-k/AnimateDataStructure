@@ -8,10 +8,7 @@ using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.Services.NodesValidationService;
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationProvider;
 using AnimateDataStructure.Core.Translators;
-using AnimateDataStructure.Core.ValidationErrors;
 using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
-using System.Globalization;
-using System.Linq.Expressions;
 
 namespace AnimateDataStructure.Core.Services.TreeServices
 {
@@ -24,11 +21,8 @@ namespace AnimateDataStructure.Core.Services.TreeServices
         private readonly IBaseTreeTranslator<TTree, TDto, TNode> translator;
         private readonly INodeValueUniquenessValidator uniquenessValidator;
         private readonly IBaseNodeParser<TNode> parser;
-
-        // ????
         private readonly ITreeValidatorProvider<TNode> treeValidatorProvider;
         private readonly IDataLoader<TTree, TNode> dataLoader;
-
 
         public BaseTreeService(IGenericRepository<TTree> repository,
                                IBaseTreeTranslator<TTree, TDto, TNode> translator,
@@ -48,24 +42,21 @@ namespace AnimateDataStructure.Core.Services.TreeServices
 
         public virtual async Task<ServiceResult> SaveNodesAsync(TDto dto, string userId)
         {
-            // Node Value Uniqueness Validation
-            var validationResult = ValidateNodeValuesUniqueness(dto);
+            var validationResult = ValidateNodeValuesUniqueness(dto); // Node Value Uniqueness Validation
 
             if (!validationResult.IsSuccess)
             {
                 return validationResult;
             }
 
-            // Tree Structure Validation
-            var structureResult = ValidateTreeStructure(dto);
+            var structureResult = ValidateTreeStructure(dto); // Tree Structure Validation
 
             if (!structureResult.IsSuccess)
             {
                 return structureResult;
             }
 
-            // Persistence Logic
-            return await CreateOrUpdateTreeAsync(dto, userId);
+            return await CreateOrUpdateTreeAsync(dto, userId); // Persistence Logic
         }
 
 
@@ -77,14 +68,11 @@ namespace AnimateDataStructure.Core.Services.TreeServices
 
         protected ServiceResult ValidateTreeStructure(TDto dto)
         {
-            // Parse the input nodes first
-            var nodes = parser.ParseNodeValues(dto.InputValue);
+            var nodes = parser.ParseNodeValues(dto.InputValue); // Parse the input nodes first
 
-            // Use the provider to get the correct, instantiated validator
-            var validator = treeValidatorProvider.GetValidator(nodes);
+            var validator = treeValidatorProvider.GetValidator(nodes); // Use the provider to get the correct, instantiated validator
 
-            // Run the structure check
-            return validator.ValidateStructure();
+            return validator.ValidateStructure(); // Run the structure check
         }
 
 
@@ -114,6 +102,5 @@ namespace AnimateDataStructure.Core.Services.TreeServices
         {
             return await dataLoader.GetFullNodeDataByTempGuidAsync(tempGuid, userId);
         }
-
     }
 }

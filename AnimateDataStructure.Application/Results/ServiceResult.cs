@@ -1,9 +1,4 @@
 ﻿using AnimateDataStructure.Core.ValidationErrors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Results
 {
@@ -13,7 +8,7 @@ namespace AnimateDataStructure.Core.Results
 
         public string? ErrorKey { get; private set; }
 
-        public string ErrorMessage { get; private set; }
+        public string? ErrorMessage { get; private set; }
 
 
         private ServiceResult(bool isSuccess, string? errorKey = null, string? errorMessage = null)

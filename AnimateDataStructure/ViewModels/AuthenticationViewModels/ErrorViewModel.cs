@@ -1,5 +1,4 @@
-﻿
-namespace AnimateDataStructure.Web.ViewModels.AuthenticationViewModels
+﻿namespace AnimateDataStructure.Web.ViewModels.AuthenticationViewModels
 {
     public class ErrorViewModel
     {

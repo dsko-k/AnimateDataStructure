@@ -2,11 +2,6 @@
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.ValidationErrors;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
@@ -17,8 +12,10 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         /// </summary>
         public static ValidationNodeMaxHeap[] PrepareValidationArray(ICollection<NodeMaxHeap> nodes)
         {
-            if (nodes == null || !nodes.Any()) return new ValidationNodeMaxHeap[0];
-
+            if (nodes == null || !nodes.Any()) 
+            {
+                return new ValidationNodeMaxHeap[0];
+            }
             // Convert the input to an array of validation nodes, maintaining their indices.
             return nodes.Select((n, index) => new ValidationNodeMaxHeap(n.Value, index)).ToArray();
         }
@@ -38,19 +35,18 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 return true; // Base case: An empty subtree is valid.
             }
 
-            // Parent node
             var parentNode = nodesArray[parentIndex];
 
             // Calculate child indices (0-indexed array)
             int leftChildIndex = 2 * parentIndex + 1;
             int rightChildIndex = 2 * parentIndex + 2;
 
-            // --- Check Left Child ---
+            // Check Left Child
             if (leftChildIndex < nodesArray.Length)
             {
                 var leftChild = nodesArray[leftChildIndex];
 
-                // DO NOT DELETE: Max Heap Property Check: Parent must be >= Child
+                // Max Heap Property Check: Parent must be >= Child
                 if (parentNode.Value < leftChild.Value)
                 {
                     failureResult = ServiceResult.CreateFailureResult(ValidationErrorKeys.MaxHeapViolation, parentNode.Value.ToString());
@@ -65,12 +61,12 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 }
             }
 
-            // --- Check Right Child ---
+            // Check Right Child
             if (rightChildIndex < nodesArray.Length)
             {
                 var rightChild = nodesArray[rightChildIndex];
 
-                // DO NOT DELETE: Max Heap Property Check: Parent must be >= Child
+                // Max Heap Property Check: Parent must be >= Child
                 if (parentNode.Value < rightChild.Value)
                 {
                     failureResult = ServiceResult.CreateFailureResult(ValidationErrorKeys.MaxHeapViolation, parentNode.Value.ToString());

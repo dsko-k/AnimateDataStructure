@@ -1,15 +1,12 @@
 ﻿using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 
-
 namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
     public static class BinarySearchTreeValidationHelper
     {
         /// <summary>
         /// Builds a linked tree structure by inserting nodes sequentially according to BST rules.
-        /// FIX: The original level-order logic is replaced by BST insertion to correctly model the
-        /// topology of sparse trees when only existing nodes are provided in the input list.
         /// </summary>
         /// <returns>The root of the reconstructed ValidationNode structure.</returns>
         public static ValidationNodeBinarySearchTree BuildTreeFromLevelOrder(ICollection<NodeBinarySearchTree> nodes)
@@ -35,10 +32,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         /// </summary>
         private static ValidationNodeBinarySearchTree InsertNode(ValidationNodeBinarySearchTree root, NodeBinarySearchTree inputNode)
         {
-            var newNode = new ValidationNodeBinarySearchTree(
-                inputNode.Value,
-                inputNode.NodeBinarySearchTreeId
-            );
+            var newNode = new ValidationNodeBinarySearchTree(inputNode.Value, inputNode.NodeBinarySearchTreeId);
 
             if (root == null)
             {
@@ -95,7 +89,10 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
 
         private static void InOrderTraversal(ValidationNodeBinarySearchTree node, List<double> values)
         {
-            if (node == null) return;
+            if (node == null) 
+            {
+                return; 
+            }
 
             InOrderTraversal(node.Left, values);
             values.Add(node.Value);

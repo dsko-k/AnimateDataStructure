@@ -12,8 +12,11 @@
     ViewData[ViewDataKeys.ActionNameTraversePostorder] = ActionNames.TraversePostorder;
 }
 
-
-
+@* 
 @section Scripts {
     <script type="module" src="~/js/mainRedBlackTree.js" defer></script>
+} *@
+
+@section Scripts {
+    <script src="~/dist/mainRedBlackTree.bundle.js" asp-append-version="true"></script>
 }

@@ -1,5 +1,4 @@
-﻿
-namespace AnimateDataStructure.Core.Entities.CardEntities
+﻿namespace AnimateDataStructure.Core.Entities.CardEntities
 {
     public class DataStructureListCard
     {

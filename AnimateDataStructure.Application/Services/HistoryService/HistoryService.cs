@@ -1,7 +1,5 @@
 ﻿using AnimateDataStructure.Core.DTOs.HistoryDataStructureDTOs;
-using AnimateDataStructure.Infrastructure.Repositories.GenericRepository;
 using AnimateDataStructure.Infrastructure.Repositories.HistoryRepository;
-
 
 namespace AnimateDataStructure.Core.Services.HistoryService
 {

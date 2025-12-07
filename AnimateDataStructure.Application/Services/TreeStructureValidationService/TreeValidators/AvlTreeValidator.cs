@@ -60,6 +60,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
 
                 previousValue = currentValue;
             }
+
             return ServiceResult.Success();
         }
 
@@ -85,7 +86,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         {
             if (node == null)
             {
-                return new HeightValidationResult(-1, ServiceResult.Success()); // Height of a null node is -1. Validation is successful.
+                return new HeightValidationResult(-1, ServiceResult.Success()); // Height of a null node is -1. Validation is successful
             }
 
             var leftResult = CalculateHeightAndCheckBalance(node.Left);

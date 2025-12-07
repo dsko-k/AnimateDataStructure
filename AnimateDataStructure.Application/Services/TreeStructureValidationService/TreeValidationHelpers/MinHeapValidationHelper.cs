@@ -2,11 +2,6 @@
 using AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationNodes;
 using AnimateDataStructure.Core.ValidationErrors;
 using AnimateDataStructure.Core.Entities.NodeEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.TreeValidationHelpers
 {
@@ -17,9 +12,11 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         /// </summary>
         public static ValidationNodeMinHeap[] PrepareValidationArray(ICollection<NodeMinHeap> nodes)
         {
-            if (nodes == null || !nodes.Any()) return new ValidationNodeMinHeap[0];
-
-            // Convert the input to an array of validation nodes, maintaining their indices.
+            if (nodes == null || !nodes.Any()) 
+            {
+                return new ValidationNodeMinHeap[0]; 
+            }
+            // Convert the input to an array of validation nodes, maintaining their indices
             return nodes.Select((n, index) => new ValidationNodeMinHeap(n.Value, index)).ToArray();
         }
 
@@ -37,14 +34,13 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 return true; // Base case: An empty subtree is valid.
             }
 
-            // Parent node
             var parentNode = nodesArray[parentIndex];
 
             // Calculate child indices (0-indexed array)
             int leftChildIndex = 2 * parentIndex + 1;
             int rightChildIndex = 2 * parentIndex + 2;
 
-            // --- Check Left Child ---
+            // Check Left Child
             if (leftChildIndex < nodesArray.Length)
             {
                 var leftChild = nodesArray[leftChildIndex];
@@ -52,9 +48,6 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 // Min Heap Property Check: Parent must be <= Child
                 if (parentNode.Value > leftChild.Value)
                 {
-                    //failureResult = ServiceResult.CreateFailureResult("MinHeapViolation",
-                    //    $"Min Heap Property Violation: Parent node value ({parentNode.Value}) at index {parentNode.Index} is greater than its left child ({leftChild.Value}) at index {leftChild.Index}.");
-
                     failureResult = ServiceResult.CreateFailureResult(ValidationErrorKeys.MinHeapViolation, parentNode.Value.ToString());
 
                     return false;
@@ -67,7 +60,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 }
             }
 
-            // --- Check Right Child ---
+            // Check Right Child
             if (rightChildIndex < nodesArray.Length)
             {
                 var rightChild = nodesArray[rightChildIndex];
@@ -75,9 +68,6 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
                 // Min Heap Property Check: Parent must be <= Child
                 if (parentNode.Value > rightChild.Value)
                 {
-                    //failureResult = ServiceResult.CreateFailureResult("MinHeapViolation",
-                    //    $"Min Heap Property Violation: Parent node value ({parentNode.Value}) at index {parentNode.Index} is greater than its right child ({rightChild.Value}) at index {rightChild.Index}.");
-
                     failureResult = ServiceResult.CreateFailureResult(ValidationErrorKeys.MinHeapViolation, parentNode.Value.ToString());
 
                     return false;

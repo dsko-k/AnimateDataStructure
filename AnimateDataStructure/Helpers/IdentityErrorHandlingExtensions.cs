@@ -24,15 +24,13 @@ namespace AnimateDataStructure.Web.Helpers
         };
 
 
-        // This dictionary maps a custom login error key to its corresponding
-        // ViewModel property and error message.
+        // This dictionary maps a custom login error key to its corresponding ViewModel property and error message
         private static readonly Dictionary<string, (string PropertyName, string ErrorMessage)> LoginErrorsMap = new Dictionary<string, (string, string)>
         {
             { "LockedOut", ("Email", "Account locked out. Please try again later") },
             { "InvalidPassword", ("Password", "Invalid password") },
             { "UserNotFound", ("Email", "Invalid login attempt") }
         };
-
 
 
         /// <summary>
@@ -46,7 +44,7 @@ namespace AnimateDataStructure.Web.Helpers
                                                           IEnumerable<IdentityError> identityResultErrors,
                                                           Type viewModelType)
         {
-            // Cache ViewModel property names for efficient lookup, making it case-insensitive.
+            // Cache ViewModel property names for efficient lookup, making it case-insensitive
             var viewModelPropertyNames = new HashSet<string>(
                 viewModelType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
                              .Select(p => p.Name),
@@ -56,6 +54,7 @@ namespace AnimateDataStructure.Web.Helpers
             foreach (var error in identityResultErrors)
             {
                 string modelPropertyKey = string.Empty;
+
                 if (IdentityErrorToPropertyMap.TryGetValue(error.Code, out string mappedPropertyName))
                 {
                     if (viewModelPropertyNames.Contains(mappedPropertyName))
@@ -63,6 +62,7 @@ namespace AnimateDataStructure.Web.Helpers
                         modelPropertyKey = mappedPropertyName;
                     }
                 }
+
                 modelState.AddModelError(modelPropertyKey, error.Description);
             }
         }
@@ -84,6 +84,7 @@ namespace AnimateDataStructure.Web.Helpers
                              .Select(p => p.Name),
                 StringComparer.OrdinalIgnoreCase
             );
+
             string errorKey = "InvalidPassword";
             if (signInResult.IsLockedOut)
             {

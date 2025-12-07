@@ -2,7 +2,6 @@
 @{
     Layout = "_DataStructureLayout";
 
-    //ViewData["ControllerName"] = ViewContext?.RouteData?.Values["controller"]?.ToString(); //"AvlTree";
     ViewData[ViewDataKeys.ControllerName] = ViewContext?.RouteData?.Values[ViewDataKeys.Controller]?.ToString(); //"AvlTree";
     ViewData[ViewDataKeys.ActionNameAddNode] = ActionNames.AddNode; /* Add correspondent data-attributes for each button using Razor-syntax */
     ViewData[ViewDataKeys.ActionNameFindNode] = ActionNames.FindNode;
@@ -13,10 +12,11 @@
     ViewData[ViewDataKeys.ActionNameSaveNodes] = ActionNames.SaveNodes;
 }
 
-
+@* 
 @section Scripts {
     <script type="module" src="~/js/mainAvlTree.js" defer></script>
+} *@
+
+@section Scripts {
+    <script src="~/dist/mainAvlTree.bundle.js" asp-append-version="true"></script>
 }
-
-
-

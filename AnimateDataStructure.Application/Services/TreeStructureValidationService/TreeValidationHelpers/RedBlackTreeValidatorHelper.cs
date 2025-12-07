@@ -15,15 +15,20 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         public static ValidationNodeRedBlackTree BuildTreeFromLevelOrder(ICollection<NodeRedBlackTree> nodes)
         {
             if (nodes == null || !nodes.Any())
+            { 
                 return null;
+            }
 
             ValidationNodeRedBlackTree root = null;
 
             // Iterate through the flat list and insert nodes based on BST rules
             foreach (var inputNode in nodes)
             {
-                // Skip NaN values if they somehow end up in the sequential list
-                if (double.IsNaN(inputNode.Value)) continue;
+                if (double.IsNaN(inputNode.Value)) // Skip NaN values if they somehow end up in the sequential list
+                {
+                    continue; 
+                }
+
                 root = InsertNode(root, inputNode);
             }
 
@@ -36,13 +41,7 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         /// </summary>
         private static ValidationNodeRedBlackTree InsertNode(ValidationNodeRedBlackTree root, NodeRedBlackTree inputNode)
         {
-            // FIX: Explicitly passing 'parent: null' to resolve the constructor call error.
-            var newNode = new ValidationNodeRedBlackTree(
-                inputNode.Value,
-                inputNode.IsRedNode, // Retain the color property
-                inputNode.NodeRedBlackTreeId,
-                parent: null // Explicitly pass null for the optional parent parameter
-            );
+            var newNode = new ValidationNodeRedBlackTree(inputNode.Value, inputNode.IsRedNode, inputNode.NodeRedBlackTreeId, parent: null);
 
             if (root == null)
             {
@@ -98,7 +97,10 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
 
         private static void InOrderTraversal(ValidationNodeRedBlackTree node, List<double> values)
         {
-            if (node == null) return;
+            if (node == null) 
+            {
+                return;
+            }
 
             InOrderTraversal(node.Left, values);
             values.Add(node.Value);
@@ -112,15 +114,29 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
         /// <returns>The height of black nodes in the subtree, or int.MinValue if a violation is found</returns>
         public static int ValidateEqualAmountOfBlackNodes(ValidationNodeRedBlackTree node, ref ServiceResult failureResult)
         {
-            if (node == null) return 0;
+            if (node == null) 
+            {
+                return 0;
+            }
 
-            if (!failureResult.IsSuccess) return int.MinValue;
+            if (!failureResult.IsSuccess) 
+            { 
+                return int.MinValue;
+            }
 
             int leftBlackHeight = ValidateEqualAmountOfBlackNodes(node.Left, ref failureResult);
-            if (!failureResult.IsSuccess) return int.MinValue;
+
+            if (!failureResult.IsSuccess) 
+            { 
+                return int.MinValue;
+            }
 
             int rightBlackHeight = ValidateEqualAmountOfBlackNodes(node.Right, ref failureResult);
-            if (!failureResult.IsSuccess) return int.MinValue;
+
+            if (!failureResult.IsSuccess) 
+            { 
+                return int.MinValue;
+            }
 
             if (leftBlackHeight != rightBlackHeight)
             {
@@ -131,6 +147,5 @@ namespace AnimateDataStructure.Core.Services.TreeStructureValidationService.Tree
             return leftBlackHeight + (node.IsRedNode ? 0 : 1);
         }
     }
-
 }
 

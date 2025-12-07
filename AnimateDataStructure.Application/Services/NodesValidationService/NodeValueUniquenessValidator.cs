@@ -1,10 +1,8 @@
 ﻿using AnimateDataStructure.Core.DTOs.SaveNodesDTOs;
 using AnimateDataStructure.Core.Results;
 using AnimateDataStructure.Core.ValidationErrors;
-using AnimateDataStructure.Core.Entities.DataStructureEntities;
 using AnimateDataStructure.Core.Entities.NodeEntities;
 using AnimateDataStructure.Core.Parsers;
-
 
 namespace AnimateDataStructure.Core.Services.NodesValidationService
 {

@@ -5,8 +5,7 @@ namespace AnimateDataStructure.Core.Services.LoggingService
 {
     public class TreeControllerLogger : ITreeControllerLogger
     {
-        // Inject ILogger (Serilog-backed)
-        private readonly ILogger<TreeControllerLogger> logger;
+        private readonly ILogger<TreeControllerLogger> logger; // Inject ILogger (Serilog-backed)
 
         private const string InputDataLogTemplate = "INPUT_DATA: Controller='{ControllerName}' Action='{ActionName}' received data: {JsonData}";
         private const string InputDataLogError = "LOGGING FAILURE: Failed to serialize and log input data for Controller='{ControllerName}' Action='{ActionName}'";
@@ -15,22 +14,6 @@ namespace AnimateDataStructure.Core.Services.LoggingService
         {
             this.logger = logger;
         }
-
-
-        //public void LogInputData<TData>(string controllerName, string actionName, TData data)
-        //    where TData : class
-        //{
-        //    try
-        //    {
-        //        var jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = false });
-
-        //        logger.LogInformation(InputDataLogTemplate, controllerName, actionName, jsonString);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        logger.LogError(ex, InputDataLogError, controllerName, actionName);
-        //    }
-        //}
 
 
         public Task LogInputData<TData>(string controllerName, string actionName, TData data)
@@ -51,6 +34,5 @@ namespace AnimateDataStructure.Core.Services.LoggingService
                 }
             });
         }
-
     }
 }

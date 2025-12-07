@@ -1,6 +1,4 @@
-﻿using AnimateDataStructure.Web.Controllers;
-
-namespace AnimateDataStructure.Web.Constants
+﻿namespace AnimateDataStructure.Web.Constants
 {
     public static class ActionNames
     {

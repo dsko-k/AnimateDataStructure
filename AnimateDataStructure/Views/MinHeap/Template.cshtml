@@ -12,6 +12,11 @@
     ViewData[ViewDataKeys.ActionNameTraversePostorder] = ActionNames.TraversePostorder;
 }
 
+@* 
 @section Scripts {
     <script type="module" src="~/js/mainMinHeap.js" defer></script>
+} *@
+
+@section Scripts {
+    <script src="~/dist/mainMinHeap.bundle.js" asp-append-version="true"></script>
 }

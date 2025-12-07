@@ -20,6 +20,7 @@ namespace AnimateDataStructure.Application.Services.LoadingService
             this.formatter = formatter;
         }
 
+
         public async Task<string?> GetFullNodeDataByTempGuidAsync(Guid tempGuid, string userId)
         {
             var treeEntity = await repository.GetByTempGuidAsync(tempGuid, t => t.Nodes);

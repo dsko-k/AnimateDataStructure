@@ -11,6 +11,7 @@ export class HtmlSidebarCreator // Foreman
         this.htmlSidebarBuilder = htmlSidebarBuilder;
         this.htmlAbstractDomElementPart = new HtmlAbstractDomElementPart();
         this.htmlConfigurationAttributesReader = new HtmlConfigurationAttributesReader();
+        this.attributesForHtmlPage = this.htmlConfigurationAttributesReader.getHtmlPageConfigurations();
         this.attributesForSidebar = this.htmlConfigurationAttributesReader.getHtmlSidebarConfigurations();
         this.attributesForButtonMenu = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonMenuConfigurations();
         this.attributesForButtonSecond = this.htmlConfigurationAttributesReader.getHtmlSidebarButtonSecondConfigurations();
@@ -37,7 +38,9 @@ export class HtmlSidebarCreator // Foreman
         divSidebar.addChildDomElement(divSidebarButtonThird);
         divSidebar.addChildDomElement(divSidebarButtonFourth);
         divSidebar.addChildDomElement(divSidebarButtonFifth);
-        let bodyDomElement = document.getElementById("idBody");
+
+        let idBody = this.attributesForHtmlPage.bodyPageAttributes.defaultAttributes.id; // "idBody"
+        let bodyDomElement = document.getElementById(idBody);
         bodyDomElement.insertAdjacentElement("afterbegin", divSidebarContainer.getCreatedDomElement());
     }
 

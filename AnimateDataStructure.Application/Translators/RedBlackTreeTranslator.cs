@@ -9,7 +9,6 @@ namespace AnimateDataStructure.Core.Translators
     {
         private readonly RedBlackTreeNodeParser parser;
 
-        // Use constructor injection to receive the parser
         public RedBlackTreeTranslator(RedBlackTreeNodeParser parser)
         {
             this.parser = parser;
@@ -25,8 +24,6 @@ namespace AnimateDataStructure.Core.Translators
                 UpdatedAt = DateTime.UtcNow,
             };
 
-            // Delegate parsing to the specialized parser
-            //redBlackTree.Nodes = parser.Parse(dto.InputValue);
             PopulateTreeNodes(redBlackTree, dto.InputValue);
 
             return redBlackTree;
@@ -35,16 +32,14 @@ namespace AnimateDataStructure.Core.Translators
 
         private void PopulateTreeNodes(RedBlackTree tree, string inputValue)
         {
-            tree.Nodes = parser.ParseNodeValues(inputValue); // requires assigning a new collection of nodes
+            tree.Nodes = parser.ParseNodeValues(inputValue);
         }
 
 
         public void UpdateTreeFromDto(SaveRedBlackTreeDto dto, RedBlackTree existingTree)
         {
             existingTree.UpdatedAt = DateTime.UtcNow;
-
             ClearExistingNodes(existingTree);
-
             PopulateTreeNodes(existingTree, dto.InputValue);
         }
 
@@ -56,6 +51,5 @@ namespace AnimateDataStructure.Core.Translators
                 tree.Nodes.Clear();
             }
         }
-
     }
 }

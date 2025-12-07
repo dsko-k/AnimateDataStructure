@@ -1,11 +1,6 @@
 ﻿using AnimateDataStructure.Core.Entities;
 using AnimateDataStructure.Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnimateDataStructure.Core.Services.AuthenticationService
 {
@@ -37,7 +32,6 @@ namespace AnimateDataStructure.Core.Services.AuthenticationService
                 await _signInManager.SignInAsync(user, isPersistent: false);
             }
 
-            // Return the result directly to the controller
             return result;
         }
 
@@ -46,8 +40,6 @@ namespace AnimateDataStructure.Core.Services.AuthenticationService
         {
             var user = await _userManager.FindByEmailAsync(email);
 
-            // A null user is a specific case that SignInManager does not handle.
-            // Return a failed result so the controller can handle it.
             if (user == null)
             {
                 return SignInResult.Failed;
@@ -57,7 +49,6 @@ namespace AnimateDataStructure.Core.Services.AuthenticationService
 
             return result;
         }
-
 
 
         public async Task LogoutAsync()

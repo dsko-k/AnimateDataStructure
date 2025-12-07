@@ -162,7 +162,11 @@ export class Authentication
                 const html = await response.text();
                 domElementToPasteAuthenticationForm.innerHTML = html;
                 // Dynamically import the login modal module AFTER the HTML is loaded
-                const { initFormsModal } = await import('/js/mainAuthentication.js');
+
+
+                //const { initFormsModal } = await import('/js/mainAuthentication.js');
+                const { initFormsModal } = await import('../mainAuthentication.js'); // use relative path
+
                 initFormsModal(); // Call the initialization function from the module
             }
             else
