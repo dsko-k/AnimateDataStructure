@@ -6,7 +6,7 @@
 
 
 .gradient-text {
-	background: linear-gradient(204deg, #8500ffde 0%, #02daf7 25%, #8500ffde 50%, #02daf7 75%, #8500ffde 100%);
+	background: linear-gradient(204deg, #8500ffde 0%, #02daf7 25%, #8500ffde 50%, #02daf7 75%, #8500ffde 100%); /* linear-gradient(204deg, #ffae00de 0%, #02daf7 25%, #ffc800de 50%, #02daf7 75%, #8500ffde 100%) */
 	background-size: 200% 100%;
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -27,4 +27,3 @@
 		background-position: 100% 50%;
 	}
 }
-

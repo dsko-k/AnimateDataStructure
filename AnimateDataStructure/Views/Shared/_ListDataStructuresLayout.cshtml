@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/buttonAuthenticateStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/gradientTextStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/userAgentNotificationStyles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/scrollListDataStructuresStyles.css" asp-append-version="true" />
 </head>
 
 <body id="idBody">
@@ -51,6 +52,9 @@
             @RenderBody()
         </main>
     </div>
+
+    @await Html.PartialAsync("_ListDataStructuresScroll");
+    
 
     @await RenderSectionAsync("Scripts", required: true)
 </body>

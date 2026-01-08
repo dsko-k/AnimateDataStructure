@@ -2,10 +2,10 @@ import { ListDataStructuresPageFunctionality } from './PageFunctionality/ListDat
 
 (async function ()
 {
-    let listDataStructuresPageFunctionality = new ListDataStructuresPageFunctionality();
+    let listDataStructuresPageFunctionality = new ListDataStructuresPageFunctionality();    
     listDataStructuresPageFunctionality.addEffectsToControlButtons();
     listDataStructuresPageFunctionality.addAbstractMouseEffect();
     listDataStructuresPageFunctionality.addEffectOnClickCardOfListDataStructure();
     listDataStructuresPageFunctionality.onCheckUserAgent();
-    listDataStructuresPageFunctionality.closeUserAgentNotification();
+    listDataStructuresPageFunctionality.closeUserAgentNotification();    
 })();

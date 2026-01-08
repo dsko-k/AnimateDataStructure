@@ -5,8 +5,6 @@ import { CardListDataStructure } from '../UserInterfaceEffects/CardListDataStruc
 import { HtmlConfigurationAttributesReader } from '../HtmlConfigurationAttributes/HtmlConfigurationAttributesReader.js';
 import { UserAgentHandler } from '../UserAgentOperations/UserAgentHandler.js';
 
-
-
 export class ListDataStructuresPageFunctionality
 {
 	constructor()
