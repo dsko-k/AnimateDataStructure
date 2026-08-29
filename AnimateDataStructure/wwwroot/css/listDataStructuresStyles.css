@@ -220,11 +220,17 @@ i {
 /* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
 
 #youtube-link {
-    bottom: 10px;
+    bottom: 25px;
 }
 
     #youtube-link > i {
         color: rgb(239, 83, 80);
+        transition: color 300ms ease, transform 300ms ease;
+    }
+
+    #youtube-link:hover > i {
+        color: red;
+        transform: scale(1.25);
     }
 
 #source-link {
@@ -244,9 +250,9 @@ i {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     display: inline-flex;
-    gap: 5px;
+    gap: 8px;
     left: 10px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     position: fixed;
     text-decoration: none;
     z-index: 100;
@@ -257,11 +263,20 @@ i {
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .link > i, .link > span {
-        height: 20px;
-        line-height: 20px;
+        .link:hover > span {
+            color: rgb(207 2 222);
+        }
+
+    .link > i {
+        font-size: 1.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .link > span {
         color: #0cf73c;
+        font-size: 1.5rem;
+        line-height: 1;
+        transition: color 300ms ease;
     }
